@@ -3,15 +3,55 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
+    "@ckeditor/ckeditor5-build-classic": "^11.2.0",
+    "@ckeditor/ckeditor5-react": "^1.1.0",
+    "@date-io/moment": "^0.0.2",
+    "@devexpress/dx-react-chart": "^1.10.0",
+    "@devexpress/dx-react-chart-material-ui": "^1.10.0",
+    "@devexpress/dx-react-core": "^1.10.0",
+    "@loadable/component": "^5.2.2",
+    "@material-ui/core": "^3.8.1",
+    "@material-ui/icons": "^3.0.1",
+    "@material-ui/lab": "^3.0.0-alpha.27",
+    "@material-ui/styles": "^3.0.0-alpha.6",
+    "add": "^2.0.6",
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "informed": "^1.10.12",
+    "material-ui-pickers": "^2.0.5",
+    "mobx": "^5.8.0",
+    "mobx-react": "^5.4.3",
+    "moment": "^2.23.0",
+    "mongoose": "^5.4.1",
+    "mui-datatables": "^2.0.0-beta-43",
+    "nodemon": "^1.18.9",
+    "react": "^16.7.0-alpha.2",
+    "react-dom": "^16.7.0-alpha.2",
+    "react-dropzone": "^8.0.3",
+    "react-image-lightbox": "^5.1.0",
+    "react-loadable": "^5.5.0",
+    "react-router-dom": "^4.3.1",
+    "react-router-transition": "^1.2.1",
+    "react-spinkit": "^3.0.0",
+    "react-swipeable-views": "^0.13.0",
+    "react-toastify": "^4.5.1",
+    "uniqid": "^5.0.3",
+    "validate.js": "^0.12.0",
+    "webpack-livereload-plugin": "^2.2.0",
+    "yarn": "^1.12.3"
   },
+  "size-limit": [
+    {
+      "limit": "1 MB",
+      "path": "public/*.js"
+    }
+  ],
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "size": "size-limit",
+    "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -21,5 +61,21 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/plugin-proposal-decorators": "^7.2.3",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-react": "^7.0.0",
+    "browser-sync": "^2.26.3",
+    "browser-sync-webpack-plugin": "2.2.2",
+    "laravel-mix": "^4.0.12",
+    "resolve-url-loader": "2.3.1",
+    "sass": "^1.15.2",
+    "sass-loader": "7.*",
+    "size-limit": "^0.21.1"
+  },
+  "resolutions": {
+    "babel-core": "7.0.0-bridge.0"
+  }
 }

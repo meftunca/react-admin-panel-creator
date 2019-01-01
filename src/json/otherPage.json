@@ -1,0 +1,53 @@
+[
+    {
+        "type": "link",
+        "name": "other link item",
+        "title": "other link item",
+        "header": {
+            "label": "link",
+            "icon": "dashboard"
+        },
+        "route": {
+            "path": "/other-link-item-1",
+            "exact": true,
+            "componentName": "gridList"
+        }
+    },
+    {
+        "type":"collapse",
+        "name": "other collapse group",
+        "title": "other collapse group",
+        "header": {
+            "label": "collapse",
+            "icon": "dashboard"
+        },
+        "collapseItem":[
+            {
+                "name": "other collapse item 1",
+                "title": "other collapse item 1",
+                "route": {
+                    "path": "/other-collapse-item-1",
+                    "exact": true,
+                    "componentName":"card"
+                },
+                "header": {
+                    "label": "other collapse item",
+                    "icon": "dashboard"
+                }
+            },
+            {
+                "name": "other collapse item 2",
+                "title": "other collapse item 2",
+                "route": {
+                    "path": "/other-collapse-item-2",
+                    "exact": true,
+                    "componentName": "gridList"
+                },
+                "header": {
+                    "label": "other collapse item",
+                    "icon": "dashboard"
+                }
+            }
+        ]
+    }
+]
