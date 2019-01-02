@@ -7,7 +7,6 @@ import Typography from "@material-ui/core/Typography";
 import classNames from "classnames";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
-import loadable from "@loadable/component";
 import { Form, asField } from "informed";
 import { TextInput, PasswordInput } from "./text";
 import Datepicker from "./date";
@@ -40,7 +39,7 @@ const styles = theme => ({
 });
 const toastConfig = {
   position: "top-right",
-  autoClose: 3000,
+  autoClose: 2000,
   hideProgressBar: false,
   closeOnClick: true,
   pauseOnHover: true,
@@ -63,24 +62,24 @@ class FormBuilder extends Component {
   setFormApi(formApi) {
     this.formApi = formApi;
   }
-  toastRunner = (status, message) => {
+  toastRunner = async (status, message) => {
     if (status != "") {
-      if (status == "error") toast.error(message, toastConfig);
-      else if (status == "success") toast.success(message, toastConfig);
-      else if (status == "info") toast.info(message, toastConfig);
-      else if (status == "warning") toast.warning(message, toastConfig);
+      if (status == "error") await toast.error(message, toastConfig);
+      else if (status == "success") await toast.success(message, toastConfig);
+      else if (status == "info") await toast.info(message, toastConfig);
+      else if (status == "warning") await toast.warning(message, toastConfig);
     } else {
-      toast(message, toastConfig);
+      await toast(message, toastConfig);
     }
   };
   postForm = async url => {
     this.toastRunner("info", "Veriler Gönderiliyor...");
     let { values } = this.formApi.getState();
     console.log(values);
-    await axios.post(url, values).then(({ data }) => {
-      if (data.status === "success") this.toastRunner("success", data.message);
-      else if (data.status === "warning") this.toastRunner("warning", data.message);
-      else if (data.status === "error") this.toastRunner("error", data.message);
+    let postData = { tableName: this.props.name, data: values };
+    await axios.post("http://localhost:8000/" + url.replace("/", ""), postData).then(({ data }) => {
+      console.log(data.data);
+      setTimeout(() => this.toastRunner(data.data.status, data.data.message), 2000);
     });
   };
   render() {

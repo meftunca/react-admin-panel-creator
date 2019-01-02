@@ -1,178 +1,189 @@
 [
-    {
-        "name":"test1",
-        "title": "Test 1",
-        "route":{
-            "path": "/beta-1",
-            "exact": true
-        },
-        "postUrl":"/deneme",
-        "getUrl":"",
-        "header":{
-            "label":"Test",
-            "icon":"dashboard"
-        },
-        "formItem":[
-            {
-                "name":"text",
-                "label":"Text input",
-                "icon":"text_fields",
-                "type":"text",
-                "rexex":"",
-                "required":false
-            },
-            {
-                "name": "password",
-                "label": "password input",
-                "icon": "lock",
-                "type": "password",
-                "rexex": "",
-                "required":false
-            },
-            {
-                "name": "editor",
-                "label": "editor input",
-                "icon": "border_color",
-                "type": "editor",
-                "rexex": "",
-                "required":false
-            },
-            {
-                "name": "datepicker",
-                "label": "datepicker input",
-                "icon": "border_color",
-                "type": "date",
-                "rexex": "",
-                "required": false,
-                "config":{
-                    "value":"2018-01-01T00:00:00.000Z",
-                    "showTodayButton":true,
-                    "clearable":false,
-                    "disableFuture":false,
-                    "maxDateMessage":"",
-                    "label":"Date Picker component"
-                }
-            },
-            {
-                "name": "timepicker",
-                "label": "timepicker input",
-                "icon": "border_color",
-                "type": "time",
-                "rexex": "", 
-                "required": false,
-                "config": {
-                    "value": "2018-01-01T00:00:00.000Z",
-                    "showTodayButton": false,
-                    "clearable": false,
-                    "ampm": true,
-                    "label": "Date Picker component",
-                    "todayLabel": "now"
-                }
-            },
-            {
-                "name": "radio-button",
-                "label": "radio input",
-                "icon": "border_color",
-                "type": "radio",
-                "rexex": "",
-                "required": false,
-                "config": {
-                    "value": true,
-                    "aria-label": "Radio Button"                    
-                }
-            },
-            {
-                "name": "checkbox-button",
-                "label": "checkbox input",
-                "icon": "border_color",
-                "type": "checkbox",
-                "rexex": "",
-                "required": false,
-                "config": {
-                    "value": "test checkbox",
-                    "label":"test checbox",
-                    "color":"primary",
-                    "disabled":false
-                }
-            },
-            {
-                "name": "switch-button",
-                "label": "switch input",
-                "icon": "border_color",
-                "type": "switch",
-                "rexex": "",
-                "required": false,
-                "config": {
-                    "value": "test switch",
-                    "label": "test switch",
-                    "color": "primary",
-                    "disabled": false
-                }
-            }
-        ],
-        "tableItem":[
-            {"name":"test","label":"test"},
-            {"name":"test2","label":"test2"},
-            {"name":"test3","label":"test3"},
-            {"name":"test4","label":"test4"}
-        ]
+  {
+    "name": "test1",
+    "title": "Test 1",
+    "route": {
+      "path": "/beta-1",
+      "exact": true
     },
-    {
+    "postUrl": "/append-data",
+    "getUrl": "",
+    "header": {
+      "label": "Test",
+      "icon": "dashboard"
+    },
+    "formItem": [
+      {
+        "name": "text",
+        "label": "Text input",
+        "icon": "text_fields",
+        "type": "text",
+        "rexex": "",
+        "required": false,
+        "mongoType": "string"
+      },
+      {
+        "name": "password",
+        "label": "password input",
+        "icon": "lock",
+        "type": "password",
+        "rexex": "",
+        "required": false,
+        "mongoType": "string"
+      },
+      {
+        "name": "editor",
+        "label": "editor input",
+        "icon": "border_color",
+        "type": "editor",
+        "rexex": "",
+        "required": false,
+        "mongoType": "string"
+      },
+      {
+        "name": "datepicker",
+        "label": "datepicker input",
+        "icon": "border_color",
+        "type": "date",
+        "rexex": "",
+        "required": false,
+        "mongoType": "date",
+        "config": {
+          "value": "2018-01-01T00:00:00.000Z",
+          "showTodayButton": true,
+          "clearable": false,
+          "disableFuture": false,
+          "maxDateMessage": "",
+          "label": "Date Picker component"
+        }
+      },
+      {
+        "name": "timepicker",
+        "label": "timepicker input",
+        "icon": "border_color",
+        "type": "time",
+        "rexex": "",
+        "required": false,
+        "mongoType": "date",
+        "config": {
+          "value": "2018-01-01T00:00:00.000Z",
+          "showTodayButton": false,
+          "clearable": false,
+          "ampm": true,
+          "label": "Date Picker component",
+          "todayLabel": "now"
+        }
+      },
+      {
+        "name": "radio-button",
+        "label": "radio input",
+        "icon": "border_color",
+        "type": "radio",
+        "rexex": "",
+        "required": false,
+        "mongoType": "boolean",
+        "config": {
+          "value": true,
+          "aria-label": "Radio Button"
+        }
+      },
+      {
+        "name": "checkbox-button",
+        "label": "checkbox input",
+        "icon": "border_color",
+        "type": "checkbox",
+        "rexex": "",
+        "required": false,
+        "mongoType": "boolean",
+        "config": {
+          "value": "test checkbox",
+          "label": "test checbox",
+          "color": "primary",
+          "disabled": false
+        }
+      },
+      {
+        "name": "switch-button",
+        "label": "switch input",
+        "icon": "border_color",
+        "type": "switch",
+        "rexex": "",
+        "required": false,
+        "mongoType": "boolean",
+        "config": {
+          "value": "test switch",
+          "label": "test switch",
+          "color": "primary",
+          "disabled": false
+        }
+      }
+    ],
+    "tableItem": [
+      { "name": "test", "label": "test" },
+      { "name": "test2", "label": "test2" },
+      { "name": "test3", "label": "test3" },
+      { "name": "test4", "label": "test4" }
+    ]
+  },
+  {
+    "name": "test2",
+    "title": "Test 2",
+    "route": {
+      "path": "/beta-2",
+      "exact": false
+    },
+    "postUrl": "/append-data",
+    "getUrl": "",
+    "header": {
+      "label": "Test 2",
+      "icon": "lock"
+    },
+    "formItem": [
+      {
+        "name": "text",
+        "label": "Text input",
+        "icon": "text_fields",
+        "type": "text",
+        "rexex": "",
+        "mongoType": "string",
+        "required": false
+      },
+      {
+        "name": "password",
+        "label": "password input",
+        "icon": "lock",
+        "type": "password",
+        "rexex": "",
+        "mongoType": "string",
+        "required": false
+      },
+      {
+        "name": "editor",
+        "label": "editor input",
+        "icon": "border_color",
+        "type": "editor",
+        "rexex": "",
+        "mongoType": "string",
+        "required": false
+      }
+    ],
+    "tableItem": [
+      {
+        "name": "test",
+        "label": "test"
+      },
+      {
         "name": "test2",
-        "title": "Test 2",
-        "route": {
-            "path": "/beta-2",
-            "exact": false
-        },
-        "postUrl": "/deneme",
-        "getUrl": "",
-        "header": {
-            "label": "Test 2",
-            "icon": "lock"
-        },
-        "formItem": [
-            {
-                "name": "text",
-                "label": "Text input",
-                "icon": "text_fields",
-                "type": "text",
-                "rexex": "",
-                "required": false
-            },
-            {
-                "name": "password",
-                "label": "password input",
-                "icon": "lock",
-                "type": "password",
-                "rexex": "",
-                "required": false
-            },
-            {
-                "name": "editor",
-                "label": "editor input",
-                "icon": "border_color",
-                "type": "editor",
-                "rexex": "",
-                "required": false
-            }
-        ],
-        "tableItem": [
-            {
-                "name": "test",
-                "label": "test"
-            },
-            {
-                "name": "test2",
-                "label": "test2"
-            },
-            {
-                "name": "test3",
-                "label": "test3"
-            },
-            {
-                "name": "test4",
-                "label": "test4"
-            }
-        ]
-    }
+        "label": "test2"
+      },
+      {
+        "name": "test3",
+        "label": "test3"
+      },
+      {
+        "name": "test4",
+        "label": "test4"
+      }
+    ]
+  }
 ]

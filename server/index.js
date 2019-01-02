@@ -1,8 +1,9 @@
-var express = require("express");
-var bodyParser = require("body-parser");
-var Twitter = require("twitter");
+const express = require("express");
+const bodyParser = require("body-parser");
+const timeLine = require("./twitter");
+var mongoose = require("mongoose");
 
-var app = express();
+const app = express();
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(function(req, res, next) {
@@ -10,28 +11,40 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-var client = new Twitter({
-  consumer_key: "RNOGX5TiB0Kyto9ggDxcT8Gie",
-  consumer_secret: "Kn7ut4mvlwqPDNXIrl9uQxAblb1115Rg87XZ319UEaaJ09Kf0i",
-  access_token_key: "3293164734-flLNI737Kx80gPEsJN5DBMXHN2uCew8HYkSwsQD",
-  access_token_secret: "uMktnXidYlONSa3lV45AXPS7mvnW5k0YAU7wwWTPqDFrB"
-});
-
-var params = { screen_name: "nodejs" };
-// client.get("statuses/user_timeline", params, function(error, tweets, response) {
-//   if (!error) {
-//     console.log(tweets);
-//   }
-// });
+const schemaCreator = require("./mongo/mongoSchemaCreator");
+mongoose.connect("mongodb://localhost/admin");
+let schema = schemaCreator();
+let model = {};
+for (let [k, v] of Object.entries(schema)) {
+  model[k] = mongoose.model(k, v);
+}
 app.post("/twitter", function(req, res) {
-  client.get("statuses/user_timeline", function(error, tweets, response) {
-    if (!error) {
-      // console.log(tweets);
-      // res.json(tweet);
-      res.json(tweets);
-    }
-  });
+  timeLine.then(d => res.json(d)).catch(e => res.json(e));
+});
+app.post("/append-data", function(req, res) {
+  let istek = req.body;
+  console.log(istek);
+  if (istek.tableName == undefined || istek.tableName == "")
+    res.json({ data: { status: "warning", message: "Beklenmeyen bir hata oluştu" } });
+  let collection = model[istek.tableName];
+  collection = new collection(istek.data);
+  collection.save((err, suc) =>
+    err
+      ? res.json({ data: { status: "error", message: "server tarafında bir hata ile karşılaşıldı" } })
+      : res.json({ data: { status: "success", message: "veriler başarılı bir şekilde eklendi" } })
+  );
 });
 app.listen(8000, function() {
-  console.log("Example app listening on port 3000!");
+  console.log("Example app listening on port 8000!");
 });
+// const MongoClient = require("mongodb").MongoClient;
+// const url = "mongodb://localhost:27017/mydb";
+
+// MongoClient.connect(
+//   url,
+//   function(err, db) {
+//     if (err) throw err;
+//     console.log("Database created!");
+//     db.close();
+//   }
+// );

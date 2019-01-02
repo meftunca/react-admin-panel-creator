@@ -1,1 +1,108 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[21],{PXhb:function(t,e,n){"use strict";n.r(e),n.d(e,"Home",function(){return o}),n.d(e,"Product",function(){return l}),n.d(e,"About",function(){return d}),n.d(e,"Contact",function(){return i});var u=n("q1tI"),a=n.n(u),c=n("DcCi"),r=n("LbKI"),o=a.a.createElement(c.default,r[0]),l=a.a.createElement("h1",null,"Product Page"),d=a.a.createElement("h1",null,"About Page"),i=a.a.createElement("h1",null,"Contact Page")}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[21],{
+
+/***/ "./src/frontend/router/list.js":
+/*!*************************************!*\
+  !*** ./src/frontend/router/list.js ***!
+  \*************************************/
+/*! exports provided: LinkList, RouteList */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LinkList", function() { return LinkList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouteList", function() { return RouteList; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _testPage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../testPage */ "./src/testPage.js");
+
+
+var LinkList = [{
+  to: "/",
+  icon: "home",
+  title: "home"
+}, {
+  to: "/about",
+  icon: "warning",
+  title: "about",
+  collapse: [{
+    to: "/",
+    icon: "home",
+    title: "home"
+  }, {
+    to: "/about",
+    icon: "warning",
+    title: "about"
+  }, {
+    to: "/product",
+    icon: "assignment",
+    title: "product"
+  }, {
+    to: "/contact",
+    icon: "phone",
+    title: "contact"
+  }]
+}, {
+  to: "/product",
+  icon: "assignment",
+  title: "product"
+}, {
+  to: "/contact",
+  icon: "phone",
+  title: "contact"
+}];
+var RouteList = [{
+  exact: true,
+  path: "/",
+  Component: function Component() {
+    return _testPage__WEBPACK_IMPORTED_MODULE_1__["Home"];
+  }
+}, {
+  path: "/product",
+  Component: function Component() {
+    return _testPage__WEBPACK_IMPORTED_MODULE_1__["Product"];
+  }
+}, {
+  path: "/about",
+  Component: function Component() {
+    return _testPage__WEBPACK_IMPORTED_MODULE_1__["About"];
+  }
+}, {
+  path: "/contact",
+  Component: function Component() {
+    return _testPage__WEBPACK_IMPORTED_MODULE_1__["Contact"];
+  }
+}];
+
+
+/***/ }),
+
+/***/ "./src/testPage.js":
+/*!*************************!*\
+  !*** ./src/testPage.js ***!
+  \*************************/
+/*! exports provided: Home, Product, About, Contact */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Home", function() { return Home; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Product", function() { return Product; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "About", function() { return About; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Contact", function() { return Contact; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_forms_builder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/forms/builder */ "./src/components/forms/builder.js");
+
+
+
+var FormJson = __webpack_require__(/*! ./json/form */ "./src/json/form.json");
+
+var Home = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_builder__WEBPACK_IMPORTED_MODULE_1__["default"], FormJson[0]);
+var Product = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Product Page");
+var About = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "About Page");
+var Contact = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Contact Page");
+
+
+/***/ })
+
+}]);
