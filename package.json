@@ -18,6 +18,8 @@
     "axios": "^0.18.0",
     "express": "^4.16.4",
     "informed": "^1.10.12",
+    "material-design-icon-list": "^4.0.1",
+    "material-ui-color-picker": "^3.0.0",
     "material-ui-pickers": "^2.0.5",
     "mobx": "^5.8.0",
     "mobx-react": "^5.4.3",

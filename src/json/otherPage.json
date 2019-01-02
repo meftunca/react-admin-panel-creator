@@ -1,6 +1,20 @@
 [
     {
         "type": "link",
+        "name": "Home Page",
+        "title": "Anasayfa",
+        "header": {
+            "label": "Home",
+            "icon": "home"
+        },
+        "route": {
+            "path": "/",
+            "exact": true,
+            "componentName": "page/home"
+        }
+    },
+    {
+        "type": "link",
         "name": "other link item",
         "title": "other link item",
         "header": {
@@ -9,7 +23,6 @@
         },
         "route": {
             "path": "/other-link-item-1",
-            "exact": true,
             "componentName": "gridList"
         }
     },

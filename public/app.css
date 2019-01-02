@@ -1402,22 +1402,22 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";var
 	"./area": [
 		"./src/components/chart/area.js",
 		0,
-		7
+		8
 	],
 	"./area.js": [
 		"./src/components/chart/area.js",
 		0,
-		7
+		8
 	],
 	"./bar": [
 		"./src/components/chart/bar.js",
 		0,
-		8
+		9
 	],
 	"./bar.js": [
 		"./src/components/chart/bar.js",
 		0,
-		8
+		9
 	],
 	"./builder": [
 		"./src/components/chart/builder.js"
@@ -1427,11 +1427,11 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";var
 	],
 	"./dataGenerator": [
 		"./src/components/chart/dataGenerator.js",
-		9
+		10
 	],
 	"./dataGenerator.js": [
 		"./src/components/chart/dataGenerator.js",
-		9
+		10
 	],
 	"./dataVizualization": [
 		"./src/components/chart/dataVizualization.js",
@@ -1445,33 +1445,33 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";var
 		"./src/components/chart/line.js",
 		0,
 		1,
-		10
+		11
 	],
 	"./line.js": [
 		"./src/components/chart/line.js",
 		0,
 		1,
-		10
+		11
 	],
 	"./pie": [
 		"./src/components/chart/pie.js",
 		0,
-		11
+		12
 	],
 	"./pie.js": [
 		"./src/components/chart/pie.js",
 		0,
-		11
+		12
 	],
 	"./point": [
 		"./src/components/chart/point.js",
 		0,
-		6
+		7
 	],
 	"./point.js": [
 		"./src/components/chart/point.js",
 		0,
-		6
+		7
 	]
 };
 function webpackAsyncContext(req) {
@@ -1513,39 +1513,29 @@ module.exports = webpackAsyncContext;var map = {
 		"./src/backend/router/index.js",
 		9
 	],
-	"./backend/router/list": [
-		"./src/backend/router/list.js",
-		9,
-		15
-	],
-	"./backend/router/list.js": [
-		"./src/backend/router/list.js",
-		9,
-		15
-	],
 	"./components/chart/area": [
 		"./src/components/chart/area.js",
 		9,
 		0,
-		7
+		8
 	],
 	"./components/chart/area.js": [
 		"./src/components/chart/area.js",
 		9,
 		0,
-		7
+		8
 	],
 	"./components/chart/bar": [
 		"./src/components/chart/bar.js",
 		9,
 		0,
-		8
+		9
 	],
 	"./components/chart/bar.js": [
 		"./src/components/chart/bar.js",
 		9,
 		0,
-		8
+		9
 	],
 	"./components/chart/builder": [
 		"./src/components/chart/builder.js",
@@ -1558,12 +1548,12 @@ module.exports = webpackAsyncContext;var map = {
 	"./components/chart/dataGenerator": [
 		"./src/components/chart/dataGenerator.js",
 		9,
-		9
+		10
 	],
 	"./components/chart/dataGenerator.js": [
 		"./src/components/chart/dataGenerator.js",
 		9,
-		9
+		10
 	],
 	"./components/chart/dataVizualization": [
 		"./src/components/chart/dataVizualization.js",
@@ -1580,38 +1570,38 @@ module.exports = webpackAsyncContext;var map = {
 		9,
 		0,
 		1,
-		10
+		11
 	],
 	"./components/chart/line.js": [
 		"./src/components/chart/line.js",
 		9,
 		0,
 		1,
-		10
+		11
 	],
 	"./components/chart/pie": [
 		"./src/components/chart/pie.js",
 		9,
 		0,
-		11
+		12
 	],
 	"./components/chart/pie.js": [
 		"./src/components/chart/pie.js",
 		9,
 		0,
-		11
+		12
 	],
 	"./components/chart/point": [
 		"./src/components/chart/point.js",
 		9,
 		0,
-		6
+		7
 	],
 	"./components/chart/point.js": [
 		"./src/components/chart/point.js",
 		9,
 		0,
-		6
+		7
 	],
 	"./components/forms/builder": [
 		"./src/components/forms/builder.js",
@@ -1697,13 +1687,13 @@ module.exports = webpackAsyncContext;var map = {
 		"./src/frontend/router/index.js",
 		9,
 		2,
-		12
+		13
 	],
 	"./frontend/router/": [
 		"./src/frontend/router/index.js",
 		9,
 		2,
-		12
+		13
 	],
 	"./frontend/router/header": [
 		"./src/frontend/router/header.js",
@@ -1719,23 +1709,23 @@ module.exports = webpackAsyncContext;var map = {
 		"./src/frontend/router/index.js",
 		9,
 		2,
-		12
+		13
 	],
 	"./frontend/router/index.js": [
 		"./src/frontend/router/index.js",
 		9,
 		2,
-		12
+		13
 	],
 	"./frontend/router/list": [
 		"./src/frontend/router/list.js",
 		9,
-		16
+		17
 	],
 	"./frontend/router/list.js": [
 		"./src/frontend/router/list.js",
 		9,
-		16
+		17
 	],
 	"./index": [
 		"./src/index.js",
@@ -1772,12 +1762,12 @@ module.exports = webpackAsyncContext;var map = {
 	"./json/header": [
 		"./src/json/header.json",
 		3,
-		20
+		21
 	],
 	"./json/header.json": [
 		"./src/json/header.json",
 		3,
-		20
+		21
 	],
 	"./json/otherPage": [
 		"./src/json/otherPage.json",
@@ -1790,36 +1780,48 @@ module.exports = webpackAsyncContext;var map = {
 	"./other/appBar": [
 		"./src/other/appBar.js",
 		9,
-		4
+		5
 	],
 	"./other/appBar.js": [
 		"./src/other/appBar.js",
 		9,
-		4
+		5
 	],
 	"./other/card": [
 		"./src/other/card.js",
 		9,
-		3,
-		13
+		4,
+		14
 	],
 	"./other/card.js": [
 		"./src/other/card.js",
 		9,
-		3,
-		13
+		4,
+		14
 	],
 	"./other/gridList": [
 		"./src/other/gridList.js",
 		9,
-		5,
-		14
+		6,
+		15
 	],
 	"./other/gridList.js": [
 		"./src/other/gridList.js",
 		9,
-		5,
-		14
+		6,
+		15
+	],
+	"./other/page/home": [
+		"./src/other/page/home.js",
+		9,
+		3,
+		16
+	],
+	"./other/page/home.js": [
+		"./src/other/page/home.js",
+		9,
+		3,
+		16
 	],
 	"./scss/app.scss": [
 		"./src/scss/app.scss",
@@ -1836,24 +1838,24 @@ module.exports = webpackAsyncContext;var map = {
 	"./testPage": [
 		"./src/testPage.js",
 		9,
-		18
+		19
 	],
 	"./testPage.js": [
 		"./src/testPage.js",
 		9,
-		18
+		19
 	],
 	"./utils/validate": [
 		"./src/utils/validate.js",
 		9,
-		17,
-		19
+		18,
+		20
 	],
 	"./utils/validate.js": [
 		"./src/utils/validate.js",
 		9,
-		17,
-		19
+		18,
+		20
 	]
 };
 function webpackAsyncContext(req) {
@@ -1877,31 +1879,41 @@ webpackAsyncContext.id = "./src lazy recursive ^\\.\\/.*$";
 module.exports = webpackAsyncContext;var map = {
 	"./appBar": [
 		"./src/other/appBar.js",
-		4
+		5
 	],
 	"./appBar.js": [
 		"./src/other/appBar.js",
-		4
+		5
 	],
 	"./card": [
 		"./src/other/card.js",
-		3,
-		13
+		4,
+		14
 	],
 	"./card.js": [
 		"./src/other/card.js",
-		3,
-		13
+		4,
+		14
 	],
 	"./gridList": [
 		"./src/other/gridList.js",
-		5,
-		14
+		6,
+		15
 	],
 	"./gridList.js": [
 		"./src/other/gridList.js",
-		5,
-		14
+		6,
+		15
+	],
+	"./page/home": [
+		"./src/other/page/home.js",
+		3,
+		16
+	],
+	"./page/home.js": [
+		"./src/other/page/home.js",
+		3,
+		16
 	]
 };
 function webpackAsyncContext(req) {

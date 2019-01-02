@@ -103,6 +103,7 @@ const styles = theme => ({
  *   },
  * ];
  */
+console.log(proccess.env)
 function ImageGridList(props) {
     const { classes } = props;
 
