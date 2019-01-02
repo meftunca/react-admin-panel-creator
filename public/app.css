@@ -1291,22 +1291,22 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";var
 	],
 	"./dataVizualization": [
 		"./src/components/chart/dataVizualization.js",
-		4
+		5
 	],
 	"./dataVizualization.js": [
 		"./src/components/chart/dataVizualization.js",
-		4
+		5
 	],
 	"./line": [
 		"./src/components/chart/line.js",
 		0,
-		4,
+		5,
 		15
 	],
 	"./line.js": [
 		"./src/components/chart/line.js",
 		0,
-		4,
+		5,
 		15
 	],
 	"./pie": [
@@ -1414,25 +1414,25 @@ module.exports = webpackAsyncContext;var map = {
 	"./components/chart/dataVizualization": [
 		"./src/components/chart/dataVizualization.js",
 		9,
-		4
+		5
 	],
 	"./components/chart/dataVizualization.js": [
 		"./src/components/chart/dataVizualization.js",
 		9,
-		4
+		5
 	],
 	"./components/chart/line": [
 		"./src/components/chart/line.js",
 		9,
 		0,
-		4,
+		5,
 		15
 	],
 	"./components/chart/line.js": [
 		"./src/components/chart/line.js",
 		9,
 		0,
-		4,
+		5,
 		15
 	],
 	"./components/chart/pie": [
@@ -1542,35 +1542,35 @@ module.exports = webpackAsyncContext;var map = {
 	"./frontend/router": [
 		"./src/frontend/router/index.js",
 		9,
-		6,
+		7,
 		17
 	],
 	"./frontend/router/": [
 		"./src/frontend/router/index.js",
 		9,
-		6,
+		7,
 		17
 	],
 	"./frontend/router/header": [
 		"./src/frontend/router/header.js",
 		9,
-		6
+		7
 	],
 	"./frontend/router/header.js": [
 		"./src/frontend/router/header.js",
 		9,
-		6
+		7
 	],
 	"./frontend/router/index": [
 		"./src/frontend/router/index.js",
 		9,
-		6,
+		7,
 		17
 	],
 	"./frontend/router/index.js": [
 		"./src/frontend/router/index.js",
 		9,
-		6,
+		7,
 		17
 	],
 	"./frontend/router/list": [
@@ -1636,86 +1636,86 @@ module.exports = webpackAsyncContext;var map = {
 	"./other/appBar": [
 		"./src/other/appBar.js",
 		9,
-		8
+		9
 	],
 	"./other/appBar.js": [
 		"./src/other/appBar.js",
 		9,
-		8
+		9
 	],
 	"./other/card": [
 		"./src/other/card.js",
 		9,
-		7,
+		8,
 		18
 	],
 	"./other/card.js": [
 		"./src/other/card.js",
 		9,
-		7,
+		8,
 		18
 	],
 	"./other/gridList": [
 		"./src/other/gridList.js",
 		9,
-		9,
+		2,
 		19
 	],
 	"./other/gridList.js": [
 		"./src/other/gridList.js",
 		9,
-		9,
+		2,
 		19
 	],
 	"./other/page/components/todo": [
 		"./src/other/page/components/todo.js",
 		9,
 		1,
-		2,
-		5
+		3,
+		6
 	],
 	"./other/page/components/todo.js": [
 		"./src/other/page/components/todo.js",
 		9,
 		1,
-		2,
-		5
+		3,
+		6
 	],
 	"./other/page/components/twitter": [
 		"./src/other/page/components/twitter.js",
 		9,
 		1,
-		9,
-		20,
-		29
+		2,
+		4,
+		20
 	],
 	"./other/page/components/twitter.js": [
 		"./src/other/page/components/twitter.js",
 		9,
 		1,
-		9,
-		20,
-		29
+		2,
+		4,
+		20
 	],
 	"./other/page/home": [
 		"./src/other/page/home.js",
 		9,
 		1,
-		9,
 		2,
-		20,
-		5,
-		28
+		3,
+		4,
+		6,
+		11
 	],
 	"./other/page/home.js": [
 		"./src/other/page/home.js",
 		9,
 		1,
-		9,
 		2,
-		20,
-		5,
-		28
+		3,
+		4,
+		6,
+		11
 	],
 	"./scss/app.scss": [
 		"./src/scss/app.scss",
@@ -1773,75 +1773,75 @@ webpackAsyncContext.id = "./src lazy recursive ^\\.\\/.*$";
 module.exports = webpackAsyncContext;var map = {
 	"./appBar": [
 		"./src/other/appBar.js",
-		8
+		9
 	],
 	"./appBar.js": [
 		"./src/other/appBar.js",
-		8
+		9
 	],
 	"./card": [
 		"./src/other/card.js",
-		7,
+		8,
 		18
 	],
 	"./card.js": [
 		"./src/other/card.js",
-		7,
+		8,
 		18
 	],
 	"./gridList": [
 		"./src/other/gridList.js",
-		9,
+		2,
 		19
 	],
 	"./gridList.js": [
 		"./src/other/gridList.js",
-		9,
+		2,
 		19
 	],
 	"./page/components/todo": [
 		"./src/other/page/components/todo.js",
 		1,
-		2,
-		5
+		3,
+		6
 	],
 	"./page/components/todo.js": [
 		"./src/other/page/components/todo.js",
 		1,
-		2,
-		5
+		3,
+		6
 	],
 	"./page/components/twitter": [
 		"./src/other/page/components/twitter.js",
 		1,
-		9,
-		20,
-		29
+		2,
+		4,
+		20
 	],
 	"./page/components/twitter.js": [
 		"./src/other/page/components/twitter.js",
 		1,
-		9,
-		20,
-		29
+		2,
+		4,
+		20
 	],
 	"./page/home": [
 		"./src/other/page/home.js",
 		1,
-		9,
 		2,
-		20,
-		5,
-		28
+		3,
+		4,
+		6,
+		11
 	],
 	"./page/home.js": [
 		"./src/other/page/home.js",
 		1,
-		9,
 		2,
-		20,
-		5,
-		28
+		3,
+		4,
+		6,
+		11
 	]
 };
 function webpackAsyncContext(req) {

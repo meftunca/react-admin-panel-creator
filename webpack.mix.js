@@ -2,9 +2,9 @@ let mix = require("laravel-mix");
 
 mix
   .react("src/index.js", "public")
-  .sass("src/scss/app.scss", "public")
+  // .sass("src/scss/app.scss", "public")
   .version()
-  .sourceMaps()
+  // .sourceMaps()
   .setPublicPath("public")
   .disableNotifications();
 
