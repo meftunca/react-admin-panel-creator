@@ -1,5 +1,4 @@
-html,
-body {
+html, body {
   padding: 0;
   margin: 0;
   width: 100%;
@@ -38,7 +37,6 @@ a {
 }
 
 /* toasify */
-
 .Toastify__toast-container {
   z-index: 9999;
   position: fixed;
@@ -88,15 +86,11 @@ a {
     margin: 0;
   }
 
-  .Toastify__toast-container--top-left,
-  .Toastify__toast-container--top-center,
-  .Toastify__toast-container--top-right {
+  .Toastify__toast-container--top-left, .Toastify__toast-container--top-center, .Toastify__toast-container--top-right {
     top: 0;
   }
 
-  .Toastify__toast-container--bottom-left,
-  .Toastify__toast-container--bottom-center,
-  .Toastify__toast-container--bottom-right {
+  .Toastify__toast-container--bottom-left, .Toastify__toast-container--bottom-center, .Toastify__toast-container--bottom-right {
     bottom: 0;
   }
 
@@ -105,7 +99,6 @@ a {
     left: initial;
   }
 }
-
 .Toastify__toast {
   position: relative;
   min-height: 64px;
@@ -161,7 +154,6 @@ a {
     margin-bottom: 0;
   }
 }
-
 .Toastify__close-button {
   color: #fff;
   font-weight: bold;
@@ -182,8 +174,7 @@ a {
   opacity: 0.3;
 }
 
-.Toastify__close-button:hover,
-.Toastify__close-button:focus {
+.Toastify__close-button:hover, .Toastify__close-button:focus {
   opacity: 1;
 }
 
@@ -192,7 +183,6 @@ a {
     -webkit-transform: scaleX(1);
             transform: scaleX(1);
   }
-
   100% {
     -webkit-transform: scaleX(0);
             transform: scaleX(0);
@@ -204,13 +194,11 @@ a {
     -webkit-transform: scaleX(1);
             transform: scaleX(1);
   }
-
   100% {
     -webkit-transform: scaleX(0);
             transform: scaleX(0);
   }
 }
-
 .Toastify__progress-bar {
   position: absolute;
   bottom: 0;
@@ -253,29 +241,24 @@ a {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
             animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
-
   from {
     opacity: 0;
     -webkit-transform: translate3d(3000px, 0, 0);
             transform: translate3d(3000px, 0, 0);
   }
-
   60% {
     opacity: 1;
     -webkit-transform: translate3d(-25px, 0, 0);
             transform: translate3d(-25px, 0, 0);
   }
-
   75% {
     -webkit-transform: translate3d(10px, 0, 0);
             transform: translate3d(10px, 0, 0);
   }
-
   90% {
     -webkit-transform: translate3d(-5px, 0, 0);
             transform: translate3d(-5px, 0, 0);
   }
-
   to {
     -webkit-transform: none;
             transform: none;
@@ -287,379 +270,315 @@ a {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
             animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
-
   from {
     opacity: 0;
     -webkit-transform: translate3d(3000px, 0, 0);
             transform: translate3d(3000px, 0, 0);
   }
-
   60% {
     opacity: 1;
     -webkit-transform: translate3d(-25px, 0, 0);
             transform: translate3d(-25px, 0, 0);
   }
-
   75% {
     -webkit-transform: translate3d(10px, 0, 0);
             transform: translate3d(10px, 0, 0);
   }
-
   90% {
     -webkit-transform: translate3d(-5px, 0, 0);
             transform: translate3d(-5px, 0, 0);
   }
-
   to {
     -webkit-transform: none;
             transform: none;
   }
 }
-
 @-webkit-keyframes Toastify__bounceOutRight {
   20% {
     opacity: 1;
     -webkit-transform: translate3d(-20px, 0, 0);
             transform: translate3d(-20px, 0, 0);
   }
-
   to {
     opacity: 0;
     -webkit-transform: translate3d(2000px, 0, 0);
             transform: translate3d(2000px, 0, 0);
   }
 }
-
 @keyframes Toastify__bounceOutRight {
   20% {
     opacity: 1;
     -webkit-transform: translate3d(-20px, 0, 0);
             transform: translate3d(-20px, 0, 0);
   }
-
   to {
     opacity: 0;
     -webkit-transform: translate3d(2000px, 0, 0);
             transform: translate3d(2000px, 0, 0);
   }
 }
-
 @-webkit-keyframes Toastify__bounceInLeft {
   from, 60%, 75%, 90%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
             animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
-
   0% {
     opacity: 0;
     -webkit-transform: translate3d(-3000px, 0, 0);
             transform: translate3d(-3000px, 0, 0);
   }
-
   60% {
     opacity: 1;
     -webkit-transform: translate3d(25px, 0, 0);
             transform: translate3d(25px, 0, 0);
   }
-
   75% {
     -webkit-transform: translate3d(-10px, 0, 0);
             transform: translate3d(-10px, 0, 0);
   }
-
   90% {
     -webkit-transform: translate3d(5px, 0, 0);
             transform: translate3d(5px, 0, 0);
   }
-
   to {
     -webkit-transform: none;
             transform: none;
   }
 }
-
 @keyframes Toastify__bounceInLeft {
   from, 60%, 75%, 90%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
             animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
-
   0% {
     opacity: 0;
     -webkit-transform: translate3d(-3000px, 0, 0);
             transform: translate3d(-3000px, 0, 0);
   }
-
   60% {
     opacity: 1;
     -webkit-transform: translate3d(25px, 0, 0);
             transform: translate3d(25px, 0, 0);
   }
-
   75% {
     -webkit-transform: translate3d(-10px, 0, 0);
             transform: translate3d(-10px, 0, 0);
   }
-
   90% {
     -webkit-transform: translate3d(5px, 0, 0);
             transform: translate3d(5px, 0, 0);
   }
-
   to {
     -webkit-transform: none;
             transform: none;
   }
 }
-
 @-webkit-keyframes Toastify__bounceOutLeft {
   20% {
     opacity: 1;
     -webkit-transform: translate3d(20px, 0, 0);
             transform: translate3d(20px, 0, 0);
   }
-
   to {
     opacity: 0;
     -webkit-transform: translate3d(-2000px, 0, 0);
             transform: translate3d(-2000px, 0, 0);
   }
 }
-
 @keyframes Toastify__bounceOutLeft {
   20% {
     opacity: 1;
     -webkit-transform: translate3d(20px, 0, 0);
             transform: translate3d(20px, 0, 0);
   }
-
   to {
     opacity: 0;
     -webkit-transform: translate3d(-2000px, 0, 0);
             transform: translate3d(-2000px, 0, 0);
   }
 }
-
 @-webkit-keyframes Toastify__bounceInUp {
   from, 60%, 75%, 90%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
             animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
-
   from {
     opacity: 0;
     -webkit-transform: translate3d(0, 3000px, 0);
             transform: translate3d(0, 3000px, 0);
   }
-
   60% {
     opacity: 1;
     -webkit-transform: translate3d(0, -20px, 0);
             transform: translate3d(0, -20px, 0);
   }
-
   75% {
     -webkit-transform: translate3d(0, 10px, 0);
             transform: translate3d(0, 10px, 0);
   }
-
   90% {
     -webkit-transform: translate3d(0, -5px, 0);
             transform: translate3d(0, -5px, 0);
   }
-
   to {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
   }
 }
-
 @keyframes Toastify__bounceInUp {
   from, 60%, 75%, 90%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
             animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
-
   from {
     opacity: 0;
     -webkit-transform: translate3d(0, 3000px, 0);
             transform: translate3d(0, 3000px, 0);
   }
-
   60% {
     opacity: 1;
     -webkit-transform: translate3d(0, -20px, 0);
             transform: translate3d(0, -20px, 0);
   }
-
   75% {
     -webkit-transform: translate3d(0, 10px, 0);
             transform: translate3d(0, 10px, 0);
   }
-
   90% {
     -webkit-transform: translate3d(0, -5px, 0);
             transform: translate3d(0, -5px, 0);
   }
-
   to {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
   }
 }
-
 @-webkit-keyframes Toastify__bounceOutUp {
   20% {
     -webkit-transform: translate3d(0, -10px, 0);
             transform: translate3d(0, -10px, 0);
   }
-
   40%, 45% {
     opacity: 1;
     -webkit-transform: translate3d(0, 20px, 0);
             transform: translate3d(0, 20px, 0);
   }
-
   to {
     opacity: 0;
     -webkit-transform: translate3d(0, -2000px, 0);
             transform: translate3d(0, -2000px, 0);
   }
 }
-
 @keyframes Toastify__bounceOutUp {
   20% {
     -webkit-transform: translate3d(0, -10px, 0);
             transform: translate3d(0, -10px, 0);
   }
-
   40%, 45% {
     opacity: 1;
     -webkit-transform: translate3d(0, 20px, 0);
             transform: translate3d(0, 20px, 0);
   }
-
   to {
     opacity: 0;
     -webkit-transform: translate3d(0, -2000px, 0);
             transform: translate3d(0, -2000px, 0);
   }
 }
-
 @-webkit-keyframes Toastify__bounceInDown {
   from, 60%, 75%, 90%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
             animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
-
   0% {
     opacity: 0;
     -webkit-transform: translate3d(0, -3000px, 0);
             transform: translate3d(0, -3000px, 0);
   }
-
   60% {
     opacity: 1;
     -webkit-transform: translate3d(0, 25px, 0);
             transform: translate3d(0, 25px, 0);
   }
-
   75% {
     -webkit-transform: translate3d(0, -10px, 0);
             transform: translate3d(0, -10px, 0);
   }
-
   90% {
     -webkit-transform: translate3d(0, 5px, 0);
             transform: translate3d(0, 5px, 0);
   }
-
   to {
     -webkit-transform: none;
             transform: none;
   }
 }
-
 @keyframes Toastify__bounceInDown {
   from, 60%, 75%, 90%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
             animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
-
   0% {
     opacity: 0;
     -webkit-transform: translate3d(0, -3000px, 0);
             transform: translate3d(0, -3000px, 0);
   }
-
   60% {
     opacity: 1;
     -webkit-transform: translate3d(0, 25px, 0);
             transform: translate3d(0, 25px, 0);
   }
-
   75% {
     -webkit-transform: translate3d(0, -10px, 0);
             transform: translate3d(0, -10px, 0);
   }
-
   90% {
     -webkit-transform: translate3d(0, 5px, 0);
             transform: translate3d(0, 5px, 0);
   }
-
   to {
     -webkit-transform: none;
             transform: none;
   }
 }
-
 @-webkit-keyframes Toastify__bounceOutDown {
   20% {
     -webkit-transform: translate3d(0, 10px, 0);
             transform: translate3d(0, 10px, 0);
   }
-
   40%, 45% {
     opacity: 1;
     -webkit-transform: translate3d(0, -20px, 0);
             transform: translate3d(0, -20px, 0);
   }
-
   to {
     opacity: 0;
     -webkit-transform: translate3d(0, 2000px, 0);
             transform: translate3d(0, 2000px, 0);
   }
 }
-
 @keyframes Toastify__bounceOutDown {
   20% {
     -webkit-transform: translate3d(0, 10px, 0);
             transform: translate3d(0, 10px, 0);
   }
-
   40%, 45% {
     opacity: 1;
     -webkit-transform: translate3d(0, -20px, 0);
             transform: translate3d(0, -20px, 0);
   }
-
   to {
     opacity: 0;
     -webkit-transform: translate3d(0, 2000px, 0);
             transform: translate3d(0, 2000px, 0);
   }
 }
-
-.Toastify__bounce-enter--top-left,
-.Toastify__bounce-enter--bottom-left {
+.Toastify__bounce-enter--top-left, .Toastify__bounce-enter--bottom-left {
   -webkit-animation-name: Toastify__bounceInLeft;
           animation-name: Toastify__bounceInLeft;
 }
 
-.Toastify__bounce-enter--top-right,
-.Toastify__bounce-enter--bottom-right {
+.Toastify__bounce-enter--top-right, .Toastify__bounce-enter--bottom-right {
   -webkit-animation-name: Toastify__bounceInRight;
           animation-name: Toastify__bounceInRight;
 }
@@ -674,14 +593,12 @@ a {
           animation-name: Toastify__bounceInUp;
 }
 
-.Toastify__bounce-exit--top-left,
-.Toastify__bounce-exit--bottom-left {
+.Toastify__bounce-exit--top-left, .Toastify__bounce-exit--bottom-left {
   -webkit-animation-name: Toastify__bounceOutLeft;
           animation-name: Toastify__bounceOutLeft;
 }
 
-.Toastify__bounce-exit--top-right,
-.Toastify__bounce-exit--bottom-right {
+.Toastify__bounce-exit--top-right, .Toastify__bounce-exit--bottom-right {
   -webkit-animation-name: Toastify__bounceOutRight;
           animation-name: Toastify__bounceOutRight;
 }
@@ -702,7 +619,6 @@ a {
     -webkit-transform: scale3d(0.3, 0.3, 0.3);
             transform: scale3d(0.3, 0.3, 0.3);
   }
-
   50% {
     opacity: 1;
   }
@@ -714,44 +630,36 @@ a {
     -webkit-transform: scale3d(0.3, 0.3, 0.3);
             transform: scale3d(0.3, 0.3, 0.3);
   }
-
   50% {
     opacity: 1;
   }
 }
-
 @-webkit-keyframes Toastify__zoomOut {
   from {
     opacity: 1;
   }
-
   50% {
     opacity: 0;
     -webkit-transform: scale3d(0.3, 0.3, 0.3);
             transform: scale3d(0.3, 0.3, 0.3);
   }
-
   to {
     opacity: 0;
   }
 }
-
 @keyframes Toastify__zoomOut {
   from {
     opacity: 1;
   }
-
   50% {
     opacity: 0;
     -webkit-transform: scale3d(0.3, 0.3, 0.3);
             transform: scale3d(0.3, 0.3, 0.3);
   }
-
   to {
     opacity: 0;
   }
 }
-
 .Toastify__zoom-enter {
   -webkit-animation-name: Toastify__zoomIn;
           animation-name: Toastify__zoomIn;
@@ -770,25 +678,21 @@ a {
             animation-timing-function: ease-in;
     opacity: 0;
   }
-
   40% {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
             transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
     -webkit-animation-timing-function: ease-in;
             animation-timing-function: ease-in;
   }
-
   60% {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
             transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
     opacity: 1;
   }
-
   80% {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
             transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
   }
-
   to {
     -webkit-transform: perspective(400px);
             transform: perspective(400px);
@@ -803,69 +707,58 @@ a {
             animation-timing-function: ease-in;
     opacity: 0;
   }
-
   40% {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
             transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
     -webkit-animation-timing-function: ease-in;
             animation-timing-function: ease-in;
   }
-
   60% {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
             transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
     opacity: 1;
   }
-
   80% {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
             transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
   }
-
   to {
     -webkit-transform: perspective(400px);
             transform: perspective(400px);
   }
 }
-
 @-webkit-keyframes Toastify__flipOut {
   from {
     -webkit-transform: perspective(400px);
             transform: perspective(400px);
   }
-
   30% {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
             transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
     opacity: 1;
   }
-
   to {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
             transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
     opacity: 0;
   }
 }
-
 @keyframes Toastify__flipOut {
   from {
     -webkit-transform: perspective(400px);
             transform: perspective(400px);
   }
-
   30% {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
             transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
     opacity: 1;
   }
-
   to {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
             transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
     opacity: 0;
   }
 }
-
 .Toastify__flip-enter {
   -webkit-animation-name: Toastify__flipIn;
           animation-name: Toastify__flipIn;
@@ -882,7 +775,6 @@ a {
             transform: translate3d(110%, 0, 0);
     visibility: visible;
   }
-
   to {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
@@ -895,203 +787,171 @@ a {
             transform: translate3d(110%, 0, 0);
     visibility: visible;
   }
-
   to {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
   }
 }
-
 @-webkit-keyframes Toastify__slideInLeft {
   from {
     -webkit-transform: translate3d(-110%, 0, 0);
             transform: translate3d(-110%, 0, 0);
     visibility: visible;
   }
-
   to {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
   }
 }
-
 @keyframes Toastify__slideInLeft {
   from {
     -webkit-transform: translate3d(-110%, 0, 0);
             transform: translate3d(-110%, 0, 0);
     visibility: visible;
   }
-
   to {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
   }
 }
-
 @-webkit-keyframes Toastify__slideInUp {
   from {
     -webkit-transform: translate3d(0, 110%, 0);
             transform: translate3d(0, 110%, 0);
     visibility: visible;
   }
-
   to {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
   }
 }
-
 @keyframes Toastify__slideInUp {
   from {
     -webkit-transform: translate3d(0, 110%, 0);
             transform: translate3d(0, 110%, 0);
     visibility: visible;
   }
-
   to {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
   }
 }
-
 @-webkit-keyframes Toastify__slideInDown {
   from {
     -webkit-transform: translate3d(0, -110%, 0);
             transform: translate3d(0, -110%, 0);
     visibility: visible;
   }
-
   to {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
   }
 }
-
 @keyframes Toastify__slideInDown {
   from {
     -webkit-transform: translate3d(0, -110%, 0);
             transform: translate3d(0, -110%, 0);
     visibility: visible;
   }
-
   to {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
   }
 }
-
 @-webkit-keyframes Toastify__slideOutRight {
   from {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
   }
-
   to {
     visibility: hidden;
     -webkit-transform: translate3d(110%, 0, 0);
             transform: translate3d(110%, 0, 0);
   }
 }
-
 @keyframes Toastify__slideOutRight {
   from {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
   }
-
   to {
     visibility: hidden;
     -webkit-transform: translate3d(110%, 0, 0);
             transform: translate3d(110%, 0, 0);
   }
 }
-
 @-webkit-keyframes Toastify__slideOutLeft {
   from {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
   }
-
   to {
     visibility: hidden;
     -webkit-transform: translate3d(-110%, 0, 0);
             transform: translate3d(-110%, 0, 0);
   }
 }
-
 @keyframes Toastify__slideOutLeft {
   from {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
   }
-
   to {
     visibility: hidden;
     -webkit-transform: translate3d(-110%, 0, 0);
             transform: translate3d(-110%, 0, 0);
   }
 }
-
 @-webkit-keyframes Toastify__slideOutDown {
   from {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
   }
-
   to {
     visibility: hidden;
     -webkit-transform: translate3d(0, 500px, 0);
             transform: translate3d(0, 500px, 0);
   }
 }
-
 @keyframes Toastify__slideOutDown {
   from {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
   }
-
   to {
     visibility: hidden;
     -webkit-transform: translate3d(0, 500px, 0);
             transform: translate3d(0, 500px, 0);
   }
 }
-
 @-webkit-keyframes Toastify__slideOutUp {
   from {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
   }
-
   to {
     visibility: hidden;
     -webkit-transform: translate3d(0, -500px, 0);
             transform: translate3d(0, -500px, 0);
   }
 }
-
 @keyframes Toastify__slideOutUp {
   from {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
   }
-
   to {
     visibility: hidden;
     -webkit-transform: translate3d(0, -500px, 0);
             transform: translate3d(0, -500px, 0);
   }
 }
-
-.Toastify__slide-enter--top-left,
-.Toastify__slide-enter--bottom-left {
+.Toastify__slide-enter--top-left, .Toastify__slide-enter--bottom-left {
   -webkit-animation-name: Toastify__slideInLeft;
           animation-name: Toastify__slideInLeft;
 }
 
-.Toastify__slide-enter--top-right,
-.Toastify__slide-enter--bottom-right {
+.Toastify__slide-enter--top-right, .Toastify__slide-enter--bottom-right {
   -webkit-animation-name: Toastify__slideInRight;
           animation-name: Toastify__slideInRight;
 }
@@ -1106,14 +966,12 @@ a {
           animation-name: Toastify__slideInUp;
 }
 
-.Toastify__slide-exit--top-left,
-.Toastify__slide-exit--bottom-left {
+.Toastify__slide-exit--top-left, .Toastify__slide-exit--bottom-left {
   -webkit-animation-name: Toastify__slideOutLeft;
           animation-name: Toastify__slideOutLeft;
 }
 
-.Toastify__slide-exit--top-right,
-.Toastify__slide-exit--bottom-right {
+.Toastify__slide-exit--top-right, .Toastify__slide-exit--bottom-right {
   -webkit-animation-name: Toastify__slideOutRight;
           animation-name: Toastify__slideOutRight;
 }
@@ -1126,9 +984,7 @@ a {
 .Toastify__slide-exit--bottom-center {
   -webkit-animation-name: Toastify__slideOutDown;
           animation-name: Toastify__slideOutDown;
-}
-
-var map = {
+}var map = {
 	"./af": "./node_modules/moment/locale/af.js",
 	"./af.js": "./node_modules/moment/locale/af.js",
 	"./ar": "./node_modules/moment/locale/ar.js",
@@ -1402,22 +1258,22 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";var
 	"./area": [
 		"./src/components/chart/area.js",
 		0,
-		8
+		12
 	],
 	"./area.js": [
 		"./src/components/chart/area.js",
 		0,
-		8
+		12
 	],
 	"./bar": [
 		"./src/components/chart/bar.js",
 		0,
-		9
+		13
 	],
 	"./bar.js": [
 		"./src/components/chart/bar.js",
 		0,
-		9
+		13
 	],
 	"./builder": [
 		"./src/components/chart/builder.js"
@@ -1427,51 +1283,51 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";var
 	],
 	"./dataGenerator": [
 		"./src/components/chart/dataGenerator.js",
-		10
+		14
 	],
 	"./dataGenerator.js": [
 		"./src/components/chart/dataGenerator.js",
-		10
+		14
 	],
 	"./dataVizualization": [
 		"./src/components/chart/dataVizualization.js",
-		1
+		4
 	],
 	"./dataVizualization.js": [
 		"./src/components/chart/dataVizualization.js",
-		1
+		4
 	],
 	"./line": [
 		"./src/components/chart/line.js",
 		0,
-		1,
-		11
+		4,
+		15
 	],
 	"./line.js": [
 		"./src/components/chart/line.js",
 		0,
-		1,
-		11
+		4,
+		15
 	],
 	"./pie": [
 		"./src/components/chart/pie.js",
 		0,
-		12
+		16
 	],
 	"./pie.js": [
 		"./src/components/chart/pie.js",
 		0,
-		12
+		16
 	],
 	"./point": [
 		"./src/components/chart/point.js",
 		0,
-		7
+		10
 	],
 	"./point.js": [
 		"./src/components/chart/point.js",
 		0,
-		7
+		10
 	]
 };
 function webpackAsyncContext(req) {
@@ -1517,25 +1373,25 @@ module.exports = webpackAsyncContext;var map = {
 		"./src/components/chart/area.js",
 		9,
 		0,
-		8
+		12
 	],
 	"./components/chart/area.js": [
 		"./src/components/chart/area.js",
 		9,
 		0,
-		8
+		12
 	],
 	"./components/chart/bar": [
 		"./src/components/chart/bar.js",
 		9,
 		0,
-		9
+		13
 	],
 	"./components/chart/bar.js": [
 		"./src/components/chart/bar.js",
 		9,
 		0,
-		9
+		13
 	],
 	"./components/chart/builder": [
 		"./src/components/chart/builder.js",
@@ -1548,60 +1404,60 @@ module.exports = webpackAsyncContext;var map = {
 	"./components/chart/dataGenerator": [
 		"./src/components/chart/dataGenerator.js",
 		9,
-		10
+		14
 	],
 	"./components/chart/dataGenerator.js": [
 		"./src/components/chart/dataGenerator.js",
 		9,
-		10
+		14
 	],
 	"./components/chart/dataVizualization": [
 		"./src/components/chart/dataVizualization.js",
 		9,
-		1
+		4
 	],
 	"./components/chart/dataVizualization.js": [
 		"./src/components/chart/dataVizualization.js",
 		9,
-		1
+		4
 	],
 	"./components/chart/line": [
 		"./src/components/chart/line.js",
 		9,
 		0,
-		1,
-		11
+		4,
+		15
 	],
 	"./components/chart/line.js": [
 		"./src/components/chart/line.js",
 		9,
 		0,
-		1,
-		11
+		4,
+		15
 	],
 	"./components/chart/pie": [
 		"./src/components/chart/pie.js",
 		9,
 		0,
-		12
+		16
 	],
 	"./components/chart/pie.js": [
 		"./src/components/chart/pie.js",
 		9,
 		0,
-		12
+		16
 	],
 	"./components/chart/point": [
 		"./src/components/chart/point.js",
 		9,
 		0,
-		7
+		10
 	],
 	"./components/chart/point.js": [
 		"./src/components/chart/point.js",
 		9,
 		0,
-		7
+		10
 	],
 	"./components/forms/builder": [
 		"./src/components/forms/builder.js",
@@ -1686,46 +1542,46 @@ module.exports = webpackAsyncContext;var map = {
 	"./frontend/router": [
 		"./src/frontend/router/index.js",
 		9,
-		2,
-		13
+		6,
+		17
 	],
 	"./frontend/router/": [
 		"./src/frontend/router/index.js",
 		9,
-		2,
-		13
+		6,
+		17
 	],
 	"./frontend/router/header": [
 		"./src/frontend/router/header.js",
 		9,
-		2
+		6
 	],
 	"./frontend/router/header.js": [
 		"./src/frontend/router/header.js",
 		9,
-		2
+		6
 	],
 	"./frontend/router/index": [
 		"./src/frontend/router/index.js",
 		9,
-		2,
-		13
+		6,
+		17
 	],
 	"./frontend/router/index.js": [
 		"./src/frontend/router/index.js",
 		9,
-		2,
-		13
+		6,
+		17
 	],
 	"./frontend/router/list": [
 		"./src/frontend/router/list.js",
 		9,
-		17
+		21
 	],
 	"./frontend/router/list.js": [
 		"./src/frontend/router/list.js",
 		9,
-		17
+		21
 	],
 	"./index": [
 		"./src/index.js",
@@ -1762,12 +1618,12 @@ module.exports = webpackAsyncContext;var map = {
 	"./json/header": [
 		"./src/json/header.json",
 		3,
-		21
+		25
 	],
 	"./json/header.json": [
 		"./src/json/header.json",
 		3,
-		21
+		25
 	],
 	"./json/otherPage": [
 		"./src/json/otherPage.json",
@@ -1780,48 +1636,86 @@ module.exports = webpackAsyncContext;var map = {
 	"./other/appBar": [
 		"./src/other/appBar.js",
 		9,
-		5
+		8
 	],
 	"./other/appBar.js": [
 		"./src/other/appBar.js",
 		9,
-		5
+		8
 	],
 	"./other/card": [
 		"./src/other/card.js",
 		9,
-		4,
-		14
+		7,
+		18
 	],
 	"./other/card.js": [
 		"./src/other/card.js",
 		9,
-		4,
-		14
+		7,
+		18
 	],
 	"./other/gridList": [
 		"./src/other/gridList.js",
 		9,
-		6,
-		15
+		9,
+		19
 	],
 	"./other/gridList.js": [
 		"./src/other/gridList.js",
 		9,
-		6,
-		15
+		9,
+		19
+	],
+	"./other/page/components/todo": [
+		"./src/other/page/components/todo.js",
+		9,
+		1,
+		2,
+		5
+	],
+	"./other/page/components/todo.js": [
+		"./src/other/page/components/todo.js",
+		9,
+		1,
+		2,
+		5
+	],
+	"./other/page/components/twitter": [
+		"./src/other/page/components/twitter.js",
+		9,
+		1,
+		9,
+		20,
+		29
+	],
+	"./other/page/components/twitter.js": [
+		"./src/other/page/components/twitter.js",
+		9,
+		1,
+		9,
+		20,
+		29
 	],
 	"./other/page/home": [
 		"./src/other/page/home.js",
 		9,
-		3,
-		16
+		1,
+		9,
+		2,
+		20,
+		5,
+		28
 	],
 	"./other/page/home.js": [
 		"./src/other/page/home.js",
 		9,
-		3,
-		16
+		1,
+		9,
+		2,
+		20,
+		5,
+		28
 	],
 	"./scss/app.scss": [
 		"./src/scss/app.scss",
@@ -1838,24 +1732,24 @@ module.exports = webpackAsyncContext;var map = {
 	"./testPage": [
 		"./src/testPage.js",
 		9,
-		19
+		23
 	],
 	"./testPage.js": [
 		"./src/testPage.js",
 		9,
-		19
+		23
 	],
 	"./utils/validate": [
 		"./src/utils/validate.js",
 		9,
-		18,
-		20
+		22,
+		24
 	],
 	"./utils/validate.js": [
 		"./src/utils/validate.js",
 		9,
-		18,
-		20
+		22,
+		24
 	]
 };
 function webpackAsyncContext(req) {
@@ -1879,41 +1773,75 @@ webpackAsyncContext.id = "./src lazy recursive ^\\.\\/.*$";
 module.exports = webpackAsyncContext;var map = {
 	"./appBar": [
 		"./src/other/appBar.js",
-		5
+		8
 	],
 	"./appBar.js": [
 		"./src/other/appBar.js",
-		5
+		8
 	],
 	"./card": [
 		"./src/other/card.js",
-		4,
-		14
+		7,
+		18
 	],
 	"./card.js": [
 		"./src/other/card.js",
-		4,
-		14
+		7,
+		18
 	],
 	"./gridList": [
 		"./src/other/gridList.js",
-		6,
-		15
+		9,
+		19
 	],
 	"./gridList.js": [
 		"./src/other/gridList.js",
-		6,
-		15
+		9,
+		19
+	],
+	"./page/components/todo": [
+		"./src/other/page/components/todo.js",
+		1,
+		2,
+		5
+	],
+	"./page/components/todo.js": [
+		"./src/other/page/components/todo.js",
+		1,
+		2,
+		5
+	],
+	"./page/components/twitter": [
+		"./src/other/page/components/twitter.js",
+		1,
+		9,
+		20,
+		29
+	],
+	"./page/components/twitter.js": [
+		"./src/other/page/components/twitter.js",
+		1,
+		9,
+		20,
+		29
 	],
 	"./page/home": [
 		"./src/other/page/home.js",
-		3,
-		16
+		1,
+		9,
+		2,
+		20,
+		5,
+		28
 	],
 	"./page/home.js": [
 		"./src/other/page/home.js",
-		3,
-		16
+		1,
+		9,
+		2,
+		20,
+		5,
+		28
 	]
 };
 function webpackAsyncContext(req) {
