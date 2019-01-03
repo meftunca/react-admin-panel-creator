@@ -9,8 +9,8 @@ const Prov = props => <Provider store={Frontend}>{props.children}</Provider>;
 const LoadableComponent = Loadable({
   loader: () => import("./backend/router/index"),
   loading: () => (
-    <div className="loaderScreen">
-      <Spinner name="line-scale-pulse-out" color="fuchsia" />
+    <div className='loaderScreen'>
+      <Spinner name='line-scale-pulse-out' color='fuchsia' />
     </div>
   ),
   delay: 10000,
@@ -21,7 +21,6 @@ Loadable.preloadReady().then(() => {
   ReactDOM.render(
     <Prov>
       <LoadableComponent />
-      
     </Prov>,
     document.getElementById("root")
   );

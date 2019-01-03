@@ -21,6 +21,11 @@ import loadable from "@loadable/component";
 import { spring, AnimatedSwitch } from "react-router-transition";
 import TabViewer from "../../components/tabViewer";
 import ChartBuilder from "./../../components/chart/builder";
+import { LocalizeProvider } from "react-localize-redux";
+import { withLocalize } from "react-localize-redux";
+import { renderToStaticMarkup } from "react-dom/server";
+
+import globalTranslations from "./../../json/translation.json";
 const formTableData = require("./../../json/form");
 const chartData = require("./../../json/chart");
 const otherPage = require("./../../json/otherPage");
@@ -65,10 +70,11 @@ const styles = theme => ({
     display: "none"
   },
   drawerPaper: {
-    backgroundImage: "url('https://demos.creative-tim.com/light-bootstrap-dashboard-pro-react/static/media/full-screen-image-3.ef9c8d65.jpg')",
+    backgroundImage:
+      "url('https://demos.creative-tim.com/light-bootstrap-dashboard-pro-react/static/media/full-screen-image-3.ef9c8d65.jpg')",
     "&:after": {
       content: "''",
-      position:"absolute",
+      position: "absolute",
       opacity: ".8",
       background: "#000",
       height: "100%",
@@ -77,11 +83,10 @@ const styles = theme => ({
       left: 0,
       bottom: 0
     },
-      "& *" :{
-        color:"#fff",
-        zIndex:9
-      },
-      
+    "& *": {
+      color: "#fff",
+      zIndex: 9
+    }
   },
   drawer: {
     width: drawerWidth,
@@ -94,7 +99,7 @@ const styles = theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen
     }),
-    "border": "none"
+    border: "none"
   },
   drawerClose: {
     transition: theme.transitions.create("width", {
@@ -122,10 +127,20 @@ const styles = theme => ({
 @inject("store")
 @observer
 class App extends React.Component {
-  state = {
-    open: true
-  };
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: true
+    };
+    this.props.initialize({
+      languages: [{ name: "English", code: "en" }, { name: "Turkish", code: "tr" }],
+      translation: globalTranslations,
+      options: { renderToStaticMarkup, renderInnerHtml: true, defaultLanguage: "tr" }
+    });
+  }
+  componentDidMount() {
+    console.log(this.props);
+  }
   handleDrawerOpen = () => {
     this.setState({ open: true });
   };
@@ -332,7 +347,13 @@ const AppBarCompenent = () => {
 
 const ParserOtherRoute = ({ exact, path, componentName }) => {
   const OtherComponent = loadable(() => import("./../../other/" + componentName));
-  return <Route exact={exact != undefined && exact} path={path} render={() => <OtherComponent fallback={<div>Loading...</div>} />} />;
+  return (
+    <Route
+      exact={exact != undefined && exact}
+      path={path}
+      render={() => <OtherComponent fallback={<div>Loading...</div>} />}
+    />
+  );
 };
 
 const ParserChartRoute = ({ exact, path, data }) => {
@@ -347,4 +368,9 @@ App.propTypes = {
   theme: PropTypes.object.isRequired
 };
 
-export default withStyles(styles, { withTheme: true })(App);
+const ConstructorApp = withLocalize(props => (
+  <LocalizeProvider>
+    <App {...props} />
+  </LocalizeProvider>
+));
+export default withStyles(styles, { withTheme: true })(ConstructorApp);

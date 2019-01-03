@@ -31815,7 +31815,7 @@ var Prov = function Prov(props) {
 
 var LoadableComponent = react_loadable__WEBPACK_IMPORTED_MODULE_3___default()({
   loader: function loader() {
-    return Promise.all(/*! import() */[__webpack_require__.e(26), __webpack_require__.e(27)]).then(__webpack_require__.bind(null, /*! ./backend/router/index */ "./src/backend/router/index.js"));
+    return Promise.all(/*! import() */[__webpack_require__.e(28), __webpack_require__.e(29)]).then(__webpack_require__.bind(null, /*! ./backend/router/index */ "./src/backend/router/index.js"));
   },
   loading: function loading() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
