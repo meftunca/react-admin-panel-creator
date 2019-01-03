@@ -2,9 +2,9 @@ let mix = require("laravel-mix");
 
 mix
   .react("src/index.js", "public")
-  // .sass("src/scss/app.scss", "public")
+  .sass("src/scss/app.scss", "public")
   .version()
-  // .sourceMaps()
+  .sourceMaps()
   .setPublicPath("public")
   .disableNotifications();
 
@@ -12,12 +12,12 @@ mix
 
 // var LiveReloadPlugin = require("webpack-livereload-plugin");
 
-mix.webpackConfig({
-  //   plugins: [new LiveReloadPlugin()],
-  node: {
-    console: false,
-    fs: false,
-    net: false,
-    tls: false
-  }
-});
+// mix.webpackConfig({
+//   //   plugins: [new LiveReloadPlugin()],
+//   node: {
+//     console: false,
+//     fs: false,
+//     net: false,
+//     tls: false
+//   }
+// });

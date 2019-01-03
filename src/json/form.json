@@ -119,10 +119,22 @@
       }
     ],
     "tableItem": [
-      { "name": "test", "label": "test" },
-      { "name": "test2", "label": "test2" },
-      { "name": "test3", "label": "test3" },
-      { "name": "test4", "label": "test4" }
+      {
+        "name": "test",
+        "label": "test"
+      },
+      {
+        "name": "test2",
+        "label": "test2"
+      },
+      {
+        "name": "test3",
+        "label": "test3"
+      },
+      {
+        "name": "test4",
+        "label": "test4"
+      }
     ]
   },
   {
@@ -167,6 +179,50 @@
         "required": false
       }
     ],
+    "tableItem": [
+      {
+        "name": "test",
+        "label": "test"
+      },
+      {
+        "name": "test2",
+        "label": "test2"
+      },
+      {
+        "name": "test3",
+        "label": "test3"
+      },
+      {
+        "name": "test4",
+        "label": "test4"
+      }
+    ]
+  },
+  {
+    "formItem": {
+      "formItem": [
+        {
+          "regex": "dsadsa",
+          "type": "dasdas",
+          "label": "dasdas",
+          "name": "dsadsa",
+          "icon": "dsadasdsaads",
+          "mongoType": "Date"
+        }
+      ]
+    },
+    "route": {
+      "path": "dasdas",
+      "exact": "false"
+    },
+    "header": {
+      "icon": "saddas",
+      "label": "sdadsa"
+    },
+    "post_url": "dsadsa",
+    "get_url": "dsadsa",
+    "title": "dsadsa",
+    "name": "ddasdas",
     "tableItem": [
       {
         "name": "test",

@@ -2,6 +2,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const timeLine = require("./twitter");
 var mongoose = require("mongoose");
+const low = require("lowdb");
+const FileSync = require("lowdb/adapters/FileSync");
+const adapter = new FileSync("./src/json/form.json");
+const db = low(adapter);
+// db.defaults({ forms: [] }).write();
 
 const app = express();
 app.use(bodyParser.json()); // for parsing application/json
@@ -20,6 +25,12 @@ for (let [k, v] of Object.entries(schema)) {
 }
 app.post("/twitter", function(req, res) {
   timeLine.then(d => res.json(d)).catch(e => res.json(e));
+});
+app.post("/create-form", async (req, res) => {
+  let data = req.body;
+
+  let q = db.push(data).write();
+  res.json(q);
 });
 app.post("/append-data", function(req, res) {
   let istek = req.body;

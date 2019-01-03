@@ -1,25 +1,14 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[26],{
 
-/***/ "./src/utils/validate.js":
-/*!*******************************!*\
-  !*** ./src/utils/validate.js ***!
-  \*******************************/
-/*! exports provided: form1, form2 */
+/***/ "./src/testPage.js":
+/*!*************************!*\
+  !*** ./src/testPage.js ***!
+  \*************************/
+/*! exports provided: Home, Product, About, Contact */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "form1", function() { return form1; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "form2", function() { return form2; });
-var validate = __webpack_require__(/*! validate.js */ "./node_modules/validate.js/validate.js");
-
-var form1 = {
-  password: function password(value, rules) {}
-};
-var form2 = {
-  text: function text(value, rules) {}
-};
-
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Home\", function() { return Home; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Product\", function() { return Product; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"About\", function() { return About; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Contact\", function() { return Contact; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _components_forms_builder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/forms/builder */ \"./src/components/forms/builder.js\");\n\n\n\nvar FormJson = __webpack_require__(/*! ./json/form */ \"./src/json/form.json\");\n\nvar Home = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_builder__WEBPACK_IMPORTED_MODULE_1__[\"default\"], FormJson[0]);\nvar Product = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"h1\", null, \"Product Page\");\nvar About = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"h1\", null, \"About Page\");\nvar Contact = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"h1\", null, \"Contact Page\");\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvdGVzdFBhZ2UuanM/M2Q3OCJdLCJuYW1lcyI6WyJGb3JtSnNvbiIsInJlcXVpcmUiLCJIb21lIiwiUHJvZHVjdCIsIkFib3V0IiwiQ29udGFjdCJdLCJtYXBwaW5ncyI6IkFBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQ0E7O0FBQ0EsSUFBTUEsUUFBUSxHQUFHQyxtQkFBTyxDQUFDLHlDQUFELENBQXhCOztBQUNBLElBQU1DLElBQUksR0FBRywyREFBQyxpRUFBRCxFQUFpQkYsUUFBUSxDQUFDLENBQUQsQ0FBekIsQ0FBYjtBQUNBLElBQU1HLE9BQU8sR0FBRyxzRkFBaEI7QUFDQSxJQUFNQyxLQUFLLEdBQUcsb0ZBQWQ7QUFDQSxJQUFNQyxPQUFPLEdBQUcsc0ZBQWhCIiwiZmlsZSI6Ii4vc3JjL3Rlc3RQYWdlLmpzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCBGb3JtQnVpbGRlciBmcm9tIFwiLi9jb21wb25lbnRzL2Zvcm1zL2J1aWxkZXJcIlxuY29uc3QgRm9ybUpzb24gPSByZXF1aXJlKFwiLi9qc29uL2Zvcm1cIilcbmNvbnN0IEhvbWUgPSA8Rm9ybUJ1aWxkZXIgey4uLkZvcm1Kc29uWzBdfSAvPlxuY29uc3QgUHJvZHVjdCA9IDxoMT5Qcm9kdWN0IFBhZ2U8L2gxPlxuY29uc3QgQWJvdXQgPSA8aDE+QWJvdXQgUGFnZTwvaDE+XG5jb25zdCBDb250YWN0ID0gPGgxPkNvbnRhY3QgUGFnZTwvaDE+XG5cbmV4cG9ydCB7SG9tZSxQcm9kdWN0LEFib3V0LENvbnRhY3R9Il0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/testPage.js\n");
 
 /***/ })
 

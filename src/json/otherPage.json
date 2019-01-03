@@ -1,66 +1,103 @@
 [
-    {
-        "type": "link",
-        "name": "Home Page",
-        "title": "Anasayfa",
-        "header": {
-            "label": "Home",
-            "icon": "home"
-        },
-        "route": {
-            "path": "/",
-            "exact": true,
-            "componentName": "page/home"
-        }
+  {
+    "type": "link",
+    "name": "Home Page",
+    "title": "Anasayfa",
+    "header": {
+      "label": "Home",
+      "icon": "home"
     },
-    {
-        "type": "link",
-        "name": "other link item",
-        "title": "other link item",
-        "header": {
-            "label": "link",
-            "icon": "dashboard"
-        },
-        "route": {
-            "path": "/other-link-item-1",
-            "componentName": "gridList"
-        }
-    },
-    {
-        "type":"collapse",
-        "name": "other collapse group",
-        "title": "other collapse group",
-        "header": {
-            "label": "collapse",
-            "icon": "dashboard"
-        },
-        "collapseItem":[
-            {
-                "name": "other collapse item 1",
-                "title": "other collapse item 1",
-                "route": {
-                    "path": "/other-collapse-item-1",
-                    "exact": true,
-                    "componentName":"card"
-                },
-                "header": {
-                    "label": "other collapse item",
-                    "icon": "dashboard"
-                }
-            },
-            {
-                "name": "other collapse item 2",
-                "title": "other collapse item 2",
-                "route": {
-                    "path": "/other-collapse-item-2",
-                    "exact": true,
-                    "componentName": "gridList"
-                },
-                "header": {
-                    "label": "other collapse item",
-                    "icon": "dashboard"
-                }
-            }
-        ]
+    "route": {
+      "path": "/",
+      "exact": true,
+      "componentName": "page/home"
     }
+  },
+  {
+    "type": "link",
+    "name": "other link item",
+    "title": "other link item",
+    "header": {
+      "label": "link",
+      "icon": "dashboard"
+    },
+    "route": {
+      "path": "/other-link-item-1",
+      "componentName": "gridList"
+    }
+  },
+  {
+    "type": "collapse",
+    "name": "system_generator",
+    "title": "System Generator",
+    "header": {
+      "label": "Sistem Yönetimi",
+      "icon": "aspect_ratio"
+    },
+    "collapseItem": [
+      {
+        "name": "form_creator",
+        "title": "Form Creator",
+        "route": {
+          "path": "/form-creator",
+          "exact": true,
+          "componentName": "creator/form"
+        },
+        "header": {
+          "label": "Form Creator",
+          "icon": "code"
+        }
+      },
+      {
+        "name": "other collapse item 2",
+        "title": "other collapse item 2",
+        "route": {
+          "path": "/other-collapse-item-2",
+          "exact": true,
+          "componentName": "gridList"
+        },
+        "header": {
+          "label": "other collapse item",
+          "icon": "dashboard"
+        }
+      }
+    ]
+  },
+  {
+    "type": "collapse",
+    "name": "other collapse group",
+    "title": "other collapse group",
+    "header": {
+      "label": "collapse",
+      "icon": "dashboard"
+    },
+    "collapseItem": [
+      {
+        "name": "other collapse item 1",
+        "title": "other collapse item 1",
+        "route": {
+          "path": "/other-collapse-item-1",
+          "exact": true,
+          "componentName": "card"
+        },
+        "header": {
+          "label": "other collapse item",
+          "icon": "dashboard"
+        }
+      },
+      {
+        "name": "other collapse item 2",
+        "title": "other collapse item 2",
+        "route": {
+          "path": "/other-collapse-item-2",
+          "exact": true,
+          "componentName": "gridList"
+        },
+        "header": {
+          "label": "other collapse item",
+          "icon": "dashboard"
+        }
+      }
+    ]
+  }
 ]
