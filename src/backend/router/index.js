@@ -26,7 +26,7 @@ import { withLocalize } from "react-localize-redux";
 import { renderToStaticMarkup } from "react-dom/server";
 
 import globalTranslations from "./../../json/translation.json";
-const formTableData = require("./../../json/form");
+const formTableData = require("./../../json/form").forms;
 const chartData = require("./../../json/chart");
 const otherPage = require("./../../json/otherPage");
 const appBar = require("./../../json/appBar");

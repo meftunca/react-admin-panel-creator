@@ -29,8 +29,16 @@ app.post("/twitter", function(req, res) {
 app.post("/create-form", async (req, res) => {
   let data = req.body;
 
-  let q = db.push(data).write();
+  let q = db
+    .get("forms")
+    .push(data)
+    .write();
   res.json(q);
+});
+app.post("/get-form-json", async (req, res) => {
+  let data = db.get("forms").write();
+  console.log(data);
+  res.json(data);
 });
 app.post("/append-data", function(req, res) {
   let istek = req.body;

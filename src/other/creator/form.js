@@ -45,6 +45,10 @@ class FormCreator extends Component {
   setFormApi(formApi) {
     this.formApi = formApi;
   }
+  componentDidMount() {
+    // axios.post("http://localhost:8000/get-form-json").then(({ data }) => this.setFormApi(data));
+  }
+
   post = data => {
     axios.post("http://localhost:8000/create-form", data).then(d => console.log(d));
   };

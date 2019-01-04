@@ -1716,14 +1716,14 @@ module.exports = webpackAsyncContext;var map = {
 		9,
 		1,
 		4,
-		32
+		7
 	],
 	"./other/page/components/todo.js": [
 		"./src/other/page/components/todo.js",
 		9,
 		1,
 		4,
-		32
+		7
 	],
 	"./other/page/components/twitter": [
 		"./src/other/page/components/twitter.js",
@@ -1751,7 +1751,7 @@ module.exports = webpackAsyncContext;var map = {
 		2,
 		4,
 		5,
-		32,
+		7,
 		14
 	],
 	"./other/page/home.js": [
@@ -1762,7 +1762,7 @@ module.exports = webpackAsyncContext;var map = {
 		2,
 		4,
 		5,
-		32,
+		7,
 		14
 	],
 	"./scss/app.scss": [
@@ -1873,13 +1873,13 @@ module.exports = webpackAsyncContext;var map = {
 		"./src/other/page/components/todo.js",
 		1,
 		4,
-		32
+		7
 	],
 	"./page/components/todo.js": [
 		"./src/other/page/components/todo.js",
 		1,
 		4,
-		32
+		7
 	],
 	"./page/components/twitter": [
 		"./src/other/page/components/twitter.js",
@@ -1904,7 +1904,7 @@ module.exports = webpackAsyncContext;var map = {
 		2,
 		4,
 		5,
-		32,
+		7,
 		14
 	],
 	"./page/home.js": [
@@ -1914,7 +1914,7 @@ module.exports = webpackAsyncContext;var map = {
 		2,
 		4,
 		5,
-		32,
+		7,
 		14
 	]
 };
