@@ -19,6 +19,7 @@
     "base64-img": "^1.0.4",
     "blob-to-base64": "^1.0.1",
     "express": "^4.16.4",
+    "fb": "^2.0.0",
     "google-auth-library": "^2.0.2",
     "googleapis": "27",
     "informed": "^1.10.12",
@@ -61,6 +62,7 @@
   ],
   "scripts": {
     "size": "size-limit",
+    "start": "node app",
     "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",

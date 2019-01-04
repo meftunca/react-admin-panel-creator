@@ -56,5 +56,54 @@
         "label": "dasdasdas"
       }
     ]
+  },
+  "facebook": {
+    "name": "facebook",
+    "post_url": "/api-facebook",
+    "get_url": "/get-api-facebook",
+    "title": "facebook Api bilgileri",
+    "header": {
+      "label": "facebook Api bilgileri",
+      "icon": "power"
+    },
+    "route": {
+      "path": "/facebook-api",
+      "exact": "false"
+    },
+    "formItem": [
+      {
+        "name": "appId",
+        "icon": "",
+        "label": "appId",
+        "type": "text",
+        "regex": "",
+        "required": "false",
+        "mongoType": "string"
+      },
+      {
+        "name": "app_secret",
+        "icon": "",
+        "label": "app_secret",
+        "type": "text",
+        "regex": "",
+        "required": "false",
+        "mongoType": "string"
+      },
+      {
+        "name": "access_token",
+        "icon": "",
+        "label": "access_token",
+        "type": "text",
+        "regex": "",
+        "required": "false",
+        "mongoType": "string"
+      }
+    ],
+    "tableItem": [
+      {
+        "name": "saddsadsa",
+        "label": "dasdasdas"
+      }
+    ]
   }
 }

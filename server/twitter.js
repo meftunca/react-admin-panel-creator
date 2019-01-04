@@ -2,7 +2,7 @@ var Twitter = require("twitter");
 const base64Img = require("base64-img");
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
-const adapter = new FileSync("./server/api/twitter.json");
+const adapter = new FileSync("./server/api/apiKey.json");
 const db = low(adapter);
 
 var client = new Twitter({

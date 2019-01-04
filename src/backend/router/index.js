@@ -349,7 +349,7 @@ const ParserOtherRoute = ({ exact, path, componentName }) => {
   const OtherComponent = loadable(() => import("./../../other/" + componentName));
   return (
     <Route
-      exact={exact != undefined && exact}
+      exact={exact != undefined && Boolean(exact)}
       path={path}
       render={() => <OtherComponent fallback={<div>Loading...</div>} />}
     />
@@ -357,10 +357,10 @@ const ParserOtherRoute = ({ exact, path, componentName }) => {
 };
 
 const ParserChartRoute = ({ exact, path, data }) => {
-  return <Route exact={exact != undefined && exact} path={path} render={() => <ChartBuilder data={data} />} />;
+  return <Route exact={exact != undefined && Boolean(exact)} path={path} render={() => <ChartBuilder data={data} />} />;
 };
 const ParserTabViewerRoute = ({ path, exact, data }) => (
-  <Route exact={exact} path={path} render={() => <TabViewer data={data} />} />
+  <Route exact={Boolean(exact)} path={path} render={() => <TabViewer data={data} />} />
 );
 
 App.propTypes = {

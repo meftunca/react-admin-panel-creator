@@ -23,6 +23,8 @@ let model = {};
 for (let [k, v] of Object.entries(schema)) {
   model[k] = mongoose.model(k, v);
 }
+
+//twitter ile ilgili rotalar
 app.post("/twitter", function(req, res) {
   timeLine.then(d => res.json(d)).catch(e => res.json(e));
 });
@@ -32,6 +34,18 @@ app.post("/twitter-post", function(req, res) {
     // .then(d => res.json(d))
     .catch(e => res.json(e));
 });
+app.post("/api-twitter", async (req, res) => {
+  let data = req.body;
+  console.log(data);
+  createTwitterApi(data)
+    .then(d => res.json({ data: { status: "success", message: "veriler başarılı bir şekilde eklendi" } }))
+    .catch(e => res.json({ data: { status: "error", message: "server tarafında bir hata ile karşılaşıldı" } }));
+});
+
+//facebook ile ilgili rotalar
+
+//mongodb ve formlarla ilgili ile ilgili rotalar
+
 app.post("/create-form", async (req, res) => {
   let data = req.body;
   let q = db
@@ -40,13 +54,7 @@ app.post("/create-form", async (req, res) => {
     .write();
   res.json(q);
 });
-app.post("/api-twitter", async (req, res) => {
-  let data = req.body;
-  console.log(data);
-  createTwitterApi(data)
-    .then(d => res.json({ data: { status: "success", message: "veriler başarılı bir şekilde eklendi" } }))
-    .catch(e => res.json({ data: { status: "error", message: "server tarafında bir hata ile karşılaşıldı" } }));
-});
+
 app.post("/get-form-json", async (req, res) => {
   let data = db.get("forms").write();
   console.log(data);
@@ -79,3 +87,4 @@ app.listen(8000, function() {
 //     db.close();
 //   }
 // );
+module.exports = app;
