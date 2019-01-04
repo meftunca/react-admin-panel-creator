@@ -1,5 +1,8 @@
+process.env.PWD = process.cwd();
+
 const express = require("express");
 const bodyParser = require("body-parser");
+var path = require("path");
 const { timeLine, statusUpdate, createTwitterApi } = require("./twitter");
 var mongoose = require("mongoose");
 const low = require("lowdb");
@@ -87,4 +90,6 @@ app.listen(8000, function() {
 //     db.close();
 //   }
 // );
+app.use(express.static(path.join(process.env.PWD, "public")));
+
 module.exports = app;
