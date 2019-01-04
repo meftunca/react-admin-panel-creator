@@ -28,6 +28,30 @@
   },
   {
     "type": "collapse",
+    "name": "social_admin",
+    "title": "Sosyal Media",
+    "header": {
+      "label": "Sosyal medya Yönetimi",
+      "icon": "aspect_ratio"
+    },
+    "collapseItem": [
+      {
+        "name": "twitter",
+        "title": "Twitter",
+        "route": {
+          "path": "/admin/twitter",
+          "exact": true,
+          "componentName": "page/components/twitter"
+        },
+        "header": {
+          "label": "Form Creator",
+          "icon": "code"
+        }
+      }
+    ]
+  },
+  {
+    "type": "collapse",
     "name": "system_generator",
     "title": "System Generator",
     "header": {
@@ -40,7 +64,7 @@
         "title": "Form Creator",
         "route": {
           "path": "/form-creator",
-          "exact": true,
+          "exact": false,
           "componentName": "creator/form"
         },
         "header": {
@@ -49,53 +73,16 @@
         }
       },
       {
-        "name": "other collapse item 2",
-        "title": "other collapse item 2",
+        "name": "api",
+        "title": "Apiler",
         "route": {
-          "path": "/other-collapse-item-2",
-          "exact": true,
-          "componentName": "gridList"
+          "path": "/api-yonetimi",
+          "exact": false,
+          "componentName": "page/api"
         },
         "header": {
-          "label": "other collapse item",
-          "icon": "dashboard"
-        }
-      }
-    ]
-  },
-  {
-    "type": "collapse",
-    "name": "other collapse group",
-    "title": "other collapse group",
-    "header": {
-      "label": "collapse",
-      "icon": "dashboard"
-    },
-    "collapseItem": [
-      {
-        "name": "other collapse item 1",
-        "title": "other collapse item 1",
-        "route": {
-          "path": "/other-collapse-item-1",
-          "exact": true,
-          "componentName": "card"
-        },
-        "header": {
-          "label": "other collapse item",
-          "icon": "dashboard"
-        }
-      },
-      {
-        "name": "other collapse item 2",
-        "title": "other collapse item 2",
-        "route": {
-          "path": "/other-collapse-item-2",
-          "exact": true,
-          "componentName": "gridList"
-        },
-        "header": {
-          "label": "other collapse item",
-          "icon": "dashboard"
+          "label": "Api Yönetimi",
+          "icon": "power"
         }
       }
     ]

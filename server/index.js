@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const timeLine = require("./twitter");
+const { timeLine, statusUpdate, createTwitterApi } = require("./twitter");
 var mongoose = require("mongoose");
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
@@ -26,14 +26,26 @@ for (let [k, v] of Object.entries(schema)) {
 app.post("/twitter", function(req, res) {
   timeLine.then(d => res.json(d)).catch(e => res.json(e));
 });
+app.post("/twitter-post", function(req, res) {
+  statusUpdate(req.body)
+    .then(d => res.json(d))
+    // .then(d => res.json(d))
+    .catch(e => res.json(e));
+});
 app.post("/create-form", async (req, res) => {
   let data = req.body;
-
   let q = db
     .get("forms")
     .push(data)
     .write();
   res.json(q);
+});
+app.post("/api-twitter", async (req, res) => {
+  let data = req.body;
+  console.log(data);
+  createTwitterApi(data)
+    .then(d => res.json({ data: { status: "success", message: "veriler başarılı bir şekilde eklendi" } }))
+    .catch(e => res.json({ data: { status: "error", message: "server tarafında bir hata ile karşılaşıldı" } }));
 });
 app.post("/get-form-json", async (req, res) => {
   let data = db.get("forms").write();

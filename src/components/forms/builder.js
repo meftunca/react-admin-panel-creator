@@ -75,7 +75,7 @@ class FormBuilder extends Component {
   postForm = async url => {
     this.toastRunner("info", "Veriler Gönderiliyor...");
     let { values } = this.formApi.getState();
-    console.log(values);
+    console.log(values, url);
     let postData = { tableName: this.props.name, data: values };
     await axios.post("http://localhost:8000/" + url.replace("/", ""), postData).then(({ data }) => {
       console.log(data.data);
@@ -83,7 +83,8 @@ class FormBuilder extends Component {
     });
   };
   render() {
-    const { classes, header, formItem, name, postUrl, title, store } = this.props;
+    console.log(this.props);
+    const { classes, header, formItem, name, postUrl, post_url, title, store } = this.props;
     const { label, icon } = header;
     return (
       <Paper className={classes.root} elevation={1}>
@@ -104,7 +105,7 @@ class FormBuilder extends Component {
             className={classes.button}
             fullWidth={true}
             color='primary'
-            onClick={() => this.postForm(postUrl)}>
+            onClick={() => this.postForm(postUrl || post_url)}>
             <span className={classNames(classes.leftIcon)}>
               <Icon name='save' />
             </span>
