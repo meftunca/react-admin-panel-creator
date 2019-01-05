@@ -7,6 +7,8 @@ var path = require("path");
 const FileSync = require("lowdb/adapters/FileSync");
 const adapter = new FileSync("./src/json/form.json");
 const db = low(adapter);
+const app = express();
+
 // db.defaults({ forms: [] }).write();
 const schemaCreator = require("./mongo/mongoSchemaCreator");
 mongoose.connect(
@@ -18,7 +20,7 @@ let model = {};
 for (let [k, v] of Object.entries(schema)) {
   model[k] = mongoose.model(k, v);
 }
-const app = express();
+app.use(express.static(path.join(__dirname, "/../public")));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(function(req, res, next) {
@@ -77,9 +79,8 @@ app.post("/append-data", function(req, res) {
   );
 });
 
-app.use(express.static(path.join(__dirname, "/public")));
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/public/index.html"));
+  res.sendFile(path.join(__dirname + "/../public/index.html"));
 });
 const port = process.env.PORT || 8000;
 console.log("port", process.env.PORT);
