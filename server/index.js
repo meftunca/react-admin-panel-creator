@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const { timeLine, statusUpdate, createTwitterApi } = require("./twitter");
 var mongoose = require("mongoose");
 const low = require("lowdb");
+var path = require("path");
 const FileSync = require("lowdb/adapters/FileSync");
 const adapter = new FileSync("./src/json/form.json");
 const db = low(adapter);
@@ -86,8 +87,13 @@ module.exports = () => {
         : res.json({ data: { status: "success", message: "veriler başarılı bir şekilde eklendi" } })
     );
   });
-  app.listen(8000, function() {
-    console.log("Example app listening on port 8000!");
+
+  app.use(express.static(path.join(__dirname, "public")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + "/public/index.html"));
   });
+  const port = process.env.PORT || 8000;
+
+  app.listen(port);
   return app;
 };
