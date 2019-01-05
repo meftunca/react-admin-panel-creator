@@ -9,7 +9,10 @@ const adapter = new FileSync("./src/json/form.json");
 const db = low(adapter);
 // db.defaults({ forms: [] }).write();
 const schemaCreator = require("./mongo/mongoSchemaCreator");
-mongoose.connect("mongodb://localhost/admin");
+mongoose.connect(
+  "mongodb://localhost/admin",
+  { useNewUrlParser: true }
+);
 let schema = schemaCreator();
 let model = {};
 for (let [k, v] of Object.entries(schema)) {
