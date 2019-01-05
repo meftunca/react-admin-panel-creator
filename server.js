@@ -1,1 +1,2 @@
-require("./server/index")();
+let app = require("./server/index");
+app();
