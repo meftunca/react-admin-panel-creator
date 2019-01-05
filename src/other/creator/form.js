@@ -121,7 +121,7 @@ const ItemCreator = asField(({ fieldState, fieldApi, ...props }) => {
         <React.Fragment>
           {type == "select" ? (
             <FormControl className={classes.formControl} fullWidth>
-              <InputLabel htmlFor={id}>Age</InputLabel>
+              <InputLabel>{label}</InputLabel>
               <Select
                 autoWidth={true}
                 value={value}
