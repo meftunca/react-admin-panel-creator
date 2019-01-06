@@ -4,8 +4,16 @@ import Spinner from "react-spinkit";
 import Loadable from "react-loadable";
 import { Provider } from "mobx-react";
 import Frontend from "./store/frontend";
+import { MuiThemeProvider, createMuiTheme, install } from "@material-ui/core/styles";
+const theme = createMuiTheme();
 
-const Prov = props => <Provider store={Frontend}>{props.children}</Provider>;
+// install();
+
+const Prov = props => (
+  <MuiThemeProvider theme={theme}>
+    <Provider store={Frontend}>{props.children}</Provider>
+  </MuiThemeProvider>
+);
 const LoadableComponent = Loadable({
   loader: () => import("./backend/router/index"),
   loading: () => (

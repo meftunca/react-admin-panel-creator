@@ -13,19 +13,19 @@ import IconButton from "@material-ui/core/IconButton";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import { BrowserRouter, Link, Route } from "react-router-dom";
+import { BrowserRouter, Link, Route, Redirect } from "react-router-dom";
 import Collapse from "@material-ui/core/Collapse";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import { observer, inject } from "mobx-react";
 import loadable from "@loadable/component";
-import { spring, AnimatedSwitch } from "react-router-transition";
+import Spinner from "react-spinkit";
 import TabViewer from "../../components/tabViewer";
 import ChartBuilder from "./../../components/chart/builder";
 import { LocalizeProvider } from "react-localize-redux";
 import { withLocalize } from "react-localize-redux";
 import { renderToStaticMarkup } from "react-dom/server";
+import Account from "../../other/example/account";
 
-import globalTranslations from "./../../json/translation.json";
 const formTableData = require("./../../json/form").forms;
 const chartData = require("./../../json/chart");
 const otherPage = require("./../../json/otherPage");
@@ -34,6 +34,13 @@ const drawerWidth = 300;
 const styles = theme => ({
   root: {
     display: "flex"
+  },
+  bg: {
+    backgroundColor: "#f9f9f9",
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   },
   grow: {
     flexGrow: 1
@@ -134,12 +141,13 @@ class App extends React.Component {
     };
     this.props.initialize({
       languages: [{ name: "English", code: "en" }, { name: "Turkish", code: "tr" }],
-      translation: globalTranslations,
+      translation: loadable(() => import("./../../json/translation.json")),
       options: { renderToStaticMarkup, renderInnerHtml: true, defaultLanguage: "tr" }
     });
   }
   componentDidMount() {
     console.log(this.props);
+    console.log("proccess", process.env);
   }
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -150,95 +158,98 @@ class App extends React.Component {
   };
 
   render() {
-    const { classes, theme } = this.props;
+    const { classes, theme, store } = this.props;
+    const { pathname } = window.location;
     const { open } = this.state;
     return (
-      <div className={classes.root}>
+      <div className={store.login == false || store.registerPage == true ? classes.bg : classes.root}>
         <BrowserRouter>
           <Fragment>
             <CssBaseline />
-            <AppBar position='fixed' className={classNames(classes.appBar, { [classes.appBarShift]: open })}>
-              <Toolbar disableGutters={!open}>
-                <IconButton
-                  color='inherit'
-                  aria-label='Open drawer'
-                  onClick={this.handleDrawerOpen}
-                  className={classNames(classes.menuButton, open && classes.hide)}>
-                  <Icon name='menu' />
-                </IconButton>
-                <AppBarCompenent />
-              </Toolbar>
-            </AppBar>
-            <Drawer
-              open={open}
-              variant='permanent'
-              className={classNames(classes.drawer, {
-                [classes.drawerOpen]: this.state.open,
-                [classes.drawerClose]: !this.state.open
-              })}
-              classes={{
-                paper: classNames(classes.drawerPaper, {
-                  [classes.drawerOpen]: this.state.open,
-                  [classes.drawerClose]: !this.state.open
-                })
-              }}>
-              <div className={classes.toolbar}>
-                <Typography className={classNames(classes.title)} variant='h6' color='inherit' noWrap>
-                  Beta testleri
-                </Typography>
-                <IconButton onClick={this.handleDrawerClose}>
-                  {theme.direction === "ltr" ? <Icon name='chevron_left' /> : <Icon name='chevron_right' />}
-                </IconButton>
-              </div>
-              <Divider />
-              <List>
-                {/* {chartData.map((i, k) => (
+            {store.login == false || store.registerPage == true ? (
+              <Fragment>
+                {pathname.includes("/example") || pathname.includes("/account") || pathname == "/" ? (
+                  <Account />
+                ) : (
+                  <Redirect to='/' />
+                )}
+              </Fragment>
+            ) : (
+              <Fragment>
+                <AppBar position='fixed' className={classNames(classes.appBar, { [classes.appBarShift]: open })}>
+                  <Toolbar disableGutters={!open}>
+                    <IconButton
+                      color='inherit'
+                      aria-label='Open drawer'
+                      onClick={this.handleDrawerOpen}
+                      className={classNames(classes.menuButton, open && classes.hide)}>
+                      <Icon name='menu' />
+                    </IconButton>
+                    <AppBarCompenent />
+                  </Toolbar>
+                </AppBar>
+                <Drawer
+                  open={open}
+                  variant='permanent'
+                  className={classNames(classes.drawer, {
+                    [classes.drawerOpen]: this.state.open,
+                    [classes.drawerClose]: !this.state.open
+                  })}
+                  classes={{
+                    paper: classNames(classes.drawerPaper, {
+                      [classes.drawerOpen]: this.state.open,
+                      [classes.drawerClose]: !this.state.open
+                    })
+                  }}>
+                  <div className={classes.toolbar}>
+                    <Typography className={classNames(classes.title)} variant='h6' color='inherit' noWrap>
+                      Beta testleri
+                    </Typography>
+                    <IconButton onClick={this.handleDrawerClose}>
+                      {theme.direction === "ltr" ? <Icon name='chevron_left' /> : <Icon name='chevron_right' />}
+                    </IconButton>
+                  </div>
+                  <Divider />
+                  <List>
+                    {/* {chartData.map((i, k) => (
                   <ListItemCom to={i.route.path} icon={i.header.icon} title={i.title} key={k} />
                 ))} */}
-                {otherPage.map((i, k) => (
-                  <Fragment key={k}>
-                    {i.type == "collapse" ? (
-                      <MobileCollapse
-                        opens={open}
-                        title={i.header.label}
-                        icon={i.header.icon}
-                        defaultOpen={false}
-                        collapse={i.collapseItem}
-                      />
-                    ) : (
-                      <ListItemCom to={i.route.path} icon={i.header.icon} title={i.header.label} />
-                    )}
-                  </Fragment>
-                ))}
-                <Divider />
-                <MobileCollapse
-                  opens={open}
-                  title='Veri Grafikleri'
-                  icon='bubble_chart'
-                  defaultOpen={false}
-                  collapse={chartData}
-                />
-                <Divider />
-                <MobileCollapse
-                  opens={open}
-                  title='Form Ve Tablolar'
-                  icon='table_chart'
-                  defaultOpen={false}
-                  collapse={formTableData}
-                />
-              </List>
-              <Divider />
-            </Drawer>
-            <main className={classNames(classes.content, { [classes.contentShift]: !open })}>
-              <div className={classes.toolbar} />
-
-              <AnimatedSwitch
-                atEnter={bounceTransition.atEnter}
-                atLeave={bounceTransition.atLeave}
-                atActive={bounceTransition.atActive}
-                mapStyles={mapStyles}
-                className='switch-wrapper'>
-                <Fragment>
+                    {otherPage.map((i, k) => (
+                      <Fragment key={k}>
+                        {i.type == "collapse" ? (
+                          <MobileCollapse
+                            opens={open}
+                            title={i.header.label}
+                            icon={i.header.icon}
+                            defaultOpen={false}
+                            collapse={i.collapseItem}
+                          />
+                        ) : (
+                          <ListItemCom to={i.route.path} icon={i.header.icon} title={i.header.label} />
+                        )}
+                      </Fragment>
+                    ))}
+                    <Divider />
+                    <MobileCollapse
+                      opens={open}
+                      title='Veri Grafikleri'
+                      icon='bubble_chart'
+                      defaultOpen={false}
+                      collapse={chartData}
+                    />
+                    <Divider />
+                    <MobileCollapse
+                      opens={open}
+                      title='Form Ve Tablolar'
+                      icon='table_chart'
+                      defaultOpen={false}
+                      collapse={formTableData}
+                    />
+                  </List>
+                  <Divider />
+                </Drawer>
+                <main className={classNames(classes.content, { [classes.contentShift]: !open })}>
+                  <div className={classes.toolbar} />
                   {otherPage.map((i, k) => (
                     <Fragment key={k}>
                       {i.type == "collapse" ? (
@@ -258,9 +269,9 @@ class App extends React.Component {
                   {formTableData.map((i, k) => (
                     <ParserTabViewerRoute path={i.route.path} exact={i.route.exact} data={i} key={k} />
                   ))}
-                </Fragment>
-              </AnimatedSwitch>
-            </main>
+                </main>
+              </Fragment>
+            )}
           </Fragment>
         </BrowserRouter>
       </div>
@@ -306,43 +317,17 @@ const MobileCollapse = ({ title, icon, collapse, opens, defaultOpen }) => {
   );
 };
 
-const mapStyles = styles => {
-  return {
-    opacity: styles.opacity,
-    transform: `scale(${styles.scale})`
-  };
-};
-
-// wrap the `spring` helper to use a bouncy config
-const bounce = val => {
-  return spring(val, {
-    stiffness: 330,
-    damping: 22
-  });
-};
-
-// child matches will...
-const bounceTransition = {
-  // start in a transparent, upscaled state
-  atEnter: {
-    opacity: 0,
-    scale: 1.2
-  },
-  // leave in a transparent, downscaled state
-  atLeave: {
-    opacity: bounce(0),
-    scale: bounce(0.8)
-  },
-  // and rest at an opaque, normally-scaled state
-  atActive: {
-    opacity: bounce(1),
-    scale: bounce(1)
-  }
-};
-
 const AppBarCompenent = () => {
   const BarComponent = loadable(() => import("./../../" + appBar[0].componentName));
-  return <BarComponent fallback={<div>Loading...</div>} />;
+  return (
+    <BarComponent
+      fallback={
+        <div className='loaderScreen hard'>
+          <Spinner name='line-scale-pulse-out' color='fuchsia' />
+        </div>
+      }
+    />
+  );
 };
 
 const ParserOtherRoute = ({ exact, path, componentName }) => {
@@ -351,7 +336,15 @@ const ParserOtherRoute = ({ exact, path, componentName }) => {
     <Route
       exact={exact != undefined && Boolean(exact)}
       path={path}
-      render={() => <OtherComponent fallback={<div>Loading...</div>} />}
+      render={() => (
+        <OtherComponent
+          fallback={
+            <div className='loaderScreen hard'>
+              <Spinner name='line-scale-pulse-out' color='fuchsia' />
+            </div>
+          }
+        />
+      )}
     />
   );
 };

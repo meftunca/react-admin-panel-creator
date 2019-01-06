@@ -39,7 +39,7 @@
         "name": "twitter",
         "title": "Twitter",
         "route": {
-          "path": "/admin/twitter",
+          "path": "/admin-twitter",
           "exact": true,
           "componentName": "page/components/twitter"
         },

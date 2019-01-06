@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const account = require("./account");
 const { timeLine, statusUpdate, createTwitterApi } = require("./twitter");
 var mongoose = require("mongoose");
 const low = require("lowdb");
@@ -28,6 +29,9 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+
+//kullancı yönetimi
+account(app);
 
 //twitter ile ilgili rotalar
 app.post("/twitter", function(req, res) {

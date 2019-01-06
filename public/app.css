@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   padding: 0;
   margin: 0;
   width: 100%;
@@ -8,15 +9,6 @@ html, body {
 a {
   text-decoration: none;
   text-transform: capitalize;
-}
-
-.switch-wrapper {
-  position: relative;
-}
-
-.switch-wrapper > div {
-  position: absolute;
-  width: 100%;
 }
 
 .mr-3 {
@@ -34,6 +26,9 @@ a {
   align-content: center;
   -webkit-box-align: center;
           align-items: center;
+}
+.loaderScreen.hard {
+  background-color: transparent !important;
 }
 
 /* toasify */
@@ -86,11 +81,15 @@ a {
     margin: 0;
   }
 
-  .Toastify__toast-container--top-left, .Toastify__toast-container--top-center, .Toastify__toast-container--top-right {
+  .Toastify__toast-container--top-left,
+.Toastify__toast-container--top-center,
+.Toastify__toast-container--top-right {
     top: 0;
   }
 
-  .Toastify__toast-container--bottom-left, .Toastify__toast-container--bottom-center, .Toastify__toast-container--bottom-right {
+  .Toastify__toast-container--bottom-left,
+.Toastify__toast-container--bottom-center,
+.Toastify__toast-container--bottom-right {
     bottom: 0;
   }
 
@@ -174,7 +173,8 @@ a {
   opacity: 0.3;
 }
 
-.Toastify__close-button:hover, .Toastify__close-button:focus {
+.Toastify__close-button:hover,
+.Toastify__close-button:focus {
   opacity: 1;
 }
 
@@ -573,12 +573,14 @@ a {
             transform: translate3d(0, 2000px, 0);
   }
 }
-.Toastify__bounce-enter--top-left, .Toastify__bounce-enter--bottom-left {
+.Toastify__bounce-enter--top-left,
+.Toastify__bounce-enter--bottom-left {
   -webkit-animation-name: Toastify__bounceInLeft;
           animation-name: Toastify__bounceInLeft;
 }
 
-.Toastify__bounce-enter--top-right, .Toastify__bounce-enter--bottom-right {
+.Toastify__bounce-enter--top-right,
+.Toastify__bounce-enter--bottom-right {
   -webkit-animation-name: Toastify__bounceInRight;
           animation-name: Toastify__bounceInRight;
 }
@@ -593,12 +595,14 @@ a {
           animation-name: Toastify__bounceInUp;
 }
 
-.Toastify__bounce-exit--top-left, .Toastify__bounce-exit--bottom-left {
+.Toastify__bounce-exit--top-left,
+.Toastify__bounce-exit--bottom-left {
   -webkit-animation-name: Toastify__bounceOutLeft;
           animation-name: Toastify__bounceOutLeft;
 }
 
-.Toastify__bounce-exit--top-right, .Toastify__bounce-exit--bottom-right {
+.Toastify__bounce-exit--top-right,
+.Toastify__bounce-exit--bottom-right {
   -webkit-animation-name: Toastify__bounceOutRight;
           animation-name: Toastify__bounceOutRight;
 }
@@ -946,12 +950,14 @@ a {
             transform: translate3d(0, -500px, 0);
   }
 }
-.Toastify__slide-enter--top-left, .Toastify__slide-enter--bottom-left {
+.Toastify__slide-enter--top-left,
+.Toastify__slide-enter--bottom-left {
   -webkit-animation-name: Toastify__slideInLeft;
           animation-name: Toastify__slideInLeft;
 }
 
-.Toastify__slide-enter--top-right, .Toastify__slide-enter--bottom-right {
+.Toastify__slide-enter--top-right,
+.Toastify__slide-enter--bottom-right {
   -webkit-animation-name: Toastify__slideInRight;
           animation-name: Toastify__slideInRight;
 }
@@ -966,12 +972,14 @@ a {
           animation-name: Toastify__slideInUp;
 }
 
-.Toastify__slide-exit--top-left, .Toastify__slide-exit--bottom-left {
+.Toastify__slide-exit--top-left,
+.Toastify__slide-exit--bottom-left {
   -webkit-animation-name: Toastify__slideOutLeft;
           animation-name: Toastify__slideOutLeft;
 }
 
-.Toastify__slide-exit--top-right, .Toastify__slide-exit--bottom-right {
+.Toastify__slide-exit--top-right,
+.Toastify__slide-exit--bottom-right {
   -webkit-animation-name: Toastify__slideOutRight;
           animation-name: Toastify__slideOutRight;
 }
@@ -1258,22 +1266,22 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";var
 	"./area": [
 		"./src/components/chart/area.js",
 		0,
-		16
+		19
 	],
 	"./area.js": [
 		"./src/components/chart/area.js",
 		0,
-		16
+		19
 	],
 	"./bar": [
 		"./src/components/chart/bar.js",
 		0,
-		17
+		20
 	],
 	"./bar.js": [
 		"./src/components/chart/bar.js",
 		0,
-		17
+		20
 	],
 	"./builder": [
 		"./src/components/chart/builder.js"
@@ -1283,51 +1291,51 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";var
 	],
 	"./dataGenerator": [
 		"./src/components/chart/dataGenerator.js",
-		18
+		21
 	],
 	"./dataGenerator.js": [
 		"./src/components/chart/dataGenerator.js",
-		18
+		21
 	],
 	"./dataVizualization": [
 		"./src/components/chart/dataVizualization.js",
-		6
+		5
 	],
 	"./dataVizualization.js": [
 		"./src/components/chart/dataVizualization.js",
-		6
+		5
 	],
 	"./line": [
 		"./src/components/chart/line.js",
 		0,
-		6,
-		19
+		5,
+		22
 	],
 	"./line.js": [
 		"./src/components/chart/line.js",
 		0,
-		6,
-		19
+		5,
+		22
 	],
 	"./pie": [
 		"./src/components/chart/pie.js",
 		0,
-		20
+		23
 	],
 	"./pie.js": [
 		"./src/components/chart/pie.js",
 		0,
-		20
+		23
 	],
 	"./point": [
 		"./src/components/chart/point.js",
 		0,
-		14
+		17
 	],
 	"./point.js": [
 		"./src/components/chart/point.js",
 		0,
-		14
+		17
 	]
 };
 function webpackAsyncContext(req) {
@@ -1373,25 +1381,25 @@ module.exports = webpackAsyncContext;var map = {
 		"./src/components/chart/area.js",
 		9,
 		0,
-		16
+		19
 	],
 	"./components/chart/area.js": [
 		"./src/components/chart/area.js",
 		9,
 		0,
-		16
+		19
 	],
 	"./components/chart/bar": [
 		"./src/components/chart/bar.js",
 		9,
 		0,
-		17
+		20
 	],
 	"./components/chart/bar.js": [
 		"./src/components/chart/bar.js",
 		9,
 		0,
-		17
+		20
 	],
 	"./components/chart/builder": [
 		"./src/components/chart/builder.js",
@@ -1404,60 +1412,60 @@ module.exports = webpackAsyncContext;var map = {
 	"./components/chart/dataGenerator": [
 		"./src/components/chart/dataGenerator.js",
 		9,
-		18
+		21
 	],
 	"./components/chart/dataGenerator.js": [
 		"./src/components/chart/dataGenerator.js",
 		9,
-		18
+		21
 	],
 	"./components/chart/dataVizualization": [
 		"./src/components/chart/dataVizualization.js",
 		9,
-		6
+		5
 	],
 	"./components/chart/dataVizualization.js": [
 		"./src/components/chart/dataVizualization.js",
 		9,
-		6
+		5
 	],
 	"./components/chart/line": [
 		"./src/components/chart/line.js",
 		9,
 		0,
-		6,
-		19
+		5,
+		22
 	],
 	"./components/chart/line.js": [
 		"./src/components/chart/line.js",
 		9,
 		0,
-		6,
-		19
+		5,
+		22
 	],
 	"./components/chart/pie": [
 		"./src/components/chart/pie.js",
 		9,
 		0,
-		20
+		23
 	],
 	"./components/chart/pie.js": [
 		"./src/components/chart/pie.js",
 		9,
 		0,
-		20
+		23
 	],
 	"./components/chart/point": [
 		"./src/components/chart/point.js",
 		9,
 		0,
-		14
+		17
 	],
 	"./components/chart/point.js": [
 		"./src/components/chart/point.js",
 		9,
 		0,
-		14
+		17
 	],
 	"./components/forms/builder": [
 		"./src/components/forms/builder.js",
@@ -1542,46 +1550,52 @@ module.exports = webpackAsyncContext;var map = {
 	"./frontend/router": [
 		"./src/frontend/router/index.js",
 		9,
-		9,
-		21
+		12,
+		8,
+		24
 	],
 	"./frontend/router/": [
 		"./src/frontend/router/index.js",
 		9,
-		9,
-		21
+		12,
+		8,
+		24
 	],
 	"./frontend/router/header": [
 		"./src/frontend/router/header.js",
 		9,
-		9
+		8,
+		32
 	],
 	"./frontend/router/header.js": [
 		"./src/frontend/router/header.js",
 		9,
-		9
+		8,
+		32
 	],
 	"./frontend/router/index": [
 		"./src/frontend/router/index.js",
 		9,
-		9,
-		21
+		12,
+		8,
+		24
 	],
 	"./frontend/router/index.js": [
 		"./src/frontend/router/index.js",
 		9,
-		9,
-		21
+		12,
+		8,
+		24
 	],
 	"./frontend/router/list": [
 		"./src/frontend/router/list.js",
 		9,
-		26
+		30
 	],
 	"./frontend/router/list.js": [
 		"./src/frontend/router/list.js",
 		9,
-		26
+		30
 	],
 	"./index": [
 		"./src/index.js",
@@ -1594,12 +1608,12 @@ module.exports = webpackAsyncContext;var map = {
 	"./json/apiForm": [
 		"./src/json/apiForm.json",
 		3,
-		30
+		35
 	],
 	"./json/apiForm.json": [
 		"./src/json/apiForm.json",
 		3,
-		30
+		35
 	],
 	"./json/appBar": [
 		"./src/json/appBar.json",
@@ -1628,12 +1642,12 @@ module.exports = webpackAsyncContext;var map = {
 	"./json/header": [
 		"./src/json/header.json",
 		3,
-		31
+		36
 	],
 	"./json/header.json": [
 		"./src/json/header.json",
 		3,
-		31
+		36
 	],
 	"./json/otherPage": [
 		"./src/json/otherPage.json",
@@ -1646,148 +1660,178 @@ module.exports = webpackAsyncContext;var map = {
 	"./json/testForm": [
 		"./src/json/testForm.json",
 		3,
-		32
+		37
 	],
 	"./json/testForm.json": [
 		"./src/json/testForm.json",
 		3,
-		32
+		37
 	],
 	"./json/translation": [
 		"./src/json/translation.json",
-		3
+		3,
+		29
 	],
 	"./json/translation.json": [
 		"./src/json/translation.json",
-		3
+		3,
+		29
 	],
 	"./other/appBar": [
 		"./src/other/appBar.js",
 		9,
-		11
+		14
 	],
 	"./other/appBar.js": [
 		"./src/other/appBar.js",
 		9,
-		11
+		14
 	],
 	"./other/card": [
 		"./src/other/card.js",
 		9,
-		10,
-		22
+		13,
+		25
 	],
 	"./other/card.js": [
 		"./src/other/card.js",
 		9,
-		10,
-		22
+		13,
+		25
 	],
 	"./other/creator/component/collapse": [
 		"./src/other/creator/component/collapse.js",
 		9,
-		1,
-		23
+		26
 	],
 	"./other/creator/component/collapse.js": [
 		"./src/other/creator/component/collapse.js",
 		9,
-		1,
-		23
+		26
 	],
 	"./other/creator/form": [
 		"./src/other/creator/form.js",
 		9,
 		1,
-		2,
-		13
+		16
 	],
 	"./other/creator/form.js": [
 		"./src/other/creator/form.js",
 		9,
 		1,
-		2,
-		13
+		16
+	],
+	"./other/example/account": [
+		"./src/other/example/account.js",
+		9
+	],
+	"./other/example/account.js": [
+		"./src/other/example/account.js",
+		9
+	],
+	"./other/example/login": [
+		"./src/other/example/login.js",
+		9,
+		9
+	],
+	"./other/example/login.js": [
+		"./src/other/example/login.js",
+		9,
+		9
+	],
+	"./other/example/register": [
+		"./src/other/example/register.js",
+		9,
+		10
+	],
+	"./other/example/register.js": [
+		"./src/other/example/register.js",
+		9,
+		10
+	],
+	"./other/example/rememberMe": [
+		"./src/other/example/rememberMe.js",
+		9,
+		11
+	],
+	"./other/example/rememberMe.js": [
+		"./src/other/example/rememberMe.js",
+		9,
+		11
 	],
 	"./other/gridList": [
 		"./src/other/gridList.js",
 		9,
-		3,
-		24
+		2,
+		27
 	],
 	"./other/gridList.js": [
 		"./src/other/gridList.js",
 		9,
-		3,
-		24
+		2,
+		27
 	],
 	"./other/page/api": [
 		"./src/other/page/api.js",
 		9,
-		15
+		18
 	],
 	"./other/page/api.js": [
 		"./src/other/page/api.js",
 		9,
-		15
+		18
 	],
 	"./other/page/components/todo": [
 		"./src/other/page/components/todo.js",
 		9,
-		1,
-		4,
-		7
+		3,
+		6
 	],
 	"./other/page/components/todo.js": [
 		"./src/other/page/components/todo.js",
 		9,
-		1,
-		4,
-		7
+		3,
+		6
 	],
 	"./other/page/components/twitter": [
 		"./src/other/page/components/twitter.js",
 		9,
-		1,
-		3,
 		2,
-		5,
-		8,
-		12
+		1,
+		4,
+		7,
+		15
 	],
 	"./other/page/components/twitter.js": [
 		"./src/other/page/components/twitter.js",
 		9,
-		1,
-		3,
 		2,
-		5,
-		8,
-		12
+		1,
+		4,
+		7,
+		15
 	],
 	"./other/page/home": [
 		"./src/other/page/home.js",
 		9,
+		2,
 		1,
 		3,
-		2,
 		4,
-		5,
+		6,
 		7,
-		8,
-		25
+		28
 	],
 	"./other/page/home.js": [
 		"./src/other/page/home.js",
 		9,
+		2,
 		1,
 		3,
-		2,
 		4,
-		5,
+		6,
 		7,
-		8,
-		25
+		28
 	],
 	"./scss/app.scss": [
 		"./src/scss/app.scss",
@@ -1804,24 +1848,24 @@ module.exports = webpackAsyncContext;var map = {
 	"./testPage": [
 		"./src/testPage.js",
 		9,
-		28
+		33
 	],
 	"./testPage.js": [
 		"./src/testPage.js",
 		9,
-		28
+		33
 	],
 	"./utils/validate": [
 		"./src/utils/validate.js",
 		9,
-		27,
-		29
+		31,
+		34
 	],
 	"./utils/validate.js": [
 		"./src/utils/validate.js",
 		9,
-		27,
-		29
+		31,
+		34
 	]
 };
 function webpackAsyncContext(req) {
@@ -1845,113 +1889,133 @@ webpackAsyncContext.id = "./src lazy recursive ^\\.\\/.*$";
 module.exports = webpackAsyncContext;var map = {
 	"./appBar": [
 		"./src/other/appBar.js",
-		11
+		14
 	],
 	"./appBar.js": [
 		"./src/other/appBar.js",
-		11
+		14
 	],
 	"./card": [
 		"./src/other/card.js",
-		10,
-		22
+		13,
+		25
 	],
 	"./card.js": [
 		"./src/other/card.js",
-		10,
-		22
+		13,
+		25
 	],
 	"./creator/component/collapse": [
 		"./src/other/creator/component/collapse.js",
-		1,
-		23
+		26
 	],
 	"./creator/component/collapse.js": [
 		"./src/other/creator/component/collapse.js",
-		1,
-		23
+		26
 	],
 	"./creator/form": [
 		"./src/other/creator/form.js",
 		1,
-		2,
-		13
+		16
 	],
 	"./creator/form.js": [
 		"./src/other/creator/form.js",
 		1,
-		2,
-		13
+		16
+	],
+	"./example/account": [
+		"./src/other/example/account.js"
+	],
+	"./example/account.js": [
+		"./src/other/example/account.js"
+	],
+	"./example/login": [
+		"./src/other/example/login.js",
+		9
+	],
+	"./example/login.js": [
+		"./src/other/example/login.js",
+		9
+	],
+	"./example/register": [
+		"./src/other/example/register.js",
+		10
+	],
+	"./example/register.js": [
+		"./src/other/example/register.js",
+		10
+	],
+	"./example/rememberMe": [
+		"./src/other/example/rememberMe.js",
+		11
+	],
+	"./example/rememberMe.js": [
+		"./src/other/example/rememberMe.js",
+		11
 	],
 	"./gridList": [
 		"./src/other/gridList.js",
-		3,
-		24
+		2,
+		27
 	],
 	"./gridList.js": [
 		"./src/other/gridList.js",
-		3,
-		24
+		2,
+		27
 	],
 	"./page/api": [
 		"./src/other/page/api.js",
-		15
+		18
 	],
 	"./page/api.js": [
 		"./src/other/page/api.js",
-		15
+		18
 	],
 	"./page/components/todo": [
 		"./src/other/page/components/todo.js",
-		1,
-		4,
-		7
+		3,
+		6
 	],
 	"./page/components/todo.js": [
 		"./src/other/page/components/todo.js",
-		1,
-		4,
-		7
+		3,
+		6
 	],
 	"./page/components/twitter": [
 		"./src/other/page/components/twitter.js",
-		1,
-		3,
 		2,
-		5,
-		8,
-		12
+		1,
+		4,
+		7,
+		15
 	],
 	"./page/components/twitter.js": [
 		"./src/other/page/components/twitter.js",
-		1,
-		3,
 		2,
-		5,
-		8,
-		12
+		1,
+		4,
+		7,
+		15
 	],
 	"./page/home": [
 		"./src/other/page/home.js",
+		2,
 		1,
 		3,
-		2,
 		4,
-		5,
+		6,
 		7,
-		8,
-		25
+		28
 	],
 	"./page/home.js": [
 		"./src/other/page/home.js",
+		2,
 		1,
 		3,
-		2,
 		4,
-		5,
+		6,
 		7,
-		8,
-		25
+		28
 	]
 };
 function webpackAsyncContext(req) {

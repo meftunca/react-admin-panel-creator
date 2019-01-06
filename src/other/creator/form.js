@@ -46,11 +46,11 @@ class FormCreator extends Component {
     this.formApi = formApi;
   }
   componentDidMount() {
-    // axios.post("http://localhost:8000/get-form-json").then(({ data }) => this.setFormApi(data));
+    // axios.post(window.location.origin+":8000/get-form-json").then(({ data }) => this.setFormApi(data));
   }
 
   post = data => {
-    axios.post("http://localhost:8000/create-form", data).then(d => console.log(d));
+    axios.post(window.location.origin + ":8000/create-form", data).then(d => console.log(d));
   };
   view = () => console.log("view");
   send = () => this.handleClick();

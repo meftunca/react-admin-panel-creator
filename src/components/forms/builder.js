@@ -77,7 +77,7 @@ class FormBuilder extends Component {
     let { values } = this.formApi.getState();
     console.log(values, url);
     let postData = { tableName: this.props.name, data: values };
-    await axios.post("http://localhost:8000/" + url.replace("/", ""), postData).then(({ data }) => {
+    await axios.post(window.location.origin + ":8000/" + url.replace("/", ""), postData).then(({ data }) => {
       console.log(data.data);
       setTimeout(() => this.toastRunner(data.data.status, data.data.message), 2000);
     });
