@@ -96,14 +96,13 @@ class MailBox extends Component {
           <Grid item xs={4} md={3}>
             <Button
               color='primary'
-              fullWidth
               className={classes.button}
               onClick={() => {
                 window.location = window.location.origin + ":8000/auth/google/callback";
               }}>
               <Icon className={classes.extendedIcon}>add</Icon> {"Google Giriş Yap"}
             </Button>
-            <Button color='primary' fullWidth className={classes.button} onClick={this.openEditor}>
+            <Button color='primary' className={classes.button} onClick={this.openEditor}>
               <Icon className={classes.extendedIcon}>add</Icon> {"\tYeni Mail Oluştur"}
             </Button>
             <List>
