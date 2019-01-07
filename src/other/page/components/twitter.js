@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import Axios from "axios";
-import { makeStyles } from "@material-ui/styles";
+import { withStyles } from "@material-ui/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -26,7 +26,7 @@ const blobToBase64 = require("blob-to-base64");
 TimeAgo.addLocale(tr);
 const timeAgo = new TimeAgo("tr-TR");
 
-export default class TwitterApi extends Component {
+class TwitterApi extends Component {
   constructor() {
     super();
     this.state = { data: [], visible: false };
@@ -41,11 +41,19 @@ export default class TwitterApi extends Component {
     });
   };
   render() {
+    const { classes } = this.props;
     if (this.state.visible == false) return <a />;
-    return <TwitterList data={this.state.data} full={this.props.full ? false : true} update={this.update} />;
+    return (
+      <TwitterList
+        data={this.state.data}
+        classes={classes}
+        full={this.props.full ? false : true}
+        update={this.update}
+      />
+    );
   }
 }
-const useStyles = makeStyles(theme => ({
+const styles = theme => ({
   relative: {
     position: "relative"
   },
@@ -85,10 +93,9 @@ const useStyles = makeStyles(theme => ({
     margin: 8
   },
   textField: {}
-}));
+});
 
-function TwitterList({ data, update, full }) {
-  const classes = useStyles();
+function TwitterList({ data, update, full, classes }) {
   const [tweet, setTweet] = React.useState("");
   const [tweetFile, setTweetFile] = React.useState("");
   const [open, setOpen] = React.useState(false);
@@ -107,7 +114,6 @@ function TwitterList({ data, update, full }) {
     });
   };
   const postTweet = () => {
-    console.log(tweet);
     if (tweet.length < 1 || tweet.length > 239) {
       alert("lütfen " + tweet.length + "'den " + (tweet.length < 1 ? "fazla " : "az ") + "karakter kullanın");
     } else {
@@ -120,7 +126,6 @@ function TwitterList({ data, update, full }) {
       // setTweet("");
     }
   };
-  console.log("data[0].user", full);
   const tweetUpdate = ({ target }) => setTweet(target.value);
   return (
     <div className={classes.relative}>
@@ -218,3 +223,4 @@ function TwitterList({ data, update, full }) {
     </div>
   );
 }
+export default withStyles(styles)(TwitterApi);

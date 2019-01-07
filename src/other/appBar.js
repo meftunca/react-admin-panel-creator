@@ -8,11 +8,8 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import { fade } from "@material-ui/core/styles/colorManipulator";
 import { withStyles } from "@material-ui/core/styles";
-import SearchIcon from "@material-ui/icons/Search";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import MailIcon from "@material-ui/icons/Mail";
-import NotificationsIcon from "@material-ui/icons/Notifications";
-import MoreIcon from "@material-ui/icons/MoreVert";
+import { Button } from "@material-ui/core";
+import { observer, inject } from "mobx-react";
 
 const styles = theme => ({
   grow: {
@@ -22,7 +19,9 @@ const styles = theme => ({
     display: "none",
     [theme.breakpoints.up("sm")]: {
       display: "block"
-    }
+    },
+    paddingLeft: 5,
+    paddingRight: 5
   },
   search: {
     position: "relative",
@@ -76,21 +75,24 @@ const styles = theme => ({
     }
   }
 });
-
+@inject("store")
+@observer
 class AppBar extends React.Component {
-  state = {
-    anchorEl: null,
-    mobileMoreAnchorEl: null
-  };
-
-  handleProfileMenuOpen = event => {
-    this.setState({ anchorEl: event.currentTarget });
-  };
-
-  handleMenuClose = () => {
-    this.setState({ anchorEl: null });
-    this.handleMobileMenuClose();
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      anchorEl: null,
+      mobileMoreAnchorEl: null,
+      user: {},
+      show: false
+    };
+  }
+  componentDidMount() {
+    this.setState({
+      show: true,
+      user: JSON.parse(localStorage.getItem("data"))
+    });
+  }
 
   handleMobileMenuOpen = event => {
     this.setState({ mobileMoreAnchorEl: event.currentTarget });
@@ -101,22 +103,10 @@ class AppBar extends React.Component {
   };
 
   render() {
-    const { anchorEl, mobileMoreAnchorEl } = this.state;
+    const { anchorEl, mobileMoreAnchorEl, show, user } = this.state;
     const { classes } = this.props;
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-    const renderMenu = (
-      <Menu
-        anchorEl={anchorEl}
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-        transformOrigin={{ vertical: "top", horizontal: "right" }}
-        open={isMenuOpen}
-        onClose={this.handleMenuClose}>
-        <MenuItem onClick={this.handleMenuClose}>Profile</MenuItem>
-        <MenuItem onClick={this.handleMenuClose}>My account</MenuItem>
-      </Menu>
-    );
 
     const renderMobileMenu = (
       <Menu
@@ -128,7 +118,7 @@ class AppBar extends React.Component {
         <MenuItem>
           <IconButton color='inherit'>
             <Badge badgeContent={4} color='secondary'>
-              <MailIcon />
+              <Icon name='mail' />
             </Badge>
           </IconButton>
           <p>Messages</p>
@@ -136,30 +126,32 @@ class AppBar extends React.Component {
         <MenuItem>
           <IconButton color='inherit'>
             <Badge badgeContent={11} color='secondary'>
-              <NotificationsIcon />
+              <Icon name='notifications' />
             </Badge>
           </IconButton>
           <p>Notifications</p>
         </MenuItem>
-        <MenuItem onClick={this.handleProfileMenuOpen}>
-          <IconButton color='inherit'>
-            <AccountCircle />
-          </IconButton>
-          <p>Profile</p>
+        <MenuItem
+          onClick={() => {
+            this.setState({ anchorEl: null });
+            this.props.store.update_profileDrawer(true);
+          }}>
+          <Button aria-owns={isMenuOpen ? "material-appbar" : undefined} aria-haspopup='true' color='inherit'>
+            <Icon name='account_circle' />
+
+            <Typography className={classes.title} variant='caption' color='inherit' noWrap>
+              {user.name}
+            </Typography>
+          </Button>
         </MenuItem>
       </Menu>
     );
-
+    if (show == false) return <a />;
     return (
       <Fragment>
-        <Typography className={classes.title} variant='h6' color='inherit' noWrap>
-          ADMIN PANEL
-        </Typography>
-            <div className={classes.grow} />
-
         <div className={classes.search}>
           <div className={classes.searchIcon}>
-            <SearchIcon />
+            <Icon name='search' />
           </div>
           <InputBase placeholder='Search…' classes={{ root: classes.inputRoot, input: classes.inputInput }} />
         </div>
@@ -167,28 +159,34 @@ class AppBar extends React.Component {
         <div className={classes.sectionDesktop}>
           <IconButton color='inherit'>
             <Badge badgeContent={4} color='secondary'>
-              <MailIcon />
+              <Icon name='mail' />
             </Badge>
           </IconButton>
           <IconButton color='inherit'>
             <Badge badgeContent={17} color='secondary'>
-              <NotificationsIcon />
+              <Icon name='notifications' />
             </Badge>
           </IconButton>
-          <IconButton
+          <Button
             aria-owns={isMenuOpen ? "material-appbar" : undefined}
             aria-haspopup='true'
-            onClick={this.handleProfileMenuOpen}
-            color='inherit'>
-            <AccountCircle />
-          </IconButton>
+            color='inherit'
+            onClick={() => {
+              this.setState({ anchorEl: null });
+              this.props.store.update_profileDrawer(true);
+            }}>
+            <Icon name='account_circle' />
+
+            <Typography className={classes.title} variant='caption' color='inherit' noWrap>
+              {user.name}
+            </Typography>
+          </Button>
         </div>
         <div className={classes.sectionMobile}>
           <IconButton aria-haspopup='true' onClick={this.handleMobileMenuOpen} color='inherit'>
-            <MoreIcon />
+            <Icon name='more' />
           </IconButton>
         </div>
-        {renderMenu}
         {renderMobileMenu}
       </Fragment>
     );
@@ -198,5 +196,5 @@ class AppBar extends React.Component {
 AppBar.propTypes = {
   classes: PropTypes.object.isRequired
 };
-
+const Icon = ({ name }) => <i className='material-icons'>{name}</i>;
 export default withStyles(styles)(AppBar);

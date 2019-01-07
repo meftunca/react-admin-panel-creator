@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
@@ -15,13 +14,15 @@ import list from "material-design-icon-list/src/list.js";
 import Grid from "@material-ui/core/Grid";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import Collapse from "@material-ui/core/Collapse";
+import { withStyles } from "@material-ui/core/styles";
+
 const uniqid = require("uniqid");
 
-const useStyles = makeStyles(theme => ({
+const useStyles = {
   container: {
-    display: "flex",
-    flexWrap: "wrap",
-    width: "100%"
+    // display: "flex",
+    // flexWrap: "wrap",
+    // width: "100%"
   },
   textField: {
     marginLeft: 4,
@@ -46,10 +47,9 @@ const useStyles = makeStyles(theme => ({
     overflowY: "scroll",
     overflowX: "hidden"
   }
-}));
+};
 const ICON = props => <i className={props.className + " material-icons"}>{props.children}</i>;
-function TODOLIST() {
-  const classes = useStyles();
+const TODOLIST = ({ classes }) => {
   const [todoId, setTodoId] = useState("todo@" + uniqid());
   const [open, setOpen] = React.useState(false);
   const [defaultState, setDefaultState] = useState(todoState);
@@ -109,6 +109,7 @@ function TODOLIST() {
             update={todoUpdate}
             state={defaultState}
             set={setDefaultState}
+            classes={classes}
             close={() => {
               setOpen(false);
               setTimeout(() => setOpen(true), 500);
@@ -118,10 +119,9 @@ function TODOLIST() {
       </Grid>
     </div>
   );
-}
+};
 
-const TODOFormCreator = ({ update, state, set, close }) => {
-  const classes = useStyles();
+const TODOFormCreator = ({ update, state, set, close, classes }) => {
   const [todo, setTodo] = useState(state);
 
   let updates = value => {
@@ -142,16 +142,16 @@ const TODOFormCreator = ({ update, state, set, close }) => {
   return (
     <Grid container alignItems={"center"} justify={"center"} spacing={24}>
       <Grid item md={12}>
-        <TODOFormTitle update={updates} todo={todo} />
+        <TODOFormTitle update={updates} todo={todo} classes={classes} />
       </Grid>
       <Grid item md={12}>
-        <TODOFormText update={updates} todo={todo} />
+        <TODOFormText update={updates} todo={todo} classes={classes} />
       </Grid>
       <Grid item md={6}>
-        <TODOFormSelectBox update={updates} todo={todo} />
+        <TODOFormSelectBox update={updates} todo={todo} classes={classes} />
       </Grid>
       <Grid item md={6}>
-        <TODOFormColor update={updates} todo={todo} />
+        <TODOFormColor update={updates} todo={todo} classes={classes} />
       </Grid>
       <Grid item md={12}>
         <Grid container>
@@ -175,8 +175,7 @@ const TODOFormCreator = ({ update, state, set, close }) => {
     </Grid>
   );
 };
-const TODOFormTitle = ({ update, todo }) => {
-  const classes = useStyles();
+const TODOFormTitle = ({ update, todo, classes }) => {
   const [values, setValues] = useState(todo.title);
   const handleChange = event => {
     setValues(event.target.value);
@@ -206,8 +205,7 @@ const TODOFormTitle = ({ update, todo }) => {
     />
   );
 };
-const TODOFormText = ({ update, todo }) => {
-  const classes = useStyles();
+const TODOFormText = ({ update, todo, classes }) => {
   const [values, setValues] = useState(todo.text);
   //   console.log("TODOFormText", todo, values);
 
@@ -241,8 +239,7 @@ const TODOFormText = ({ update, todo }) => {
     />
   );
 };
-const TODOFormColor = ({ update, todo }) => {
-  const classes = useStyles();
+const TODOFormColor = ({ update, todo, classes }) => {
   const [values, setValues] = useState(todo.color);
   const handleChange = value => {
     setValues(value);
@@ -255,8 +252,7 @@ const TODOFormColor = ({ update, todo }) => {
   return <ColorPicker name='color' defaultValue={values} onChange={color => handleChange(color)} />;
 };
 
-const TODOFormSelectBox = ({ update, todo }) => {
-  const classes = useStyles();
+const TODOFormSelectBox = ({ update, todo, classes }) => {
   const [values, setValues] = useState(todo.icon);
   const [select, setSelect] = useState(todo.icon);
   //   useEffect(() => {
@@ -335,4 +331,4 @@ const todoState = {
   icon: "",
   color: "#000"
 };
-export default TODOLIST;
+export default withStyles(useStyles)(TODOLIST);

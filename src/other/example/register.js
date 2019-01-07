@@ -61,8 +61,7 @@ const styles = theme => ({
   }
 });
 
-function Register(props) {
-  const { classes } = props;
+function Register({ store, classes }) {
   const ref = React.createRef();
   const [token, setToken] = useState(false);
   const [turnData, setTurnData] = useState({});
@@ -75,9 +74,16 @@ function Register(props) {
       data[k] = v;
     }
     Axios.post(window.location.origin + ":8000/user-register", data)
-      .then(d => {
-        console.log(d);
-        setTurnData(d.data);
+      .then(async ({ data }) => {
+        setTurnData(data.data);
+        // store update
+        if (data.status == "success") {
+          await store.update_userData(data.data);
+          await store.update_login(true);
+          await store.update_registerPage(false);
+          let userData = JSON.stringify(data.data);
+          await localStorage.setItem("data", userData);
+        }
       })
       .catch(e => console.log(e));
   };

@@ -1,7 +1,7 @@
 [
   {
     "type": "link",
-    "name": "Home Page",
+    "name": "Home_Page",
     "title": "Anasayfa",
     "header": {
       "label": "Home",
@@ -11,6 +11,20 @@
       "path": "/",
       "exact": true,
       "componentName": "page/home"
+    }
+  },
+  {
+    "type": "link",
+    "name": "MailBox",
+    "title": "MailBox",
+    "header": {
+      "label": "MailBox",
+      "icon": "email"
+    },
+    "route": {
+      "path": "/mailbox",
+      "exact": true,
+      "componentName": "page/mailbox"
     }
   },
   {

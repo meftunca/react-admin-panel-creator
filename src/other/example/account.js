@@ -7,7 +7,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
-
+import { inject, observer } from "mobx-react";
 const Item = [
   {
     Component: loadable(() => import("./login"))
@@ -19,15 +19,18 @@ const Item = [
     Component: loadable(() => import("./rememberMe"))
   }
 ];
+@inject("store")
+@observer
 export default class Account extends Component {
   constructor(props) {
     super(props);
     this.state = { page: 0 };
   }
   render() {
+    const { store } = this.props;
     return (
       <Grid container direction='row' justify='center' alignItems='center' spacing={32}>
-        <TabBar />
+        <TabBar store={store} />
       </Grid>
     );
   }
@@ -48,7 +51,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function TabBar() {
+function TabBar({ store }) {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
@@ -79,12 +82,12 @@ function TabBar() {
       <SwipeableViews index={value} onChangeIndex={handleChangeIndex}>
         {Item.map((i, k) => (
           <div className={classes.padding} key={k}>
-            <ShowPage {...i} />
+            <ShowPage store={store} {...i} />
           </div>
         ))}
       </SwipeableViews>
     </Paper>
   );
 }
-const ShowPage = ({ Component }) => <Component />;
+const ShowPage = ({ store, Component }) => <Component store={store} />;
 const Icon = ({ name }) => <i className='material-icons'>{name}</i>;

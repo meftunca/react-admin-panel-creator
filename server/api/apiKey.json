@@ -5,5 +5,15 @@
     "access_token_key": "3293164734-flLNI737Kx80gPEsJN5DBMXHN2uCew8HYkSwsQD",
     "access_token_secret": "uMktnXidYlONSa3lV45AXPS7mvnW5k0YAU7wwWTPqDFrB"
   },
-  "google": {}
+  "google": {
+    "gmail": {
+      "client_id": "586633122136-kg824g7f1b0qj50cm9bh0gjoepqlqgvv.apps.googleusercontent.com",
+      "project_id": "mail-api-1546425551824",
+      "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+      "token_uri": "https://www.googleapis.com/oauth2/v3/token",
+      "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+      "client_secret": "R68OTcPATmZxXhJsZYEjoRTQ",
+      "redirect_uris": ["urn:ietf:wg:oauth:2.0:oob", "http://localhost"]
+    }
+  }
 }

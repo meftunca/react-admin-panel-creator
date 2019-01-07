@@ -47,7 +47,7 @@ module.exports = app => {
                 : res.json({
                     status: "success",
                     message: "Giriş işlemi başarılı. Birazdan yönlendirileceksiniz.",
-                    data: suc
+                    data: docs
                   })
             );
           } else {

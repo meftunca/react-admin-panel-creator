@@ -25,6 +25,7 @@ import { LocalizeProvider } from "react-localize-redux";
 import { withLocalize } from "react-localize-redux";
 import { renderToStaticMarkup } from "react-dom/server";
 import Account from "../../other/example/account";
+import ProfileTabDrawer from "../../other/profile/tabDrawer";
 
 const formTableData = require("./../../json/form").forms;
 const chartData = require("./../../json/chart");
@@ -137,7 +138,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: true
+      open: true,
+      show: false
     };
     this.props.initialize({
       languages: [{ name: "English", code: "en" }, { name: "Turkish", code: "tr" }],
@@ -146,8 +148,7 @@ class App extends React.Component {
     });
   }
   componentDidMount() {
-    console.log(this.props);
-    console.log("proccess", process.env);
+    this.setState({ show: true });
   }
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -160,7 +161,8 @@ class App extends React.Component {
   render() {
     const { classes, theme, store } = this.props;
     const { pathname } = window.location;
-    const { open } = this.state;
+    const { open, show } = this.state;
+    if (!show) return <a />;
     return (
       <div className={store.login == false || store.registerPage == true ? classes.bg : classes.root}>
         <BrowserRouter>
@@ -269,6 +271,7 @@ class App extends React.Component {
                   {formTableData.map((i, k) => (
                     <ParserTabViewerRoute path={i.route.path} exact={i.route.exact} data={i} key={k} />
                   ))}
+                  <ProfileTabDrawer />
                 </main>
               </Fragment>
             )}

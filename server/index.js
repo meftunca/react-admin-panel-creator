@@ -1,15 +1,19 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const account = require("./account");
+const passport = require("passport");
 const { timeLine, statusUpdate, createTwitterApi } = require("./twitter");
 var mongoose = require("mongoose");
 const low = require("lowdb");
 var path = require("path");
+const cookieParser = require("cookie-parser");
+const cookieSession = require("cookie-session");
 const FileSync = require("lowdb/adapters/FileSync");
 const adapter = new FileSync("./src/json/form.json");
+const auth = require("./google/gmail/access"); //erişim izni için aktif et
+// const mailRoute = require("./google/gmail");
 const db = low(adapter);
 const app = express();
-
 // db.defaults({ forms: [] }).write();
 const schemaCreator = require("./mongo/mongoSchemaCreator");
 mongoose.connect(
@@ -24,15 +28,26 @@ for (let [k, v] of Object.entries(schema)) {
 app.use(express.static(path.join(__dirname, "/../public")));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["123"]
+  })
+);
+app.use(cookieParser());
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-
+//gmail config
+auth(passport);
+app.use(passport.initialize());
 //kullancı yönetimi
 account(app);
+// mailApi(app);
 
+// mailRoute(app);
 //twitter ile ilgili rotalar
 app.post("/twitter", function(req, res) {
   timeLine.then(d => res.json(d)).catch(e => res.json(e));
@@ -51,6 +66,17 @@ app.post("/api-twitter", async (req, res) => {
     .catch(e => res.json({ data: { status: "error", message: "server tarafında bir hata ile karşılaşıldı" } }));
 });
 
+//google ile ilgili rotalar
+app.get(
+  "/auth/google",
+  passport.authenticate("google", {
+    scope: ["https://www.googleapis.com/auth/userinfo.profile"]
+  })
+);
+app.get("/auth/google/callback", passport.authenticate("google", { failureRedirect: "/" }), (req, res) => {
+  req.session.token = req.user.token;
+  res.redirect("/");
+});
 //facebook ile ilgili rotalar
 
 //mongodb ve formlarla ilgili ile ilgili rotalar
