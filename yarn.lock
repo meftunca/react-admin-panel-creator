@@ -820,7 +820,7 @@
   dependencies:
     hoist-non-react-statics "^3.2.1"
 
-"@material-ui/core@^3.8.1":
+"@material-ui/core@^3.8.1", "@material-ui/core@^3.8.2":
   version "3.8.2"
   resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-3.8.2.tgz#24d78fb6093f5435c25a7cb76f17a6289215d805"
   integrity sha512-OLPZqA0oeu1ritKxwDl6vfuVu+pxmcyF0C9iulvy41O9OJzjgFi89c8i8XOoJYcxW3HyuOvl+HGB4YX0sr2QZw==
@@ -854,7 +854,7 @@
     recompose "0.28.0 - 0.30.0"
     warning "^4.0.1"
 
-"@material-ui/icons@^3.0.1":
+"@material-ui/icons@^3.0.2":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@material-ui/icons/-/icons-3.0.2.tgz#d67a6dd1ec8312d3a88ec97944a63daeef24fe10"
   integrity sha512-QY/3gJnObZQ3O/e6WjH+0ah2M3MOgLOzCy8HTUoUx9B6dDrS18vP7Ycw3qrDEKlB6q1KNxy6CZHm5FCauWGy2g==
@@ -862,7 +862,7 @@
     "@babel/runtime" "^7.2.0"
     recompose "0.28.0 - 0.30.0"
 
-"@material-ui/lab@^3.0.0-alpha.27":
+"@material-ui/lab@^3.0.0-alpha.28":
   version "3.0.0-alpha.28"
   resolved "https://registry.yarnpkg.com/@material-ui/lab/-/lab-3.0.0-alpha.28.tgz#27fa74d0dffe8805b89e29b0843eae30d179c613"
   integrity sha512-uERqo8W2RhWDDaO1FMmvWS9GHBX3Sdhu1F7o+Z2M8wQ6viKcvONVlN4oC80VP6fgze8p5cnjmNhFLuCypLRHTg==
@@ -873,7 +873,7 @@
     keycode "^2.1.9"
     prop-types "^15.6.0"
 
-"@material-ui/styles@^3.0.0-alpha.6":
+"@material-ui/styles@^3.0.0-alpha.7":
   version "3.0.0-alpha.7"
   resolved "https://registry.yarnpkg.com/@material-ui/styles/-/styles-3.0.0-alpha.7.tgz#e89bdea889b85f2dc3550e21038d80d5c5268124"
   integrity sha512-dP44B/xp2YjH8WPYhfAZwEjUTzTvsDER/3vNG/CMZeJynng2JrtCT0WSJXHK3UoQXam+xqwcCE7b4m1hHnCglQ==

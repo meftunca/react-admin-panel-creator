@@ -16,12 +16,5 @@ mix
     terser: {},
     purifyCss: false,
     uglify: true,
-    //purifyCss: {},
-    postCss: [require("autoprefixer")],
     clearConsole: false
-  })
-  .webpackConfig(webpack => {
-    return {
-      plugins: [new webpack.DefinePlugin({ "process.env": env.parsed })]
-    };
   });
