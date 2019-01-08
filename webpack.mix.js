@@ -6,8 +6,7 @@ if (process.env.NODE_ENV === "development") {
 }
 mix
   .react("src/index.js", "public")
-  .sass("src/scss/app.scss", "public")
-  .version()
+  // .sass("src/scss/app.scss", "public")
   .setPublicPath("public")
   .disableNotifications()
   .options({
@@ -17,4 +16,5 @@ mix
     purifyCss: false,
     uglify: true,
     clearConsole: false
-  });
+  })
+  .version();
