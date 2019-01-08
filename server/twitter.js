@@ -8,7 +8,7 @@ const Api = require("./api/apiKey.json").twitter;
 var client = new Twitter(Api);
 let createTwitterApi = ({ data }) =>
   new Promise((resolve, reject) => {
-    db.defaults({ twitter: {}, google: {} }).write();
+    db.defaults({ twitter: {}, google: {}, facebook: {} }).write();
     let q = db.set("twitter", data).write();
     reject(q);
     resolve(q);

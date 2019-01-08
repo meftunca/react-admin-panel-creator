@@ -88,15 +88,6 @@
         "regex": "",
         "required": "false",
         "mongoType": "string"
-      },
-      {
-        "name": "access_token",
-        "icon": "",
-        "label": "access_token",
-        "type": "text",
-        "regex": "",
-        "required": "false",
-        "mongoType": "string"
       }
     ],
     "tableItem": [

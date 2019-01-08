@@ -102,7 +102,7 @@ class MailBox extends Component {
               }}>
               <Icon className={classes.extendedIcon}>add</Icon> {"Google Giriş Yap"}
             </Button>
-            <Button color='primary' className={classes.button} onClick={this.openEditor}>
+            <Button color='secondary' className={classes.button} onClick={this.openEditor}>
               <Icon className={classes.extendedIcon}>add</Icon> {"\tYeni Mail Oluştur"}
             </Button>
             <List>

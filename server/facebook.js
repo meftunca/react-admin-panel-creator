@@ -1,13 +1,43 @@
-import { Facebook, FacebookApiException } from "fb";
-const fb = new Facebook(options);
-
-const base64Img = require("base64-img");
+const { Facebook, FacebookApiException } = require("fb");
+// const base64Img = require("base64-img");
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
 const adapter = new FileSync("./server/api/apiKey.json");
 const db = low(adapter);
+let fbOpt = () => db.get("facebook").value();
+const FB = new Facebook(Object.assign({ version: "v2.4" }, fbOpt));
 
-const access_token = new Promise((err, suc) => {});
+const getAccessToken = data =>
+  new Promise((resolve, reject) => {
+    FB.api(
+      "oauth/access_token",
+      {
+        client_id: data.appId,
+        client_secret: data.app_secret,
+        grant_type: "client_credentials"
+      },
+      res => {
+        if (!res || res.error) {
+          console.log(!res ? "error occurred" : res.error);
+          reject(res.error);
+        }
+        console.log(res);
+        data["accessToken"] = res.access_token;
+        resolve(data);
+      }
+    );
+  });
+
+let createFBApi = data =>
+  new Promise((resolve, reject) => {
+    getAccessToken(data)
+      .then(d => {
+        let q = d.appId != "" && d.app_secret != "" ? db.set("facebook", d).write() : undefined;
+        console.log(d);
+        resolve(q);
+      })
+      .catch(e => reject(e));
+  });
 
 const selectPost = id => new Promise((err, suc) => {});
 
@@ -19,10 +49,22 @@ const createPost = data => new Promise((err, suc) => {});
 
 const insertImage = data => new Promise((err, suc) => {});
 
-module.exports = {
-  selectPost,
-  removePost,
-  getPosts,
-  createPost,
-  insertImage
+module.exports = app => {
+  app.post("/api-facebook", (req, res) => {
+    let d = req.body;
+
+    FB.setAccessToken(fbOpt.accessToken);
+
+    var body = "My first post using facebook-node-sdk";
+    FB.api("me/feed", "post", { message: body }, function(res) {
+      if (!res || res.error) {
+        console.log(!res ? "error occurred" : res.error);
+        return;
+      }
+      console.log("Post Id: " + res.id);
+    });
+    // createFBApi(d.data)
+    //   .then(d => res.json(d))
+    //   .catch(e => res.json(e));
+  });
 };

@@ -2,12 +2,15 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const account = require("./account");
 const { timeLine, statusUpdate, createTwitterApi } = require("./twitter");
-var mongoose = require("mongoose");
+const FaceBookMen = require("./facebook");
+const mongoose = require("mongoose");
 const low = require("lowdb");
-var path = require("path");
+const path = require("path");
 const FileSync = require("lowdb/adapters/FileSync");
 const adapter = new FileSync("./src/json/form.json");
-const auth = require("./google/gmail/access"); //erişim izni için aktif et
+const session = require("express-session");
+
+// const auth = require("./google/gmail/access"); //erişim izni için aktif et
 // const mailRoute = require("./google/gmail");
 const db = low(adapter);
 const app = express();
@@ -56,7 +59,7 @@ app.post("/api-twitter", async (req, res) => {
 //google ile ilgili rotalar
 
 //facebook ile ilgili rotalar
-
+FaceBookMen(app);
 //mongodb ve formlarla ilgili ile ilgili rotalar
 
 app.post("/create-form", async (req, res) => {

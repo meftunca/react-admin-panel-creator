@@ -8,6 +8,7 @@ import ListSubheader from "@material-ui/core/ListSubheader";
 import Switch from "@material-ui/core/Switch";
 import { withStyles } from "@material-ui/core/styles";
 import { Divider } from "@material-ui/core";
+import FacebookLogin from "react-facebook-login";
 
 const styles = theme => ({
   root: {
@@ -33,6 +34,7 @@ const optionItemData = [
     label: "RTL yada LTR"
   }
 ];
+
 const DefaultSettings = ({ classes }) => {
   const [checked, setChecked] = React.useState(options);
 
@@ -42,16 +44,32 @@ const DefaultSettings = ({ classes }) => {
     setChecked(newOpt);
     localStorage.setItem("config", newOpt);
   };
-
+  const responseFacebook = response => {
+    console.log(response);
+  };
   return (
     <Fragment>
       <List subheader={<ListSubheader>Ayarlar</ListSubheader>} className={classes.root}>
         {optionItemData.map((i, k) => (
-          <Fragment>
-            <Item {...i} handleToggle={handleToggle} checked={checked[i.name]} key={k} />
+          <Fragment key={k}>
+            <Item {...i} handleToggle={handleToggle} checked={checked[i.name]} />
             <Divider />
           </Fragment>
         ))}
+
+        <ListItem>
+          <ListItemText
+            primary={
+              <FacebookLogin
+                appId='865826513748889'
+                autoLoad={true}
+                fields='public_profile,email'
+                scope='public_profile,user_friends,user_actions.books'
+                callback={responseFacebook}
+              />
+            }
+          />
+        </ListItem>
       </List>
       <Divider />
     </Fragment>
