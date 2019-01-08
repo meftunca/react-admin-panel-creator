@@ -50,7 +50,7 @@ class FormCreator extends Component {
   }
 
   post = data => {
-    axios.post(window.location.origin + ":8000/create-form", data).then(d => console.log(d));
+    axios.post(window.location.origin.replace("https","http") + ":8000/create-form", data).then(d => console.log(d));
   };
   view = () => console.log("view");
   send = () => this.handleClick();

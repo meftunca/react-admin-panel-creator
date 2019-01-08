@@ -1,2 +1,1 @@
-let app = require("./server/index");
-app();
+let app = require("./server/index")();

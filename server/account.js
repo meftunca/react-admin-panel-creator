@@ -22,6 +22,7 @@ module.exports = app => {
   app.post("/user-login", (req, res) => {
     let d = req.body,
       pass = bcrypt.hashSync(d.password);
+    console.log(req.body);
     collection
       .findOne({ $or: [{ userName: d.name }, { eMail: d.name }] })
       //   .and({ password: d.password })

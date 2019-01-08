@@ -1,21 +1,20 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const account = require("./account");
-const { timeLine, statusUpdate, createTwitterApi } = require("./twitter");
-const FaceBookMen = require("./facebook");
-const mongoose = require("mongoose");
-const low = require("lowdb");
-const path = require("path");
-const FileSync = require("lowdb/adapters/FileSync");
-const adapter = new FileSync("./src/json/form.json");
-const session = require("express-session");
-
-// const auth = require("./google/gmail/access"); //erişim izni için aktif et
-// const mailRoute = require("./google/gmail");
-const db = low(adapter);
-const app = express();
-// db.defaults({ forms: [] }).write();
-const schemaCreator = require("./mongo/mongoSchemaCreator");
+const express = require("express"),
+  http = require("http"),
+  bodyParser = require("body-parser"),
+  account = require("./account"),
+  { timeLine, statusUpdate, createTwitterApi } = require("./twitter"),
+  FaceBookMen = require("./facebook"),
+  mongoose = require("mongoose"),
+  low = require("lowdb"),
+  path = require("path"),
+  FileSync = require("lowdb/adapters/FileSync"),
+  adapter = new FileSync("./src/json/form.json"),
+  // const auth = require("./google/gmail/access"); //erişim izni için aktif et
+  // const mailRoute = require("./google/gmail");
+  db = low(adapter),
+  app = express(),
+  // db.defaults({ forms: [] }).write();
+  schemaCreator = require("./mongo/mongoSchemaCreator");
 mongoose.connect(
   "mongodb://localhost/admin",
   { useNewUrlParser: true }
@@ -95,5 +94,7 @@ app.get("*", (req, res) => {
 });
 const port = process.env.PORT || 8000;
 console.log("port", process.env.PORT);
-app.listen(port);
+http.createServer({}, app).listen(port, function() {
+  console.log("Express server listening on port " + app.get("port"));
+});
 module.exports = app;
