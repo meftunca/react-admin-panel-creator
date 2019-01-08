@@ -5,10 +5,10 @@ if (process.env.NODE_ENV === "development") {
   mix.sourceMaps();
 }
 mix
-  .react("src/index.js", "public/dist/js")
-  .sass("src/scss/app.scss", "public/dist/css")
+  .react("src/index.js", "public")
+  .sass("src/scss/app.scss", "public")
   .version()
-  .setPublicPath("public/dist")
+  .setPublicPath("public")
   .disableNotifications()
   .options({
     extractVueStyles: false,
