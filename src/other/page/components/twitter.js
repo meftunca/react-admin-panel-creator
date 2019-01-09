@@ -36,7 +36,7 @@ class TwitterApi extends Component {
     this.update();
   }
   update = () => {
-    Axios.post(window.location.origin.replace("https", "http") + ":8000/twitter", { id: "lorem ipsm" }).then(res => {
+    Axios.post(window.location.origin + ":8000/twitter", { id: "lorem ipsm" }).then(res => {
       this.setState({ data: res.data, visible: true });
     });
   };

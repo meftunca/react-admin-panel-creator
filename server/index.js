@@ -1,5 +1,4 @@
 const express = require("express"),
-  http = require("http"),
   bodyParser = require("body-parser"),
   account = require("./account"),
   { timeLine, statusUpdate, createTwitterApi } = require("./twitter"),
@@ -93,8 +92,5 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/../public/index.html"));
 });
 const port = process.env.PORT || 8000;
-console.log("port", process.env.PORT);
-http.createServer({}, app).listen(port, function() {
-  console.log("Express server listening on port " + app.get("port"));
-});
+app.listen(port);
 module.exports = app;

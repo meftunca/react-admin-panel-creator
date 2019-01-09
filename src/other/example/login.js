@@ -73,7 +73,7 @@ function SignIn({ classes, store }) {
       console.log(k, v);
       data[k] = v;
     }
-    Axios.post(window.location.origin.replace("https", "http") + ":8000/user-login", data)
+    Axios.post(window.location.origin + ":8000/user-login", data)
       .then(async ({ data }) => {
         setTurnData(data.data);
         // store update

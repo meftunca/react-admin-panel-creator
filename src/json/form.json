@@ -19,7 +19,7 @@
           "label": "Text input",
           "icon": "text_fields",
           "type": "text",
-          "rexex": "",
+          "validateFunc": "",
           "required": false,
           "mongoType": "string"
         },
@@ -28,7 +28,7 @@
           "label": "password input",
           "icon": "lock",
           "type": "password",
-          "rexex": "",
+          "validateFunc": "",
           "required": false,
           "mongoType": "string"
         },
@@ -37,7 +37,7 @@
           "label": "editor input",
           "icon": "border_color",
           "type": "editor",
-          "rexex": "",
+          "validateFunc": "",
           "required": false,
           "mongoType": "string"
         },
@@ -46,7 +46,7 @@
           "label": "datepicker input",
           "icon": "border_color",
           "type": "date",
-          "rexex": "",
+          "validateFunc": "",
           "required": false,
           "mongoType": "date",
           "config": {
@@ -63,7 +63,7 @@
           "label": "timepicker input",
           "icon": "border_color",
           "type": "time",
-          "rexex": "",
+          "validateFunc": "",
           "required": false,
           "mongoType": "date",
           "config": {
@@ -80,7 +80,7 @@
           "label": "radio input",
           "icon": "border_color",
           "type": "radio",
-          "rexex": "",
+          "validateFunc": "",
           "required": false,
           "mongoType": "boolean",
           "config": {
@@ -93,7 +93,7 @@
           "label": "checkbox input",
           "icon": "border_color",
           "type": "checkbox",
-          "rexex": "",
+          "validateFunc": "",
           "required": false,
           "mongoType": "boolean",
           "config": {
@@ -108,7 +108,7 @@
           "label": "switch input",
           "icon": "border_color",
           "type": "switch",
-          "rexex": "",
+          "validateFunc": "",
           "required": false,
           "mongoType": "boolean",
           "config": {
@@ -157,7 +157,7 @@
           "label": "Text input",
           "icon": "text_fields",
           "type": "text",
-          "rexex": "",
+          "validateFunc": "",
           "mongoType": "string",
           "required": false
         },
@@ -166,7 +166,7 @@
           "label": "password input",
           "icon": "lock",
           "type": "password",
-          "rexex": "",
+          "validateFunc": "",
           "mongoType": "string",
           "required": false
         },
@@ -175,7 +175,7 @@
           "label": "editor input",
           "icon": "border_color",
           "type": "editor",
-          "rexex": "",
+          "validateFunc": "",
           "mongoType": "string",
           "required": false
         }
