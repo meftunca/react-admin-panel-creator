@@ -44,6 +44,7 @@
     "passport-google-oauth": "^1.0.0",
     "react": "@next",
     "react-dom": "@next",
+    "react-draft-wysiwyg": "^1.12.19",
     "react-dropzone": "^8.0.3",
     "react-email-editor": "^0.9.0",
     "react-facebook-login": "^4.1.1",
