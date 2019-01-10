@@ -1,10 +1,10 @@
 const mongoose = require("mongoose"),
   schemaCreator = require("./mongoSchemaCreator");
+let url =
+  "mongodb://heroku_t39b8ml4:nip8m4ehf38lsqourohpvtjboo@ds253284.mlab.com:53284/heroku_t39b8ml4" ||
+  "mongodb://localhost/admin";
 mongoose.connect(
-  "mongodb://localhost/admin",
-
-  // "mongodb://heroku_t39b8ml4:nip8m4ehf38lsqourohpvtjboo@ds253284.mlab.com:53284/heroku_t39b8ml4",
-
+  url,
   { useNewUrlParser: true }
 );
 let schema = schemaCreator(),
