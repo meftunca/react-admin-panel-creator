@@ -1,12 +1,9 @@
 const mongoose = require("mongoose"),
   env = require("dotenv").config(),
   schemaCreator = require("./mongoSchemaCreator");
-let url =
-  process.env.production == "true"
-    ? "mongodb://heroku_t39b8ml4:nip8m4ehf38lsqourohpvtjboo@ds253284.mlab.com:53284/heroku_t39b8ml4"
-    : "mongodb://localhost/admin";
+
 mongoose.connect(
-  url,
+  process.env.mongoDBURI,
   { useNewUrlParser: true }
 );
 let schema = schemaCreator(),
