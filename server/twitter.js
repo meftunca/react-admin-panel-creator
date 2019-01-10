@@ -58,4 +58,22 @@ let statusUpdate = ({ status, file }) => {
   }
 };
 
-module.exports = { timeLine, statusUpdate, createTwitterApi };
+module.exports = app => {
+  //twitter ile ilgili rotalar
+  app.post("/twitter", function(req, res) {
+    timeLine.then(d => res.json(d)).catch(e => res.json(e));
+  });
+  app.post("/twitter-post", function(req, res) {
+    statusUpdate(req.body)
+      .then(d => res.json(d))
+      // .then(d => res.json(d))
+      .catch(e => res.json(e));
+  });
+  app.post("/api-twitter", async (req, res) => {
+    let data = req.body;
+    console.log(data);
+    createTwitterApi(data)
+      .then(d => res.json({ data: { status: "success", message: "veriler başarılı bir şekilde eklendi" } }))
+      .catch(e => res.json({ data: { status: "error", message: "server tarafında bir hata ile karşılaşıldı" } }));
+  });
+};

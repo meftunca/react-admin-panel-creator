@@ -19,11 +19,7 @@ import { withStyles } from "@material-ui/core/styles";
 const uniqid = require("uniqid");
 
 const useStyles = {
-  container: {
-    // display: "flex",
-    // flexWrap: "wrap",
-    // width: "100%"
-  },
+  container: {},
   textField: {
     marginLeft: 4,
     marginRight: 4

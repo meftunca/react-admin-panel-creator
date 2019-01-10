@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import Axios from "axios";
 import { withStyles } from "@material-ui/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -17,7 +16,6 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import TextField from "@material-ui/core/TextField";
 // Load locale-specific relative date/time formatting rules.
 import tr from "javascript-time-ago/locale/tr";
-import { Divider } from "@material-ui/core";
 import { unstable_Box as Box } from "@material-ui/core/Box";
 import { Link } from "react-router-dom";
 const blobToBase64 = require("blob-to-base64");
@@ -36,7 +34,7 @@ class TwitterApi extends Component {
     this.update();
   }
   update = () => {
-    Axios.post(window.location.origin + ":8000/twitter", { id: "lorem ipsm" }).then(res => {
+    axios.post(window.location.origin + ":8000/twitter", { id: "lorem ipsm" }).then(res => {
       this.setState({ data: res.data, visible: true });
     });
   };
@@ -92,7 +90,9 @@ const styles = theme => ({
   margin: {
     margin: 8
   },
-  textField: {}
+  gutterMargin: {
+    margin: "4px 0"
+  }
 });
 
 function TwitterList({ data, update, full, classes }) {
@@ -154,20 +154,21 @@ function TwitterList({ data, update, full, classes }) {
                   <ListItemText
                     secondary={
                       <Fragment>
+                        {text}
+                        <div className={classes.gutterMargin} />
                         <Typography component='span' className={classes.inline} color='textPrimary'>
                           {timeAgo.format(new Date(created_at))}
                         </Typography>
-                        {" — " + text}
-                        <Divider />
                         {entities.user_mentions.map(({ screen_name, name }, k) => (
                           <Chip
                             avatar={
-                              <Avatar>
+                              <Avatar component='span'>
                                 <FaceIcon />
                               </Avatar>
                             }
+                            component='span'
                             variant='outlined'
-                            label={name}
+                            label={screen_name}
                             key={k}
                             className={classes.chip}
                           />
@@ -180,7 +181,7 @@ function TwitterList({ data, update, full, classes }) {
             ))}
           </Fragment>
         ) : (
-          <Typography component='span' className={classes.inlineCustom} color='textPrimary'>
+          <Typography component='p' className={classes.inlineCustom} color='textPrimary'>
             Şuan Twitter Apisini kullanamazsınız. Gerekli bilgileri girmek için =>
             <Link to='/api-yonetimi'>Adresine gidin</Link>
           </Typography>
@@ -188,7 +189,6 @@ function TwitterList({ data, update, full, classes }) {
       </List>
       {data != [] && data[0].code == undefined && (
         <div className={full != undefined && classes.bottomFix}>
-          <Divider />
           <ListItem>
             <TextField
               id='twitter-post-button'

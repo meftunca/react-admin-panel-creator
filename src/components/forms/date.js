@@ -13,7 +13,7 @@ class Datepicker extends PureComponent {
 
   render() {
     const { selectedDate } = this.state;
-    const { onChange, config ,ref} = this.props;
+    const { onChange, config, ref, error } = this.props;
     return (
       <MuiPickersUtilsProvider utils={MomentUtils}>
         <div className='picker'>
@@ -23,6 +23,9 @@ class Datepicker extends PureComponent {
             style={{ display: "flex" }}
             {...config}
             value={selectedDate}
+            invalidDateMessage={error && Object.values(error)[0][0]}
+            emptyLabel={error && Object.values(error)[0][0]}
+            okLabel={"Başarılı"}
             onChange={date => {
               this.handleDateChange(date);
               onChange(date);

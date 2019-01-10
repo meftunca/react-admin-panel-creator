@@ -24,7 +24,6 @@ const Item = [
 export default class Account extends Component {
   constructor(props) {
     super(props);
-    this.state = { page: 0 };
   }
   render() {
     const { store } = this.props;
@@ -53,7 +52,6 @@ const useStyles = makeStyles(theme => ({
 
 function TabBar({ store }) {
   const classes = useStyles();
-  const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
   function handleChange(event, newValue) {

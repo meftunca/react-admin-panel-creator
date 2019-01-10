@@ -1,5 +1,6 @@
 const moment = require("moment");
-export default (validate, language) => {
+
+const validatorOptions = validate => {
   validate.extend(validate.validators.datetime, {
     // The value is guaranteed not to be null or undefined but otherwise it
     // could be anything.
@@ -17,7 +18,8 @@ export default (validate, language) => {
       // Email is required
       presence: true,
       // and must be an email (duh)
-      email: true
+      email: true,
+      message: "Êmail bilgileri yanlış gözüküyor..."
     },
     password: {
       // Password is also required
@@ -46,7 +48,7 @@ export default (validate, language) => {
       },
       format: {
         // We don't allow anything that a-z and 0-9
-        pattern: "[a-z0-9]+",
+        pattern: "[a-zA-Z0-9]+",
         // but we don't care if the username is uppercase or lowercase
         flags: "i",
         message: "can only contain a-z and 0-9"
@@ -113,7 +115,12 @@ export default (validate, language) => {
         };
       }
     },
-
+    date: {
+      dateOnly: true
+    },
+    dateTime: {
+      datetime: true
+    },
     numberOfChildren: {
       presence: true,
       // Number of children has to be an integer >= 0
@@ -127,3 +134,4 @@ export default (validate, language) => {
     }
   };
 };
+module.exports = validatorOptions;

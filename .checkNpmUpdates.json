@@ -1,0 +1,3 @@
+{
+  "skipPatchUpdates": ["react", "react-dom"]
+}

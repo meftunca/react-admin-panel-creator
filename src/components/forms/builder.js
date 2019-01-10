@@ -16,6 +16,7 @@ import { ToastContainer, toast } from "react-toastify";
 import RadioButtons from "./radio";
 import Checkboxes from "./checkbox";
 import Switches from "./switch";
+import validate from "./../../utils/validate";
 const styles = theme => ({
   button: {
     margin: theme.spacing.unit
@@ -39,7 +40,7 @@ const styles = theme => ({
 });
 const toastConfig = {
   position: "top-right",
-  autoClose: 2000,
+  autoClose: 1000,
   hideProgressBar: false,
   closeOnClick: true,
   pauseOnHover: true,
@@ -96,7 +97,15 @@ class FormBuilder extends Component {
         <Form id={"form-" + name} getApi={this.setFormApi}>
           {formItem.map((i, k) => (
             <div className={classes.fullWidth} key={k}>
-              <FormCreator field={i.name} id={name + "-" + i.name} item={i} store={store} />
+              <FormCreator
+                field={i.name}
+                id={name + "-" + i.name}
+                item={i}
+                store={store}
+                validate={validate[i.validate]}
+                validateOnChange
+                validateOnBlur
+              />
             </div>
           ))}
           <Button
@@ -122,7 +131,7 @@ class FormBuilder extends Component {
 // propslar
 const Icon = ({ name }) => <i className='material-icons'>{name}</i>;
 const FormCreator = asField(({ fieldState, fieldApi, ...props }) => {
-  const { value } = fieldState;
+  const { value, error } = fieldState;
   const { setValue, setTouched } = fieldApi;
   const { onChange, onBlur, initialValue, forwardedRef, store, item, ...rest } = props; //input verileri itemdan gelecek
   if (item.type == "text" || item.type == "") {
@@ -135,6 +144,7 @@ const FormCreator = asField(({ fieldState, fieldApi, ...props }) => {
         type={item.type}
         ref={forwardedRef}
         store={store}
+        error={error}
       />
     );
   } else if (item.type == "password") {
@@ -147,20 +157,31 @@ const FormCreator = asField(({ fieldState, fieldApi, ...props }) => {
         type={item.type}
         ref={forwardedRef}
         store={store}
+        error={error}
       />
     );
   } else if (item.type == "editor") {
-    return <Editor onChange={setValue} defaultValue={value} ref={forwardedRef} store={store} />;
+    return <Editor onChange={setValue} error={error} defaultValue={value} ref={forwardedRef} store={store} />;
   } else if (item.type == "date") {
-    return <Datepicker onChange={setValue} defaultValue={value} {...item} ref={forwardedRef} store={store} />;
+    return (
+      <Datepicker onChange={setValue} error={error} defaultValue={value} {...item} ref={forwardedRef} store={store} />
+    );
   } else if (item.type == "time") {
-    return <Timepicker onChange={setValue} defaultValue={value} {...item} ref={forwardedRef} store={store} />;
+    return (
+      <Timepicker onChange={setValue} error={error} defaultValue={value} {...item} ref={forwardedRef} store={store} />
+    );
   } else if (item.type == "radio") {
-    return <RadioButtons onChange={setValue} defaultValue={value} {...item} ref={forwardedRef} store={store} />;
+    return (
+      <RadioButtons onChange={setValue} error={error} defaultValue={value} {...item} ref={forwardedRef} store={store} />
+    );
   } else if (item.type == "checkbox") {
-    return <Checkboxes onChange={setValue} defaultValue={value} {...item} ref={forwardedRef} store={store} />;
+    return (
+      <Checkboxes onChange={setValue} error={error} defaultValue={value} {...item} ref={forwardedRef} store={store} />
+    );
   } else if (item.type == "switch") {
-    return <Switches onChange={setValue} defaultValue={value} {...item} ref={forwardedRef} store={store} />;
+    return (
+      <Switches onChange={setValue} error={error} defaultValue={value} {...item} ref={forwardedRef} store={store} />
+    );
   }
   return (
     <input

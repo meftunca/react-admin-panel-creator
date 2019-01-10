@@ -19,7 +19,7 @@
           "label": "Text input",
           "icon": "text_fields",
           "type": "text",
-          "validateFunc": "",
+          "validate": "email",
           "required": false,
           "mongoType": "string"
         },
@@ -28,7 +28,7 @@
           "label": "password input",
           "icon": "lock",
           "type": "password",
-          "validateFunc": "",
+          "validate": "password",
           "required": false,
           "mongoType": "string"
         },
@@ -37,7 +37,7 @@
           "label": "editor input",
           "icon": "border_color",
           "type": "editor",
-          "validateFunc": "",
+          "validate": "",
           "required": false,
           "mongoType": "string"
         },
@@ -46,7 +46,7 @@
           "label": "datepicker input",
           "icon": "border_color",
           "type": "date",
-          "validateFunc": "",
+          "validate": "date",
           "required": false,
           "mongoType": "date",
           "config": {
@@ -63,7 +63,7 @@
           "label": "timepicker input",
           "icon": "border_color",
           "type": "time",
-          "validateFunc": "",
+          "validate": "type",
           "required": false,
           "mongoType": "date",
           "config": {
@@ -80,7 +80,7 @@
           "label": "radio input",
           "icon": "border_color",
           "type": "radio",
-          "validateFunc": "",
+          "validate": "",
           "required": false,
           "mongoType": "boolean",
           "config": {
@@ -93,7 +93,7 @@
           "label": "checkbox input",
           "icon": "border_color",
           "type": "checkbox",
-          "validateFunc": "",
+          "validate": "",
           "required": false,
           "mongoType": "boolean",
           "config": {
@@ -108,7 +108,7 @@
           "label": "switch input",
           "icon": "border_color",
           "type": "switch",
-          "validateFunc": "",
+          "validate": "",
           "required": false,
           "mongoType": "boolean",
           "config": {
@@ -121,20 +121,16 @@
       ],
       "tableItem": [
         {
-          "name": "test",
-          "label": "test"
+          "name": "text",
+          "label": "Başlık"
         },
         {
-          "name": "test2",
-          "label": "test2"
+          "name": "datepicker",
+          "label": "Tarih"
         },
         {
-          "name": "test3",
-          "label": "test3"
-        },
-        {
-          "name": "test4",
-          "label": "test4"
+          "name": "timepicker",
+          "label": "Zaman"
         }
       ]
     },
@@ -157,7 +153,7 @@
           "label": "Text input",
           "icon": "text_fields",
           "type": "text",
-          "validateFunc": "",
+          "validate": "",
           "mongoType": "string",
           "required": false
         },
@@ -166,7 +162,7 @@
           "label": "password input",
           "icon": "lock",
           "type": "password",
-          "validateFunc": "",
+          "validate": "",
           "mongoType": "string",
           "required": false
         },
@@ -175,7 +171,7 @@
           "label": "editor input",
           "icon": "border_color",
           "type": "editor",
-          "validateFunc": "",
+          "validate": "",
           "mongoType": "string",
           "required": false
         }

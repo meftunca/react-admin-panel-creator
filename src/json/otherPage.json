@@ -48,6 +48,9 @@
       "label": "Sosyal medya Yönetimi",
       "icon": "aspect_ratio"
     },
+    "route": {
+      "path": "/social"
+    },
     "collapseItem": [
       {
         "name": "twitter",
@@ -71,6 +74,9 @@
     "header": {
       "label": "Sistem Yönetimi",
       "icon": "aspect_ratio"
+    },
+    "route": {
+      "path": "/system-admin"
     },
     "collapseItem": [
       {

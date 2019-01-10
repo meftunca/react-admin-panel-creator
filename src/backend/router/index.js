@@ -78,8 +78,7 @@ const styles = theme => ({
     display: "none"
   },
   drawerPaper: {
-    backgroundImage:
-      "url('https://demos.creative-tim.com/light-bootstrap-dashboard-pro-react/static/media/full-screen-image-3.ef9c8d65.jpg')",
+    backgroundImage: "url('/adminImage.png')",
     "&:after": {
       content: "''",
       position: "absolute",

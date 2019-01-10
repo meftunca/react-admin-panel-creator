@@ -18,7 +18,6 @@ import Select from "@material-ui/core/Select";
 import Input from "@material-ui/core/Input";
 import CollapseFormList from "./component/collapse";
 import List from "@material-ui/core/List";
-import axios from "axios";
 
 const uniqid = require("uniqid");
 class FormCreator extends Component {
