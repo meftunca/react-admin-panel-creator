@@ -37,7 +37,7 @@
     },
     "route": {
       "path": "/other-link-item-1",
-      "componentName": "gridList"
+      "componentName": "card"
     }
   },
   {

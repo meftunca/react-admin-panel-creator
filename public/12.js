@@ -1,1 +1,126 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[12,29],{"1Ktj":function(e,t,n){"use strict";n.r(t),n.d(t,"default",function(){return m});var r=n("q1tI"),o=n.n(r),a=n("DcCi"),i=n("EHL7"),l=n.n(i);function c(e){return(c="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function u(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}function s(e,t){return!t||"object"!==c(t)&&"function"!=typeof t?function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}(e):t}function p(e){return(p=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function f(e,t){return(f=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}var b=n("YqGU"),m=function(e){function t(){var e,n;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t);for(var r=arguments.length,o=new Array(r),a=0;a<r;a++)o[a]=arguments[a];return(n=s(this,(e=p(t)).call.apply(e,[this].concat(o)))).state={},n}var n,i,l;return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&f(e,t)}(t,r["Component"]),n=t,(i=[{key:"render",value:function(){return o.a.createElement(o.a.Fragment,null,Object.values(b).map(function(e,t){return o.a.createElement(o.a.Fragment,{key:t},o.a.createElement(a.default,e),o.a.createElement(y,null))}))}}])&&u(n.prototype,i),l&&u(n,l),t}(),y=function(){return o.a.createElement("div",{style:{margin:"15px 0"}},o.a.createElement(l.a,null),o.a.createElement("br",null),o.a.createElement(l.a,null))}},YqGU:function(e){e.exports={twitter:{name:"twitter",post_url:"/api-twitter",get_url:"/get-api-twitter",title:"Twitter Api bilgileri",header:{label:"Twitter Api bilgileri",icon:"power"},route:{path:"/twitter-api",exact:"false"},formItem:[{name:"consumer_key",icon:"",label:"consumer_key",type:"text",regex:"",required:"false",mongoType:"string"},{name:"consumer_secret",icon:"",label:"consumer_secret",type:"text",regex:"",required:"false",mongoType:"string"},{name:"access_token_key",icon:"",label:"access_token_key",type:"text",regex:"",required:"false",mongoType:"string"},{name:"access_token_secret",icon:"",label:"access_token_secret",type:"text",regex:"",required:"false",mongoType:"string"}],tableItem:[{name:"saddsadsa",label:"dasdasdas"}]},facebook:{name:"facebook",post_url:"/api-facebook",get_url:"/get-api-facebook",title:"facebook Api bilgileri",header:{label:"facebook Api bilgileri",icon:"power"},route:{path:"/facebook-api",exact:"false"},formItem:[{name:"appId",icon:"",label:"appId",type:"text",regex:"",required:"false",mongoType:"string"},{name:"app_secret",icon:"",label:"app_secret",type:"text",regex:"",required:"false",mongoType:"string"}],tableItem:[{name:"saddsadsa",label:"dasdasdas"}]}}}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[12],{
+
+/***/ "./src/components/chart/dataGenerator.js":
+/*!***********************************************!*\
+  !*** ./src/components/chart/dataGenerator.js ***!
+  \***********************************************/
+/*! exports provided: dataGenerator */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dataGenerator", function() { return dataGenerator; });
+var getRandom = function getRandom() {
+  var randomValue = Math.random();
+
+  if (randomValue === 0) {
+    return getRandom();
+  }
+
+  return randomValue;
+};
+
+var normalDistribution = function normalDistribution() {
+  var u = getRandom();
+  var v = getRandom();
+  return Math.sqrt(-4.0 * Math.log(u)) * Math.cos(1.0 * Math.PI * v);
+};
+
+var dataGenerator = function dataGenerator(pointCount) {
+  var data = [];
+
+  for (var i = 0; i < pointCount; i += 1) {
+    data.push({
+      arg1: normalDistribution(),
+      val1: normalDistribution(),
+      arg2: normalDistribution() + 3,
+      val2: normalDistribution() + 3
+    });
+  }
+
+  return data;
+};
+
+/***/ }),
+
+/***/ "./src/components/chart/point.js":
+/*!***************************************!*\
+  !*** ./src/components/chart/point.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PointChart; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @devexpress/dx-react-chart-material-ui */ "./node_modules/@devexpress/dx-react-chart-material-ui/dist/dx-react-chart-material-ui.es.js");
+/* harmony import */ var _devexpress_dx_react_chart__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @devexpress/dx-react-chart */ "./node_modules/@devexpress/dx-react-chart/dist/dx-react-chart.es.js");
+/* harmony import */ var _dataGenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dataGenerator */ "./src/components/chart/dataGenerator.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+var PointChart =
+/*#__PURE__*/
+function (_React$PureComponent) {
+  _inherits(PointChart, _React$PureComponent);
+
+  function PointChart(props) {
+    var _this;
+
+    _classCallCheck(this, PointChart);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(PointChart).call(this, props));
+    _this.state = {
+      data: Object(_dataGenerator__WEBPACK_IMPORTED_MODULE_3__["dataGenerator"])(100)
+    };
+    return _this;
+  }
+
+  _createClass(PointChart, [{
+    key: "render",
+    value: function render() {
+      var chartData = this.state.data;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_1__["Chart"], {
+        data: chartData
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_1__["ArgumentAxis"], {
+        showGrids: true
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_1__["ValueAxis"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_1__["ScatterSeries"], {
+        valueField: "val1",
+        argumentField: "arg1"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_1__["ScatterSeries"], {
+        valueField: "val2",
+        argumentField: "arg2"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_devexpress_dx_react_chart__WEBPACK_IMPORTED_MODULE_2__["Animation"], null));
+    }
+  }]);
+
+  return PointChart;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent);
+
+
+
+/***/ })
+
+}]);

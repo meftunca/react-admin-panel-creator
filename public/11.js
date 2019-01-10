@@ -1,1 +1,936 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[11,18],{oRQC:function(e,t,r){"use strict";r.r(t);var s=r("q1tI"),i=r.n(s),a=r("rJUZ"),o=r("SUMQ"),n=r("uRdf"),u=r("qBWy");function l(e){return(l="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function c(e,t){for(var r=0;r<t.length;r++){var s=t[r];s.enumerable=s.enumerable||!1,s.configurable=!0,"value"in s&&(s.writable=!0),Object.defineProperty(e,s.key,s)}}function p(e,t){return!t||"object"!==l(t)&&"function"!=typeof t?function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}(e):t}function h(e){return(h=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function m(e,t){return(m=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}function g(){return(g=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var r=arguments[t];for(var s in r)Object.prototype.hasOwnProperty.call(r,s)&&(e[s]=r[s])}return e}).apply(this,arguments)}function b(e,t){if(null==e)return{};var r,s,i=function(e,t){if(null==e)return{};var r,s,i={},a=Object.keys(e);for(s=0;s<a.length;s++)r=a[s],t.indexOf(r)>=0||(i[r]=e[r]);return i}(e,t);if(Object.getOwnPropertySymbols){var a=Object.getOwnPropertySymbols(e);for(s=0;s<a.length;s++)r=a[s],t.indexOf(r)>=0||Object.prototype.propertyIsEnumerable.call(e,r)&&(i[r]=e[r])}return i}var y=function(){return function(e){return e}},v=Object(o.withStyles)(function(){return{root:{display:"flex",margin:"auto",flexDirection:"row"}}},{name:"LegendRoot"})(function(e){var t=e.classes,r=b(e,["classes"]);return i.a.createElement(a.e.Root,g({},r,{className:t.root}))}),d=Object(o.withStyles)(function(e){return{label:{paddingTop:e.spacing.unit,whiteSpace:"nowrap"}}},{name:"LegendLabel"})(function(e){var t=e.classes,r=b(e,["classes"]);return i.a.createElement(a.e.Label,g({className:t.label},r))}),_=Object(o.withStyles)(function(){return{item:{flexDirection:"column"}}},{name:"LegendItem"})(function(e){var t=e.classes,r=b(e,["classes"]);return i.a.createElement(a.e.Item,g({className:t.item},r))}),f=function(e){var t=e.text;return i.a.createElement(a.j.Label,g({},e,{text:"".concat(t,"%")}))},w=function(e){function t(e){var r;return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t),(r=p(this,h(t).call(this,e))).state={data:u.confidence},r}var r,s,o;return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&m(e,t)}(t,i.a.PureComponent),r=t,(s=[{key:"render",value:function(){var e=this.state.data,t=this.props.classes,r=this.props.data.chartConfig.field;return i.a.createElement(a.d,{data:e,className:t.chart},i.a.createElement(a.b,{tickFormat:y}),i.a.createElement(a.j,{max:50,labelComponent:f}),r.map(function(e,t){var r=e.name,s=e.argument,o=e.value;return i.a.createElement(a.f,{name:r,valueField:o,argumentField:s,key:t})}),i.a.createElement(a.e,{position:"bottom",rootComponent:v,itemComponent:_,labelComponent:d}),i.a.createElement(n.a,null))}}])&&c(r.prototype,s),o&&c(r,o),t}();t.default=Object(o.withStyles)(function(){return{chart:{paddingRight:"20px"},title:{whiteSpace:"pre"}}},{name:"Line"})(w)},qBWy:function(e,t,r){"use strict";r.r(t),r.d(t,"born",function(){return s}),r.d(t,"annualVehiclesSales",function(){return i}),r.d(t,"australianMedals",function(){return a}),r.d(t,"bitcoin",function(){return o}),r.d(t,"population",function(){return n}),r.d(t,"olimpicMedals",function(){return u}),r.d(t,"confidence",function(){return l}),r.d(t,"energyConsumption",function(){return c}),r.d(t,"carbonEmmision",function(){return p}),r.d(t,"booksSale",function(){return h}),r.d(t,"oilProduction",function(){return m}),r.d(t,"ageStructure",function(){return g}),r.d(t,"contributors",function(){return b});var s=[{year:1995,ru:101,ch:170,us:31},{year:1998,ru:200,ch:80,us:90},{year:2e3,ru:100,ch:70,us:45},{year:2001,ru:110,ch:70,us:75},{year:2002,ru:95,ch:120,us:25},{year:2006,ru:115,ch:50,us:45},{year:2007,ru:230,ch:110,us:120},{year:2015,ru:89,ch:90,us:19}],i=[{year:2011,USA:171763,China:5070},{year:2012,USA:53240,China:9900},{year:2013,USA:96700,China:15340},{year:2014,USA:118780,China:73170},{year:2015,USA:113870,China:307380},{year:2016,USA:159620,China:336e3},{year:2017,USA:194479,China:600174}],a=[{year:1896,gold:2,silver:0,bronze:0},{year:1900,gold:2,silver:0,bronze:3},{year:1904,gold:0,silver:0,bronze:0},{year:1908,gold:1,silver:2,bronze:2},{year:1912,gold:2,silver:2,bronze:3},{year:1916,gold:0,silver:0,bronze:0},{year:1920,gold:0,silver:2,bronze:1},{year:1924,gold:3,silver:1,bronze:2},{year:1928,gold:1,silver:2,bronze:1},{year:1932,gold:3,silver:1,bronze:1},{year:1936,gold:0,silver:0,bronze:1},{year:1940,gold:0,silver:0,bronze:0},{year:1944,gold:0,silver:0,bronze:0},{year:1948,gold:2,silver:6,bronze:5},{year:1952,gold:6,silver:2,bronze:3},{year:1956,gold:13,silver:8,bronze:14},{year:1960,gold:8,silver:8,bronze:6},{year:1964,gold:6,silver:2,bronze:10},{year:1968,gold:5,silver:7,bronze:5},{year:1972,gold:8,silver:7,bronze:2},{year:1976,gold:0,silver:1,bronze:4},{year:1980,gold:2,silver:2,bronze:5},{year:1984,gold:4,silver:8,bronze:12},{year:1988,gold:3,silver:6,bronze:5},{year:1992,gold:7,silver:9,bronze:11},{year:1996,gold:9,silver:9,bronze:23},{year:2e3,gold:16,silver:25,bronze:17},{year:2004,gold:17,silver:16,bronze:16},{year:2008,gold:14,silver:15,bronze:17}],o=[{date:new Date(2015,10,15),price:346},{date:new Date(2015,11,17),price:441},{date:new Date(2016,0,16),price:435},{date:new Date(2016,1,21),price:415},{date:new Date(2016,3,25),price:445},{date:new Date(2016,4,29),price:460},{date:new Date(2016,5,20),price:730},{date:new Date(2016,7,5),price:600},{date:new Date(2016,8,14),price:617},{date:new Date(2016,9,30),price:674},{date:new Date(2016,11,21),price:785},{date:new Date(2017,0,8),price:991},{date:new Date(2017,1,9),price:1028},{date:new Date(2017,2,9),price:1251},{date:new Date(2017,3,6),price:1103},{date:new Date(2017,4,4),price:1392},{date:new Date(2017,5,11),price:2747},{date:new Date(2017,6,19),price:2203},{date:new Date(2017,7,18),price:4114},{date:new Date(2017,8,19),price:3840},{date:new Date(2017,9,19),price:5591},{date:new Date(2017,10,14),price:6716},{date:new Date(2017,11,22),price:17905},{date:new Date(2018,0,23),price:11438},{date:new Date(2018,1,10),price:8125},{date:new Date(2018,2,6),price:11079},{date:new Date(2018,3,7),price:6913},{date:new Date(2018,4,9),price:9511},{date:new Date(2018,5,6),price:7553},{date:new Date(2018,6,18),price:6400}],n=[{state:"USA",maleyoung:29.956,malemiddle:90.354,maleolder:14.472,femaleyoung:28.597,femalemiddle:91.827,femaleolder:20.362},{state:"Brazil",maleyoung:25.607,malemiddle:55.793,maleolder:3.727,femaleyoung:24.67,femalemiddle:57.598,femaleolder:5.462},{state:"Russia",maleyoung:13.493,malemiddle:48.983,maleolder:5.802,femaleyoung:12.971,femalemiddle:52.14,femaleolder:12.61},{state:"Japan",maleyoung:9.575,malemiddle:43.363,maleolder:9.024,femaleyoung:9.105,femalemiddle:42.98,femaleolder:12.501},{state:"Mexico",maleyoung:17.306,malemiddle:30.223,maleolder:1.927,femaleyoung:16.632,femalemiddle:31.868,femaleolder:2.391},{state:"Germany",maleyoung:6.679,malemiddle:28.638,maleolder:5.133,femaleyoung:6.333,femalemiddle:27.693,femaleolder:8.318},{state:"United Kindom",maleyoung:5.816,malemiddle:19.622,maleolder:3.864,femaleyoung:5.519,femalemiddle:19.228,femaleolder:5.459}],u=[{country:"USA",gold:36,silver:38,bronze:36},{country:"China",gold:51,silver:21,bronze:28},{country:"Russia",gold:23,silver:21,bronze:28},{country:"Britain",gold:19,silver:13,bronze:15},{country:"Australia",gold:14,silver:15,bronze:17},{country:"Germany",gold:16,silver:10,bronze:15}],l=[{year:1993,tvNews:19,church:29,military:32},{year:1995,tvNews:13,church:32,military:33},{year:1997,tvNews:14,church:35,military:30},{year:1999,tvNews:13,church:32,military:34},{year:2001,tvNews:15,church:28,military:32},{year:2003,tvNews:16,church:27,military:48},{year:2006,tvNews:12,church:28,military:41},{year:2008,tvNews:11,church:26,military:45},{year:2010,tvNews:10,church:25,military:44},{year:2012,tvNews:11,church:25,military:43},{year:2014,tvNews:10,church:25,military:39},{year:2016,tvNews:8,church:20,military:41},{year:2018,tvNews:10,church:20,military:43}],c=[{country:"USA",hydro:59.8,oil:937.6,gas:582,coal:564.3,nuclear:187.9},{country:"China",hydro:74.2,oil:308.6,gas:35.1,coal:956.9,nuclear:11.3},{country:"Russia",hydro:40,oil:128.5,gas:361.8,coal:105,nuclear:32.4},{country:"Japan",hydro:22.6,oil:241.5,gas:64.9,coal:120.8,nuclear:64.8},{country:"India",hydro:19,oil:119.3,gas:28.9,coal:204.8,nuclear:3.8},{country:"Germany",hydro:6.1,oil:123.6,gas:77.3,coal:85.7,nuclear:37.8}],p=[{year:1950,gas:97,liquids:423,solids:1070,cementProduction:18,gasFlaring:23},{year:1960,gas:227,liquids:849,solids:1410,cementProduction:43,gasFlaring:39},{year:1970,gas:493,liquids:1839,solids:1556,cementProduction:78,gasFlaring:87},{year:1980,gas:737,liquids:2422,solids:1935,cementProduction:120,gasFlaring:86},{year:1990,gas:1026,liquids:2492,solids:2359,cementProduction:157,gasFlaring:40},{year:2e3,gas:1289,liquids:2845,solids:2327,cementProduction:226,gasFlaring:46},{year:2010,gas:1696,liquids:3107,solids:3812,cementProduction:446,gasFlaring:67}],h=[{year:1970,mysteries:9,scienceFiction:16,romance:5,fantasy:4,thrillers:19},{year:1971,mysteries:15,scienceFiction:18,romance:2,fantasy:4,thrillers:14},{year:1972,mysteries:10,scienceFiction:20,romance:1,fantasy:16,thrillers:11},{year:1973,mysteries:12,scienceFiction:17,romance:15,fantasy:5,thrillers:14},{year:1974,mysteries:8,scienceFiction:13,romance:10,fantasy:19,thrillers:5},{year:1975,mysteries:7,scienceFiction:18,romance:20,fantasy:18,thrillers:12},{year:1976,mysteries:12,scienceFiction:12,romance:5,fantasy:2,thrillers:3},{year:1977,mysteries:18,scienceFiction:16,romance:1,fantasy:6,thrillers:3},{year:1978,mysteries:3,scienceFiction:13,romance:9,fantasy:15,thrillers:11},{year:1979,mysteries:11,scienceFiction:13,romance:14,fantasy:1,thrillers:12},{year:1980,mysteries:6,scienceFiction:19,romance:16,fantasy:6,thrillers:16},{year:1981,mysteries:2,scienceFiction:15,romance:4,fantasy:6,thrillers:13},{year:1982,mysteries:4,scienceFiction:17,romance:20,fantasy:7,thrillers:10},{year:1983,mysteries:3,scienceFiction:2,romance:18,fantasy:18,thrillers:17},{year:1984,mysteries:10,scienceFiction:19,romance:6,fantasy:13,thrillers:11},{year:1985,mysteries:16,scienceFiction:6,romance:5,fantasy:2,thrillers:7},{year:1986,mysteries:17,scienceFiction:4,romance:8,fantasy:10,thrillers:4},{year:1987,mysteries:9,scienceFiction:18,romance:17,fantasy:6,thrillers:9},{year:1988,mysteries:6,scienceFiction:8,romance:17,fantasy:13,thrillers:1},{year:1989,mysteries:3,scienceFiction:10,romance:13,fantasy:17,thrillers:2},{year:1990,mysteries:10,scienceFiction:8,romance:14,fantasy:12,thrillers:7},{year:1991,mysteries:18,scienceFiction:1,romance:2,fantasy:8,thrillers:16},{year:1992,mysteries:19,scienceFiction:18,romance:11,fantasy:20,thrillers:11},{year:1993,mysteries:7,scienceFiction:14,romance:4,fantasy:8,thrillers:10},{year:1994,mysteries:2,scienceFiction:18,romance:13,fantasy:11,thrillers:15},{year:1995,mysteries:2,scienceFiction:6,romance:7,fantasy:11,thrillers:10},{year:1996,mysteries:10,scienceFiction:19,romance:17,fantasy:17,thrillers:9},{year:1997,mysteries:3,scienceFiction:7,romance:4,fantasy:15,thrillers:9},{year:1998,mysteries:13,scienceFiction:1,romance:7,fantasy:16,thrillers:13},{year:1999,mysteries:19,scienceFiction:7,romance:18,fantasy:14,thrillers:1},{year:2e3,mysteries:2,scienceFiction:11,romance:12,fantasy:11,thrillers:5},{year:2001,mysteries:16,scienceFiction:9,romance:12,fantasy:6,thrillers:8},{year:2002,mysteries:11,scienceFiction:15,romance:2,fantasy:9,thrillers:3},{year:2003,mysteries:1,scienceFiction:6,romance:9,fantasy:9,thrillers:16},{year:2004,mysteries:18,scienceFiction:14,romance:3,fantasy:2,thrillers:11},{year:2005,mysteries:9,scienceFiction:16,romance:7,fantasy:8,thrillers:20},{year:2006,mysteries:18,scienceFiction:2,romance:5,fantasy:6,thrillers:16},{year:2007,mysteries:5,scienceFiction:17,romance:14,fantasy:4,thrillers:7},{year:2008,mysteries:15,scienceFiction:2,romance:12,fantasy:3,thrillers:8},{year:2009,mysteries:16,scienceFiction:20,romance:7,fantasy:14,thrillers:11},{year:2010,mysteries:14,scienceFiction:11,romance:3,fantasy:1,thrillers:6},{year:2011,mysteries:18,scienceFiction:20,romance:5,fantasy:4,thrillers:5},{year:2012,mysteries:3,scienceFiction:3,romance:10,fantasy:5,thrillers:18},{year:2013,mysteries:1,scienceFiction:1,romance:0,fantasy:6,thrillers:16},{year:2014,mysteries:15,scienceFiction:7,romance:1,fantasy:2,thrillers:20},{year:2015,mysteries:12,scienceFiction:19,romance:3,fantasy:3,thrillers:12},{year:2016,mysteries:11,scienceFiction:20,romance:11,fantasy:5,thrillers:17},{year:2017,mysteries:4,scienceFiction:20,romance:3,fantasy:12,thrillers:5}],m=[{year:"1970",saudiArabia:241.142,usa:482.15,iran:230.174,mexico:23.64,price:17},{year:"1980",saudiArabia:511.334,usa:437.343,iran:75.097,mexico:108.249,price:104},{year:"1990",saudiArabia:324.359,usa:374.867,iran:165.284,mexico:141.06,russia:516.04,price:23.7},{year:"2000",saudiArabia:410.06,usa:297.513,iran:196.877,mexico:159.63,russia:312.821,price:28.3},{year:"2010",saudiArabia:413.505,usa:279.225,iran:200.318,mexico:144.975,russia:487.106,price:79.6},{year:"2015",saudiArabia:516.157,usa:437.966,iran:142.087,mexico:121.587,russia:512.777,price:52.4}],g=[{state:"Germany",young:6.7,middle:28.6,older:5.1},{state:"Japan",young:9.6,middle:43.4,older:9},{state:"Russia",young:13.5,middle:49,older:5.8},{state:"USA",young:30,middle:90.3,older:14.5}],b=[{login:"kvet",id:929987,avatar_url:"https://avatars2.githubusercontent.com/u/929987?v=4",gravatar_id:"",url:"https://api.github.com/users/kvet",html_url:"https://github.com/kvet",followers_url:"https://api.github.com/users/kvet/followers",following_url:"https://api.github.com/users/kvet/following{/other_user}",gists_url:"https://api.github.com/users/kvet/gists{/gist_id}",starred_url:"https://api.github.com/users/kvet/starred{/owner}{/repo}",subscriptions_url:"https://api.github.com/users/kvet/subscriptions",organizations_url:"https://api.github.com/users/kvet/orgs",repos_url:"https://api.github.com/users/kvet/repos",events_url:"https://api.github.com/users/kvet/events{/privacy}",received_events_url:"https://api.github.com/users/kvet/received_events",type:"User",site_admin:!1,contributions:301},{login:"SergeyAlexeev",id:1897913,avatar_url:"https://avatars3.githubusercontent.com/u/1897913?v=4",gravatar_id:"",url:"https://api.github.com/users/SergeyAlexeev",html_url:"https://github.com/SergeyAlexeev",followers_url:"https://api.github.com/users/SergeyAlexeev/followers",following_url:"https://api.github.com/users/SergeyAlexeev/following{/other_user}",gists_url:"https://api.github.com/users/SergeyAlexeev/gists{/gist_id}",starred_url:"https://api.github.com/users/SergeyAlexeev/starred{/owner}{/repo}",subscriptions_url:"https://api.github.com/users/SergeyAlexeev/subscriptions",organizations_url:"https://api.github.com/users/SergeyAlexeev/orgs",repos_url:"https://api.github.com/users/SergeyAlexeev/repos",events_url:"https://api.github.com/users/SergeyAlexeev/events{/privacy}",received_events_url:"https://api.github.com/users/SergeyAlexeev/received_events",type:"User",site_admin:!1,contributions:113},{login:"gsobolev",id:4580098,avatar_url:"https://avatars0.githubusercontent.com/u/4580098?v=4",gravatar_id:"",url:"https://api.github.com/users/gsobolev",html_url:"https://github.com/gsobolev",followers_url:"https://api.github.com/users/gsobolev/followers",following_url:"https://api.github.com/users/gsobolev/following{/other_user}",gists_url:"https://api.github.com/users/gsobolev/gists{/gist_id}",starred_url:"https://api.github.com/users/gsobolev/starred{/owner}{/repo}",subscriptions_url:"https://api.github.com/users/gsobolev/subscriptions",organizations_url:"https://api.github.com/users/gsobolev/orgs",repos_url:"https://api.github.com/users/gsobolev/repos",events_url:"https://api.github.com/users/gsobolev/events{/privacy}",received_events_url:"https://api.github.com/users/gsobolev/received_events",type:"User",site_admin:!1,contributions:70},{login:"dxbykov",id:8307562,avatar_url:"https://avatars2.githubusercontent.com/u/8307562?v=4",gravatar_id:"",url:"https://api.github.com/users/dxbykov",html_url:"https://github.com/dxbykov",followers_url:"https://api.github.com/users/dxbykov/followers",following_url:"https://api.github.com/users/dxbykov/following{/other_user}",gists_url:"https://api.github.com/users/dxbykov/gists{/gist_id}",starred_url:"https://api.github.com/users/dxbykov/starred{/owner}{/repo}",subscriptions_url:"https://api.github.com/users/dxbykov/subscriptions",organizations_url:"https://api.github.com/users/dxbykov/orgs",repos_url:"https://api.github.com/users/dxbykov/repos",events_url:"https://api.github.com/users/dxbykov/events{/privacy}",received_events_url:"https://api.github.com/users/dxbykov/received_events",type:"User",site_admin:!1,contributions:63},{login:"MaximKudriavtsev",id:15093892,avatar_url:"https://avatars2.githubusercontent.com/u/15093892?v=4",gravatar_id:"",url:"https://api.github.com/users/MaximKudriavtsev",html_url:"https://github.com/MaximKudriavtsev",followers_url:"https://api.github.com/users/MaximKudriavtsev/followers",following_url:"https://api.github.com/users/MaximKudriavtsev/following{/other_user}",gists_url:"https://api.github.com/users/MaximKudriavtsev/gists{/gist_id}",starred_url:"https://api.github.com/users/MaximKudriavtsev/starred{/owner}{/repo}",subscriptions_url:"https://api.github.com/users/MaximKudriavtsev/subscriptions",organizations_url:"https://api.github.com/users/MaximKudriavtsev/orgs",repos_url:"https://api.github.com/users/MaximKudriavtsev/repos",events_url:"https://api.github.com/users/MaximKudriavtsev/events{/privacy}",received_events_url:"https://api.github.com/users/MaximKudriavtsev/received_events",type:"User",site_admin:!1,contributions:54},{login:"viterobk",id:15941408,avatar_url:"https://avatars3.githubusercontent.com/u/15941408?v=4",gravatar_id:"",url:"https://api.github.com/users/viterobk",html_url:"https://github.com/viterobk",followers_url:"https://api.github.com/users/viterobk/followers",following_url:"https://api.github.com/users/viterobk/following{/other_user}",gists_url:"https://api.github.com/users/viterobk/gists{/gist_id}",starred_url:"https://api.github.com/users/viterobk/starred{/owner}{/repo}",subscriptions_url:"https://api.github.com/users/viterobk/subscriptions",organizations_url:"https://api.github.com/users/viterobk/orgs",repos_url:"https://api.github.com/users/viterobk/repos",events_url:"https://api.github.com/users/viterobk/events{/privacy}",received_events_url:"https://api.github.com/users/viterobk/received_events",type:"User",site_admin:!1,contributions:27},{login:"AnnaTikh",id:26564321,avatar_url:"https://avatars2.githubusercontent.com/u/26564321?v=4",gravatar_id:"",url:"https://api.github.com/users/AnnaTikh",html_url:"https://github.com/AnnaTikh",followers_url:"https://api.github.com/users/AnnaTikh/followers",following_url:"https://api.github.com/users/AnnaTikh/following{/other_user}",gists_url:"https://api.github.com/users/AnnaTikh/gists{/gist_id}",starred_url:"https://api.github.com/users/AnnaTikh/starred{/owner}{/repo}",subscriptions_url:"https://api.github.com/users/AnnaTikh/subscriptions",organizations_url:"https://api.github.com/users/AnnaTikh/orgs",repos_url:"https://api.github.com/users/AnnaTikh/repos",events_url:"https://api.github.com/users/AnnaTikh/events{/privacy}",received_events_url:"https://api.github.com/users/AnnaTikh/received_events",type:"User",site_admin:!1,contributions:3},{login:"oliversturm",id:4730969,avatar_url:"https://avatars2.githubusercontent.com/u/4730969?v=4",gravatar_id:"",url:"https://api.github.com/users/oliversturm",html_url:"https://github.com/oliversturm",followers_url:"https://api.github.com/users/oliversturm/followers",following_url:"https://api.github.com/users/oliversturm/following{/other_user}",gists_url:"https://api.github.com/users/oliversturm/gists{/gist_id}",starred_url:"https://api.github.com/users/oliversturm/starred{/owner}{/repo}",subscriptions_url:"https://api.github.com/users/oliversturm/subscriptions",organizations_url:"https://api.github.com/users/oliversturm/orgs",repos_url:"https://api.github.com/users/oliversturm/repos",events_url:"https://api.github.com/users/oliversturm/events{/privacy}",received_events_url:"https://api.github.com/users/oliversturm/received_events",type:"User",site_admin:!1,contributions:2},{login:"alexey-semikozov",id:7069422,avatar_url:"https://avatars1.githubusercontent.com/u/7069422?v=4",gravatar_id:"",url:"https://api.github.com/users/alexey-semikozov",html_url:"https://github.com/alexey-semikozov",followers_url:"https://api.github.com/users/alexey-semikozov/followers",following_url:"https://api.github.com/users/alexey-semikozov/following{/other_user}",gists_url:"https://api.github.com/users/alexey-semikozov/gists{/gist_id}",starred_url:"https://api.github.com/users/alexey-semikozov/starred{/owner}{/repo}",subscriptions_url:"https://api.github.com/users/alexey-semikozov/subscriptions",organizations_url:"https://api.github.com/users/alexey-semikozov/orgs",repos_url:"https://api.github.com/users/alexey-semikozov/repos",events_url:"https://api.github.com/users/alexey-semikozov/events{/privacy}",received_events_url:"https://api.github.com/users/alexey-semikozov/received_events",type:"User",site_admin:!1,contributions:2},{login:"dirk-pieterse",id:26871970,avatar_url:"https://avatars0.githubusercontent.com/u/26871970?v=4",gravatar_id:"",url:"https://api.github.com/users/dirk-pieterse",html_url:"https://github.com/dirk-pieterse",followers_url:"https://api.github.com/users/dirk-pieterse/followers",following_url:"https://api.github.com/users/dirk-pieterse/following{/other_user}",gists_url:"https://api.github.com/users/dirk-pieterse/gists{/gist_id}",starred_url:"https://api.github.com/users/dirk-pieterse/starred{/owner}{/repo}",subscriptions_url:"https://api.github.com/users/dirk-pieterse/subscriptions",organizations_url:"https://api.github.com/users/dirk-pieterse/orgs",repos_url:"https://api.github.com/users/dirk-pieterse/repos",events_url:"https://api.github.com/users/dirk-pieterse/events{/privacy}",received_events_url:"https://api.github.com/users/dirk-pieterse/received_events",type:"User",site_admin:!1,contributions:1},{login:"helsus",id:312055,avatar_url:"https://avatars1.githubusercontent.com/u/312055?v=4",gravatar_id:"",url:"https://api.github.com/users/helsus",html_url:"https://github.com/helsus",followers_url:"https://api.github.com/users/helsus/followers",following_url:"https://api.github.com/users/helsus/following{/other_user}",gists_url:"https://api.github.com/users/helsus/gists{/gist_id}",starred_url:"https://api.github.com/users/helsus/starred{/owner}{/repo}",subscriptions_url:"https://api.github.com/users/helsus/subscriptions",organizations_url:"https://api.github.com/users/helsus/orgs",repos_url:"https://api.github.com/users/helsus/repos",events_url:"https://api.github.com/users/helsus/events{/privacy}",received_events_url:"https://api.github.com/users/helsus/received_events",type:"User",site_admin:!1,contributions:1},{login:"psamim",id:1868679,avatar_url:"https://avatars3.githubusercontent.com/u/1868679?v=4",gravatar_id:"",url:"https://api.github.com/users/psamim",html_url:"https://github.com/psamim",followers_url:"https://api.github.com/users/psamim/followers",following_url:"https://api.github.com/users/psamim/following{/other_user}",gists_url:"https://api.github.com/users/psamim/gists{/gist_id}",starred_url:"https://api.github.com/users/psamim/starred{/owner}{/repo}",subscriptions_url:"https://api.github.com/users/psamim/subscriptions",organizations_url:"https://api.github.com/users/psamim/orgs",repos_url:"https://api.github.com/users/psamim/repos",events_url:"https://api.github.com/users/psamim/events{/privacy}",received_events_url:"https://api.github.com/users/psamim/received_events",type:"User",site_admin:!1,contributions:1},{login:"Krijovnick",id:8238559,avatar_url:"https://avatars2.githubusercontent.com/u/8238559?v=4",gravatar_id:"",url:"https://api.github.com/users/Krijovnick",html_url:"https://github.com/Krijovnick",followers_url:"https://api.github.com/users/Krijovnick/followers",following_url:"https://api.github.com/users/Krijovnick/following{/other_user}",gists_url:"https://api.github.com/users/Krijovnick/gists{/gist_id}",starred_url:"https://api.github.com/users/Krijovnick/starred{/owner}{/repo}",subscriptions_url:"https://api.github.com/users/Krijovnick/subscriptions",organizations_url:"https://api.github.com/users/Krijovnick/orgs",repos_url:"https://api.github.com/users/Krijovnick/repos",events_url:"https://api.github.com/users/Krijovnick/events{/privacy}",received_events_url:"https://api.github.com/users/Krijovnick/received_events",type:"User",site_admin:!1,contributions:1},{login:"tpisto",id:226244,avatar_url:"https://avatars0.githubusercontent.com/u/226244?v=4",gravatar_id:"",url:"https://api.github.com/users/tpisto",html_url:"https://github.com/tpisto",followers_url:"https://api.github.com/users/tpisto/followers",following_url:"https://api.github.com/users/tpisto/following{/other_user}",gists_url:"https://api.github.com/users/tpisto/gists{/gist_id}",starred_url:"https://api.github.com/users/tpisto/starred{/owner}{/repo}",subscriptions_url:"https://api.github.com/users/tpisto/subscriptions",organizations_url:"https://api.github.com/users/tpisto/orgs",repos_url:"https://api.github.com/users/tpisto/repos",events_url:"https://api.github.com/users/tpisto/events{/privacy}",received_events_url:"https://api.github.com/users/tpisto/received_events",type:"User",site_admin:!1,contributions:1},{login:"gerhat",id:11447903,avatar_url:"https://avatars3.githubusercontent.com/u/11447903?v=4",gravatar_id:"",url:"https://api.github.com/users/gerhat",html_url:"https://github.com/gerhat",followers_url:"https://api.github.com/users/gerhat/followers",following_url:"https://api.github.com/users/gerhat/following{/other_user}",gists_url:"https://api.github.com/users/gerhat/gists{/gist_id}",starred_url:"https://api.github.com/users/gerhat/starred{/owner}{/repo}",subscriptions_url:"https://api.github.com/users/gerhat/subscriptions",organizations_url:"https://api.github.com/users/gerhat/orgs",repos_url:"https://api.github.com/users/gerhat/repos",events_url:"https://api.github.com/users/gerhat/events{/privacy}",received_events_url:"https://api.github.com/users/gerhat/received_events",type:"User",site_admin:!1,contributions:1},{login:"paiboon15721",id:4963061,avatar_url:"https://avatars3.githubusercontent.com/u/4963061?v=4",gravatar_id:"",url:"https://api.github.com/users/paiboon15721",html_url:"https://github.com/paiboon15721",followers_url:"https://api.github.com/users/paiboon15721/followers",following_url:"https://api.github.com/users/paiboon15721/following{/other_user}",gists_url:"https://api.github.com/users/paiboon15721/gists{/gist_id}",starred_url:"https://api.github.com/users/paiboon15721/starred{/owner}{/repo}",subscriptions_url:"https://api.github.com/users/paiboon15721/subscriptions",organizations_url:"https://api.github.com/users/paiboon15721/orgs",repos_url:"https://api.github.com/users/paiboon15721/repos",events_url:"https://api.github.com/users/paiboon15721/events{/privacy}",received_events_url:"https://api.github.com/users/paiboon15721/received_events",type:"User",site_admin:!1,contributions:1}]}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[11],{
+
+/***/ "./node_modules/react-json-pretty/dist/JSONPretty.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/react-json-pretty/dist/JSONPretty.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) if (e.indexOf(p[i]) < 0)
+            t[p[i]] = s[p[i]];
+    return t;
+};
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+var PropTypes = __importStar(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+function getStyle(name, theme) {
+    return theme ? theme[name] ? " style=\"" + theme[name] + "\"" : '' : '';
+}
+var JSONPretty = /** @class */ (function (_super) {
+    __extends(JSONPretty, _super);
+    function JSONPretty() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    JSONPretty.prototype.render = function () {
+        var _a = this.props, json = _a.json, data = _a.data, replacer = _a.replacer, space = _a.space, themeClassName = _a.themeClassName, theme = _a.theme, silent = _a.silent, rest = __rest(_a, ["json", "data", "replacer", "space", "themeClassName", "theme", "silent"]);
+        var obj = data || json;
+        // See https://facebook.github.io/react/warnings/unknown-prop.html
+        if (typeof obj === 'string') {
+            try {
+                obj = JSON.parse(obj);
+            }
+            catch (e) {
+                if (!silent) {
+                    console.warn("[react-json-pretty]: " + e.message);
+                }
+                return (React.createElement("div", __assign({}, rest, { dangerouslySetInnerHTML: { __html: "<pre class=" + themeClassName + getStyle('main', theme) + ">" + obj + "</pre>"
+                    } })));
+            }
+        }
+        return (React.createElement("div", __assign({}, rest, { dangerouslySetInnerHTML: { __html: "<pre class=" + themeClassName + getStyle('main', theme) + ">" + this._pretty.call(this, theme, obj, replacer, +space) + "</pre>"
+            } })));
+    };
+    // JSON =》 HTML转换器
+    JSONPretty.prototype._pretty = function (theme, obj, replacer, space) {
+        // 逐行匹配，列举：“key”: "value" | "key": value | "key": [ | "key": { | "key": [],| "Key": {},
+        var regLine = /^( *)("[^"]+": )?("[^"]*"|[\w.+-]*)?([,[{]|\[\s*\],?|\{\s*\},?)?$/mg;
+        var text = JSON.stringify(obj, typeof replacer === 'function' ? replacer : null, isNaN(space) ? 2 : space);
+        /* istanbul ignore next */
+        if (!text) {
+            return text;
+        }
+        return text.replace(/&/g, '&amp;').replace(/\\"([^,])/g, '\\&quot;$1')
+            .replace(/</g, '&lt;').replace(/>/g, '&gt;')
+            .replace(regLine, this._replace.bind(null, theme));
+    };
+    // 格式化函数
+    JSONPretty.prototype._replace = function (theme, match, ind, key, val, tra) {
+        var spanEnd = '</span>';
+        var keySpan = "<span class=__json-key__" + getStyle('key', theme) + ">";
+        var valSpan = "<span class=__json-value__" + getStyle('value', theme) + ">";
+        var strSpan = "<span class=__json-string__" + getStyle('string', theme) + ">";
+        var booSpan = "<span class=__json-boolean__" + getStyle('boolean', theme) + ">";
+        var sps = ind || '';
+        if (key) {
+            sps = sps + '"' + keySpan + key.replace(/^"|":\s$/g, '') + spanEnd + '": ';
+        }
+        if (val) {
+            if (val === 'true' || val === 'false') {
+                sps = sps + booSpan + val + spanEnd;
+            }
+            else {
+                sps = sps + (val[0] === '"' ? strSpan : valSpan) + val + spanEnd;
+            }
+        }
+        return sps + (tra || '');
+    };
+    JSONPretty.propTypes = {
+        data: PropTypes.any,
+        json: PropTypes.any,
+        replacer: PropTypes.func,
+        silent: PropTypes.bool,
+        space: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        theme: PropTypes.object,
+        themeClassName: PropTypes.string,
+    };
+    JSONPretty.defaultProps = {
+        data: '',
+        json: '',
+        silent: true,
+        space: 2,
+        themeClassName: '__json-pretty__',
+    };
+    return JSONPretty;
+}(React.Component));
+module.exports = JSONPretty;
+
+
+/***/ }),
+
+/***/ "./node_modules/react-json-pretty/dist/monikai.js":
+/*!********************************************************!*\
+  !*** ./node_modules/react-json-pretty/dist/monikai.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = {
+    main: 'line-height:1.3;color:#66d9ef;background:#272822;overflow:auto;',
+    key: 'color:#f92672;',
+    string: 'color:#fd971f;',
+    value: 'color:#a6e22e;',
+    boolean: 'color:#ac81fe;',
+};
+
+
+/***/ }),
+
+/***/ "./src/other/creator/component/collapse.js":
+/*!*************************************************!*\
+  !*** ./src/other/creator/component/collapse.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/styles */ "./node_modules/@material-ui/styles/index.es.js");
+/* harmony import */ var _material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/ListItem */ "./node_modules/@material-ui/core/ListItem/index.js");
+/* harmony import */ var _material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/ListItemText */ "./node_modules/@material-ui/core/ListItemText/index.js");
+/* harmony import */ var _material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_Collapse__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Collapse */ "./node_modules/@material-ui/core/Collapse/index.js");
+/* harmony import */ var _material_ui_core_Collapse__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Collapse__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/Grid/index.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+var useStyles = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(function (theme) {
+  return {
+    root: {
+      width: "100%",
+      maxWidth: 360
+    },
+    nested: {
+      paddingLeft: 4 * 4
+    }
+  };
+});
+
+function CollapseFormList(props) {
+  var classes = useStyles();
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(props.open),
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      open = _React$useState2[0],
+      setOpen = _React$useState2[1];
+
+  function handleClick() {
+    setOpen(!open);
+  }
+
+  console.log("prop", props);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    button: true,
+    onClick: handleClick
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    primary: props.title
+  }), open ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Icon, {
+    name: "expand_less"
+  }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Icon, {
+    name: "expand_more"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Collapse__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    in: open,
+    timeout: "auto",
+    unmountOnExit: true
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    container: true,
+    spacing: 16
+  }, props.children)));
+}
+
+var Icon = function Icon(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "material-icons"
+  }, props.name);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (CollapseFormList);
+
+/***/ }),
+
+/***/ "./src/other/creator/form.js":
+/*!***********************************!*\
+  !*** ./src/other/creator/form.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/TextField/index.js");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/Grid/index.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/Typography/index.js");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Paper */ "./node_modules/@material-ui/core/Paper/index.js");
+/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/styles */ "./node_modules/@material-ui/styles/index.es.js");
+/* harmony import */ var informed__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! informed */ "./node_modules/informed/dist/index.js");
+/* harmony import */ var informed__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(informed__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_BottomNavigation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/BottomNavigation */ "./node_modules/@material-ui/core/BottomNavigation/index.js");
+/* harmony import */ var _material_ui_core_BottomNavigation__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_BottomNavigation__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_BottomNavigationAction__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/BottomNavigationAction */ "./node_modules/@material-ui/core/BottomNavigationAction/index.js");
+/* harmony import */ var _material_ui_core_BottomNavigationAction__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_BottomNavigationAction__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_InputAdornment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/InputAdornment */ "./node_modules/@material-ui/core/InputAdornment/index.js");
+/* harmony import */ var _material_ui_core_InputAdornment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputAdornment__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var react_json_pretty__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-json-pretty */ "./node_modules/react-json-pretty/dist/JSONPretty.js");
+/* harmony import */ var react_json_pretty__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react_json_pretty__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "./node_modules/@material-ui/core/Checkbox/index.js");
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "./node_modules/@material-ui/core/FormControlLabel/index.js");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "./node_modules/@material-ui/core/InputLabel/index.js");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "./node_modules/@material-ui/core/MenuItem/index.js");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @material-ui/core/FormControl */ "./node_modules/@material-ui/core/FormControl/index.js");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @material-ui/core/Select */ "./node_modules/@material-ui/core/Select/index.js");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @material-ui/core/Input */ "./node_modules/@material-ui/core/Input/index.js");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var _component_collapse__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./component/collapse */ "./src/other/creator/component/collapse.js");
+/* harmony import */ var _material_ui_core_List__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @material-ui/core/List */ "./node_modules/@material-ui/core/List/index.js");
+/* harmony import */ var _material_ui_core_List__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_19__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var uniqid = __webpack_require__(/*! uniqid */ "./node_modules/uniqid/index.js");
+
+var FormCreator =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(FormCreator, _Component);
+
+  function FormCreator(props) {
+    var _this;
+
+    _classCallCheck(this, FormCreator);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(FormCreator).call(this, props));
+
+    _this.post = function (data) {
+      axios.post(window.location.origin.replace("https", "http") + ":8000/create-form", data).then(function (d) {
+        return console.log(d);
+      });
+    };
+
+    _this.view = function () {
+      return console.log("view");
+    };
+
+    _this.send = function () {
+      return _this.handleClick();
+    };
+
+    _this.add = function () {
+      return _this.setState({
+        appendInput: _this.state.appendInput.concat("")
+      });
+    };
+
+    _this.state = {
+      appendInput: [""],
+      formData: {}
+    };
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.setFormApi = _this.setFormApi.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    return _this;
+  }
+
+  _createClass(FormCreator, [{
+    key: "handleClick",
+    value: function handleClick() {
+      var _this$formApi$getStat = this.formApi.getState(),
+          values = _this$formApi$getStat.values;
+
+      var column = [];
+      values["formItem"] = Object.values(values.formItem)[0];
+      values.formItem.map(function (i) {
+        column.push({
+          name: i.name,
+          label: i.label
+        });
+      });
+      values["tableItem"] = column;
+      this.setState({
+        formData: values
+      });
+      this.post(values);
+    }
+  }, {
+    key: "setFormApi",
+    value: function setFormApi(formApi) {
+      this.formApi = formApi;
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {// axios.post(window.location.origin+":8000/get-form-json").then(({ data }) => this.setFormApi(data));
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var _this$props = this.props,
+          classes = _this$props.classes,
+          theme = _this$props.theme;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_4___default.a, {
+        className: classes.paper,
+        elevation: 1
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_2___default.a, {
+        container: true,
+        spacing: 24
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_2___default.a, {
+        item: true,
+        md: 12
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+        component: "h5",
+        variant: "h4"
+      }, "Form Creator")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_2___default.a, {
+        item: true,
+        md: 12
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(informed__WEBPACK_IMPORTED_MODULE_6__["Form"], {
+        id: "form-" + name,
+        getApi: this.setFormApi
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_2___default.a, {
+        container: true,
+        spacing: 24
+      }, FormItemList.map(function (i, k) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ItemCreator, _extends({
+          appendSize: _this2.state.appendInput,
+          classes: classes
+        }, i, {
+          key: k
+        }));
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_2___default.a, {
+        item: true,
+        md: 12
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(FormManagement, {
+        classes: classes,
+        view: this.view,
+        send: this.send,
+        add: this.add
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_2___default.a, {
+        item: true,
+        md: 12
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_json_pretty__WEBPACK_IMPORTED_MODULE_10___default.a, {
+        style: {
+          padding: 12
+        },
+        id: "json-pretty",
+        data: this.state.formData,
+        theme: __webpack_require__(/*! react-json-pretty/dist/monikai */ "./node_modules/react-json-pretty/dist/monikai.js"),
+        space: 2
+      }))));
+    }
+  }]);
+
+  return FormCreator;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+var ItemCreator = Object(informed__WEBPACK_IMPORTED_MODULE_6__["asField"])(function (_ref) {
+  var _React$createElement;
+
+  var fieldState = _ref.fieldState,
+      fieldApi = _ref.fieldApi,
+      props = _objectWithoutProperties(_ref, ["fieldState", "fieldApi"]);
+
+  var value = fieldState.value;
+  var setValue = fieldApi.setValue,
+      setTouched = fieldApi.setTouched;
+
+  var _onChange = props.onChange,
+      _onBlur = props.onBlur,
+      appendSize = props.appendSize,
+      initialValue = props.initialValue,
+      classes = props.classes,
+      FormItem = props.FormItem,
+      label = props.label,
+      icon = props.icon,
+      breakpoint = props.breakpoint,
+      validate = props.validate,
+      field = props.field,
+      forwardedRef = props.forwardedRef,
+      scope = props.scope,
+      list = props.list,
+      type = props.type,
+      selectData = props.selectData,
+      rest = _objectWithoutProperties(props, ["onChange", "onBlur", "appendSize", "initialValue", "classes", "FormItem", "label", "icon", "breakpoint", "validate", "field", "forwardedRef", "scope", "list", "type", "selectData"]);
+
+  var id = uniqid;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_2___default.a, _extends({
+    item: true
+  }, breakpoint), scope == undefined ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, type == "select" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_15___default.a, {
+    className: classes.formControl,
+    fullWidth: true
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_13___default.a, null, label), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_16___default.a, (_React$createElement = {
+    autoWidth: true,
+    value: value,
+    id: label.replace(" ", "_"),
+    label: label,
+    inputRef: forwardedRef
+  }, _defineProperty(_React$createElement, "value", !value && value !== 0 ? "" : value), _defineProperty(_React$createElement, "onChange", function onChange(e) {
+    setValue(e.target.value);
+
+    if (_onChange) {
+      _onChange(e);
+    }
+  }), _defineProperty(_React$createElement, "onBlur", function onBlur(e) {
+    setTouched();
+
+    if (_onBlur) {
+      _onBlur(e);
+    }
+  }), _defineProperty(_React$createElement, "input", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_17___default.a, {
+    fullWidth: true,
+    name: field,
+    id: id
+  })), _React$createElement), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_14___default.a, {
+    value: ""
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", null, "None")), selectData.map(function (i, k) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_14___default.a, {
+      value: i,
+      key: k
+    }, i);
+  }))) : type == "control" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_12___default.a, {
+    control: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_11___default.a, {
+      id: label.replace(" ", "_"),
+      inputRef: forwardedRef,
+      value: "false",
+      onChange: function onChange(e) {
+        setValue(e.target.value);
+
+        if (_onChange) {
+          _onChange(e);
+        }
+      },
+      onBlur: function onBlur(e) {
+        setTouched();
+
+        if (_onBlur) {
+          _onBlur(e);
+        }
+      }
+    }),
+    label: label
+  }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(FormItem, {
+    id: label.replace(" ", "_"),
+    label: label,
+    inputRef: forwardedRef,
+    value: !value && value !== 0 ? "" : value,
+    onChange: function onChange(e) {
+      setValue(e.target.value);
+
+      if (_onChange) {
+        _onChange(e);
+      }
+    },
+    onBlur: function onBlur(e) {
+      setTouched();
+
+      if (_onBlur) {
+        _onBlur(e);
+      }
+    },
+    className: classes.textField,
+    fullWidth: true,
+    InputProps: icon != "" ? {
+      startAdornment: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_InputAdornment__WEBPACK_IMPORTED_MODULE_9___default.a, {
+        position: "start"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "material-icons"
+      }, icon))
+    } : false
+  })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, scope.type == "scope" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    container: true,
+    spacing: 16,
+    style: {
+      width: "90%",
+      margin: "0 5%"
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    item: true,
+    md: 12
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    variant: "body2",
+    gutterBottom: true
+  }, scope.title), scope.description != "" && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    variant: "body2",
+    gutterBottom: true
+  }, scope.description)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(informed__WEBPACK_IMPORTED_MODULE_6__["Scope"], {
+    scope: field
+  }, list.map(function (i, k) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ItemCreator, _extends({
+      classes: classes
+    }, i, {
+      key: k
+    }));
+  }))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(informed__WEBPACK_IMPORTED_MODULE_6__["Scope"], {
+    scope: field
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    container: true
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    variant: "body2",
+    gutterBottom: true
+  }, scope.title), scope.description != "" && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    variant: "body2"
+  }, scope.description)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_19___default.a, {
+    component: "nav",
+    className: classes.root
+  }, appendSize.map(function (i, k) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_component_collapse__WEBPACK_IMPORTED_MODULE_18__["default"], {
+      title: k + 1 + ". input alanı",
+      open: appendSize.length == 1 + k,
+      key: k
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(informed__WEBPACK_IMPORTED_MODULE_6__["Scope"], {
+      scope: field + "[" + k + "]"
+    }, list.map(function (i, k) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ItemCreator, _extends({
+        field: i.field + "[" + k + "]",
+        classes: classes
+      }, i, {
+        key: k
+      }));
+    })));
+  }))))));
+});
+var mongoType = ["String", "Number", "Date", "Buffer", "Boolean", "Mixed", "ObjectId", "Array", "Decimal128", "Map"];
+var FormItemList = [{
+  field: "name",
+  validate: "",
+  FormItem: _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_1___default.a,
+  label: "Formun ismi",
+  icon: "face",
+  breakpoint: {
+    xs: 12,
+    md: 6
+  }
+}, {
+  field: "title",
+  validate: "",
+  FormItem: _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_1___default.a,
+  label: "Formun Başlığı",
+  icon: "title",
+  breakpoint: {
+    xs: 12,
+    md: 6
+  }
+}, {
+  field: "post_url",
+  validate: "",
+  FormItem: _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_1___default.a,
+  label: "Gönderileceği url",
+  icon: "insert_link",
+  breakpoint: {
+    xs: 12,
+    md: 6
+  }
+}, {
+  field: "get_url",
+  validate: "",
+  FormItem: _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_1___default.a,
+  label: "Tablo verilerinin alınacağı url",
+  icon: "insert_link",
+  breakpoint: {
+    xs: 12,
+    md: 6
+  }
+}, {
+  scope: {
+    title: "Başlık Ayarları",
+    type: "scope",
+    append: false,
+    description: ""
+  },
+  field: "header",
+  breakpoint: {
+    xs: 12,
+    md: 12
+  },
+  list: [{
+    field: "label",
+    validate: "",
+    FormItem: _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_1___default.a,
+    label: "Başlık etiketi",
+    icon: "label",
+    breakpoint: {
+      xs: 12,
+      md: 6
+    }
+  }, {
+    field: "icon",
+    validate: "",
+    FormItem: _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_1___default.a,
+    label: "Başlık simgesi",
+    icon: "change_history",
+    breakpoint: {
+      xs: 12,
+      md: 6
+    }
+  }]
+}, {
+  scope: {
+    title: "Rota Ayarları",
+    type: "scope",
+    append: false,
+    description: ""
+  },
+  field: "route",
+  breakpoint: {
+    xs: 12,
+    md: 12
+  },
+  list: [{
+    field: "path",
+    validate: "",
+    FormItem: _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_1___default.a,
+    label: "Rotayı buraya yazın",
+    icon: "router",
+    breakpoint: {
+      xs: 12,
+      md: 6
+    }
+  }, {
+    field: "exact",
+    validate: "",
+    FormItem: _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_11___default.a,
+    label: "Exact durumu",
+    icon: "warning",
+    breakpoint: {
+      xs: 12,
+      md: 6
+    },
+    type: "control"
+  }]
+}, {
+  scope: {
+    title: "Form input oluşturma",
+    type: "array",
+    append: false,
+    description: "Bu alanda hazır form,veri tablosu ve mongoDB collection oluşturmak için hazır yapıları kullanarak yeni alanlar oluşturabilirsiniz."
+  },
+  field: "formItem",
+  breakpoint: {
+    xs: 12,
+    md: 12
+  },
+  list: [{
+    field: "name",
+    validate: "",
+    FormItem: _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_1___default.a,
+    label: "İnput ismi",
+    icon: "title",
+    breakpoint: {
+      xs: 12,
+      md: 6
+    }
+  }, {
+    field: "icon",
+    validate: "",
+    FormItem: _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_1___default.a,
+    label: "İnput simgesi",
+    icon: "change_history",
+    breakpoint: {
+      xs: 12,
+      md: 6
+    }
+  }, {
+    field: "label",
+    validate: "",
+    FormItem: _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_1___default.a,
+    label: "İnput etiketi",
+    icon: "label",
+    breakpoint: {
+      xs: 12,
+      md: 6
+    }
+  }, {
+    field: "type",
+    validate: "",
+    FormItem: _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_1___default.a,
+    label: "İnput tipi",
+    icon: "merge_type",
+    breakpoint: {
+      xs: 12,
+      md: 6
+    }
+  }, {
+    field: "regex",
+    validate: "",
+    FormItem: _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_1___default.a,
+    label: "İnput regex(beta)",
+    icon: "format_shapes",
+    breakpoint: {
+      xs: 12,
+      md: 6
+    }
+  }, {
+    field: "required",
+    validate: "",
+    FormItem: _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_11___default.a,
+    label: "Zorunluluk durumu",
+    icon: "warning",
+    breakpoint: {
+      xs: 12,
+      md: 6
+    },
+    type: "control"
+  }, {
+    field: "mongoType",
+    validate: "",
+    FormItem: _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_1___default.a,
+    label: "Mongo db sütun tipi",
+    icon: "db",
+    breakpoint: {
+      xs: 12,
+      md: 12
+    },
+    type: "select",
+    selectData: mongoType
+  }]
+}];
+
+var styles = function styles(theme) {
+  return {
+    container: {
+      display: "flex",
+      flexWrap: "wrap"
+    },
+    paper: {
+      padding: 16
+    },
+    management: {
+      backgroundColor: "#f3f3f3"
+    },
+    textField: {
+      marginLeft: 8,
+      marginRight: 8
+    },
+    dense: {
+      marginTop: 16
+    },
+    menu: {
+      width: 200
+    }
+  };
+};
+
+var FormManagement =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(FormManagement, _React$Component);
+
+  function FormManagement() {
+    var _getPrototypeOf2;
+
+    var _this3;
+
+    _classCallCheck(this, FormManagement);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this3 = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(FormManagement)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _this3.state = {
+      value: 0
+    };
+
+    _this3.handleChange = function (event, value) {
+      _this3.setState({
+        value: value
+      });
+    };
+
+    return _this3;
+  }
+
+  _createClass(FormManagement, [{
+    key: "render",
+    value: function render() {
+      var _this$props2 = this.props,
+          classes = _this$props2.classes,
+          view = _this$props2.view,
+          send = _this$props2.send,
+          add = _this$props2.add;
+      var value = this.state.value;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_BottomNavigation__WEBPACK_IMPORTED_MODULE_7___default.a, {
+        value: value,
+        onChange: this.handleChange,
+        showLabels: true,
+        className: classes.management
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_BottomNavigationAction__WEBPACK_IMPORTED_MODULE_8___default.a, {
+        onClick: send,
+        label: "G\xF6nder ve y\xFCkle",
+        icon: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "material-icons"
+        }, "send")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_BottomNavigationAction__WEBPACK_IMPORTED_MODULE_8___default.a, {
+        onClick: view,
+        label: "G\xF6ster",
+        icon: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "material-icons"
+        }, "rate_review")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_BottomNavigationAction__WEBPACK_IMPORTED_MODULE_8___default.a, {
+        onClick: add,
+        label: "Yeni Sat\u0131r Ekle",
+        icon: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "material-icons"
+        }, "add")
+      }));
+    }
+  }]);
+
+  return FormManagement;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_5__["withStyles"])(styles, {
+  withTheme: true
+})(FormCreator));
+
+/***/ })
+
+}]);

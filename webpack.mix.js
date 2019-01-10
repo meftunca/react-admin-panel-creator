@@ -5,7 +5,7 @@ if (process.env.NODE_ENV === "development") {
 }
 mix
   .react("src/index.js", "public")
-  // .sass("src/scss/app.scss", "public")
+  .sass("src/scss/app.scss", "public")
   .setPublicPath("public")
   .disableNotifications()
   .options({
