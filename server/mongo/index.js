@@ -1,7 +1,8 @@
 const mongoose = require("mongoose"),
-  schemaCreator = require("./mongoSchemaCreator");
+  schemaCreator = require("./mongoSchemaCreator"),
+  env = require("dotenv").config().parsed;
 mongoose.connect(
-  "mongodb://localhost/admin",
+  env.mongoDBUri, // "mongodb://localhost/admin",
   { useNewUrlParser: true }
 );
 let schema = schemaCreator(),
