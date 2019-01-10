@@ -1,8 +1,10 @@
 const mongoose = require("mongoose"),
+  env = require("dotenv").config(),
   schemaCreator = require("./mongoSchemaCreator");
 let url =
-  "mongodb://heroku_t39b8ml4:nip8m4ehf38lsqourohpvtjboo@ds253284.mlab.com:53284/heroku_t39b8ml4" ||
-  "mongodb://localhost/admin";
+  process.env.production == "true"
+    ? "mongodb://heroku_t39b8ml4:nip8m4ehf38lsqourohpvtjboo@ds253284.mlab.com:53284/heroku_t39b8ml4"
+    : "mongodb://localhost/admin";
 mongoose.connect(
   url,
   { useNewUrlParser: true }
@@ -12,6 +14,7 @@ let schema = schemaCreator(),
 for (let [k, v] of Object.entries(schema)) {
   model[k] = mongoose.model(k, new mongoose.Schema(v));
 }
+console.log(process.env);
 module.exports = app => {
   //tablo oluştur veya veri çek
   app.post("/append-data", function(req, res) {
@@ -28,7 +31,7 @@ module.exports = app => {
     );
   });
   //tablo satırlarını çek
-  app.post("/get-table", (req, res, next) => {
+  app.post("/get-table", (req, res) => {
     let table = req.body.name,
       column = req.body.columns;
     model[table]
@@ -41,7 +44,7 @@ module.exports = app => {
       });
   });
   //tablo satırlarını sil
-  app.post("/remove-table-item", (req, res, next) => {
+  app.post("/remove-table-item", (req, res) => {
     let table = req.body.name,
       id = req.body.id,
       q = {};

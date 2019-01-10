@@ -7,9 +7,9 @@ const express = require("express"),
   low = require("lowdb"),
   FileSync = require("lowdb/adapters/FileSync"),
   adapter = new FileSync("./src/json/form.json"),
+  env = require("dotenv").config(),
   db = low(adapter),
   app = express();
-
 // express header
 header(express, app);
 
@@ -30,7 +30,7 @@ twitter(app);
 FaceBookMen(app);
 //mongodb ve formlarla ilgili ile ilgili rotalar
 
-app.post("/create-form", async (req, res) => {
+app.post("/create-form", (req, res) => {
   let data = req.body;
   let q = db
     .get("forms")
@@ -39,7 +39,7 @@ app.post("/create-form", async (req, res) => {
   res.json(q);
 });
 
-app.post("/get-form-json", async (req, res) => {
+app.post("/get-form-json", (req, res) => {
   let data = db.get("forms").write();
   console.log(data);
   res.json(data);
@@ -48,6 +48,5 @@ app.post("/get-form-json", async (req, res) => {
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/../public/index.html"));
 });
-const port = process.env.PORT || 8000;
-app.listen(port);
-module.exports = app;
+app.set("port");
+app.listen(process.env.PORT || 8000);

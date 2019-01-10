@@ -5,11 +5,11 @@ const bodyParser = require("body-parser"),
   morgan = require("morgan");
 
 module.exports = (express, app) => {
-  // enhance your app security with Helmet
-  app.use(helmet());
-
   // use bodyParser to parse application/json content-type
   app.use(bodyParser.json());
+
+  // enhance your app security with Helmet
+  app.use(helmet());
 
   // enable all CORS requests
   app.use(cors());
