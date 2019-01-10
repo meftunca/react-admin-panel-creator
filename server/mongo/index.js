@@ -2,7 +2,7 @@ const mongoose = require("mongoose"),
   schemaCreator = require("./mongoSchemaCreator");
 mongoose.connect(
   "mongodb://heroku_t39b8ml4:nip8m4ehf38lsqourohpvtjboo@ds253284.mlab.com:53284/heroku_t39b8ml4",
-  // "mongodb://localhost/admin",
+
   { useNewUrlParser: true }
 );
 let schema = schemaCreator(),
