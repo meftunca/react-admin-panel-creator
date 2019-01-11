@@ -1,9 +1,9 @@
 const mongoose = require("mongoose"),
   schemaCreator = require("./mongoSchemaCreator");
-mongoose.connect(
-  process.env.MONGOLAB_URI || "mongodb://meftunca:meftunca12@ds153974.mlab.com:53974/heroku_zbz4gnp0",
-  { useNewUrlParser: true }
-);
+// mongoose.connect(
+//   process.env.MONGOLAB_URI || "mongodb://meftunca:meftunca12@ds153974.mlab.com:53974/heroku_zbz4gnp0",
+//   { useNewUrlParser: true }
+// );
 
 let schema = schemaCreator(),
   model = {};
