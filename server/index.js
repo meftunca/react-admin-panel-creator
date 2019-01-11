@@ -7,8 +7,6 @@ const express = require("express"),
   low = require("lowdb"),
   FileSync = require("lowdb/adapters/FileSync"),
   adapter = new FileSync("./src/json/form.json"),
-  env = require("dotenv").config(),
-  path = require("path"),
   db = low(adapter),
   app = express();
 // express header
@@ -46,8 +44,5 @@ app.post("/get-form-json", (req, res) => {
   res.json(data);
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/../public/index.html"));
-});
 app.set("port");
 app.listen(process.env.PORT || 8000);

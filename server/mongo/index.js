@@ -1,17 +1,14 @@
 const mongoose = require("mongoose"),
-  env = require("dotenv").config(),
   schemaCreator = require("./mongoSchemaCreator");
-console.log(process.env.mongoDBURI);
 mongoose.connect(
-  process.env.mongoDBURI,
-  { useNewUrlParser: true, useMongoClient: true }
+  "mongodb://meftunca:meftunca12@ds153974.mlab.com:53974/heroku_zbz4gnp0",
+  { useNewUrlParser: true }
 );
 let schema = schemaCreator(),
   model = {};
 for (let [k, v] of Object.entries(schema)) {
   model[k] = mongoose.model(k, new mongoose.Schema(v));
 }
-console.log(process.env);
 module.exports = app => {
   //tablo oluştur veya veri çek
   app.post("/append-data", function(req, res) {
