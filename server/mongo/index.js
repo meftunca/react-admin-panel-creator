@@ -1,10 +1,10 @@
 const mongoose = require("mongoose"),
   env = require("dotenv").config(),
   schemaCreator = require("./mongoSchemaCreator");
-
+console.log(process.env.mongoDBURI);
 mongoose.connect(
   process.env.mongoDBURI,
-  { useNewUrlParser: true }
+  { useNewUrlParser: true, useMongoClient: true }
 );
 let schema = schemaCreator(),
   model = {};
