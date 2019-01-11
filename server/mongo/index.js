@@ -1,10 +1,12 @@
 const mongoose = require("mongoose"),
   schemaCreator = require("./mongoSchemaCreator");
-mongoose.createConnection(
+mongoose.connect(
   process.env.MONGOLAB_URI || "mongodb://meftunca:meftunca12@ds153974.mlab.com:53974/heroku_zbz4gnp0",
   { useNewUrlParser: true }
 );
-
+mongoose.connection.on("error", function(err) {
+  console.log("Error: Could not connect to MongoDB.");
+});
 let schema = schemaCreator(),
   model = {};
 for (let [k, v] of Object.entries(schema)) {
