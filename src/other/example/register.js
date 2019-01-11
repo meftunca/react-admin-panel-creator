@@ -72,7 +72,8 @@ function Register({ store, classes }) {
       console.log(k, v);
       data[k] = v;
     }
-    axios.post(window.location.origin + ":8000/user-register", data)
+    window.axios
+      .post(window.location.origin + ":8000/user-register", data)
       .then(async ({ data }) => {
         setTurnData(data.data);
         // store update

@@ -6,7 +6,6 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import classNames from "classnames";
 import Button from "@material-ui/core/Button";
-import axios from "axios";
 import { Form, asField } from "informed";
 import { TextInput, PasswordInput } from "./text";
 import Datepicker from "./date";
@@ -16,7 +15,7 @@ import { ToastContainer, toast } from "react-toastify";
 import RadioButtons from "./radio";
 import Checkboxes from "./checkbox";
 import Switches from "./switch";
-import validate from "./../../utils/validate";
+import validate from "../../utils/validate";
 const styles = theme => ({
   button: {
     margin: theme.spacing.unit
@@ -78,7 +77,7 @@ class FormBuilder extends Component {
     let { values } = this.formApi.getState();
     console.log(values, url);
     let postData = { tableName: this.props.name, data: values };
-    await axios.post(window.location.origin + ":8000/" + url.replace("/", ""), postData).then(({ data }) => {
+    await window.axios.post(window.location.origin + ":8000/" + url.replace("/", ""), postData).then(({ data }) => {
       console.log(data.data);
       setTimeout(() => this.toastRunner(data.data.status, data.data.message), 2000);
     });

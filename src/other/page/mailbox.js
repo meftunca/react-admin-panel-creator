@@ -78,7 +78,7 @@ class MailBox extends Component {
     });
   };
   componentDidMount() {
-    axios.post(window.location.origin.replace("https", "http") + ":8000/gmail/get").then(d => console.log(d));
+    window.axios.post(window.location.origin.replace("https", "http") + ":8000/gmail/get").then(d => console.log(d));
   }
 
   render() {

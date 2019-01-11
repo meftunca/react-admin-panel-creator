@@ -45,17 +45,19 @@ class FormCreator extends Component {
     this.formApi = formApi;
   }
   componentDidMount() {
-    // axios.post(window.location.origin+":8000/get-form-json").then(({ data }) => this.setFormApi(data));
+    // window.axios.post(window.location.origin+":8000/get-form-json").then(({ data }) => this.setFormApi(data));
   }
 
   post = data => {
-    axios.post(window.location.origin.replace("https","http") + ":8000/create-form", data).then(d => console.log(d));
+    window.axios
+      .post(window.location.origin.replace("https", "http") + ":8000/create-form", data)
+      .then(d => console.log(d));
   };
   view = () => console.log("view");
   send = () => this.handleClick();
   add = () => this.setState({ appendInput: this.state.appendInput.concat("") });
   render() {
-    const { classes, theme } = this.props;
+    const { classes, theme, name } = this.props;
     return (
       <Paper className={classes.paper} elevation={1}>
         <Grid container spacing={24}>

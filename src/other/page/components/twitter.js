@@ -34,7 +34,7 @@ class TwitterApi extends Component {
     this.update();
   }
   update = () => {
-    axios.post(window.location.origin + ":8000/twitter", { id: "lorem ipsm" }).then(res => {
+    window.axios.post(window.location.origin + ":8000/twitter", { id: "lorem ipsm" }).then(res => {
       this.setState({ data: res.data, visible: true });
     });
   };
@@ -117,12 +117,14 @@ function TwitterList({ data, update, full, classes }) {
     if (tweet.length < 1 || tweet.length > 239) {
       alert("lütfen " + tweet.length + "'den " + (tweet.length < 1 ? "fazla " : "az ") + "karakter kullanın");
     } else {
-      Axios.post("http://localhost:8000/twitter-post", {
-        status: tweet + "\n Deneme zamanı : " + Date.now(),
-        file: tweetFile
-      }).then(d => {
-        setTimeout(() => update(), 1000);
-      });
+      window.axios
+        .post("http://localhost:8000/twitter-post", {
+          status: tweet + "\n Deneme zamanı : " + Date.now(),
+          file: tweetFile
+        })
+        .then(d => {
+          setTimeout(() => update(), 1000);
+        });
       // setTweet("");
     }
   };

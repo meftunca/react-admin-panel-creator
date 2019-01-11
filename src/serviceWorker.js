@@ -19,7 +19,7 @@ window.axios = require("axios");
 window.uniqid = require("uniqid");
 
 //axios customization
-const instance = axios.create();
+const instance = window.axios.create();
 instance.defaults.baseUrl = window.location.origin;
 instance.defaults.timeout = 2500;
 
