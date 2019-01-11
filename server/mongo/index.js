@@ -4,6 +4,7 @@ mongoose.connect(
   "mongodb://meftunca:meftunca12@ds153974.mlab.com:53974/heroku_zbz4gnp0",
   { useNewUrlParser: true }
 );
+
 let schema = schemaCreator(),
   model = {};
 for (let [k, v] of Object.entries(schema)) {
