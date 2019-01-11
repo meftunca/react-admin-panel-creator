@@ -1,5 +1,4 @@
 const formToSchema = require("../../src/json/form.json").forms;
-// console.log(formToSchema);
 let timeStamps = {
   created_at: { type: Date, default: Date.now() },
   updated_at: { type: Date }

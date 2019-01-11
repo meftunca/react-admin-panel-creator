@@ -5,11 +5,11 @@ const bodyParser = require("body-parser"),
   morgan = require("morgan");
 
 module.exports = (express, app) => {
-  // enhance your app security with Helmet
-  app.use(helmet());
-
   // use bodyParser to parse application/json content-type
   app.use(bodyParser.json());
+
+  // enhance your app security with Helmet
+  app.use(helmet());
 
   // enable all CORS requests
   app.use(cors());
@@ -24,5 +24,9 @@ module.exports = (express, app) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
+  });
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + "/../public/index.html"));
   });
 };

@@ -1,1 +1,100 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[13,23],{"GKq/":function(e,t,a){"use strict";a.r(t);var n=a("q1tI"),r=a.n(n),o=a("Jkrb"),l=a("1OZW"),i=a.n(l),c=a("0G56"),s=a.n(c),m=a("YDiY"),u=a.n(m),p=a("2VVu"),d=a.n(p),f=a("1IiC"),y=a.n(f),E=a("6ZaM"),h=a.n(E),b=a("MPIl"),g=a.n(b);function v(){return(v=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var a=arguments[t];for(var n in a)Object.prototype.hasOwnProperty.call(a,n)&&(e[n]=a[n])}return e}).apply(this,arguments)}function w(e){return r.a.createElement(g.a,v({direction:"up"},e))}t.default=Object(o.b)({appBar:{position:"relative",backgroundColor:"transparent",color:"#000"},flex:{flex:1},containerWrapper:{padding:10},grow:{flexGrow:1},between:{justifyContent:"space-between"}})(function(e){var t=e.open,a=e.handleClose,n=e.classes,o=e.children,l=e.save;return r.a.createElement("div",null,r.a.createElement(s.a,{fullScreen:!0,open:t,onClose:a,TransitionComponent:w},r.a.createElement(u.a,{className:n.appBar},r.a.createElement(d.a,{className:n.between},r.a.createElement(y.a,{color:"inherit",onClick:a,"aria-label":"Close"},r.a.createElement("i",{className:"material-icons"},"close")),r.a.createElement(h.a,{variant:"h6",color:"inherit",className:n.flex},"Mail Oluşturucu"),r.a.createElement(i.a,{color:"inherit",onClick:l},r.a.createElement("i",{className:"material-icons mr-2"},"save"),"Kaydet"))),o))})},uVDZ:function(e,t,a){"use strict";a.r(t);var n=a("q1tI"),r=a.n(n),o=a("17x9"),l=a.n(o),i=a("SUMQ"),c=a("JgXy"),s=a.n(c),m=a("NABS"),u=a.n(m),p=a("4eE1"),d=a.n(p),f=a("DJ9Z"),y=a.n(f),E=a("aAba"),h=a.n(E),b=a("QGGi"),g=a.n(b),v=a("6ZaM"),w=a.n(v),x=a("DvoB"),k=a("pPbJ"),N=a.n(k),O=a("Jtyc"),C=a.n(O),S=a("EHL7"),j=a.n(S),G=a("1IiC"),I=a.n(G),T=a("WqRt"),B=a.n(T),M=a("UMgS"),P=a("1OZW"),R=a.n(P),_=a("GKq/");function A(e){return(A="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function q(){return(q=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var a=arguments[t];for(var n in a)Object.prototype.hasOwnProperty.call(a,n)&&(e[n]=a[n])}return e}).apply(this,arguments)}function J(e,t){for(var a=0;a<t.length;a++){var n=t[a];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function K(e,t){return!t||"object"!==A(t)&&"function"!=typeof t?function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}(e):t}function W(e){return(W=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function Y(e,t){return(Y=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}var Z=function(e){function t(e){var a;return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t),(a=K(this,W(t).call(this,e))).handleClose=function(){return a.setState({modal:!1})},a.openEditor=function(){a.setState({modal:!0})},a.onSave=function(){var e=a.state.editor;a.editor.current.exportHtml(function(t){var n=t.design,r=t.html;e.data=r,console.log(n,r),a.setState({editor:t})})},a.state={modal:!1,editor:{data:""}},a.editor=r.a.createRef(),a}var a,o,l;return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&Y(e,t)}(t,n["Component"]),a=t,(o=[{key:"componentDidMount",value:function(){axios.post(window.location.origin.replace("https","http")+":8000/gmail/get").then(function(e){return console.log(e)})}},{key:"render",value:function(){var e=D.AvatarItem,t=D.SeconadryAction,a=D.ItemText,o=this.props.classes;return r.a.createElement(n.Fragment,null,r.a.createElement(x.Grid,{container:!0,className:o.root},r.a.createElement(x.Grid,{item:!0,xs:12,md:12},r.a.createElement(H,{classes:o}))),r.a.createElement(x.Grid,{container:!0,className:o.root,spacing:16},r.a.createElement(x.Grid,{item:!0,xs:4,md:3},r.a.createElement(R.a,{color:"primary",className:o.button,onClick:function(){window.location=window.location.origin+":8000/auth/google/callback"}},r.a.createElement(V,{className:o.extendedIcon},"add")," ","Google Giriş Yap"),r.a.createElement(R.a,{color:"secondary",className:o.button,onClick:this.openEditor},r.a.createElement(V,{className:o.extendedIcon},"add")," ","\tYeni Mail Oluştur"),r.a.createElement(s.a,null,z.map(function(e,t){return r.a.createElement(L,q({},e,{key:t}))})),r.a.createElement(j.a,null),r.a.createElement(s.a,{subheader:r.a.createElement(B.a,null,"Etiketler")},F.map(function(e,t){return r.a.createElement(L,q({},e,{key:t}))}))),r.a.createElement(x.Grid,{item:!0,xs:8,md:9},r.a.createElement(x.Grid,{container:!0},r.a.createElement(x.Grid,{item:!0,xs:12,md:12},r.a.createElement(s.a,{className:o.rootList},r.a.createElement(u.a,{alignItems:"flex-start",button:!0},r.a.createElement(e,{name:"Remy Sharp",img:"https://material-ui.com/static/images/avatar/1.jpg"}),r.a.createElement(a,{primary:"Brunch this weekend?",classes:o,secondaryTitle:"Ali Connors",secondaryText:" — I'll be in your neighborhood doing errands this…"}),r.a.createElement(t,{reply:function(){return console.log("reply now")},remove:function(){return console.log("remove now")}})),r.a.createElement(j.a,null)))))),r.a.createElement(_.default,{open:this.state.modal,handleClose:this.handleClose,save:this.onSave},r.a.createElement("div",{className:o.modalWrapper},r.a.createElement(M.a,{minHeight:"100vh",ref:this.editor}))))}}])&&J(a.prototype,o),l&&J(a,l),t}(),D={AvatarItem:function(e){var t=e.name,a=e.img;return r.a.createElement(y.a,null,r.a.createElement(g.a,{alt:t,src:a}))},SeconadryAction:function(e){var t=e.reply,a=e.remove;return r.a.createElement(h.a,null,r.a.createElement(I.a,{"aria-label":"Reply",onClick:t},r.a.createElement(V,null,"reply")),r.a.createElement(I.a,{"aria-label":"Remove",onClick:a},r.a.createElement(V,null,"delete_outline")))},ItemText:function(e){var t=e.primary,a=e.classes,n=e.secondaryTitle,o=e.secondaryText;return r.a.createElement(d.a,{primary:t,secondary:r.a.createElement(r.a.Fragment,null,r.a.createElement(w.a,{component:"span",className:a.inline,color:"textPrimary"},n),o)})}};function H(e){var t=e.classes;return r.a.createElement(N.a,{className:t.rootHeader,elevation:1},r.a.createElement(I.a,{className:t.iconButton,"aria-label":"Menu"},r.a.createElement(V,null,"menu")),r.a.createElement(C.a,{className:t.input,placeholder:"Maillerde Ara.."}),r.a.createElement(I.a,{className:t.iconButton,"aria-label":"Search"},r.a.createElement(V,null,"search")),r.a.createElement(j.a,{className:t.divider}),r.a.createElement(I.a,{color:"primary",className:t.iconButton,"aria-label":"Reload"},r.a.createElement(V,null,"refresh")))}var L=function(e){var t=e.icon,a=e.primary,n=e.secondary;return r.a.createElement(u.a,{button:!0},r.a.createElement(y.a,null,r.a.createElement(V,null,t)),r.a.createElement(d.a,{primary:a,secondary:n}))};H.propTypes={classes:l.a.object.isRequired},Z.propTypes={classes:l.a.object.isRequired};var V=function(e){var t=e.children,a=e.className;return r.a.createElement("i",{className:"material-icons "+a},t)},z=[{icon:"inbox",secondary:"",primary:"Gelen Kutusu"},{icon:"star",secondary:"",primary:"Yıldızlı"},{icon:"send",secondary:"",primary:"Gönderilenler"},{icon:"drafts",secondary:"",primary:"Taslaklar"}],F=[{icon:"group_work",secondary:"",primary:"work"},{icon:"code",secondary:"",primary:"Yazılım"},{icon:"copyright",secondary:"",primary:"Kurumsal"},{icon:"accessibility",secondary:"",primary:"Kişisel"}];t.default=Object(i.withStyles)(function(e){return{root:{backgroundColor:e.palette.background.paper},button:{margin:e.spacing.unit},rootList:{width:"100%"},inline:{display:"inline"},rootHeader:{padding:"2px 4px",display:"flex",alignItems:"center",marginBottom:25},input:{marginLeft:8,flex:1},iconButton:{padding:10},divider:{width:1,height:28,margin:4},modalWrapper:{position:"relative",height:"calc(100vh - 64px)",padding:10},extendedIcon:{marginRight:e.spacing.unit}}})(Z)}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[13],{
+
+/***/ "./src/json/apiForm.json":
+/*!*******************************!*\
+  !*** ./src/json/apiForm.json ***!
+  \*******************************/
+/*! exports provided: twitter, facebook, default */
+/***/ (function(module) {
+
+module.exports = {"twitter":{"name":"twitter","post_url":"/api-twitter","get_url":"/get-api-twitter","title":"Twitter Api bilgileri","header":{"label":"Twitter Api bilgileri","icon":"power"},"route":{"path":"/twitter-api","exact":"false"},"formItem":[{"name":"consumer_key","icon":"","label":"consumer_key","type":"text","regex":"","required":"false","mongoType":"string"},{"name":"consumer_secret","icon":"","label":"consumer_secret","type":"text","regex":"","required":"false","mongoType":"string"},{"name":"access_token_key","icon":"","label":"access_token_key","type":"text","regex":"","required":"false","mongoType":"string"},{"name":"access_token_secret","icon":"","label":"access_token_secret","type":"text","regex":"","required":"false","mongoType":"string"}],"tableItem":[{"name":"saddsadsa","label":"dasdasdas"}]},"facebook":{"name":"facebook","post_url":"/api-facebook","get_url":"/get-api-facebook","title":"facebook Api bilgileri","header":{"label":"facebook Api bilgileri","icon":"power"},"route":{"path":"/facebook-api","exact":"false"},"formItem":[{"name":"appId","icon":"","label":"appId","type":"text","regex":"","required":"false","mongoType":"string"},{"name":"app_secret","icon":"","label":"app_secret","type":"text","regex":"","required":"false","mongoType":"string"}],"tableItem":[{"name":"saddsadsa","label":"dasdasdas"}]}};
+
+/***/ }),
+
+/***/ "./src/other/page/api.js":
+/*!*******************************!*\
+  !*** ./src/other/page/api.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return App; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_forms_builder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../components/forms/builder */ "./src/components/forms/builder.js");
+/* harmony import */ var _material_ui_core_Divider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Divider */ "./node_modules/@material-ui/core/Divider/index.js");
+/* harmony import */ var _material_ui_core_Divider__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Divider__WEBPACK_IMPORTED_MODULE_2__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+var Api = __webpack_require__(/*! ./../../json/apiForm.json */ "./src/json/apiForm.json");
+
+var App =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(App, _Component);
+
+  function App() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, App);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(App)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(App, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, Object.values(Api).map(function (i, k) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, {
+          key: k
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_builder__WEBPACK_IMPORTED_MODULE_1__["default"], i), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Hr, null));
+      }));
+    }
+  }]);
+
+  return App;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+var Hr = function Hr() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    style: {
+      margin: "15px 0"
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Divider__WEBPACK_IMPORTED_MODULE_2___default.a, null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Divider__WEBPACK_IMPORTED_MODULE_2___default.a, null));
+};
+
+/***/ })
+
+}]);

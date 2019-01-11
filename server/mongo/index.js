@@ -1,10 +1,10 @@
 const mongoose = require("mongoose"),
   schemaCreator = require("./mongoSchemaCreator");
 mongoose.connect(
-  "mongodb://localhost/admin",
-
+  "mongodb://meftunca:meftunca12@ds153974.mlab.com:53974/heroku_zbz4gnp0",
   { useNewUrlParser: true }
 );
+
 let schema = schemaCreator(),
   model = {};
 for (let [k, v] of Object.entries(schema)) {
@@ -26,7 +26,7 @@ module.exports = app => {
     );
   });
   //tablo satırlarını çek
-  app.post("/get-table", (req, res, next) => {
+  app.post("/get-table", (req, res) => {
     let table = req.body.name,
       column = req.body.columns;
     model[table]
@@ -39,7 +39,7 @@ module.exports = app => {
       });
   });
   //tablo satırlarını sil
-  app.post("/remove-table-item", (req, res, next) => {
+  app.post("/remove-table-item", (req, res) => {
     let table = req.body.name,
       id = req.body.id,
       q = {};

@@ -9,7 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
-
+import { Editor } from "react-draft-wysiwyg";
 const styles = theme => ({
   card: {
     display: "flex"
@@ -39,36 +39,7 @@ const styles = theme => ({
 function CardItem(props) {
   const { classes, theme } = props;
 
-  return (
-    <Card className={classes.card}>
-      <div className={classes.details}>
-        <CardContent className={classes.content}>
-          <Typography component='h5' variant='h5'>
-            Live From Space
-          </Typography>
-          <Typography variant='subtitle1' color='textSecondary'>
-            Mac Miller
-          </Typography>
-        </CardContent>
-        <div className={classes.controls}>
-          <IconButton aria-label='Previous'>
-            {theme.direction === "rtl" ? <SkipNextIcon /> : <SkipPreviousIcon />}
-          </IconButton>
-          <IconButton aria-label='Play/pause'>
-            <PlayArrowIcon className={classes.playIcon} />
-          </IconButton>
-          <IconButton aria-label='Next'>
-            {theme.direction === "rtl" ? <SkipPreviousIcon /> : <SkipNextIcon />}
-          </IconButton>
-        </div>
-      </div>
-      <CardMedia
-        className={classes.cover}
-        image='https://material-ui.com//static/images/cards/live-from-space.jpg'
-        title='Live from space album cover'
-      />
-    </Card>
-  );
+  return <Editor />;
 }
 
 CardItem.propTypes = {

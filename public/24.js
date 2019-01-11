@@ -1,1 +1,143 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[24],{Ew2V:function(e,t,n){"use strict";n.r(t);var a=n("q1tI"),r=n.n(a),o=n("Jkrb"),i=n("JgXy"),l=n.n(i),c=n("NABS"),s=n.n(c),u=n("4eE1"),m=n.n(u),f=n("DJ9Z"),p=n.n(f),d=n("QGGi"),y=n.n(d),b=n("6ZaM"),g=n.n(b),h=n("xQ8m"),v=n("TSYQ"),E=n.n(v),w=n("qJ/b"),k=n.n(w),x=n("jZk8"),_=n.n(x),S=n("WqRt"),C=n.n(S),N=n("1IiC"),O=n.n(N),T=n("cUz1"),j=n.n(T),z=n("ZqOF"),P=n.n(z),A=n("++m4"),F=n.n(A),J=n("z3yt"),D=n("2iEm");function q(e,t){return function(e){if(Array.isArray(e))return e}(e)||function(e,t){var n=[],a=!0,r=!1,o=void 0;try{for(var i,l=e[Symbol.iterator]();!(a=(i=l.next()).done)&&(n.push(i.value),!t||n.length!==t);a=!0);}catch(e){r=!0,o=e}finally{try{a||null==l.return||l.return()}finally{if(r)throw o}}return n}(e,t)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance")}()}function B(e){return(B="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function H(e,t){for(var n=0;n<t.length;n++){var a=t[n];a.enumerable=a.enumerable||!1,a.configurable=!0,"value"in a&&(a.writable=!0),Object.defineProperty(e,a.key,a)}}function I(e,t){return!t||"object"!==B(t)&&"function"!=typeof t?function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}(e):t}function M(e){return(M=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function R(e,t){return(R=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}var Z=n("o6/g");h.a.addLocale(F.a);var G=new h.a("tr-TR"),Q=function(e){function t(){var e;return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t),(e=I(this,M(t).call(this))).update=function(){axios.post(window.location.origin+":8000/twitter",{id:"lorem ipsm"}).then(function(t){e.setState({data:t.data,visible:!0})})},e.state={data:[],visible:!1},e}var n,o,i;return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&R(e,t)}(t,a["Component"]),n=t,(o=[{key:"componentDidMount",value:function(){this.update()}},{key:"render",value:function(){var e=this.props.classes;return 0==this.state.visible?r.a.createElement("a",null):r.a.createElement(X,{data:this.state.data,classes:e,full:!this.props.full,update:this.update})}}])&&H(n.prototype,o),i&&H(n,i),t}();function X(e){var t=e.data,n=e.update,o=e.full,i=e.classes,c=q(r.a.useState(""),2),u=c[0],f=c[1],d=q(r.a.useState(""),2),b=d[0],h=d[1],v=q(r.a.useState(!1),2),w=v[0],x=v[1],S=r.a.createRef();return r.a.createElement("div",{className:i.relative},r.a.createElement(l.a,{className:null==o?i.root:i.fullHg,subheader:r.a.createElement(J.unstable_Box,{display:"flex",justifyContent:"space-between",p:1,bgcolor:"background.paper"},r.a.createElement(J.unstable_Box,null,r.a.createElement(C.a,{component:"div"},"Twitter Posts")),r.a.createElement(J.unstable_Box,null,r.a.createElement(O.a,{size:"small",onClick:n},r.a.createElement("i",{className:"material-icons"},"refresh"))))},t!=[]&&null==t[0].code?r.a.createElement(a.Fragment,null,t.map(function(e,t){var n=e.user,o=e.text,l=e.created_at,c=e.entities;return r.a.createElement(a.Fragment,{key:t},r.a.createElement(s.a,null,r.a.createElement(p.a,null,r.a.createElement(y.a,{alt:n.name,src:n.profile_image_url})),r.a.createElement(m.a,{secondary:r.a.createElement(a.Fragment,null,o,r.a.createElement("div",{className:i.gutterMargin}),r.a.createElement(g.a,{component:"span",className:i.inline,color:"textPrimary"},G.format(new Date(l))),c.user_mentions.map(function(e,t){var n=e.screen_name;e.name;return r.a.createElement(k.a,{avatar:r.a.createElement(y.a,{component:"span"},r.a.createElement(_.a,null)),component:"span",variant:"outlined",label:n,key:t,className:i.chip})}))})))})):r.a.createElement(g.a,{component:"p",className:i.inlineCustom,color:"textPrimary"},"Şuan Twitter Apisini kullanamazsınız. Gerekli bilgileri girmek için =>",r.a.createElement(D.a,{to:"/api-yonetimi"},"Adresine gidin"))),t!=[]&&null==t[0].code&&r.a.createElement("div",{className:null!=o&&i.bottomFix},r.a.createElement(s.a,null,r.a.createElement(P.a,{id:"twitter-post-button",className:E()(i.margin,i.textField),variant:"filled",type:"textarea",label:"Twitter post",value:u,onChange:function(e){var t=e.target;return f(t.value)},fullWidth:!0,InputProps:{endAdornment:r.a.createElement(j.a,{variant:"filled",position:"end"},r.a.createElement(O.a,{color:"secondary","aria-label":"Toggle password visibility",onClick:function(){x(!w),S.current.click()}},r.a.createElement("i",{className:"material-icons",style:{fontSize:16}},"image")),r.a.createElement(O.a,{color:"primary","aria-label":"Toggle password visibility",onClick:function(){u.length<1||u.length>239?alert("lütfen "+u.length+"'den "+(u.length<1?"fazla ":"az ")+"karakter kullanın"):Axios.post("http://localhost:8000/twitter-post",{status:u+"\n Deneme zamanı : "+Date.now(),file:b}).then(function(e){setTimeout(function(){return n()},1e3)})}},r.a.createElement("i",{className:"material-icons",style:{fontSize:16}},"send")))}})),r.a.createElement("input",{type:"file",hidden:!0,ref:S,onChange:function(){var e=S.current.files;console.log(e),Z(e[0],function(e,t){e||h(t)})}})))}t.default=Object(o.b)(function(e){return{relative:{position:"relative"},root:{width:"100%",maxHeight:400,backgroundColor:"#fff",overflowX:"hidden",overflowY:"scroll"},fullHg:{maxHeight:"80vh",width:"100%",backgroundColor:"#fff",overflowX:"hidden",overflowY:"scroll",position:"relative"},bottomFix:{position:"absolute",bottom:"-10vh",left:0,right:0},inline:{display:"inline"},inlineCustom:{display:"inline",padding:"5px 15px",margin:20},chip:{margin:6},margin:{margin:8},gutterMargin:{margin:"4px 0"}}})(Q)}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[24],{
+
+/***/ "./src/other/gridList.js":
+/*!*******************************!*\
+  !*** ./src/other/gridList.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/styles/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_GridList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/GridList */ "./node_modules/@material-ui/core/GridList/index.js");
+/* harmony import */ var _material_ui_core_GridList__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_GridList__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_GridListTile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/GridListTile */ "./node_modules/@material-ui/core/GridListTile/index.js");
+/* harmony import */ var _material_ui_core_GridListTile__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_GridListTile__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+var tileData = [{
+  img: "/static/images/grid-list/breakfast.jpg",
+  title: "Breakfast",
+  author: "jill111",
+  cols: 2,
+  featured: true
+}, {
+  img: "/static/images/grid-list/burgers.jpg",
+  title: "Tasty burger",
+  author: "director90"
+}, {
+  img: "/static/images/grid-list/camera.jpg",
+  title: "Camera",
+  author: "Danson67"
+}, {
+  img: "/static/images/grid-list/morning.jpg",
+  title: "Morning",
+  author: "fancycrave1",
+  featured: true
+}, {
+  img: "/static/images/grid-list/hats.jpg",
+  title: "Hats",
+  author: "Hans"
+}, {
+  img: "/static/images/grid-list/honey.jpg",
+  title: "Honey",
+  author: "fancycravel"
+}, {
+  img: "/static/images/grid-list/vegetables.jpg",
+  title: "Vegetables",
+  author: "jill111",
+  cols: 2
+}, {
+  img: "/static/images/grid-list/plant.jpg",
+  title: "Water plant",
+  author: "BkrmadtyaKarki"
+}, {
+  img: "/static/images/grid-list/mushroom.jpg",
+  title: "Mushrooms",
+  author: "PublicDomainPictures"
+}, {
+  img: "/static/images/grid-list/olive.jpg",
+  title: "Olive oil",
+  author: "congerdesign"
+}, {
+  img: "/static/images/grid-list/star.jpg",
+  title: "Sea star",
+  cols: 2,
+  author: "821292"
+}, {
+  img: "/static/images/grid-list/bike.jpg",
+  title: "Bike",
+  author: "danfador"
+}];
+
+var styles = function styles(theme) {
+  return {
+    root: {
+      display: "flex",
+      flexWrap: "wrap",
+      justifyContent: "space-around",
+      overflow: "hidden",
+      backgroundColor: theme.palette.background.paper
+    },
+    gridList: {
+      width: 500,
+      height: 450
+    }
+  };
+};
+/**
+ * The example data is structured as follows:
+ *
+ * import image from 'path/to/image.jpg';
+ * [etc...]
+ *
+ * const tileData = [
+ *   {
+ *     img: image,
+ *     title: 'Image',
+ *     author: 'author',
+ *     cols: 2,
+ *   },
+ *   {
+ *     [etc...]
+ *   },
+ * ];
+ */
+
+
+function ImageGridList(props) {
+  var classes = props.classes;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.root
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_GridList__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    cellHeight: 160,
+    className: classes.gridList,
+    cols: 3
+  }, tileData.map(function (tile) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_GridListTile__WEBPACK_IMPORTED_MODULE_4___default.a, {
+      key: tile.img,
+      cols: tile.cols || 1
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: "https://material-ui.com/" + tile.img,
+      alt: tile.title
+    }));
+  })));
+}
+
+ImageGridList.propTypes = {
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["withStyles"])(styles)(ImageGridList));
+
+/***/ })
+
+}]);
