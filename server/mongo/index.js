@@ -1,6 +1,5 @@
 const mongoose = require("mongoose"),
   schemaCreator = require("./mongoSchemaCreator");
-console.log(process.env.MONGODB_URI);
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://meftunca:meftunca12@ds153974.mlab.com:53974/heroku_zbz4gnp0",
   { useNewUrlParser: true }
