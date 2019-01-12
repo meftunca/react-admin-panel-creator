@@ -7,6 +7,7 @@ var uristring = process.env.MONGODB_URI || "mongodb://localhost/admin";
 // operations and release them when the connection is complete.
 mongoose.connect(
   uristring,
+  { useNewUrlParser: true },
   function(err, res) {
     if (err) {
       console.log("ERROR connecting to: " + uristring + ". " + err);
