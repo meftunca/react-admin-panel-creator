@@ -1,5 +1,4 @@
-const http = require("http"),
-  express = require("express"),
+const express = require("express"),
   mongo = require("./server/mongo"),
   twitter = require("./server/twitter"),
   FaceBookMen = require("./server/facebook"),
@@ -36,4 +35,5 @@ app.post("/get-form-json", (req, res) => {
   console.log(data);
   res.json(data);
 });
-app.listen(process.env.PORT || 5000, err => console.log(err));
+console.log(process.env.PORT);
+app.listen(process.env.PORT, err => console.log(err));
