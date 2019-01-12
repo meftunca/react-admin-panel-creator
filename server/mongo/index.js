@@ -1,14 +1,12 @@
-const mongoose = require("mongoose"),
-  env = require("dotenv").config(),
+const env = require("dotenv").config(),
   schemaCreator = require("./mongoSchemaCreator");
-mongoose.Promise = global.Promise; // mongoose promises deprecated, use node - mongoosejs.com/docs/promises
 
-module.exports = app => {
+module.exports = async (mongoose, app) => {
   //tablo oluştur veya veri çek
   // Makes connection asynchronously.  Mongoose will queue up database
   // operations and release them when the connection is complete.
-  const uristring = process.env.MONGODB_URI || "mongodb://localhost/admin";
-  mongoose.connect(
+  const uristring = process.env.MONGODB_URI;
+  await mongoose.connect(
     uristring,
     { useNewUrlParser: true },
     function(err, res) {
@@ -19,10 +17,10 @@ module.exports = app => {
       }
     }
   );
-  mongoose.connection.once("open", () => {
+  await mongoose.connection.once("open", () => {
     console.log("MongoDB Connected");
   });
-  mongoose.connection.on("error", err => {
+  await mongoose.connection.on("error", err => {
     console.log("MongoDB connection error: ", err);
   });
 
@@ -31,7 +29,7 @@ module.exports = app => {
   for (let [k, v] of Object.entries(schema)) {
     model[k] = mongoose.model(k, new mongoose.Schema(v));
   }
-  app.post("/append-data", function(req, res) {
+  app.post("/append-data", (req, res) => {
     let istek = req.body;
     console.log(istek);
     if (istek.tableName == undefined || istek.tableName == "")
