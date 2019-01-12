@@ -6,6 +6,8 @@ var uristring = process.env.MONGODB_URI || "mongodb://localhost/admin";
 // Makes connection asynchronously.  Mongoose will queue up database
 // operations and release them when the connection is complete.
 console.log(process.env);
+mongoose.Promise = global.Promise; // mongoose promises deprecated, use node - mongoosejs.com/docs/promises
+
 mongoose.connect(
   uristring,
   { useNewUrlParser: true },
@@ -17,13 +19,13 @@ mongoose.connect(
     }
   }
 );
-// mongoose.connect(
-//   process.env.MONGODB_URI || "mongodb://meftunca:meftunca12@ds153974.mlab.com:53974/heroku_zbz4gnp0",
-//   { useNewUrlParser: true }
-// );
-mongoose.connection.on("error", function(err) {
-  console.log("Error: Could not connect to MongoDB.", err);
+mongoose.connection.once("open", () => {
+  console.log("MongoDB Connected");
 });
+mongoose.connection.on("error", err => {
+  console.log("MongoDB connection error: ", err);
+});
+
 let schema = schemaCreator(),
   model = {};
 for (let [k, v] of Object.entries(schema)) {
