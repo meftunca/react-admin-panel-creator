@@ -36,7 +36,7 @@ export default class Account extends Component {
 }
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: "#fff",
+    backgroundColor: "#ffffff",
     minHeight: 530,
     maxWidth: 530,
     padding: 15
