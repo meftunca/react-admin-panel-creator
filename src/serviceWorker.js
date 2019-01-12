@@ -18,11 +18,6 @@
 window.axios = require("axios");
 window.uniqid = require("uniqid");
 
-//axios customization
-const instance = window.axios.create();
-instance.defaults.baseUrl = window.location.origin;
-instance.defaults.timeout = 2500;
-
 const isLocalhost = Boolean(
   window.location.hostname === "localhost" ||
     // [::1] is the IPv6 localhost address.

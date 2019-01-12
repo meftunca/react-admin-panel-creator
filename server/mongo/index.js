@@ -142,7 +142,7 @@ module.exports = async app => {
     model[table]
       .find({})
       .select(column)
-      .exec(function(err, athletes) {
+      .exec((err, athletes) => {
         if (err) return res.json(err);
         // athletes contains an ordered list of 5 athletes who play Tennis
         res.json(athletes);

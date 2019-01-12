@@ -36,10 +36,4 @@ app.post("/get-form-json", (req, res) => {
   console.log(data);
   res.json(data);
 });
-http
-  .createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader("Content-Type", "text/plain");
-    res.end("Hello World\n");
-  })
-  .listen(8000, () => console.log(8000));
+app.listen(5000, () => console.log(5000));

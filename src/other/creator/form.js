@@ -18,7 +18,7 @@ import Select from "@material-ui/core/Select";
 import Input from "@material-ui/core/Input";
 import CollapseFormList from "./component/collapse";
 import List from "@material-ui/core/List";
-
+import axios from "axios";
 const uniqid = require("uniqid");
 class FormCreator extends Component {
   constructor(props) {
@@ -49,9 +49,7 @@ class FormCreator extends Component {
   }
 
   post = data => {
-    window.axios
-      .post(window.location.origin.replace("https", "http") + ":8000/create-form", data)
-      .then(d => console.log(d));
+    axios.post(window.location.origin + ":5000/create-form", data).then(d => console.log(d));
   };
   view = () => console.log("view");
   send = () => this.handleClick();

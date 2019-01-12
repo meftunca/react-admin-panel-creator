@@ -17,7 +17,7 @@ import ListSubheader from "@material-ui/core/ListSubheader";
 import EmailEditor from "react-email-editor";
 import Button from "@material-ui/core/Button";
 import FullScreenDialog from "./components/FullScreenDialog";
-
+import axios from "axios";
 const styles = theme => ({
   root: {
     backgroundColor: theme.palette.background.paper
@@ -78,7 +78,7 @@ class MailBox extends Component {
     });
   };
   componentDidMount() {
-    window.axios.post(window.location.origin.replace("https", "http") + ":8000/gmail/get").then(d => console.log(d));
+    axios.post(window.location.origin + ":5000/gmail/get").then(d => console.log(d));
   }
 
   render() {

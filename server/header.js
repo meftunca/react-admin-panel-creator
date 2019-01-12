@@ -12,16 +12,11 @@ module.exports = (express, app) => {
     .use(cors())
     // log HTTP requests
     .use(morgan("combined"))
-    .use(express.static(path.join(__dirname, "/../public")))
     .use(bodyParser.json()) // for parsing application/json
     .use(bodyParser.urlencoded({ extended: true }))
-    .use(express.static(__dirname + "/../public/index.html"))
     .use((req, res, next) => {
       res.header("Access-Control-Allow-Origin", "*");
       res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
       next();
-    })
-    .get("*", (req, res) => {
-      res.sendFile(path.resolve(__dirname, "/../public/index.html"));
     });
 };
