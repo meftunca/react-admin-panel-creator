@@ -1,6 +1,4 @@
 const express = require("express"),
-  account = require("./account"),
-  mongoose = require("mongoose"),
   mongo = require("./mongo"),
   twitter = require("./twitter"),
   FaceBookMen = require("./facebook"),
@@ -11,16 +9,11 @@ const express = require("express"),
   db = low(adapter),
   app = express();
 
-mongoose.Promise = global.Promise; // mongoose promises deprecated, use node - mongoosejs.com/docs/promises
-
 // express header
 header(express, app);
 
 // //mongo yönetimi
-// mongo(mongoose, app);
-
-//kullancı yönetimi
-account(app);
+mongo(app);
 
 // mailRoute(app);
 
