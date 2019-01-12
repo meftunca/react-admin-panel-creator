@@ -4,6 +4,7 @@
   "private": true,
   "license": "MIT",
   "type-check": "tsc",
+  "homepage": "http://meftunca.github.io/panel-viewer",
   "resolutions": {
     "**/@types/react": "16.7.18",
     "**/@types/react-dom": "16.0.11",
