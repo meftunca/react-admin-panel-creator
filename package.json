@@ -216,5 +216,9 @@
       ],
       "@babel/plugin-syntax-dynamic-import"
     ]
+  },
+  "engines": {
+    "node": "11.4.0",
+    "yarn": "1.12.3"
   }
 }
