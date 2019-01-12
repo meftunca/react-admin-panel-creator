@@ -16,8 +16,8 @@ mongoose.Promise = global.Promise; // mongoose promises deprecated, use node - m
 // express header
 header(express, app);
 
-//mongo yönetimi
-mongo(mongoose, app);
+// //mongo yönetimi
+// mongo(mongoose, app);
 
 //kullancı yönetimi
 account(app);
