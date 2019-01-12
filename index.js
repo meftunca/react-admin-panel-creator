@@ -9,6 +9,7 @@ const http = require("http"),
   adapter = new FileSync("./src/json/form.json"),
   db = low(adapter),
   app = express();
+require("sqreen");
 
 // express header
 header(express, app);

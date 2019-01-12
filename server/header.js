@@ -24,6 +24,7 @@ module.exports = (express, app) => {
         "Access-Control-Allow-Headers",
         "Origin,X-Requested-With,Content-Type,Accept,content-type,application/json"
       );
+
       next();
     });
 };
