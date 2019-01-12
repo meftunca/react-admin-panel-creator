@@ -2,9 +2,23 @@ const bodyParser = require("body-parser"),
   cors = require("cors"),
   path = require("path"),
   helmet = require("helmet"),
+  session = require("express-session"),
   morgan = require("morgan");
 
 module.exports = (express, app) => {
+  //session
+  app.use(
+    session({
+      secret: process.env.SQREEN_TOKEN,
+      saveUninitialized: true,
+      resave: false,
+      maxAge: 1000 * 60 * 15,
+      cookie: {
+        secure: true
+      }
+    })
+  );
+
   // enhance your app security with Helmet
   app.use(helmet());
 
