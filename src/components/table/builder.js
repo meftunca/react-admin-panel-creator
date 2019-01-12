@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import MUIDataTable from "mui-datatables";
-
+import axios from "axios";
 export default class TableBuilder extends Component {
   constructor(props) {
     super(props);
@@ -43,7 +43,7 @@ export default class TableBuilder extends Component {
       name,
       id: Object.keys(list.lookup)
     };
-    window.axios.post(window.location.origin + ":8000/remove-table-item", opt).then(d => console.log(d));
+    axios.post(window.location.origin + ":8000/remove-table-item", opt).then(d => console.log(d));
   };
   render() {
     let { data, column, show } = this.state;

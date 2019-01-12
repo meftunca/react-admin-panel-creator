@@ -16,6 +16,8 @@ import RadioButtons from "./radio";
 import Checkboxes from "./checkbox";
 import Switches from "./switch";
 import validate from "../../utils/validate";
+import axios from "axios";
+
 const styles = theme => ({
   button: {
     margin: theme.spacing.unit
@@ -77,7 +79,7 @@ class FormBuilder extends Component {
     let { values } = this.formApi.getState();
     console.log(values, url);
     let postData = { tableName: this.props.name, data: values };
-    await window.axios.post(window.location.origin + ":8000/" + url.replace("/", ""), postData).then(({ data }) => {
+    await axios.post(window.location.origin + ":8000/" + url.replace("/", ""), postData).then(({ data }) => {
       console.log(data.data);
       setTimeout(() => this.toastRunner(data.data.status, data.data.message), 2000);
     });
