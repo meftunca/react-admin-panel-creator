@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{292:function(r,n,a){"use strict";a.r(n),a.d(n,"dataGenerator",function(){return u});var t=function r(){var n=Math.random();return 0===n?r():n},o=function(){var r=t(),n=t();return Math.sqrt(-4*Math.log(r))*Math.cos(1*Math.PI*n)},u=function(r){for(var n=[],a=0;a<r;a+=1)n.push({arg1:o(),val1:o(),arg2:o()+3,val2:o()+3});return n}}}]);
+//# sourceMappingURL=7.1c9877f6.chunk.js.map
