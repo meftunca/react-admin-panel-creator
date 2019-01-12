@@ -2,263 +2,28 @@
 <html lang="tr" theme-color="#000000">
   <head>
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="public/favicon.ico" />
-    <meta name="viewport" content="minimum-scale=1,initial-scale=1,width=device-width,shrink-to-fit=no" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no" />
     <meta name="theme-color" content="#000000" />
+    <link rel="manifest" href="mix-manifest.json" />
     <title>React Admin Panel</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="app.css" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131909362-1"></script>
     <script>
+      window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
-      (window.dataLayer = window.dataLayer || []), gtag("js", new Date()), gtag("config", "UA-131909362-1");
+      gtag("js", new Date());
+
+      gtag("config", "UA-131909362-1");
     </script>
-    <link href="public/static/css/36.87fd2c8f.chunk.css" rel="stylesheet" />
   </head>
   <body>
     <section id="root"></section>
-    <script>
-      !(function(d) {
-        function e(e) {
-          for (var t, r, n = e[0], c = e[1], f = e[2], o = 0, a = []; o < n.length; o++)
-            (r = n[o]), l[r] && a.push(l[r][0]), (l[r] = 0);
-          for (t in c) Object.prototype.hasOwnProperty.call(c, t) && (d[t] = c[t]);
-          for (p && p(e); a.length; ) a.shift()();
-          return i.push.apply(i, f || []), u();
-        }
-        function u() {
-          for (var e, t = 0; t < i.length; t++) {
-            for (var r = i[t], n = !0, c = 1; c < r.length; c++) {
-              var f = r[c];
-              0 !== l[f] && (n = !1);
-            }
-            n && (i.splice(t--, 1), (e = s((s.s = r[0]))));
-          }
-          return e;
-        }
-        var r = {},
-          a = { 37: 0 },
-          l = { 37: 0 },
-          i = [];
-        function s(e) {
-          if (r[e]) return r[e].exports;
-          var t = (r[e] = { i: e, l: !1, exports: {} });
-          return d[e].call(t.exports, t, t.exports, s), (t.l = !0), t.exports;
-        }
-        (s.e = function(i) {
-          var e = [];
-          a[i]
-            ? e.push(a[i])
-            : 0 !== a[i] &&
-              { 34: 1, 35: 1 }[i] &&
-              e.push(
-                (a[i] = new Promise(function(e, n) {
-                  for (
-                    var t =
-                        "static/css/" +
-                        ({}[i] || i) +
-                        "." +
-                        {
-                          0: "31d6cfe0",
-                          1: "31d6cfe0",
-                          2: "31d6cfe0",
-                          3: "31d6cfe0",
-                          4: "31d6cfe0",
-                          5: "31d6cfe0",
-                          6: "31d6cfe0",
-                          7: "31d6cfe0",
-                          8: "31d6cfe0",
-                          9: "31d6cfe0",
-                          10: "31d6cfe0",
-                          11: "31d6cfe0",
-                          12: "31d6cfe0",
-                          13: "31d6cfe0",
-                          14: "31d6cfe0",
-                          15: "31d6cfe0",
-                          16: "31d6cfe0",
-                          17: "31d6cfe0",
-                          18: "31d6cfe0",
-                          19: "31d6cfe0",
-                          20: "31d6cfe0",
-                          21: "31d6cfe0",
-                          22: "31d6cfe0",
-                          23: "31d6cfe0",
-                          24: "31d6cfe0",
-                          25: "31d6cfe0",
-                          26: "31d6cfe0",
-                          27: "31d6cfe0",
-                          28: "31d6cfe0",
-                          29: "31d6cfe0",
-                          30: "31d6cfe0",
-                          31: "31d6cfe0",
-                          33: "31d6cfe0",
-                          34: "6329124a",
-                          35: "0b739f5a"
-                        }[i] +
-                        ".chunk.css",
-                      c = s.p + t,
-                      r = document.getElementsByTagName("link"),
-                      f = 0;
-                    f < r.length;
-                    f++
-                  ) {
-                    var o = (d = r[f]).getAttribute("data-href") || d.getAttribute("href");
-                    if ("stylesheet" === d.rel && (o === t || o === c)) return e();
-                  }
-                  var a = document.getElementsByTagName("style");
-                  for (f = 0; f < a.length; f++) {
-                    var d;
-                    if ((o = (d = a[f]).getAttribute("data-href")) === t || o === c) return e();
-                  }
-                  var u = document.createElement("link");
-                  (u.rel = "stylesheet"),
-                    (u.type = "text/css"),
-                    (u.onload = e),
-                    (u.onerror = function(e) {
-                      var t = (e && e.target && e.target.src) || c,
-                        r = new Error("Loading CSS chunk " + i + " failed.\n(" + t + ")");
-                      (r.request = t), n(r);
-                    }),
-                    (u.href = c),
-                    document.getElementsByTagName("head")[0].appendChild(u);
-                }).then(function() {
-                  a[i] = 0;
-                }))
-              );
-          var r = l[i];
-          if (0 !== r)
-            if (r) e.push(r[2]);
-            else {
-              var t = new Promise(function(e, t) {
-                r = l[i] = [e, t];
-              });
-              e.push((r[2] = t));
-              var n,
-                c = document.getElementsByTagName("head")[0],
-                f = document.createElement("script");
-              (f.charset = "utf-8"),
-                (f.timeout = 120),
-                s.nc && f.setAttribute("nonce", s.nc),
-                (f.src =
-                  s.p +
-                  "static/js/" +
-                  ({}[i] || i) +
-                  "." +
-                  {
-                    0: "806e8452",
-                    1: "d3bb771d",
-                    2: "e7865798",
-                    3: "6f286e06",
-                    4: "4cc0d35d",
-                    5: "e1e56bd7",
-                    6: "57babcba",
-                    7: "1c9877f6",
-                    8: "076f3605",
-                    9: "1a06ff6c",
-                    10: "66587d61",
-                    11: "391661b6",
-                    12: "1d7612bb",
-                    13: "5ba2b215",
-                    14: "9a121e67",
-                    15: "e1ac0002",
-                    16: "f119b76c",
-                    17: "1f83a36b",
-                    18: "ea067389",
-                    19: "6cf3022f",
-                    20: "80affff6",
-                    21: "526af42a",
-                    22: "16fb55f7",
-                    23: "b1cc29b2",
-                    24: "82313f84",
-                    25: "05240877",
-                    26: "18cc6ab1",
-                    27: "27127cdd",
-                    28: "a71dfb84",
-                    29: "7e8d4efc",
-                    30: "a087def3",
-                    31: "1b1ce2eb",
-                    33: "2f0bd6cd",
-                    34: "7b6c108f",
-                    35: "3104e696"
-                  }[i] +
-                  ".chunk.js"),
-                (n = function(e) {
-                  (f.onerror = f.onload = null), clearTimeout(o);
-                  var t = l[i];
-                  if (0 !== t) {
-                    if (t) {
-                      var r = e && ("load" === e.type ? "missing" : e.type),
-                        n = e && e.target && e.target.src,
-                        c = new Error("Loading chunk " + i + " failed.\n(" + r + ": " + n + ")");
-                      (c.type = r), (c.request = n), t[1](c);
-                    }
-                    l[i] = void 0;
-                  }
-                });
-              var o = setTimeout(function() {
-                n({ type: "timeout", target: f });
-              }, 12e4);
-              (f.onerror = f.onload = n), c.appendChild(f);
-            }
-          return Promise.all(e);
-        }),
-          (s.m = d),
-          (s.c = r),
-          (s.d = function(e, t, r) {
-            s.o(e, t) || Object.defineProperty(e, t, { enumerable: !0, get: r });
-          }),
-          (s.r = function(e) {
-            "undefined" != typeof Symbol &&
-              Symbol.toStringTag &&
-              Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
-              Object.defineProperty(e, "__esModule", { value: !0 });
-          }),
-          (s.t = function(t, e) {
-            if ((1 & e && (t = s(t)), 8 & e)) return t;
-            if (4 & e && "object" == typeof t && t && t.__esModule) return t;
-            var r = Object.create(null);
-            if (
-              (s.r(r), Object.defineProperty(r, "default", { enumerable: !0, value: t }), 2 & e && "string" != typeof t)
-            )
-              for (var n in t)
-                s.d(
-                  r,
-                  n,
-                  function(e) {
-                    return t[e];
-                  }.bind(null, n)
-                );
-            return r;
-          }),
-          (s.n = function(e) {
-            var t =
-              e && e.__esModule
-                ? function() {
-                    return e.default;
-                  }
-                : function() {
-                    return e;
-                  };
-            return s.d(t, "a", t), t;
-          }),
-          (s.o = function(e, t) {
-            return Object.prototype.hasOwnProperty.call(e, t);
-          }),
-          (s.p = "public/"),
-          (s.oe = function(e) {
-            throw (console.error(e), e);
-          });
-        var t = (window.webpackJsonp = window.webpackJsonp || []),
-          n = t.push.bind(t);
-        (t.push = e), (t = t.slice());
-        for (var c = 0; c < t.length; c++) e(t[c]);
-        var p = n;
-        u();
-      })([]);
-    </script>
-    <script src="public/static/js/36.0a62e168.chunk.js"></script>
-    <script src="public/static/js/main.44ad59f7.chunk.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
