@@ -1,9 +1,24 @@
 const mongoose = require("mongoose"),
+  env = require("dotenv").config(),
   schemaCreator = require("./mongoSchemaCreator");
+var uristring = process.env.MONGODB_URI || "mongodb://localhost/admin";
+
+// Makes connection asynchronously.  Mongoose will queue up database
+// operations and release them when the connection is complete.
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://meftunca:meftunca12@ds153974.mlab.com:53974/heroku_zbz4gnp0",
-  { useNewUrlParser: true }
+  uristring,
+  function(err, res) {
+    if (err) {
+      console.log("ERROR connecting to: " + uristring + ". " + err);
+    } else {
+      console.log("Succeeded connected to: " + uristring);
+    }
+  }
 );
+// mongoose.connect(
+//   process.env.MONGODB_URI || "mongodb://meftunca:meftunca12@ds153974.mlab.com:53974/heroku_zbz4gnp0",
+//   { useNewUrlParser: true }
+// );
 mongoose.connection.on("error", function(err) {
   console.log("Error: Could not connect to MongoDB.", err);
 });
