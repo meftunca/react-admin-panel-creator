@@ -2,8 +2,13 @@
   "name": "starter",
   "version": "0.2.0",
   "private": true,
+  "author": "Muhammed Burak Şentürk",
   "license": "MIT",
   "homepage": "http://www.godevloops.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meftunca/react-admin-panel-creator.git"
+  },
   "scripts": {
     "size": "size-limit",
     "start": "node index.js",

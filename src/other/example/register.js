@@ -74,7 +74,7 @@ function Register({ store, classes }) {
       data[k] = v;
     }
     axios
-      .post(window.location.origin + ":5000/user-register", data)
+      .post(window.location.origin + ":" + (process.env.PORT || 5000) + "/user-register", data)
       .then(async ({ data }) => {
         setTurnData(data);
         // store update

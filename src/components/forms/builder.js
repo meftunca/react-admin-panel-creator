@@ -79,10 +79,12 @@ class FormBuilder extends Component {
     let { values } = this.formApi.getState();
     console.log(values, url);
     let postData = { tableName: this.props.name, data: values };
-    await axios.post(window.location.origin + ":5000/" + url.replace("/", ""), postData).then(({ data }) => {
-      console.log(data.data);
-      setTimeout(() => this.toastRunner(data.data.status, data.data.message), 2000);
-    });
+    await axios
+      .post(window.location.origin + ":" + (process.env.PORT || 5000) + "/" + url.replace("/", ""), postData)
+      .then(({ data }) => {
+        console.log(data.data);
+        setTimeout(() => this.toastRunner(data.data.status, data.data.message), 2000);
+      });
   };
   render() {
     console.log(this.props);
