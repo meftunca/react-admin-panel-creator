@@ -1,38 +1,36 @@
 const mongoose = require("mongoose"),
   env = require("dotenv").config(),
   schemaCreator = require("./mongoSchemaCreator");
-var uristring = process.env.MONGODB_URI || "mongodb://localhost/admin";
-
-// Makes connection asynchronously.  Mongoose will queue up database
-// operations and release them when the connection is complete.
-console.log(process.env);
 mongoose.Promise = global.Promise; // mongoose promises deprecated, use node - mongoosejs.com/docs/promises
 
-mongoose.connect(
-  uristring,
-  { useNewUrlParser: true },
-  function(err, res) {
-    if (err) {
-      console.log("ERROR connecting to: " + uristring + ". " + err);
-    } else {
-      console.log("Succeeded connected to: " + uristring);
-    }
-  }
-);
-mongoose.connection.once("open", () => {
-  console.log("MongoDB Connected");
-});
-mongoose.connection.on("error", err => {
-  console.log("MongoDB connection error: ", err);
-});
-
-let schema = schemaCreator(),
-  model = {};
-for (let [k, v] of Object.entries(schema)) {
-  model[k] = mongoose.model(k, new mongoose.Schema(v));
-}
 module.exports = app => {
   //tablo oluştur veya veri çek
+  // Makes connection asynchronously.  Mongoose will queue up database
+  // operations and release them when the connection is complete.
+  const uristring = process.env.MONGODB_URI || "mongodb://localhost/admin";
+  mongoose.connect(
+    uristring,
+    { useNewUrlParser: true },
+    function(err, res) {
+      if (err) {
+        console.log("ERROR connecting to: " + uristring + ". " + err);
+      } else {
+        console.log("Succeeded connected to: " + uristring);
+      }
+    }
+  );
+  mongoose.connection.once("open", () => {
+    console.log("MongoDB Connected");
+  });
+  mongoose.connection.on("error", err => {
+    console.log("MongoDB connection error: ", err);
+  });
+
+  let schema = schemaCreator(),
+    model = {};
+  for (let [k, v] of Object.entries(schema)) {
+    model[k] = mongoose.model(k, new mongoose.Schema(v));
+  }
   app.post("/append-data", function(req, res) {
     let istek = req.body;
     console.log(istek);
