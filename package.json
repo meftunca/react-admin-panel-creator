@@ -1,9 +1,19 @@
 {
   "name": "starter",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "license": "MIT",
+  "type-check": "tsc",
+  "resolutions": {
+    "**/@types/react": "16.7.18",
+    "**/@types/react-dom": "16.0.11",
+    "babel-core": "7.0.0-bridge.0"
+  },
   "dependencies": {
+<<<<<<< HEAD
+    "@babel/core": "7.1.6",
+=======
+>>>>>>> 1150a85695be4ae6be5c379b9af56fd1fc8a929f
     "@date-io/moment": "^0.0.2",
     "@devexpress/dx-react-chart": "^1.10.0",
     "@devexpress/dx-react-chart-material-ui": "^1.10.0",
@@ -13,29 +23,73 @@
     "@material-ui/icons": "^3.0.2",
     "@material-ui/lab": "^3.0.0-alpha.28",
     "@material-ui/styles": "^3.0.0-alpha.7",
+<<<<<<< HEAD
+    "@svgr/webpack": "2.4.1",
+    "@types/react": "^16.7.18",
+    "@types/react-dom": "^16.0.11",
+=======
+>>>>>>> 1150a85695be4ae6be5c379b9af56fd1fc8a929f
     "@webpack-cli/init": "^0.1.3",
     "axios": "^0.18.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "9.0.0",
+    "babel-jest": "23.6.0",
+    "babel-loader": "8.0.4",
+    "babel-plugin-named-asset-import": "^0.3.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "babel-preset-mobx": "^2.0.0",
+    "babel-preset-react-app": "^7.0.0",
     "base64-img": "^1.0.4",
     "bcrypt-nodejs": "^0.0.3",
+    "bfj": "6.1.1",
     "blob-to-base64": "^1.0.1",
+    "case-sensitive-paths-webpack-plugin": "2.1.2",
+    "chalk": "2.4.1",
     "cors": "^2.8.5",
+<<<<<<< HEAD
+    "css-loader": "1.0.0",
+    "dotenv": "6.0.0",
+    "dotenv-expand": "4.2.0",
+    "draft-js": "^0.10.5",
+    "draftjs-to-html": "^0.8.4",
+    "eslint": "5.6.0",
+    "eslint-config-react-app": "^3.0.6",
+    "eslint-loader": "2.1.1",
+    "eslint-plugin-flowtype": "2.50.1",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-jsx-a11y": "6.1.2",
+    "eslint-plugin-react": "7.11.1",
+=======
     "dotenv": "^6.2.0",
     "draft-js": "^0.10.5",
     "draftjs-to-html": "^0.8.4",
+>>>>>>> 1150a85695be4ae6be5c379b9af56fd1fc8a929f
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "fb": "^2.0.0",
+    "file-loader": "2.0.0",
+    "fork-ts-checker-webpack-plugin-alt": "0.4.14",
+    "fs-extra": "7.0.0",
     "google-auth-library": "^2.0.2",
     "googleapis": "27",
     "helmet": "^3.15.0",
     "html-to-draftjs": "^1.4.0",
+<<<<<<< HEAD
+    "html-webpack-plugin": "4.0.0-alpha.2",
+    "identity-obj-proxy": "3.0.0",
+=======
+>>>>>>> 1150a85695be4ae6be5c379b9af56fd1fc8a929f
     "immutable": "^4.0.0-rc.12",
     "informed": "^1.10.12",
     "javascript-time-ago": "^1.0.34",
+    "jest": "23.6.0",
+    "jest-pnp-resolver": "1.0.1",
+    "jest-resolve": "23.6.0",
     "lowdb": "^1.0.0",
     "material-design-icon-list": "^4.0.1",
     "material-ui-color-picker": "^3.1.0",
     "material-ui-pickers": "^2.0.5",
+    "mini-css-extract-plugin": "0.4.3",
     "mobx": "^5.8.0",
     "mobx-react": "^5.4.3",
     "moment": "^2.23.0",
@@ -43,10 +97,23 @@
     "morgan": "^1.9.1",
     "mui-datatables": "^2.0.0-beta-50",
     "node-gmail-api": "^0.6.1",
+    "node-sass": "^4.11.0",
     "nodemon": "^1.18.9",
+    "optimize-css-assets-webpack-plugin": "5.0.1",
     "passport": "^0.4.0",
     "passport-google-oauth": "^1.0.0",
+<<<<<<< HEAD
+    "pnp-webpack-plugin": "1.1.0",
+    "postcss-flexbugs-fixes": "4.1.0",
+    "postcss-loader": "3.0.0",
+    "postcss-preset-env": "6.3.1",
+    "postcss-safe-parser": "4.0.1",
     "react": "16.8.0-alpha.0",
+    "react-app-polyfill": "^0.2.0",
+    "react-dev-utils": "^7.0.1",
+=======
+    "react": "16.8.0-alpha.0",
+>>>>>>> 1150a85695be4ae6be5c379b9af56fd1fc8a929f
     "react-dom": "16.8.0-alpha.0",
     "react-draft-wysiwyg": "^1.12.19",
     "react-dropzone": "^8.0.3",
@@ -61,13 +128,26 @@
     "react-spinkit": "^3.0.0",
     "react-swipeable-views": "^0.13.0",
     "react-toastify": "^4.5.2",
+    "resolve": "1.8.1",
+    "sass-loader": "7.1.0",
+    "style-loader": "0.23.0",
     "styled-components": "^4.1.3",
+    "terser-webpack-plugin": "1.1.0",
     "tunnel-agent": "^0.6.0",
     "twitter": "^1.7.1",
+    "typescript": "^3.2.2",
     "uniqid": "^5.0.3",
+    "url-loader": "1.1.1",
     "validate.js": "^0.12.0",
+<<<<<<< HEAD
+    "webpack": "4.19.1",
+    "webpack-dev-server": "3.1.14",
+    "webpack-manifest-plugin": "2.0.4",
+    "workbox-webpack-plugin": "3.6.3"
+=======
     "webpack-cli": "^3.2.1",
     "yarn": "^1.12.3"
+>>>>>>> 1150a85695be4ae6be5c379b9af56fd1fc8a929f
   },
   "size-limit": [
     {
@@ -77,14 +157,10 @@
   ],
   "scripts": {
     "size": "size-limit",
-    "start": "nodemon server/index",
-    "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules  --config=node_modules/laravel-mix/setup/webpack.config.js"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "start": "node server/index.js",
+    "watch": "unset HOST;node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js"
   },
   "browserslist": [
     ">0.2%",
@@ -92,20 +168,81 @@
     "not ie <= 11",
     "not op_mini all"
   ],
+  "eslintConfig": {
+    "extends": "react-app"
+  },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.2.3",
     "@babel/plugin-proposal-decorators": "^7.2.3",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
-    "browser-sync": "^2.26.3",
-    "browser-sync-webpack-plugin": "2.2.2",
-    "laravel-mix": "^4.0.13",
     "resolve-url-loader": "3.0.0",
-    "sass": "^1.15.3",
-    "sass-loader": "7.*",
     "size-limit": "^0.21.1"
   },
-  "resolutions": {
-    "babel-core": "7.0.0-bridge.0"
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
+    ],
+    "resolver": "jest-pnp-resolver",
+    "setupFiles": [
+      "react-app-polyfill/jsdom"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}"
+    ],
+    "testEnvironment": "jsdom",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ],
+      [
+        "@babel/plugin-proposal-class-properties",
+        {
+          "loose": true
+        }
+      ],
+      "@babel/plugin-syntax-dynamic-import"
+    ]
+  },
+  "engines": {
+    "node": "11.4.0",
+    "yarn": "1.12.3"
   }
 }

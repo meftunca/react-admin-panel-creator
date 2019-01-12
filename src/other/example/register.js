@@ -9,6 +9,7 @@ import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
 import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
+import axios from "axios";
 
 const styles = theme => ({
   main: {
@@ -72,7 +73,8 @@ function Register({ store, classes }) {
       console.log(k, v);
       data[k] = v;
     }
-    axios.post(window.location.origin + ":8000/user-register", data)
+    axios
+      .post(window.location.origin + ":8000/user-register", data)
       .then(async ({ data }) => {
         setTurnData(data.data);
         // store update

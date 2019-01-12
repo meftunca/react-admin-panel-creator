@@ -18,6 +18,8 @@ import TextField from "@material-ui/core/TextField";
 import tr from "javascript-time-ago/locale/tr";
 import { unstable_Box as Box } from "@material-ui/core/Box";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 const blobToBase64 = require("blob-to-base64");
 
 // Add locale-specific relative date/time formatting rules.
@@ -117,12 +119,14 @@ function TwitterList({ data, update, full, classes }) {
     if (tweet.length < 1 || tweet.length > 239) {
       alert("lütfen " + tweet.length + "'den " + (tweet.length < 1 ? "fazla " : "az ") + "karakter kullanın");
     } else {
-      Axios.post("http://localhost:8000/twitter-post", {
-        status: tweet + "\n Deneme zamanı : " + Date.now(),
-        file: tweetFile
-      }).then(d => {
-        setTimeout(() => update(), 1000);
-      });
+      axios
+        .post("http://localhost:8000/twitter-post", {
+          status: tweet + "\n Deneme zamanı : " + Date.now(),
+          file: tweetFile
+        })
+        .then(d => {
+          setTimeout(() => update(), 1000);
+        });
       // setTweet("");
     }
   };

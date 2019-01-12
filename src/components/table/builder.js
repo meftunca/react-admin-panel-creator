@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import MUIDataTable from "mui-datatables";
-
+import axios from "axios";
 export default class TableBuilder extends Component {
   constructor(props) {
     super(props);
@@ -29,7 +29,7 @@ export default class TableBuilder extends Component {
       columns: columns.join(" "),
       name: name
     };
-    axios.post(window.location.origin + ":8000/get-table", opt).then(({ data }) => {
+    window.axios.post(window.location.origin + ":8000/get-table", opt).then(({ data }) => {
       let dataArr = this.dataParser(data, columns);
       console.log("columns", columns, "data", dataArr);
       this.setState({ column: columns, data: dataArr, show: true });

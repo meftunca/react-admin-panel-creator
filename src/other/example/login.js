@@ -9,7 +9,8 @@ import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
 import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
- 
+import axios from "axios";
+
 const styles = theme => ({
   main: {
     width: "auto",
@@ -69,10 +70,10 @@ function SignIn({ classes, store }) {
     const form = new FormData(ref.current);
     form.append("token", Boolean(token));
     for (let [k, v] of form.entries()) {
-      console.log(k, v);
       data[k] = v;
     }
-    axios.post(window.location.origin + ":8000/user-login", data)
+    axios
+      .post(window.location.origin + ":8000/user-login", data)
       .then(async ({ data }) => {
         setTurnData(data.data);
         // store update

@@ -6,7 +6,6 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import classNames from "classnames";
 import Button from "@material-ui/core/Button";
-import axios from "axios";
 import { Form, asField } from "informed";
 import { TextInput, PasswordInput } from "./text";
 import Datepicker from "./date";
@@ -16,7 +15,9 @@ import { ToastContainer, toast } from "react-toastify";
 import RadioButtons from "./radio";
 import Checkboxes from "./checkbox";
 import Switches from "./switch";
-import validate from "./../../utils/validate";
+import validate from "../../utils/validate";
+import axios from "axios";
+
 const styles = theme => ({
   button: {
     margin: theme.spacing.unit

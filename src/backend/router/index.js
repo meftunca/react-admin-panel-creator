@@ -20,7 +20,7 @@ import { observer, inject } from "mobx-react";
 import loadable from "@loadable/component";
 import Spinner from "react-spinkit";
 import TabViewer from "../../components/tabViewer";
-import ChartBuilder from "./../../components/chart/builder";
+import ChartBuilder from "../../components/chart/builder";
 import { LocalizeProvider } from "react-localize-redux";
 import { withLocalize } from "react-localize-redux";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -368,4 +368,5 @@ const ConstructorApp = withLocalize(props => (
     <App {...props} />
   </LocalizeProvider>
 ));
+
 export default withStyles(styles, { withTheme: true })(ConstructorApp);
