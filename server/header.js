@@ -13,7 +13,7 @@ module.exports = (express, app) => {
 
   // log HTTP requests
   app.use(morgan("combined"));
-  app.use(express.static(path.join(__dirname, "/../build")));
+  app.use(express.static(path.join(__dirname, "/../public")));
   app.use(bodyParser.json()); // for parsing application/json
   app.use(bodyParser.urlencoded({ extended: true }));
 
