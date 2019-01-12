@@ -2,7 +2,7 @@ let mix = require("laravel-mix");
 let env = require("dotenv").config();
 
 if (process.env.NODE_ENV === "development") {
-  // mix.sourceMaps();
+  //mix.sourceMaps();
 }
 mix
   .react("src/index.js", "public")
@@ -15,6 +15,6 @@ mix
     terser: {},
     purifyCss: false,
     uglify: true,
-    clearConsole: false
+    clearConsole: process.env.NODE_ENV === "production" ? true : false
   })
   .version();
