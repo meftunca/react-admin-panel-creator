@@ -133,7 +133,7 @@
   ],
   "scripts": {
     "size": "size-limit",
-    "start": "NODE_ENV=production node server/index.js",
+    "start": "node server/index.js",
     "watch": "unset HOST;node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
