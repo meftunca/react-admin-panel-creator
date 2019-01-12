@@ -1,5 +1,6 @@
 const mongoose = require("mongoose"),
   env = require("dotenv").config(),
+  bcrypt = require("bcrypt-nodejs"),
   schemaCreator = require("./mongoSchemaCreator");
 mongoose.Promise = global.Promise; // mongoose promises deprecated, use node - mongoosejs.com/docs/promises
 module.exports = async app => {
