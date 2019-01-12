@@ -61,7 +61,6 @@
     "mobx-react": "^5.4.3",
     "moment": "^2.23.0",
     "mongoose": "^5.4.3",
-    "morgan": "^1.9.1",
     "mui-datatables": "^2.0.0-beta-50",
     "node-gmail-api": "^0.6.1",
     "nodemon": "^1.18.9",

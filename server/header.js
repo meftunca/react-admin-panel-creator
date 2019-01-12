@@ -1,17 +1,15 @@
 const bodyParser = require("body-parser"),
-  cors = require("cors"),
+  // cors = require("cors"),
   path = require("path"),
-  helmet = require("helmet"),
-  morgan = require("morgan");
+  helmet = require("helmet");
 
 module.exports = (express, app) => {
   // enhance your app security with Helmet
   app
     .use(helmet())
     // enable all CORS requests
-    .use(cors())
+    // .use(cors())
     // log HTTP requests
-    .use(morgan("combined"))
     .use(bodyParser.json()) // for parsing application/json
     .use(bodyParser.urlencoded({ extended: true }))
     .use(express.static(path.join(__dirname, "/../public")))
@@ -20,11 +18,13 @@ module.exports = (express, app) => {
     })
     .use((req, res, next) => {
       res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Credentials", true);
+      res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
       res.header(
         "Access-Control-Allow-Headers",
-        "Origin, x-access-token, x-user-pathway, x-mongo-key, X-Requested-With, Content-Type, Accept"
+        "Origin,X-Requested-With,Content-Type,Accept,content-type,application/json"
       );
-      res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE, PUT");
+
       next();
     });
 };
