@@ -1,19 +1,12 @@
 const mongoose = require("mongoose"),
   schemaCreator = require("./mongoSchemaCreator");
 mongoose.connect(
-<<<<<<< HEAD
   process.env.MONGODB_URI || "mongodb://meftunca:meftunca12@ds153974.mlab.com:53974/heroku_zbz4gnp0",
   { useNewUrlParser: true }
 );
 mongoose.connection.on("error", function(err) {
   console.log("Error: Could not connect to MongoDB.", err);
 });
-=======
-  "mongodb://meftunca:meftunca12@ds153974.mlab.com:53974/heroku_zbz4gnp0",
-  { useNewUrlParser: true }
-);
-
->>>>>>> 1150a85695be4ae6be5c379b9af56fd1fc8a929f
 let schema = schemaCreator(),
   model = {};
 for (let [k, v] of Object.entries(schema)) {
