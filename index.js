@@ -1,9 +1,9 @@
 const http = require("http"),
   express = require("express"),
-  mongo = require("./mongo"),
-  twitter = require("./twitter"),
-  FaceBookMen = require("./facebook"),
-  header = require("./header"),
+  mongo = require("./server/mongo"),
+  twitter = require("./server/twitter"),
+  FaceBookMen = require("./server/facebook"),
+  header = require("./server/header"),
   low = require("lowdb"),
   FileSync = require("lowdb/adapters/FileSync"),
   adapter = new FileSync("./src/json/form.json"),
@@ -13,6 +13,8 @@ const http = require("http"),
 // express header
 header(express, app);
 
+app.use(express.static(__dirname + "/public/index.html"));
+
 //mongo yönetimi
 mongo(app);
 
@@ -21,7 +23,6 @@ twitter(app);
 
 //facebook ile ilgili rotalar
 FaceBookMen(app);
-
 app.post("/create-form", (req, res) => {
   let data = req.body;
   let q = db

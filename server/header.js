@@ -14,7 +14,6 @@ module.exports = (express, app) => {
     .use(morgan("combined"))
     .use(bodyParser.json()) // for parsing application/json
     .use(bodyParser.urlencoded({ extended: true }))
-    .use(express.static(path.join(__dirname + "/../public/index.html")))
     .use((req, res, next) => {
       res.header("Access-Control-Allow-Origin", "*");
       res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
