@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "private": true,
   "license": "MIT",
-  "homepage": "http://meftunca.github.io/panel-viewer",
+  "homepage": "http://www.godevloops.com",
   "scripts": {
     "size": "size-limit",
     "start": "cross-env NODE_ENV=production node server/index",
