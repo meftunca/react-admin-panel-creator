@@ -41,5 +41,4 @@ app.post("/get-form-json", (req, res) => {
   res.json(data);
 });
 
-app.set("port");
-app.listen(process.env.PORT || 8000);
+app.listen(process.env.port || 8000);
