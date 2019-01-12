@@ -13,8 +13,6 @@ const http = require("http"),
 // express header
 header(express, app);
 
-app.use(express.static(__dirname + "/public/index.html"));
-
 //mongo yönetimi
 mongo(app);
 
