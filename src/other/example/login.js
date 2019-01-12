@@ -70,7 +70,6 @@ function SignIn({ classes, store }) {
     const form = new FormData(ref.current);
     form.append("token", Boolean(token));
     for (let [k, v] of form.entries()) {
-      console.log(k, v);
       data[k] = v;
     }
     axios
