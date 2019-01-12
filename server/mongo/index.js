@@ -5,6 +5,7 @@ var uristring = process.env.MONGODB_URI || "mongodb://localhost/admin";
 
 // Makes connection asynchronously.  Mongoose will queue up database
 // operations and release them when the connection is complete.
+console.log(process.env);
 mongoose.connect(
   uristring,
   { useNewUrlParser: true },
