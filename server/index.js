@@ -12,19 +12,14 @@ const express = require("express"),
 // express header
 header(express, app);
 
-// //mongo yönetimi
+//mongo yönetimi
 mongo(app);
-
-// mailRoute(app);
 
 // twitter(app);
 twitter(app);
 
-//google ile ilgili rotalar
-
 //facebook ile ilgili rotalar
 FaceBookMen(app);
-//mongodb ve formlarla ilgili ile ilgili rotalar
 
 app.post("/create-form", (req, res) => {
   let data = req.body;

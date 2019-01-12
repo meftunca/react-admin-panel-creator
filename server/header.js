@@ -6,23 +6,22 @@ const bodyParser = require("body-parser"),
 
 module.exports = (express, app) => {
   // enhance your app security with Helmet
-  app.use(helmet());
-
-  // enable all CORS requests
-  app.use(cors());
-
-  // log HTTP requests
-  app.use(morgan("combined"));
-  app.use(express.static(path.join(__dirname, "/../public")));
-  app.use(bodyParser.json()); // for parsing application/json
-  app.use(bodyParser.urlencoded({ extended: true }));
-  app.use(express.static(__dirname + "/../public/index.html"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "/../public/index.html"));
-  });
-  app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+  app
+    .use(helmet())
+    // enable all CORS requests
+    .use(cors())
+    // log HTTP requests
+    .use(morgan("combined"))
+    .use(express.static(path.join(__dirname, "/../public")))
+    .use(bodyParser.json()) // for parsing application/json
+    .use(bodyParser.urlencoded({ extended: true }))
+    .use(express.static(__dirname + "/../public/index.html"))
+    .use((req, res, next) => {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+      next();
+    })
+    .get("*", (req, res) => {
+      res.sendFile(path.resolve(__dirname, "/../public/index.html"));
+    });
 };
