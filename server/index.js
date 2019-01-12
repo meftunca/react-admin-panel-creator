@@ -1,4 +1,5 @@
-const express = require("express"),
+const http = require("http"),
+  express = require("express"),
   mongo = require("./mongo"),
   twitter = require("./twitter"),
   FaceBookMen = require("./facebook"),
@@ -35,5 +36,10 @@ app.post("/get-form-json", (req, res) => {
   console.log(data);
   res.json(data);
 });
-
-app.listen(process.env.PORT, () => console.log(process.env.PORT));
+http
+  .createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader("Content-Type", "text/plain");
+    res.end("Hello World\n");
+  })
+  .listen(8000, () => console.log(8000));
