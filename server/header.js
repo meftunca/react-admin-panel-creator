@@ -1,5 +1,5 @@
 const bodyParser = require("body-parser"),
-  // cors = require("cors"),
+  cors = require("cors"),
   path = require("path"),
   helmet = require("helmet");
 
@@ -8,7 +8,7 @@ module.exports = (express, app) => {
   app
     .use(helmet())
     // enable all CORS requests
-    // .use(cors())
+    .use(cors())
     // log HTTP requests
     .use(bodyParser.json()) // for parsing application/json
     .use(bodyParser.urlencoded({ extended: true }))
@@ -24,7 +24,6 @@ module.exports = (express, app) => {
         "Access-Control-Allow-Headers",
         "Origin,X-Requested-With,Content-Type,Accept,content-type,application/json"
       );
-
       next();
     });
 };
