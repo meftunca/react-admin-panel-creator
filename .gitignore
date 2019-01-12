@@ -3,6 +3,7 @@
 .vscode
 /test
 /build
+/public
 package-lock.json
 .DS_Store
 .checkNpmUpdates.json
