@@ -37,4 +37,4 @@ app.post("/get-form-json", (req, res) => {
   console.log(data);
   res.json(data);
 });
-app.listen(5000, () => console.log(5000));
+app.listen(process.env.PORT || 5000, err => console.log(err));
