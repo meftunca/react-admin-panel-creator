@@ -1,11 +1,12 @@
 const mongoose = require("mongoose"),
   schemaCreator = require("./mongoSchemaCreator");
+console.log(process.env.MONGODB_URI, app.get("MONGODB_URI"));
 mongoose.connect(
   process.env.MONGOLAB_URI || "mongodb://meftunca:meftunca12@ds153974.mlab.com:53974/heroku_zbz4gnp0",
   { useNewUrlParser: true }
 );
 mongoose.connection.on("error", function(err) {
-  console.log("Error: Could not connect to MongoDB.");
+  console.log("Error: Could not connect to MongoDB.", err);
 });
 let schema = schemaCreator(),
   model = {};

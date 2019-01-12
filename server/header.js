@@ -23,6 +23,13 @@ module.exports = (express, app) => {
     next();
   });
 
+  // 4. Force https in production
+  if (app.get("env") === "production") {
+    app.use(function(req, res, next) {
+      var protocol = req.get("x-forwarded-proto");
+      protocol == "https" ? next() : res.redirect("https://" + req.hostname + req.url);
+    });
+  }
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname + "/../public/index.html"));
   });
