@@ -1,0 +1,110 @@
+[
+  {
+    "type": "link",
+    "name": "Home_Page",
+    "title": "Anasayfa",
+    "header": {
+      "label": "Home",
+      "icon": "home"
+    },
+    "route": {
+      "path": "/",
+      "exact": true,
+      "componentName": "page/home"
+    }
+  },
+  {
+    "type": "link",
+    "name": "MailBox",
+    "title": "MailBox",
+    "header": {
+      "label": "MailBox",
+      "icon": "email"
+    },
+    "route": {
+      "path": "/mailbox",
+      "exact": true,
+      "componentName": "page/mailbox"
+    }
+  },
+  {
+    "type": "link",
+    "name": "other link item",
+    "title": "other link item",
+    "header": {
+      "label": "link",
+      "icon": "dashboard"
+    },
+    "route": {
+      "path": "/other-link-item-1",
+      "componentName": "card"
+    }
+  },
+  {
+    "type": "collapse",
+    "name": "social_admin",
+    "title": "Sosyal Media",
+    "header": {
+      "label": "Sosyal medya Yönetimi",
+      "icon": "aspect_ratio"
+    },
+    "route": {
+      "path": "/social"
+    },
+    "collapseItem": [
+      {
+        "name": "twitter",
+        "title": "Twitter",
+        "route": {
+          "path": "/admin-twitter",
+          "exact": true,
+          "componentName": "page/components/twitter"
+        },
+        "header": {
+          "label": "Form Creator",
+          "icon": "code"
+        }
+      }
+    ]
+  },
+  {
+    "type": "collapse",
+    "name": "system_generator",
+    "title": "System Generator",
+    "header": {
+      "label": "Sistem Yönetimi",
+      "icon": "aspect_ratio"
+    },
+    "route": {
+      "path": "/system-admin"
+    },
+    "collapseItem": [
+      {
+        "name": "form_creator",
+        "title": "Form Creator",
+        "route": {
+          "path": "/form-creator",
+          "exact": false,
+          "componentName": "creator/form"
+        },
+        "header": {
+          "label": "Form Creator",
+          "icon": "code"
+        }
+      },
+      {
+        "name": "api",
+        "title": "Apiler",
+        "route": {
+          "path": "/api-yonetimi",
+          "exact": false,
+          "componentName": "page/api"
+        },
+        "header": {
+          "label": "Api Yönetimi",
+          "icon": "power"
+        }
+      }
+    ]
+  }
+]

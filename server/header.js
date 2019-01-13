@@ -7,7 +7,7 @@ module.exports = (express, app) => {
   app
     .use(helmet())
     // enable all CORS requests
-    .use(cors({ origin: "http://www.godevloops.com" }))
+    // .use(cors({ origin: "http://www.godevloops.com" }))
     // log HTTP requests
     .use(bodyParser.urlencoded({ extended: true }))
     .use(bodyParser.json()) // for parsing application/json

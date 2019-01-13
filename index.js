@@ -5,7 +5,7 @@ const express = require("express"),
   header = require("./server/header"),
   low = require("lowdb"),
   FileSync = require("lowdb/adapters/FileSync"),
-  adapter = new FileSync("./client/src/json/form.json"),
+  adapter = new FileSync("./src/json/form.json"),
   db = low(adapter),
   path = require("path"),
   app = express(),
@@ -23,19 +23,19 @@ twitter(app);
 //facebook ile ilgili rotalar
 FaceBookMen(app);
 //Static file declaration
-app.use(express.static(path.join(__dirname, "client/public")));
+app.use(express.static(path.join(__dirname, "public")));
 
 //production mode
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "client/public")));
+  app.use(express.static(path.join(__dirname, "public")));
   //
   app.get("*", (req, res) => {
-    res.sendfile(path.join((__dirname = "client/public/index.html")));
+    res.sendfile(path.join((__dirname = "public/index.html")));
   });
 }
 //build mode
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/public/index.html"));
+  res.sendFile(path.join(__dirname + "/public/index.html"));
 });
 
 app.post("/create-form", (req, res) => {
