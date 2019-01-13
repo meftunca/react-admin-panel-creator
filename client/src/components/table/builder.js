@@ -29,14 +29,12 @@ export default class TableBuilder extends Component {
       columns: columns.join(" "),
       name: name
     };
-    window.axios
-      .post(window.location.origin + ":" + (process.env.PORT || 5000) + "/get-table", opt)
-      .then(({ data }) => {
-        let dataArr = this.dataParser(data, columns);
-        console.log("columns", columns, "data", dataArr);
-        this.setState({ column: columns, data: dataArr, show: true });
-        console.log(data);
-      });
+    window.axios.post(window.location.origin + +"/get-table", opt).then(({ data }) => {
+      let dataArr = this.dataParser(data, columns);
+      console.log("columns", columns, "data", dataArr);
+      this.setState({ column: columns, data: dataArr, show: true });
+      console.log(data);
+    });
   };
   delete = list => {
     let { tableItem, name } = this.props;
@@ -45,9 +43,7 @@ export default class TableBuilder extends Component {
       name,
       id: Object.keys(list.lookup)
     };
-    axios
-      .post(window.location.origin + ":" + (process.env.PORT || 5000) + "/remove-table-item", opt)
-      .then(d => console.log(d));
+    axios.post(window.location.origin + +"/remove-table-item", opt).then(d => console.log(d));
   };
   render() {
     let { data, column, show } = this.state;

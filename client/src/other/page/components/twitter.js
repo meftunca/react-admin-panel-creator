@@ -36,11 +36,9 @@ class TwitterApi extends Component {
     this.update();
   }
   update = () => {
-    axios
-      .post(window.location.origin + ":" + (process.env.PORT || 5000) + "/twitter", { id: "lorem ipsm" })
-      .then(res => {
-        this.setState({ data: res.data, visible: true });
-      });
+    axios.post(window.location.origin + "/twitter", { id: "lorem ipsm" }).then(res => {
+      this.setState({ data: res.data, visible: true });
+    });
   };
   render() {
     const { classes } = this.props;
@@ -122,7 +120,7 @@ function TwitterList({ data, update, full, classes }) {
       alert("lütfen " + tweet.length + "'den " + (tweet.length < 1 ? "fazla " : "az ") + "karakter kullanın");
     } else {
       axios
-        .post(window.location.origin + ":" + (process.env.PORT || 5000) + "/twitter-post", {
+        .post(window.location.origin + "/twitter-post", {
           status: tweet + "\n Deneme zamanı : " + Date.now(),
           file: tweetFile
         })
