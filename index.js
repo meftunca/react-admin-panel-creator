@@ -7,7 +7,8 @@ const express = require("express"),
   FileSync = require("lowdb/adapters/FileSync"),
   adapter = new FileSync("./client/src/json/form.json"),
   db = low(adapter),
-  app = express();
+  app = express(),
+  port = process.env.PORT || 5000;
 require("sqreen");
 
 // express header
@@ -36,4 +37,4 @@ app.post("/get-form-json", (req, res) => {
   res.json(data);
 });
 console.log(process.env.PORT);
-app.listen(process.env.PORT, err => console.log(err));
+app.listen(port, err => console.log(err));

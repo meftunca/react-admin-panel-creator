@@ -49,9 +49,7 @@ class FormCreator extends Component {
   }
 
   post = data => {
-    axios
-      .post(window.location.origin + ":" + (process.env.PORT || 5000) + "/create-form", data)
-      .then(d => console.log(d));
+    axios.post("/create-form", data).then(d => console.log(d));
   };
   view = () => console.log("view");
   send = () => this.handleClick();
