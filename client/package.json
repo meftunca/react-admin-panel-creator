@@ -9,7 +9,6 @@
     "type": "git",
     "url": "https://github.com/meftunca/react-admin-panel-creator.git"
   },
-  "proxy": "http://localhost:5000",
   "scripts": {
     "size": "size-limit",
     "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
