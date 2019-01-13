@@ -10,7 +10,6 @@ const express = require("express"),
   path = require("path"),
   app = express(),
   port = process.env.PORT || 3001;
-require("sqreen");
 
 // express header
 header(express, app);
