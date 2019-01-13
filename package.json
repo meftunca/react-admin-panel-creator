@@ -11,7 +11,7 @@
   },
   "scripts": {
     "client-install": "npm install --prefix client",
-    "start": "node index.js",
+    "start": "PORT=3001 node index.js",
     "server": "nodemon index.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
