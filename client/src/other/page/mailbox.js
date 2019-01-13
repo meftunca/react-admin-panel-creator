@@ -78,7 +78,7 @@ class MailBox extends Component {
     });
   };
   componentDidMount() {
-    axios.post(window.location.origin + "/gmail/get").then(d => console.log(d));
+    axios.post("/gmail/get").then(d => console.log(d));
   }
 
   render() {
@@ -97,7 +97,7 @@ class MailBox extends Component {
               color='primary'
               className={classes.button}
               onClick={() => {
-                window.location = window.location.origin + ":8000/auth/google/callback";
+                window.location = ":8000/auth/google/callback";
               }}>
               <Icon className={classes.extendedIcon}>add</Icon> {"Google Giriş Yap"}
             </Button>

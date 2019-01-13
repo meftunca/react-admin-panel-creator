@@ -5,6 +5,7 @@
   "author": "Muhammed Burak Şentürk",
   "license": "MIT",
   "homepage": "http://www.godevloops.com",
+  "proxy": "http://localhost:3001",
   "repository": {
     "type": "git",
     "url": "https://github.com/meftunca/react-admin-panel-creator.git"

@@ -73,7 +73,7 @@ function SignIn({ classes, store }) {
       data[k] = v;
     }
     axios
-      .post(window.location.origin + "/user-login", data)
+      .post("/user-login", data)
       .then(async ({ data }) => {
         console.log(data);
         setTurnData(data);
