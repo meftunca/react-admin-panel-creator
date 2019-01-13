@@ -5,7 +5,7 @@ const express = require("express"),
   header = require("./server/header"),
   low = require("lowdb"),
   FileSync = require("lowdb/adapters/FileSync"),
-  adapter = new FileSync("./src/json/form.json"),
+  adapter = new FileSync("./client/src/json/form.json"),
   db = low(adapter),
   app = express();
 require("sqreen");

@@ -1,4 +1,4 @@
-const formToSchema = require("../../src/json/form.json").forms;
+const formToSchema = require("../../client/src/json/form.json").forms;
 let timeStamps = {
   created_at: { type: Date, default: Date.now() },
   updated_at: { type: Date }
