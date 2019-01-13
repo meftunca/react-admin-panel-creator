@@ -7,10 +7,10 @@ module.exports = (express, app) => {
   app
     .use(helmet())
     // enable all CORS requests
-    .use(cors())
+    .use(cors({ origin: "http://www.godevloops.com" }))
     // log HTTP requests
-    .use(bodyParser.json()) // for parsing application/json
     .use(bodyParser.urlencoded({ extended: true }))
+    .use(bodyParser.json()) // for parsing application/json
     .use((req, res, next) => {
       res.header("Access-Control-Allow-Origin", "*");
       res.header("Access-Control-Allow-Credentials", true);
