@@ -10,7 +10,8 @@
     "url": "https://github.com/meftunca/react-admin-panel-creator.git"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "heroku-postbuild": "cd client;yarn production;"
   },
   "dependencies": {
     "base64-img": "^1.0.4",
