@@ -5,7 +5,7 @@ import Loadable from "react-loadable";
 import { Provider } from "mobx-react";
 import Frontend from "./store/frontend";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import * as serviceWorker from "./serviceWorker";
+// import * as serviceWorker from "./serviceWorker";
 
 const theme = createMuiTheme();
 
@@ -35,4 +35,4 @@ Loadable.preloadReady().then(() => {
     document.getElementById("root")
   );
 });
-serviceWorker.unregister();
+// serviceWorker.unregister();
