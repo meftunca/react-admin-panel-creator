@@ -12,9 +12,9 @@ module.exports = (express, app) => {
     // log HTTP requests
     .use(bodyParser.json()) // for parsing application/json
     .use(bodyParser.urlencoded({ extended: true }))
-    .use(express.static(path.join(__dirname, "/../public")))
+    .use(express.static(path.join(__dirname, "/../client/public")))
     .get("*", (req, res) => {
-      res.sendFile(path.join(__dirname + "/../public/index.html"));
+      res.sendFile(path.join(__dirname + "/../client/public/index.html"));
     })
     .use((req, res, next) => {
       res.header("Access-Control-Allow-Origin", "*");
