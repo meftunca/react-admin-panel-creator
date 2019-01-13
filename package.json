@@ -15,7 +15,7 @@
     "server": "nodemon index.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client  && npm run production --prefix client"
+    "heroku-postbuild": "npm install --prefix client  && npm run production --prefix client"
   },
   "dependencies": {
     "base64-img": "^1.0.4",
