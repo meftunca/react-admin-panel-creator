@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "heroku-postbuild": "cd client;yarn production;"
+    "heroku-postbuild": "cd client;yarn;yarn production;"
   },
   "dependencies": {
     "base64-img": "^1.0.4",
