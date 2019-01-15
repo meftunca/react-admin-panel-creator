@@ -29,6 +29,7 @@ const styles = theme => ({
     marginLeft: theme.spacing.unit
   },
   root: {
+    width: "100%",
     ...theme.mixins.gutters(),
     paddingTop: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2
@@ -47,7 +48,7 @@ const toastConfig = {
   pauseOnHover: true,
   draggable: true
 };
-const location = process.env.NODE_ENV === "development" ? window.location.origin + ":3001/" : "";
+const location = process.env.NODE_ENV === "development" ? window.location.origin + ":3001" : "";
 
 @inject("store")
 @observer
@@ -79,7 +80,8 @@ class FormBuilder extends Component {
   postForm = async url => {
     this.toastRunner("info", "Veriler Gönderiliyor...");
     let { values } = this.formApi.getState();
-    console.log(values, url);
+    // console.log(values, url, JSON.parse(localStorage.getItem("data")));
+    values["id"] = JSON.parse(localStorage.getItem("data"))._id;
     let postData = { tableName: this.props.name, data: values };
     await axios.post(location + "/" + url.replace("/", ""), postData).then(({ data }) => {
       console.log(data.data);
@@ -88,15 +90,17 @@ class FormBuilder extends Component {
   };
   render() {
     console.log(this.props);
-    const { classes, header, formItem, name, postUrl, post_url, title, store } = this.props;
+    const { classes, header, formItem, name, postUrl, post_url, title, store, noTitle } = this.props;
     const { label, icon } = header;
     return (
-      <Paper className={classes.root} elevation={1}>
+      <Paper className={classes.root} elevation={noTitle ? 0 : 1}>
         <ToastContainer />
-        <Typography variant='h5' component='h4'>
-          {icon != "" && <Icon name={icon} />}
-          {title.toLocaleUpperCase()}
-        </Typography>
+        {noTitle != true && (
+          <Typography variant='h5' component='h4'>
+            {icon != "" && <Icon name={icon} />}
+            {title.toLocaleUpperCase()}
+          </Typography>
+        )}
         <Form id={"form-" + name} getApi={this.setFormApi}>
           {formItem.map((i, k) => (
             <div className={classes.fullWidth} key={k}>
@@ -190,6 +194,7 @@ const FormCreator = asField(({ fieldState, fieldApi, ...props }) => {
     <input
       {...rest}
       ref={forwardedRef}
+      type={item.type}
       value={!value && value !== 0 ? "" : value}
       onChange={e => {
         setValue(e.target.value);

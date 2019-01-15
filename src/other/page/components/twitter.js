@@ -66,7 +66,7 @@ const styles = theme => ({
     overflowY: "scroll"
   },
   fullHg: {
-    maxHeight: "80vh",
+    maxHeight: "70vh",
     width: "100%",
     backgroundColor: "#fff",
     overflowX: "hidden",
@@ -75,9 +75,10 @@ const styles = theme => ({
   },
   bottomFix: {
     position: "absolute",
-    bottom: "-10vh",
+    bottom: "-20vh",
     left: 0,
-    right: 0
+    right: 0,
+    zIndex: 9999
   },
   inline: {
     display: "inline"
@@ -95,6 +96,9 @@ const styles = theme => ({
   },
   gutterMargin: {
     margin: "4px 0"
+  },
+  textField: {
+    zIndex: 9999
   }
 });
 
@@ -117,7 +121,7 @@ function TwitterList({ data, update, full, classes }) {
     });
   };
   const postTweet = () => {
-    if (tweet.length < 1 || tweet.length > 239) {
+    if (tweet.length < 1 || tweet.length > 279) {
       alert("lütfen " + tweet.length + "'den " + (tweet.length < 1 ? "fazla " : "az ") + "karakter kullanın");
     } else {
       axios
@@ -131,7 +135,9 @@ function TwitterList({ data, update, full, classes }) {
       // setTweet("");
     }
   };
-  const tweetUpdate = ({ target }) => setTweet(target.value);
+  const tweetUpdate = ({ target }) => {
+    setTweet(target.value.substr(0, 279));
+  };
   return (
     <div className={classes.relative}>
       <List
@@ -204,6 +210,7 @@ function TwitterList({ data, update, full, classes }) {
               value={tweet}
               onChange={tweetUpdate}
               fullWidth
+              multiline
               InputProps={{
                 endAdornment: (
                   <InputAdornment variant='filled' position='end'>

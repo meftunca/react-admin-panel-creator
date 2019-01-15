@@ -9,6 +9,7 @@ import Switch from "@material-ui/core/Switch";
 import { withStyles } from "@material-ui/core/styles";
 import { Divider } from "@material-ui/core";
 import FacebookLogin from "react-facebook-login";
+import GmailAuthButton from "./GmailAuthButton";
 
 const styles = theme => ({
   root: {
@@ -57,7 +58,7 @@ const DefaultSettings = ({ classes }) => {
           </Fragment>
         ))}
 
-        <ListItem>
+        {/* <ListItem>
           <ListItemText
             primary={
               <FacebookLogin
@@ -69,6 +70,9 @@ const DefaultSettings = ({ classes }) => {
               />
             }
           />
+        </ListItem> */}
+        <ListItem>
+          <ListItemText primary={<GmailAuthButton />} />
         </ListItem>
       </List>
       <Divider />

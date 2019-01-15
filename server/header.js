@@ -1,14 +1,16 @@
 const bodyParser = require("body-parser"),
   cors = require("cors"),
-  helmet = require("helmet");
+  helmet = require("helmet"),
+  cookieParser = require("cookie-parser");
 
-module.exports = (express, app) => {
+module.exports = app => {
   // enhance your app security with Helmet
   app
     .use(helmet())
     // enable all CORS requests
     // .use(cors({ origin: "http://www.godevloops.com" }))
     // log HTTP requests
+    .use(cookieParser())
     .use(bodyParser.urlencoded({ extended: true }))
     .use(bodyParser.json()) // for parsing application/json
     .use((req, res, next) => {

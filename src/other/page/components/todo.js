@@ -15,7 +15,8 @@ import Grid from "@material-ui/core/Grid";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import Collapse from "@material-ui/core/Collapse";
 import { withStyles } from "@material-ui/core/styles";
-
+import BottomNavigation from "@material-ui/core/BottomNavigation";
+import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 const uniqid = require("uniqid");
 
 const useStyles = {
@@ -23,6 +24,9 @@ const useStyles = {
   textField: {
     marginLeft: 4,
     marginRight: 4
+  },
+  bgLight: {
+    backgroundColor: "#e6e6e6"
   },
   list: {
     backgroundColor: "#ffffff",
@@ -93,6 +97,7 @@ const TODOLIST = ({ classes }) => {
             )}
           </List>
         </Grid>
+
         <ListItem button onClick={() => setOpen(!open)}>
           <ListItemIcon>
             <ICON>playlist_add</ICON>
@@ -119,6 +124,7 @@ const TODOLIST = ({ classes }) => {
 
 const TODOFormCreator = ({ update, state, set, close, classes }) => {
   const [todo, setTodo] = useState(state);
+  const [value, setValue] = React.useState("Ekle");
 
   let updates = value => {
     setTodo(value);
@@ -150,23 +156,22 @@ const TODOFormCreator = ({ update, state, set, close, classes }) => {
         <TODOFormColor update={updates} todo={todo} classes={classes} />
       </Grid>
       <Grid item md={12}>
-        <Grid container>
-          <Grid item md={6}>
-            <Button
-              variant='contained'
-              fullWidth
-              color='primary'
-              className={classes.button}
-              onClick={() => updateTodo(todo)}>
-              Ekle <ICON className={classes.extendedIcon}>send</ICON>
-            </Button>
-          </Grid>
-          <Grid item md={6}>
-            <Button variant='contained' fullWidth color='secondary' className={classes.button} onClick={clearFunc}>
-              Temizle <ICON className={classes.extendedIcon}>clear</ICON>
-            </Button>
-          </Grid>
-        </Grid>
+        <BottomNavigation
+          value={value}
+          className={classes.bgLight}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
+          showLabels>
+          <BottomNavigationAction label='Ekle' value='Ekle' icon={<ICON>send</ICON>} onClick={() => updateTodo(todo)} />
+          />
+          <BottomNavigationAction
+            label='Temizle'
+            value='Temizle'
+            icon={<ICON>delete_forever</ICON>}
+            onClick={clearFunc}
+          />
+        </BottomNavigation>
       </Grid>
     </Grid>
   );

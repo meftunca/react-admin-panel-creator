@@ -137,8 +137,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: true,
-      show: false
+      open: true
     };
     this.props.initialize({
       languages: [{ name: "English", code: "en" }, { name: "Turkish", code: "tr" }],
@@ -146,9 +145,7 @@ class App extends React.Component {
       options: { renderToStaticMarkup, renderInnerHtml: true, defaultLanguage: "tr" }
     });
   }
-  componentDidMount() {
-    this.setState({ show: true });
-  }
+  componentDidMount() {}
   handleDrawerOpen = () => {
     this.setState({ open: true });
   };
@@ -160,8 +157,7 @@ class App extends React.Component {
   render() {
     const { classes, theme, store } = this.props;
     const { pathname } = window.location;
-    const { open, show } = this.state;
-    if (!show) return <a />;
+    const { open } = this.state;
     return (
       <div className={store.login == false || store.registerPage == true ? classes.bg : classes.root}>
         <BrowserRouter>
@@ -247,7 +243,7 @@ class App extends React.Component {
                       collapse={formTableData}
                     />
                     <ListItem button onClick={() => this.props.store.logout()}>
-                      <ListItemIcon>{<Icon name='power' />}</ListItemIcon>
+                      <ListItemIcon>{<Icon name='exit_to_app' />}</ListItemIcon>
                       <ListItemText primary={"Çıkış Yap"} />
                     </ListItem>
                   </List>
@@ -338,21 +334,7 @@ const AppBarCompenent = () => {
 
 const ParserOtherRoute = ({ exact, path, componentName }) => {
   const OtherComponent = loadable(() => import("./../../other/" + componentName));
-  return (
-    <Route
-      exact={exact != undefined && Boolean(exact)}
-      path={path}
-      render={() => (
-        <OtherComponent
-          fallback={
-            <div className='loaderScreen hard'>
-              <Spinner name='line-scale-pulse-out' color='fuchsia' />
-            </div>
-          }
-        />
-      )}
-    />
-  );
+  return <Route exact={exact != undefined && Boolean(exact)} path={path} render={() => <OtherComponent />} />;
 };
 
 const ParserChartRoute = ({ exact, path, data }) => {

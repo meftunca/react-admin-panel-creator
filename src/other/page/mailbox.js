@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from "react";
+import React, { Fragment, Component, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
@@ -18,6 +18,11 @@ import EmailEditor from "react-email-editor";
 import Button from "@material-ui/core/Button";
 import FullScreenDialog from "./components/FullScreenDialog";
 import axios from "axios";
+import ContentLoader from "react-content-loader";
+import Collapse from "@material-ui/core/Collapse";
+import Chip from "@material-ui/core/Chip";
+import TablePagination from "@material-ui/core/TablePagination";
+const uniqid = require("uniqid");
 const styles = theme => ({
   root: {
     backgroundColor: theme.palette.background.paper
@@ -26,7 +31,9 @@ const styles = theme => ({
     margin: theme.spacing.unit
   },
   rootList: {
-    width: "100%"
+    width: "100%",
+    maxHeight: 600,
+    overflowY: "scroll"
   },
   inline: {
     display: "inline"
@@ -40,6 +47,11 @@ const styles = theme => ({
   input: {
     marginLeft: 8,
     flex: 1
+  },
+  mailBoxCollapse: {
+    padding: 15,
+    marginTop: 10,
+    marginBottom: 10
   },
   iconButton: {
     padding: 10
@@ -56,6 +68,12 @@ const styles = theme => ({
   },
   extendedIcon: {
     marginRight: theme.spacing.unit
+  },
+  chip: {
+    margin: theme.spacing.unit,
+    height: 20,
+    fontSize: 13,
+    textTransform: "capitalize"
   }
 });
 const location = process.env.NODE_ENV === "development" ? window.location.origin + ":3001" : "";
@@ -63,8 +81,10 @@ const location = process.env.NODE_ENV === "development" ? window.location.origin
 class MailBox extends Component {
   constructor(props) {
     super(props);
-    this.state = { modal: false, editor: { data: "" } };
+    this.state = { modal: false, editor: { data: "" }, mailList: [], rowsPerPage: 5, page: 0 };
     this.editor = React.createRef();
+    this.handleChangePage = this.handleChangePage.bind(this);
+    this.handleChangeRowsPerPage = this.handleChangeRowsPerPage.bind(this);
   }
   handleClose = () => this.setState({ modal: false });
   openEditor = () => {
@@ -80,41 +100,73 @@ class MailBox extends Component {
     });
   };
   componentDidMount() {
-    axios.post(location + "/gmail/get").then(d => console.log(d));
+    this.getMessages();
+  }
+  handleChangePage(event, newPage) {
+    this.setState({ page: newPage });
   }
 
+  handleChangeRowsPerPage(event) {
+    this.setState({ rowsPerPage: event.target.value });
+  }
+  getMessages = async () => {
+    await axios.post(location + "/google/gmail/messages").then(({ data }) => this.setState({ mailList: data }));
+  };
+  removeMail = async id => {
+    let setData = await axios
+      .post(location + "/google/gmail/remove-mail", { id: id })
+      .then(d => this.forceUpdate())
+      .catch(e => alert("Mail silinemedi"));
+  };
   render() {
-    const { AvatarItem, SeconadryAction, ItemText } = MailPreview;
     const { classes } = this.props;
+    const { mailList, rowsPerPage, page } = this.state;
+    console.log("emptyRows", page, rowsPerPage);
+    let mailPagList = mailList.length > 0 ? mailList.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : [];
     return (
       <Fragment>
         <Grid container className={classes.root}>
           <Grid item xs={12} md={12}>
             <MailHeader classes={classes} />
           </Grid>
+          <Grid item xs={12} md={12}>
+            <Grid container>
+              <Grid item md={4}>
+                <Button color='secondary' className={classes.button} onClick={this.openEditor}>
+                  <Icon className={classes.extendedIcon}>add</Icon> {"Yeni Mail Oluştur"}
+                </Button>
+              </Grid>
+              <Grid item md={8}>
+                <TablePagination
+                  rowsPerPageOptions={[5, 10, 25]}
+                  component='div'
+                  count={mailList.length || 0}
+                  rowsPerPage={rowsPerPage}
+                  page={page}
+                  backIconButtonProps={{
+                    "aria-label": "Önceki Sayfa"
+                  }}
+                  nextIconButtonProps={{
+                    "aria-label": "Sonraki Sayfa"
+                  }}
+                  onChangePage={this.handleChangePage}
+                  onChangeRowsPerPage={this.handleChangeRowsPerPage}
+                />
+              </Grid>
+            </Grid>
+          </Grid>
         </Grid>
         <Grid container className={classes.root} spacing={16}>
           <Grid item xs={4} md={3}>
-            <Button
-              color='primary'
-              className={classes.button}
-              onClick={() => {
-                window.location = ":8000/auth/google/callback";
-              }}>
-              <Icon className={classes.extendedIcon}>add</Icon> {"Google Giriş Yap"}
-            </Button>
-            <Button color='secondary' className={classes.button} onClick={this.openEditor}>
-              <Icon className={classes.extendedIcon}>add</Icon> {"\tYeni Mail Oluştur"}
-            </Button>
             <List>
-              {mailContainsProps.map((i, k) => (
-                <MailContains {...i} key={k} />
+              {mailContainsFieldProps.map((i, k) => (
+                <MailContainsField {...i} key={k} />
               ))}
             </List>
             <Divider />
             <List subheader={<ListSubheader>Etiketler</ListSubheader>}>
               {mailLabels.map((i, k) => (
-                <MailContains {...i} key={k} />
+                <MailContainsField {...i} key={k} />
               ))}
             </List>
           </Grid>
@@ -122,17 +174,10 @@ class MailBox extends Component {
             <Grid container>
               <Grid item xs={12} md={12}>
                 <List className={classes.rootList}>
-                  <ListItem alignItems='flex-start' button>
-                    <AvatarItem name='Remy Sharp' img='https://material-ui.com/static/images/avatar/1.jpg' />
-                    <ItemText
-                      primary='Brunch this weekend?'
-                      classes={classes}
-                      secondaryTitle='Ali Connors'
-                      secondaryText=" — I'll be in your neighborhood doing errands this…"
-                    />
-                    <SeconadryAction reply={() => console.log("reply now")} remove={() => console.log("remove now")} />
-                  </ListItem>
-                  <Divider />
+                  {mailPagList != [] &&
+                    mailPagList.map((i, k) => (
+                      <MailContent key={uniqid()} classes={classes} id={i} remove={this.removeMail} />
+                    ))}
                 </List>
               </Grid>
             </Grid>
@@ -171,10 +216,35 @@ const MailPreview = {
           <Typography component='span' className={classes.inline} color='textPrimary'>
             {secondaryTitle}
           </Typography>
+          <br />
           {secondaryText}
         </React.Fragment>
       }
     />
+  ),
+  MyContentLoader: props => (
+    <ContentLoader height={80} width={500} speed={1} primaryColor='#f3f3f3' secondaryColor='#ecebeb' {...props}>
+      <rect x='70' y='15' rx='4' ry='4' width='317' height='6.4' />
+      <rect x='70' y='35' rx='3' ry='3' width='285' height='6.4' />
+      <circle cx='30' cy='30' r='15' />
+    </ContentLoader>
+  ),
+  mailSubjectWithDate: headers => {
+    let extractField = function(json, fieldName) {
+      return json.filter(function(header) {
+        return header.name === fieldName;
+      })[0];
+    };
+    let subject = extractField(headers, "Subject"),
+      date = extractField(headers, "Date");
+    return { subject: subject.value, date: date.value };
+  },
+  MailChipper: ({ data, classes }) => (
+    <Fragment>
+      {data.map((i, k) => (
+        <Chip label={i.replace("_", " ")} className={classes.chip} key={k} />
+      ))}
+    </Fragment>
   )
 };
 function MailHeader({ classes }) {
@@ -194,7 +264,49 @@ function MailHeader({ classes }) {
     </Paper>
   );
 }
-const MailContains = ({ icon, primary, secondary }) => (
+
+function MailContent({ classes, id, remove }) {
+  const { AvatarItem, SeconadryAction, ItemText, MyContentLoader, mailSubjectWithDate, MailChipper } = MailPreview;
+  const [open, setOpen] = useState(false);
+  const [data, setData] = useState(null);
+  const [loading, complete] = useState(false);
+  useEffect(() => {
+    if (data == null) {
+      axios.post(location + "/google/gmail/get-message", { id: id }).then(({ data }) => {
+        setData(data);
+        complete(true);
+      });
+    }
+  });
+  console.log("open", open);
+  // setTimeout(() => complete(true), 500);
+  if (!loading) return <MyContentLoader />;
+  return (
+    <Fragment>
+      <ListItem alignItems='flex-start' button onClick={() => setOpen(!open)}>
+        {/* <AvatarItem name='Remy Sharp' img='https://material-ui.com/static/images/avatar/1.jpg' /> */}
+        <ItemText
+          primary={<MailChipper data={data.labelIds} classes={classes} />}
+          classes={classes}
+          secondaryTitle={mailSubjectWithDate(data.payload.headers).date}
+          secondaryText={" — " + mailSubjectWithDate(data.payload.headers).subject}
+        />
+        <SeconadryAction reply={() => console.log("reply now")} remove={() => remove(data.threadId)} />
+      </ListItem>
+      <Collapse in={open} timeout='auto' unmountOnExit>
+        <div className={classes.mailBoxCollapse}>
+          <Typography
+            variant='body2'
+            gutterBottom
+            className={classes.extendedIcon}
+            dangerouslySetInnerHTML={{ __html: data.snippet }}
+          />
+        </div>
+      </Collapse>
+    </Fragment>
+  );
+}
+const MailContainsField = ({ icon, primary, secondary }) => (
   <ListItem button>
     <ListItemAvatar>
       <Icon>{icon}</Icon>
@@ -210,7 +322,7 @@ MailBox.propTypes = {
   classes: PropTypes.object.isRequired
 };
 const Icon = ({ children, className }) => <i className={"material-icons " + className}>{children}</i>;
-const mailContainsProps = [
+const mailContainsFieldProps = [
   {
     icon: "inbox",
     secondary: "",

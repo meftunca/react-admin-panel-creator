@@ -1,4 +1,6 @@
 import { observable, action } from "mobx";
+import Axios from "axios";
+const location = process.env.NODE_ENV === "development" ? window.location.origin + ":3001" : "";
 
 class Store {
   constructor() {
@@ -8,6 +10,7 @@ class Store {
       this.registerPage = false;
       this.userData = data;
     }
+    this.construct();
   }
 
   @observable login = false;
@@ -19,6 +22,20 @@ class Store {
   @action update_login = par => (this.login = par);
   @action update_registerPage = par => (this.registerPage = par);
   @action update_userData = par => (this.userData = par);
+
+  //default data
+  @action construct() {
+    Axios.post(location + "/get-user-data").then(({ data }) => {
+      for (let [k, v] of Object.entries(data)) {
+        localStorage.setItem(k, JSON.stringify(v));
+      }
+      if (data.data != undefined && data.data != null) {
+        this.login = true;
+        this.registerPage = false;
+        this.userData = data.data;
+      }
+    });
+  }
 
   //logOut
   @action logout = () => {

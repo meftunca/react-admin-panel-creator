@@ -1,11 +1,8 @@
 const { Facebook, FacebookApiException } = require("fb");
 // const base64Img = require("base64-img");
-const low = require("lowdb");
-const FileSync = require("lowdb/adapters/FileSync");
-const adapter = new FileSync("./server/api/apiKey.json");
-const db = low(adapter);
-let fbOpt = () => db.get("facebook").value();
-const FB = new Facebook(Object.assign({ version: "v2.4" }, fbOpt));
+const storage = require("node-persist");
+let opt = async () => await storage.getItem("facebookApi");
+const FB = new Facebook(Object.assign({ version: "v2.4" }, opt));
 
 const getAccessToken = data =>
   new Promise((resolve, reject) => {

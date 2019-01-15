@@ -1,4 +1,7 @@
 const formToSchema = require("../../src/json/form.json").forms;
+const formApiToSchema = require("../../src/json/apiForm.json");
+const SchemaBuilderData = [...formToSchema, ...Object.values(formApiToSchema)];
+// console.log("SchemaBuilderData", SchemaBuilderData);
 let timeStamps = {
   created_at: { type: Date, default: Date.now() },
   updated_at: { type: Date }
@@ -18,7 +21,7 @@ let queryParse = val =>
 
 module.exports = () => {
   let obj = {};
-  for (let form of formToSchema) {
+  for (let form of SchemaBuilderData) {
     let item = form.formItem;
     obj[form.name] = {};
     for (let i of item) {

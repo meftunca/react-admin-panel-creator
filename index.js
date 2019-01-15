@@ -7,21 +7,26 @@ const express = require("express"),
   FileSync = require("lowdb/adapters/FileSync"),
   adapter = new FileSync("./src/json/form.json"),
   db = low(adapter),
+  google = require("./server/google/index.js"),
   path = require("path"),
   app = express(),
   port = process.env.PORT || 3001;
 
 // express header
-header(express, app);
+header(app);
 
 //mongo yönetimi
 mongo(app);
+// console.log(app.locals);
+// google(app);
+google(app);
 
 // twitter(app);
 twitter(app);
 
 //facebook ile ilgili rotalar
 FaceBookMen(app);
+
 //Static file declaration
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -49,8 +54,6 @@ app.post("/create-form", (req, res) => {
 
 app.post("/get-form-json", (req, res) => {
   let data = db.get("forms").write();
-  console.log(data);
   res.json(data);
 });
-console.log(process.env.PORT);
 app.listen(port, err => console.log(err));

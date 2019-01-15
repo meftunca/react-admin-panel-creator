@@ -6,7 +6,6 @@ import { Provider } from "mobx-react";
 import Frontend from "./store/frontend";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 // import * as serviceWorker from "./serviceWorker";
-
 const theme = createMuiTheme();
 
 // install();
@@ -23,8 +22,8 @@ const LoadableComponent = Loadable({
       <Spinner name='line-scale-pulse-out' color='fuchsia' />
     </div>
   ),
-  delay: 10000,
-  timeout: 15000
+  delay: 1000,
+  timeout: 1500
 });
 
 Loadable.preloadReady().then(() => {
