@@ -85,7 +85,8 @@ class FormBuilder extends Component {
     let postData = { tableName: this.props.name, data: values };
     await axios.post(location + "/" + url.replace("/", ""), postData).then(({ data }) => {
       console.log(data.data);
-      setTimeout(() => this.toastRunner(data.data.status, data.data.message), 2000);
+      setTimeout(() => this.toastRunner(data.data.status, data.data.message), 1000);
+      if (this.props.noTitle != undefined) window.location.reload();
     });
   };
   render() {

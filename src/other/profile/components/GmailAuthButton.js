@@ -82,6 +82,7 @@ class GmailAuthButton extends Component {
         alert("İşlem başarılı");
         localStorage.setItem("gg", "true");
         axios.post(this.location + "/google-api-save");
+        setTimeout(window.location.reload, 500);
       }
     });
   };

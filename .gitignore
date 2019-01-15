@@ -3,7 +3,6 @@ yarn-lock
 .vscode
 .env
 test
-storage
 package-lock.json
 .DS_Store
 .checkNpmUpdates.json
