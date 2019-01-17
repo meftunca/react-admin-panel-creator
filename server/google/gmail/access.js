@@ -39,6 +39,8 @@ class Gmail {
         "https://mail.google.com",
         "https://www.googleapis.com/auth/gmail.labels",
         "https://www.googleapis.com/auth/gmail.readonly",
+        "https://www.googleapis.com/auth/gmail.compose",
+        "https://www.googleapis.com/auth/gmail.send",
         "https://www.googleapis.com/auth/gmail.modify"
         // "https://www.googleapis.com/auth/gmail.metadata"
       ]
@@ -100,6 +102,41 @@ class Gmail {
         resolve(parseMessage(res.data));
       });
     });
+  }
+  makeBody({ to, from, subject, message }) {
+    return new Buffer.from(
+      'Content-type: text/html; charset="UTF-8"\n' +
+        "MIME-Version: 1.0\n" +
+        "Content-Transfer-Encoding: 7bit\n" +
+        "to: " +
+        to +
+        "\n" +
+        "from: " +
+        from +
+        "\n" +
+        "subject: " +
+        subject +
+        "\n\n" +
+        "" +
+        message
+    )
+      .toString("base64")
+      .replace(/\+/g, "-")
+      .replace(/\//g, "_");
+  }
+  async sendMail(req, res) {
+    // console.log("body", req.body);
+
+    let raw = this.makeBody(req.body);
+    await this.gmail.users.messages.send(
+      {
+        userId: "me",
+        resource: {
+          raw: raw
+        }
+      },
+      (err, suc) => res.json(err ? err : suc)
+    );
   }
   removeMail(req, res) {
     console.log(req.body);

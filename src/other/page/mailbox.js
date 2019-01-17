@@ -23,6 +23,7 @@ import Collapse from "@material-ui/core/Collapse";
 import Chip from "@material-ui/core/Chip";
 import TablePagination from "@material-ui/core/TablePagination";
 import TimeAgo from "javascript-time-ago";
+import TextField from "@material-ui/core/TextField";
 import tr from "javascript-time-ago/locale/tr";
 const uniqid = require("uniqid");
 
@@ -90,13 +91,17 @@ class MailBox extends Component {
       modal: false,
       editor: { data: "" },
       mailList: [],
+      mailPagList: [],
       rowsPerPage: 5,
       page: 0,
       labelIds: [],
-      q: ""
+      q: "",
+      sendData: {}
     };
     this.editor = React.createRef();
     this.mailSearchHeader = React.createRef();
+    this.to = React.createRef();
+    this.subject = React.createRef();
     this.handleChangePage = this.handleChangePage.bind(this);
     this.handleQuerySearch = this.handleQuerySearch.bind(this);
     this.onReload = this.onReload.bind(this);
@@ -111,13 +116,13 @@ class MailBox extends Component {
     this.editor.current.exportHtml(data => {
       const { design, html } = data;
       editor["data"] = html;
-      console.log(design, html);
-      this.setState({ editor: data });
+      let other = localStorage.getItem("drafts");
+      let newData = other != undefined ? other + "-@-" + JSON.stringify(data) : JSON.stringify(data);
+      localStorage.setItem("drafts", newData);
     });
   };
   componentDidMount() {
     this.getMessages();
-    axios.post(location + "/google/gmail/labels").then(({ data }) => console.log(data));
   }
 
   async handleQuerySearch() {
@@ -132,10 +137,12 @@ class MailBox extends Component {
   };
   handleChangePage(event, newPage) {
     this.setState({ page: newPage });
+    this.updateMailPaglist();
   }
 
   handleChangeRowsPerPage(event) {
     this.setState({ rowsPerPage: event.target.value });
+    this.updateMailPaglist();
   }
 
   onReload = () => {
@@ -148,6 +155,7 @@ class MailBox extends Component {
     await axios
       .post(location + "/google/gmail/messages", options)
       .then(({ data }) => this.setState({ mailList: data }));
+    await this.updateMailPaglist();
   };
 
   removeMail = async id => {
@@ -156,11 +164,33 @@ class MailBox extends Component {
       .then(d => this.forceUpdate())
       .catch(e => alert("Mail silinemedi"));
   };
+  updateSendData = async data => {
+    console.log(data);
+    this.setState({ sendData: data, modal: true });
+  };
+  sendEmail = async () => {
+    let { sendData } = this.state;
 
+    await this.editor.current.exportHtml(data => {
+      const { design, html } = data;
+      if (sendData == {} || sendData.to == undefined) {
+        sendData = {
+          to: this.to.current.value,
+          subject: this.subject.current.value
+        };
+      }
+      sendData["message"] = html;
+      axios.post(location + "/google/gmail/send-email", sendData).then(({ data }) => console.log(data));
+    });
+  };
+  updateMailPaglist = () => {
+    let { mailList, rowsPerPage, page, mailPagList } = this.state;
+    mailPagList = mailList.length > 0 ? mailList.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : [];
+    this.setState({ mailPagList: mailPagList });
+  };
   render() {
     const { classes } = this.props;
-    const { mailList, rowsPerPage, page } = this.state;
-    let mailPagList = mailList.length > 0 ? mailList.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : [];
+    const { mailList, rowsPerPage, page, mailPagList } = this.state;
     return (
       <Fragment>
         <Grid container className={classes.root}>
@@ -210,14 +240,42 @@ class MailBox extends Component {
             <List className={classes.rootList}>
               {mailPagList != [] &&
                 mailPagList.map((i, k) => (
-                  <MailContent key={uniqid()} classes={classes} id={i} remove={this.removeMail} />
+                  <MailContent
+                    key={uniqid()}
+                    classes={classes}
+                    id={i}
+                    remove={this.removeMail}
+                    updateSendData={this.updateSendData}
+                  />
                 ))}
             </List>
           </Grid>
         </Grid>
 
-        <FullScreenDialog open={this.state.modal} handleClose={this.handleClose} save={this.onSave}>
+        <FullScreenDialog
+          open={this.state.modal}
+          handleClose={this.handleClose}
+          save={this.onSave}
+          send={this.sendEmail}>
           <div className={classes.modalWrapper}>
+            <TextField
+              id='outlined-to'
+              autoComplete='email'
+              inputRef={this.to}
+              label='Alıcı'
+              margin='normal'
+              variant='outlined'
+              fullWidth
+            />
+            <br />
+            <TextField
+              fullWidth
+              id='outlined-subject'
+              inputRef={this.subject}
+              label='Konu'
+              margin='normal'
+              variant='outlined'
+            />
             <EmailEditor minHeight={"100vh"} ref={this.editor} />
           </div>
         </FullScreenDialog>
@@ -298,8 +356,8 @@ function MailHeader({ classes, refs, reload, search }) {
   );
 }
 
-function MailContent({ classes, id, remove }) {
-  const { AvatarItem, SeconadryAction, ItemText, MyContentLoader, mailSubjectWithDate, MailChipper } = MailPreview;
+function MailContent({ classes, id, remove, updateSendData }) {
+  const { AvatarItem, SeconadryAction, ItemText, MyContentLoader, MailChipper } = MailPreview;
   const [open, setOpen] = useState(false);
   const [data, setData] = useState(null);
   useEffect(() => {
@@ -311,7 +369,10 @@ function MailContent({ classes, id, remove }) {
   }, []);
   if (data == null) return <MyContentLoader />;
   if (data.threadId == undefined) return <h4>Mail bilgilerine erişemiyorum.. Bu sorun geçici olabilir.</h4>;
-
+  const sendData = {
+    to: data.headers.to,
+    subject: data.headers.subject
+  };
   return (
     <Fragment>
       <ListItem alignItems='flex-start' button onClick={() => setOpen(!open)}>
@@ -319,10 +380,10 @@ function MailContent({ classes, id, remove }) {
         <ItemText
           primary={<MailChipper data={data.labelIds} classes={classes} />}
           classes={classes}
-          secondaryTitle={""}
-          secondaryText={timeAgo.format(new Date(data.headers.date)) + " — " + data.headers.subject}
+          secondaryTitle={data.headers.subject.substr(0, 50) + "..."}
+          secondaryText={timeAgo.format(new Date(data.headers.date)) + " — "}
         />
-        <SeconadryAction reply={() => console.log("reply now")} remove={() => remove(data.threadId)} />
+        <SeconadryAction reply={() => updateSendData(sendData)} remove={() => remove(data.threadId)} />
       </ListItem>
       <Collapse in={open} timeout='auto' unmountOnExit>
         <div className={classes.mailBoxCollapse}>

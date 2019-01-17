@@ -32,7 +32,7 @@ function Transition(props) {
   return <Slide direction='up' {...props} />;
 }
 
-function FullScreenDialog({ open, handleClose, classes, children, save }) {
+function FullScreenDialog({ open, handleClose, classes, children, save, send }) {
   return (
     <div>
       <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
@@ -48,6 +48,10 @@ function FullScreenDialog({ open, handleClose, classes, children, save }) {
             <Button color='inherit' onClick={save}>
               <i className='material-icons mr-2'>save</i>
               Kaydet
+            </Button>
+            <Button color='inherit' onClick={send}>
+              <i className='material-icons mr-2'>send</i>
+              Maili gönder
             </Button>
           </Toolbar>
         </AppBar>

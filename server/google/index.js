@@ -3,11 +3,12 @@ const GmailAPi = new GApi();
 module.exports = app => {
   // urls
   app
-    .post("/google/gmail/exit", GmailAPi.exit)
-    .post("/google/gmail/auth-query", GmailAPi.authQuery)
-    .post("/google/gmail/auth", GmailAPi.getAuth)
-    .post("/google/gmail/set-token", GmailAPi.setToken)
-    .post("/google/gmail/remove-mail", GmailAPi.removeMail)
+    .post("/google/gmail/exit", (req, res) => GmailAPi.exit(req, res))
+    .post("/google/gmail/send-email", (req, res) => GmailAPi.sendMail(req, res))
+    .post("/google/gmail/auth-query", (req, res) => GmailAPi.authQuery(req, res))
+    .post("/google/gmail/auth", (req, res) => GmailAPi.getAuth(req, res))
+    .post("/google/gmail/set-token", (req, res) => GmailAPi.setToken(req, res))
+    .post("/google/gmail/remove-mail", (req, res) => GmailAPi.removeMail(req, res))
     .post("/google/gmail/labels", (req, res) => {
       GmailAPi.listLabels()
         .then(data => {

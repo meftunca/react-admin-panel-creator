@@ -137,7 +137,6 @@ module.exports = async app => {
     .post("/append-data", (req, res) => {
       let istek = req.body,
         table = req.body.tableName;
-
       if (table == undefined || table == "")
         res.json({ data: { status: "warning", message: "Beklenmeyen bir hata oluştu" } });
       let collection = model[table];

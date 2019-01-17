@@ -79,13 +79,14 @@ class GmailAuthButton extends Component {
     Axios.post(location + "/google/gmail/exit").then(({ data }) => {
       console.log(data);
       this.clear();
+      this.controller();
     });
   setToken = code => {
     Axios.post(location + "/google/gmail/set-token", { code: code }).then(({ data }) => {
       console.log(data);
       if (data.status) {
         this.setState({ open: false });
-        alert("İşlem başarılı");
+        this.controller();
         localStorage.setItem("gg", "true");
         Axios.post(this.location + "/google-api-save");
         setTimeout(window.location.reload, 500);
