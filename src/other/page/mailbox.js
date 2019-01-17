@@ -22,7 +22,12 @@ import ContentLoader from "react-content-loader";
 import Collapse from "@material-ui/core/Collapse";
 import Chip from "@material-ui/core/Chip";
 import TablePagination from "@material-ui/core/TablePagination";
+import TimeAgo from "javascript-time-ago";
+import tr from "javascript-time-ago/locale/tr";
 const uniqid = require("uniqid");
+
+TimeAgo.addLocale(tr);
+const timeAgo = new TimeAgo("tr-TR");
 const styles = theme => ({
   root: {
     backgroundColor: theme.palette.background.paper
@@ -81,9 +86,20 @@ const location = process.env.NODE_ENV === "development" ? window.location.origin
 class MailBox extends Component {
   constructor(props) {
     super(props);
-    this.state = { modal: false, editor: { data: "" }, mailList: [], rowsPerPage: 5, page: 0 };
+    this.state = {
+      modal: false,
+      editor: { data: "" },
+      mailList: [],
+      rowsPerPage: 5,
+      page: 0,
+      labelIds: [],
+      q: ""
+    };
     this.editor = React.createRef();
+    this.mailSearchHeader = React.createRef();
     this.handleChangePage = this.handleChangePage.bind(this);
+    this.handleQuerySearch = this.handleQuerySearch.bind(this);
+    this.onReload = this.onReload.bind(this);
     this.handleChangeRowsPerPage = this.handleChangeRowsPerPage.bind(this);
   }
   handleClose = () => this.setState({ modal: false });
@@ -101,7 +117,19 @@ class MailBox extends Component {
   };
   componentDidMount() {
     this.getMessages();
+    axios.post(location + "/google/gmail/labels").then(({ data }) => console.log(data));
   }
+
+  async handleQuerySearch() {
+    console.log("this.mailSearchHeader.current.value", this.mailSearchHeader.current.value);
+    await this.setState({ q: this.mailSearchHeader.current.value });
+    await this.getMessages();
+  }
+  setLabel = label => {
+    console.log("labelIds: " + [label]);
+    this.setState({ labelIds: [label] });
+    this.getMessages();
+  };
   handleChangePage(event, newPage) {
     this.setState({ page: newPage });
   }
@@ -109,58 +137,49 @@ class MailBox extends Component {
   handleChangeRowsPerPage(event) {
     this.setState({ rowsPerPage: event.target.value });
   }
-  getMessages = async () => {
-    await axios.post(location + "/google/gmail/messages").then(({ data }) => this.setState({ mailList: data }));
+
+  onReload = () => {
+    this.getMessages();
   };
+
+  getMessages = async () => {
+    const { labelIds, q } = this.state;
+    let options = { labelIds, q };
+    await axios
+      .post(location + "/google/gmail/messages", options)
+      .then(({ data }) => this.setState({ mailList: data }));
+  };
+
   removeMail = async id => {
-    let setData = await axios
+    await axios
       .post(location + "/google/gmail/remove-mail", { id: id })
       .then(d => this.forceUpdate())
       .catch(e => alert("Mail silinemedi"));
   };
+
   render() {
     const { classes } = this.props;
     const { mailList, rowsPerPage, page } = this.state;
-    console.log("emptyRows", page, rowsPerPage);
     let mailPagList = mailList.length > 0 ? mailList.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : [];
     return (
       <Fragment>
         <Grid container className={classes.root}>
           <Grid item xs={12} md={12}>
-            <MailHeader classes={classes} />
+            <MailHeader
+              classes={classes}
+              refs={this.mailSearchHeader}
+              reload={this.onReload}
+              search={this.handleQuerySearch}
+            />
           </Grid>
-          <Grid item xs={12} md={12}>
-            <Grid container>
-              <Grid item md={4}>
-                <Button color='secondary' className={classes.button} onClick={this.openEditor}>
-                  <Icon className={classes.extendedIcon}>add</Icon> {"Yeni Mail Oluştur"}
-                </Button>
-              </Grid>
-              <Grid item md={8}>
-                <TablePagination
-                  rowsPerPageOptions={[5, 10, 25]}
-                  component='div'
-                  count={mailList.length || 0}
-                  rowsPerPage={rowsPerPage}
-                  page={page}
-                  backIconButtonProps={{
-                    "aria-label": "Önceki Sayfa"
-                  }}
-                  nextIconButtonProps={{
-                    "aria-label": "Sonraki Sayfa"
-                  }}
-                  onChangePage={this.handleChangePage}
-                  onChangeRowsPerPage={this.handleChangeRowsPerPage}
-                />
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid container className={classes.root} spacing={16}>
-          <Grid item xs={4} md={3}>
+
+          <Grid item sm={4} md={3}>
+            <Button color='secondary' className={classes.button} onClick={this.openEditor}>
+              <Icon className={classes.extendedIcon}>add</Icon> {"Yeni Mail Oluştur"}
+            </Button>
             <List>
               {mailContainsFieldProps.map((i, k) => (
-                <MailContainsField {...i} key={k} />
+                <MailContainsField setLabel={this.setLabel} {...i} key={k} />
               ))}
             </List>
             <Divider />
@@ -170,19 +189,33 @@ class MailBox extends Component {
               ))}
             </List>
           </Grid>
-          <Grid item xs={8} md={9}>
-            <Grid container>
-              <Grid item xs={12} md={12}>
-                <List className={classes.rootList}>
-                  {mailPagList != [] &&
-                    mailPagList.map((i, k) => (
-                      <MailContent key={uniqid()} classes={classes} id={i} remove={this.removeMail} />
-                    ))}
-                </List>
-              </Grid>
-            </Grid>
+          <Grid item sm={8} md={9}>
+            <TablePagination
+              rowsPerPageOptions={[5, 10, 25]}
+              component='div'
+              count={mailList.length || 0}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              labelRowsPerPage='Gösterilecek Eleman Sayısı'
+              labelDisplayedRows={({ from, to, count }) => `${from}-${to} ~ ${count}`}
+              backIconButtonProps={{
+                "aria-label": "Önceki Sayfa"
+              }}
+              nextIconButtonProps={{
+                "aria-label": "Sonraki Sayfa"
+              }}
+              onChangePage={this.handleChangePage}
+              onChangeRowsPerPage={this.handleChangeRowsPerPage}
+            />
+            <List className={classes.rootList}>
+              {mailPagList != [] &&
+                mailPagList.map((i, k) => (
+                  <MailContent key={uniqid()} classes={classes} id={i} remove={this.removeMail} />
+                ))}
+            </List>
           </Grid>
         </Grid>
+
         <FullScreenDialog open={this.state.modal} handleClose={this.handleClose} save={this.onSave}>
           <div className={classes.modalWrapper}>
             <EmailEditor minHeight={"100vh"} ref={this.editor} />
@@ -247,18 +280,18 @@ const MailPreview = {
     </Fragment>
   )
 };
-function MailHeader({ classes }) {
+function MailHeader({ classes, refs, reload, search }) {
   return (
     <Paper className={classes.rootHeader} elevation={1}>
       <IconButton className={classes.iconButton} aria-label='Menu'>
         <Icon>menu</Icon>
       </IconButton>
-      <InputBase className={classes.input} placeholder='Maillerde Ara..' />
-      <IconButton className={classes.iconButton} aria-label='Search'>
+      <InputBase inputRef={refs} className={classes.input} placeholder='Maillerde Ara..' />
+      <IconButton className={classes.iconButton} onClick={search} aria-label='Search'>
         <Icon>search</Icon>
       </IconButton>
       <Divider className={classes.divider} />
-      <IconButton color='primary' className={classes.iconButton} aria-label='Reload'>
+      <IconButton color='primary' onClick={reload} className={classes.iconButton} aria-label='Reload'>
         <Icon>refresh</Icon>
       </IconButton>
     </Paper>
@@ -269,18 +302,16 @@ function MailContent({ classes, id, remove }) {
   const { AvatarItem, SeconadryAction, ItemText, MyContentLoader, mailSubjectWithDate, MailChipper } = MailPreview;
   const [open, setOpen] = useState(false);
   const [data, setData] = useState(null);
-  const [loading, complete] = useState(false);
   useEffect(() => {
     if (data == null) {
       axios.post(location + "/google/gmail/get-message", { id: id }).then(({ data }) => {
         setData(data);
-        complete(true);
       });
     }
-  });
-  console.log("open", open);
-  // setTimeout(() => complete(true), 500);
-  if (!loading) return <MyContentLoader />;
+  }, []);
+  if (data == null) return <MyContentLoader />;
+  if (data.threadId == undefined) return <h4>Mail bilgilerine erişemiyorum.. Bu sorun geçici olabilir.</h4>;
+
   return (
     <Fragment>
       <ListItem alignItems='flex-start' button onClick={() => setOpen(!open)}>
@@ -288,8 +319,8 @@ function MailContent({ classes, id, remove }) {
         <ItemText
           primary={<MailChipper data={data.labelIds} classes={classes} />}
           classes={classes}
-          secondaryTitle={mailSubjectWithDate(data.payload.headers).date}
-          secondaryText={" — " + mailSubjectWithDate(data.payload.headers).subject}
+          secondaryTitle={""}
+          secondaryText={timeAgo.format(new Date(data.headers.date)) + " — " + data.headers.subject}
         />
         <SeconadryAction reply={() => console.log("reply now")} remove={() => remove(data.threadId)} />
       </ListItem>
@@ -299,15 +330,21 @@ function MailContent({ classes, id, remove }) {
             variant='body2'
             gutterBottom
             className={classes.extendedIcon}
-            dangerouslySetInnerHTML={{ __html: data.snippet }}
+            dangerouslySetInnerHTML={{ __html: data.textPlain }}
+          />
+          <Typography
+            variant='body2'
+            gutterBottom
+            className={classes.extendedIcon}
+            dangerouslySetInnerHTML={{ __html: data.textHtml }}
           />
         </div>
       </Collapse>
     </Fragment>
   );
 }
-const MailContainsField = ({ icon, primary, secondary }) => (
-  <ListItem button>
+const MailContainsField = ({ icon, primary, secondary, name, setLabel }) => (
+  <ListItem button onClick={() => (name != undefined ? setLabel(name.toUpperCase()) : false)}>
     <ListItemAvatar>
       <Icon>{icon}</Icon>
     </ListItemAvatar>
@@ -325,23 +362,63 @@ const Icon = ({ children, className }) => <i className={"material-icons " + clas
 const mailContainsFieldProps = [
   {
     icon: "inbox",
-    secondary: "",
+    name: "INBOX",
     primary: "Gelen Kutusu"
   },
   {
     icon: "star",
-    secondary: "",
+    name: "Important",
+    primary: "Önemli"
+  },
+  {
+    icon: "refresh",
+    name: "CATEGORY_UPDATES",
+    primary: "Güncellemeler"
+  },
+  {
+    icon: "forum",
+    name: "CATEGORY_FORUMS",
+    primary: "Forumlar"
+  },
+  {
+    icon: "pages",
+    name: "CATEGORY_SOCIAL",
+    primary: "Sosyal"
+  },
+  {
+    icon: "visibility_off",
+    name: "UNREAD",
+    primary: "Okunmayanlar"
+  },
+  {
+    icon: "copyright",
+    name: "CATEGORY_PROMOTIONS",
+    primary: "Promosyonlar"
+  },
+  // {
+  //   icon: "chat",
+  //   name: "CHAT",
+  //   primary: "Sohbet"
+  // },
+  {
+    icon: "star",
+    name: "STARRED",
     primary: "Yıldızlı"
   },
   {
     icon: "send",
-    secondary: "",
+    name: "SEND",
     primary: "Gönderilenler"
   },
   {
     icon: "drafts",
-    secondary: "",
+    name: "DRAFT",
     primary: "Taslaklar"
+  },
+  {
+    icon: "delete_forever",
+    name: "TRASH",
+    primary: "Çöp kutusu"
   }
 ];
 const mailLabels = [

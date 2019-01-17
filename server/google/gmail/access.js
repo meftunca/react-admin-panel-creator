@@ -1,10 +1,13 @@
 const { google } = require("googleapis");
 const storage = require("node-persist");
+const parseMessage = require("gmail-api-parse-message");
+
 class Gmail {
   constructor() {
     // console.log();
     this.state = {
-      auth: false
+      auth: false,
+      token: false
     };
     this.create();
   }
@@ -15,12 +18,16 @@ class Gmail {
   async create() {
     this.apiData = await storage.getItem("googleApi");
     if (this.apiData != undefined && this.apiData != null) {
+      // console.log(this.apiData);
       const { client_secret, client_id, redirect_uris } = this.apiData;
       this.auth = new google.auth.OAuth2(client_id, client_secret, redirect_uris);
       this.setState({ auth: true });
       if (this.apiData.token != undefined) {
+        this.setState({ token: true });
         await this.auth.setCredentials(this.apiData.token);
         this.gmail = await google.gmail({ version: "v1", auth: this.auth });
+      } else {
+        this.setState({ token: false });
       }
     }
   }
@@ -32,33 +39,43 @@ class Gmail {
         "https://mail.google.com",
         "https://www.googleapis.com/auth/gmail.labels",
         "https://www.googleapis.com/auth/gmail.readonly",
-        "https://www.googleapis.com/auth/gmail.modify",
-        "https://www.googleapis.com/auth/gmail.metadata"
+        "https://www.googleapis.com/auth/gmail.modify"
+        // "https://www.googleapis.com/auth/gmail.metadata"
       ]
     });
     // console.log("Authorize this app by visiting this url:", authUrl);
     response.json({ url: authUrl, setToken: true });
+    this.create();
   }
   listLabels(response) {
-    let opt = {
-      userId: "me"
-    };
-
     return new Promise((resolve, reject) => {
+      if (this.state.token == false) return reject("Token aktif değil");
+      let opt = {
+        userId: "me"
+      };
+
       this.gmail.users.labels.list(opt, (err, res) => {
         if (err) return reject(err);
         resolve(res.data.labels);
       });
     });
   }
+  exit() {
+    storage.removeItem("googleApi");
+    res.send(true);
+    this.create();
+  }
   messagesList(options) {
-    let opt = {
-      userId: "me",
-      labelIds: ["INBOX"],
-      maxResults: 10
-    };
-    opt = Object.assign(opt, options);
     return new Promise(async (resolve, reject) => {
+      if (this.state.token == false) return reject("Token aktif değil");
+
+      let opt = {
+        userId: "me",
+        labelIds: ["INBOX"],
+        maxResults: 1
+      };
+      opt = Object.assign(opt, options);
+      console.log(options);
       this.gmail.users.messages.list(opt, (err, res) => {
         if (err) reject(err);
         const messages = res.data.messages,
@@ -69,16 +86,18 @@ class Gmail {
     });
   }
   messageArrParser(options) {
-    let opt = {
-      userId: "me",
-      format: process.env.NODE_ENV == "production" ? "full" : "metadata"
-    };
-    opt = Object.assign(opt, options);
     // reject(list.data);
     return new Promise((resolve, reject) => {
+      if (this.state.token == false) return reject("Token aktif değil");
+
+      let opt = {
+        userId: "me"
+      };
+      opt = Object.assign(opt, options);
       this.gmail.users.messages.get(opt, (err, res) => {
         if (err) reject(err);
-        resolve(res.data);
+
+        resolve(parseMessage(res.data));
       });
     });
   }

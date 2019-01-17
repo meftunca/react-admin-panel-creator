@@ -33,19 +33,16 @@ class GmailAuthButton extends Component {
 
   controller = () => {
     const { auth, token, googleApi, url } = this.state;
-    console.log("googleApi", googleApi);
-
     if (url != "") {
       this.setState({ open: true, redirect: false });
     } else {
       this.setState({ redirect: true });
     }
-    if (auth) return;
+    if (auth) return this.handleExitGoogleAuth();
     this.getAuth();
   };
   authQuery = () => {
     Axios.post(location + "/google/gmail/auth-query").then(({ data }) => {
-      console.log(data);
       if (data.status || data.token != "") {
         this.setState({
           auth: false,
@@ -59,21 +56,30 @@ class GmailAuthButton extends Component {
       }
     });
   };
+  clear = () => {
+    localStorage.removeItem("googleApi");
+    this.setState({ url: "", open: false, auth: false, redirect: false });
+  };
   getAuth = () => {
     Axios.post(location + "/google/gmail/auth").then(({ data }) => {
-      console.log(data);
       if (data.status == false) {
         localStorage.removeItem("googleApi");
       } else {
-        if (data.token) {
+        if (data.token || data.status) {
           localStorage.setItem("gg", "true");
-          alert("İşlem zaten başarılı.Yeniden bağlanmamıza gerek yok.");
+          this.setState({ url: "", open: false, auth: true, redirect: false });
         } else {
-          this.setState({ url: data.url, open: true, auth: true });
+          console.log("else", data);
+          this.setState({ url: data.url, open: true, auth: false });
         }
       }
     });
   };
+  handleExitGoogleAuth = () =>
+    Axios.post(location + "/google/gmail/exit").then(({ data }) => {
+      console.log(data);
+      this.clear();
+    });
   setToken = code => {
     Axios.post(location + "/google/gmail/set-token", { code: code }).then(({ data }) => {
       console.log(data);
@@ -81,7 +87,7 @@ class GmailAuthButton extends Component {
         this.setState({ open: false });
         alert("İşlem başarılı");
         localStorage.setItem("gg", "true");
-        axios.post(this.location + "/google-api-save");
+        Axios.post(this.location + "/google-api-save");
         setTimeout(window.location.reload, 500);
       }
     });
@@ -91,7 +97,6 @@ class GmailAuthButton extends Component {
     const { classes } = this.props;
     const { url, open, auth, redirect } = this.state;
     const linkProps = redirect ? { component: GoogleApiLink } : {};
-    console.log(this.state);
     return (
       <Fragment>
         <Button size='large' color='primary' fullWidth onClick={this.controller} {...linkProps}>
@@ -103,10 +108,10 @@ class GmailAuthButton extends Component {
           {redirect
             ? "Api bağlantısı için bilgiler eksik,Linke tıklayarak güncel bilgileri giriniz."
             : auth
-            ? "Giriş Yapıldı"
+            ? "Çıkış Yap"
             : "Google İle Giriş Yap"}
         </Button>
-        {auth == false && (
+        {auth == false && open == true && (
           <GmailAuthDialog
             accessToken={this.setToken}
             link={url}

@@ -90,7 +90,6 @@ class FormBuilder extends Component {
     });
   };
   render() {
-    console.log(this.props);
     const { classes, header, formItem, name, postUrl, post_url, title, store, noTitle } = this.props;
     const { label, icon } = header;
     return (

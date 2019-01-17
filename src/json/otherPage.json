@@ -13,33 +13,7 @@
       "componentName": "page/home"
     }
   },
-  {
-    "type": "link",
-    "name": "MailBox",
-    "title": "MailBox",
-    "header": {
-      "label": "MailBox",
-      "icon": "email"
-    },
-    "route": {
-      "path": "/mailbox",
-      "exact": true,
-      "componentName": "page/mailbox"
-    }
-  },
-  {
-    "type": "link",
-    "name": "other link item",
-    "title": "other link item",
-    "header": {
-      "label": "link",
-      "icon": "dashboard"
-    },
-    "route": {
-      "path": "/other-link-item-1",
-      "componentName": "card"
-    }
-  },
+
   {
     "type": "collapse",
     "name": "social_admin",
@@ -63,6 +37,20 @@
         "header": {
           "label": "Form Creator",
           "icon": "code"
+        }
+      },
+      {
+        "type": "link",
+        "name": "MailBox",
+        "title": "MailBox",
+        "header": {
+          "label": "MailBox",
+          "icon": "email"
+        },
+        "route": {
+          "path": "/mailbox",
+          "exact": true,
+          "componentName": "page/mailbox"
         }
       }
     ]

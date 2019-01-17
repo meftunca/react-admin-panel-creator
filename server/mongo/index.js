@@ -4,18 +4,7 @@ const mongoose = require("mongoose"),
   schemaCreator = require("./mongoSchemaCreator"),
   id = require("uniqid");
 const storage = require("node-persist");
-storage.init({
-  dir: "storage/user",
-  stringify: JSON.stringify,
-  parse: JSON.parse,
-  encoding: "utf8",
-  logging: false, // can also be custom logging function
-  ttl: false, // ttl* [NEW], can be true for 24h default or a number in MILLISECONDS or a valid Javascript Date object
-  expiredInterval: 2 * 60 * 1000, // every 2 minutes the process will clean-up the expired cache
-  // in some cases, you (or some other service) might add non-valid storage files to your
-  // storage dir, i.e. Google Drive, make this true if you'd like to ignore these files and not throw an error
-  forgiveParseErrors: false
-});
+
 mongoose.Promise = global.Promise; // mongoose promises deprecated, use node - mongoosejs.com/docs/promises
 
 //tablo oluştur veya veri çek
@@ -199,6 +188,6 @@ module.exports = async app => {
         twitterApi: await storage.getItem("twitterApi"),
         data: await storage.getItem("user")
       };
-      res.json(data);
+      await res.json(data);
     });
 };
