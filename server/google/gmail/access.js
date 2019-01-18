@@ -74,7 +74,7 @@ class Gmail {
       let opt = {
         userId: "me",
         labelIds: ["INBOX"],
-        maxResults: 1
+        maxResults: 100
       };
       opt = Object.assign(opt, options);
       console.log(options);
