@@ -10,7 +10,6 @@ class Store {
       this.registerPage = false;
       this.userData = data;
     }
-    setTimeout(this.construct, 500);
   }
 
   @observable login = false;

@@ -27,7 +27,6 @@ import { renderToStaticMarkup } from "react-dom/server";
 import Account from "../../other/example/account";
 import ProfileTabDrawer from "../../other/profile/tabDrawer";
 import Axios from "axios";
-
 const drawerWidth = 300;
 const styles = theme => ({
   root: {
@@ -137,19 +136,20 @@ class App extends React.Component {
       open: true,
       show: false
     };
-    this.props.initialize({
-      languages: [{ name: "English", code: "en" }, { name: "Turkish", code: "tr" }],
-      translation: loadable(() => import("./../../json/translation.json")),
-      options: { renderToStaticMarkup, renderInnerHtml: true, defaultLanguage: "tr" }
-    });
   }
   async componentDidMount() {
+    this.props.store.construct();
     let json = await Axios.get("/json/form.json");
     this.formTableData = json.data.forms;
     this.chartData = await Axios.get("/json/chart.json");
     this.otherPage = await Axios.get("/json/otherPage.json");
     this.appBar = await Axios.get("/json/appBar.json");
-    console.log(this.formTableData, "chartData", this.chartData);
+    this.translation = await Axios.get("/json/translation.json");
+    this.props.initialize({
+      languages: [{ name: "English", code: "en" }, { name: "Turkish", code: "tr" }],
+      translation: this.translation.data,
+      options: { renderToStaticMarkup, renderInnerHtml: true, defaultLanguage: "tr" }
+    });
     this.setState({ show: true });
   }
   handleDrawerOpen = () => {

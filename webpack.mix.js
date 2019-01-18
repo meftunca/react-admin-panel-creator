@@ -5,8 +5,12 @@ if (process.env.NODE_ENV === "development") {
   mix.sourceMaps();
 }
 mix
-  .react("src/index.js", "public/dist/js")
-  // .sass("src/scss/app.scss", "public")
+  .react("src/index.js", "public/dist/js", {
+    outputStyle: "compressed"
+  })
+  .sass("src/scss/app.scss", "public", {
+    outputStyle: "compressed"
+  })
   .setPublicPath("public")
   .disableNotifications()
   .options({

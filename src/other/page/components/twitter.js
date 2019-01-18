@@ -192,7 +192,7 @@ function TwitterList({ data, update, full, classes }) {
             ))}
           </Fragment>
         ) : (
-          <Typography component='p' className={classes.inlineCustom} color='textPrimary'>
+          <Typography component='div' className={classes.inlineCustom} color='textPrimary'>
             Şuan Twitter Apisini kullanamazsınız. Gerekli bilgileri girmek için =>
             <Link to='/api-yonetimi'>Adresine gidin</Link>
           </Typography>
@@ -219,7 +219,7 @@ function TwitterList({ data, update, full, classes }) {
                         image
                       </i>
                     </IconButton>
-                    <IconButton color='primary' aria-label='Toggle password visibility' onClick={postTweet}>
+                    <IconButton color='primary' aria-label='Toggle password visibility' onClick={() => postTweet()}>
                       <i className='material-icons' style={{ fontSize: 16 }}>
                         send
                       </i>

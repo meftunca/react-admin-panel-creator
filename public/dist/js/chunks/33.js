@@ -1,13 +1,13 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[33],{
 
-/***/ "./src/json/header.json":
-/*!******************************!*\
-  !*** ./src/json/header.json ***!
-  \******************************/
-/*! exports provided: 0, default */
+/***/ "./src/json/chart.json":
+/*!*****************************!*\
+  !*** ./src/json/chart.json ***!
+  \*****************************/
+/*! exports provided: 0, 1, 2, 3, 4, default */
 /***/ (function(module) {
 
-eval("module.exports = [{}];//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuL3NyYy9qc29uL2hlYWRlci5qc29uLmpzIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/json/header.json\n");
+eval("module.exports = [{\"type\":\"area\",\"title\":\"chart area\",\"route\":{\"path\":\"/chart-area\",\"exact\":true},\"getUrl\":\"\",\"header\":{\"label\":\"chart area\",\"icon\":\"waves\",\"description\":\"Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,  no sea takimata sanctus est Lorem ipsum dolor sit amet.  sed diam voluptua.  Lorem ipsum dolor sit amet,  \"},\"chartConfig\":{\"field\":[{\"name\":\"Android\",\"value\":\"android\",\"argument\":\"year\"},{\"name\":\"Ios\",\"value\":\"ios\",\"argument\":\"year\"},{\"name\":\"Microsoft\",\"value\":\"windowsOs\",\"argument\":\"year\"}]}},{\"type\":\"bar\",\"title\":\"chart bar\",\"route\":{\"path\":\"/chart-bar\",\"exact\":true},\"getUrl\":\"\",\"header\":{\"label\":\"chart bar\",\"icon\":\"bar_chart\",\"description\":\"Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,  no sea takimata sanctus est Lorem ipsum dolor sit amet.  sed diam voluptua.  Lorem ipsum dolor sit amet,  \"},\"chartConfig\":{\"field\":[{\"value\":\"population\",\"argument\":\"year\"},{\"value\":\"population1\",\"argument\":\"year\"},{\"value\":\"population2\",\"argument\":\"year\"}]}},{\"type\":\"point\",\"title\":\"chart point\",\"route\":{\"path\":\"/chart-point\",\"exact\":true},\"getUrl\":\"\",\"header\":{\"label\":\"chart point\",\"icon\":\"control_point_duplicate\",\"description\":\"Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,  no sea takimata sanctus est Lorem ipsum dolor sit amet.  sed diam voluptua.  Lorem ipsum dolor sit amet,  \"},\"chartConfig\":{\"stack\":[]}},{\"type\":\"line\",\"title\":\"chart line\",\"route\":{\"path\":\"/chart-line\",\"exact\":true},\"getUrl\":\"\",\"header\":{\"label\":\"chart line\",\"icon\":\"show_chart\",\"description\":\"Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,  no sea takimata sanctus est Lorem ipsum dolor sit amet.  sed diam voluptua.  Lorem ipsum dolor sit amet,  \"},\"chartConfig\":{\"field\":[{\"name\":\"TV news\",\"value\":\"tvNews\",\"argument\":\"year\"},{\"name\":\"Church\",\"value\":\"church\",\"argument\":\"year\"},{\"name\":\"Military\",\"value\":\"military\",\"argument\":\"year\"}]}},{\"type\":\"pie\",\"title\":\"chart pie\",\"route\":{\"path\":\"/chart-pie\",\"exact\":true},\"getUrl\":\"\",\"header\":{\"label\":\"chart pie\",\"icon\":\"pie_chart\",\"description\":\"Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,  no sea takimata sanctus est Lorem ipsum dolor sit amet.  sed diam voluptua.  Lorem ipsum dolor sit amet,  \"},\"chartConfig\":{\"field\":{\"value\":\"area\",\"argument\":\"country\"},\"title\":\"\"}}];//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuL3NyYy9qc29uL2NoYXJ0Lmpzb24uanMiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/json/chart.json\n");
 
 /***/ })
 
