@@ -26,11 +26,8 @@ import { withLocalize } from "react-localize-redux";
 import { renderToStaticMarkup } from "react-dom/server";
 import Account from "../../other/example/account";
 import ProfileTabDrawer from "../../other/profile/tabDrawer";
+import Axios from "axios";
 
-const formTableData = require("./../../json/form").forms;
-const chartData = require("./../../json/chart");
-const otherPage = require("./../../json/otherPage");
-const appBar = require("./../../json/appBar");
 const drawerWidth = 300;
 const styles = theme => ({
   root: {
@@ -137,7 +134,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: true
+      open: true,
+      show: false
     };
     this.props.initialize({
       languages: [{ name: "English", code: "en" }, { name: "Turkish", code: "tr" }],
@@ -145,7 +143,15 @@ class App extends React.Component {
       options: { renderToStaticMarkup, renderInnerHtml: true, defaultLanguage: "tr" }
     });
   }
-  componentDidMount() {}
+  async componentDidMount() {
+    let json = await Axios.get("/json/form.json");
+    this.formTableData = json.data.forms;
+    this.chartData = await Axios.get("/json/chart.json");
+    this.otherPage = await Axios.get("/json/otherPage.json");
+    this.appBar = await Axios.get("/json/appBar.json");
+    console.log(this.formTableData, "chartData", this.chartData);
+    this.setState({ show: true });
+  }
   handleDrawerOpen = () => {
     this.setState({ open: true });
   };
@@ -157,7 +163,8 @@ class App extends React.Component {
   render() {
     const { classes, theme, store } = this.props;
     const { pathname } = window.location;
-    const { open } = this.state;
+    const { open, show } = this.state;
+    if (!show) return <a />;
     return (
       <div className={store.login == false || store.registerPage == true ? classes.bg : classes.root}>
         <BrowserRouter>
@@ -182,7 +189,7 @@ class App extends React.Component {
                       className={classNames(classes.menuButton, open && classes.hide)}>
                       <Icon name='menu' />
                     </IconButton>
-                    <AppBarCompenent />
+                    <AppBarCompenent page={this.appBar.data[0].componentName} />
                   </Toolbar>
                 </AppBar>
                 <Drawer
@@ -211,7 +218,7 @@ class App extends React.Component {
                     {/* {chartData.map((i, k) => (
                   <ListItemCom to={i.route.path} icon={i.header.icon} title={i.title} key={k} />
                 ))} */}
-                    {otherPage.map((i, k) => (
+                    {this.otherPage.data.map((i, k) => (
                       <Fragment key={k}>
                         {i.type == "collapse" ? (
                           <MobileCollapse
@@ -232,7 +239,7 @@ class App extends React.Component {
                       title='Veri Grafikleri'
                       icon='bubble_chart'
                       defaultOpen={false}
-                      collapse={chartData}
+                      collapse={this.chartData.data}
                     />
                     <Divider />
                     <MobileCollapse
@@ -240,7 +247,7 @@ class App extends React.Component {
                       title='Form Ve Tablolar'
                       icon='table_chart'
                       defaultOpen={false}
-                      collapse={formTableData}
+                      collapse={this.formTableData}
                     />
                     <ListItem button onClick={() => this.props.store.logout()}>
                       <ListItemIcon>{<Icon name='exit_to_app' />}</ListItemIcon>
@@ -251,7 +258,7 @@ class App extends React.Component {
                 </Drawer>
                 <main className={classNames(classes.content, { [classes.contentShift]: !open })}>
                   <div className={classes.toolbar} />
-                  {otherPage.map((i, k) => (
+                  {this.otherPage.data.map((i, k) => (
                     <Fragment key={k}>
                       {i.type == "collapse" ? (
                         <Fragment>
@@ -264,10 +271,10 @@ class App extends React.Component {
                       )}
                     </Fragment>
                   ))}
-                  {chartData.map((i, k) => (
+                  {this.chartData.data.map((i, k) => (
                     <ParserChartRoute path={i.route.path} exact={i.route.exact} data={i} key={k} />
                   ))}
-                  {formTableData.map((i, k) => (
+                  {this.formTableData.map((i, k) => (
                     <ParserTabViewerRoute path={i.route.path} exact={i.route.exact} data={i} key={k} />
                   ))}
                   <ProfileTabDrawer />
@@ -319,8 +326,8 @@ const MobileCollapse = ({ title, icon, collapse, opens, defaultOpen }) => {
   );
 };
 
-const AppBarCompenent = () => {
-  const BarComponent = loadable(() => import("./../../" + appBar[0].componentName));
+const AppBarCompenent = ({ page }) => {
+  const BarComponent = loadable(() => import("./../../" + page));
   return (
     <BarComponent
       fallback={

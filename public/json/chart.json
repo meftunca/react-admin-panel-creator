@@ -1,0 +1,136 @@
+[
+  {
+    "type": "area",
+    "title": "chart area",
+    "route": {
+      "path": "/chart-area",
+      "exact": true
+    },
+    "getUrl": "",
+    "header": {
+      "label": "chart area",
+      "icon": "waves",
+      "description": "Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,  no sea takimata sanctus est Lorem ipsum dolor sit amet.  sed diam voluptua.  Lorem ipsum dolor sit amet,  "
+    },
+    "chartConfig": {
+      "field": [
+        {
+          "name": "Android",
+          "value": "android",
+          "argument": "year"
+        },
+        {
+          "name": "Ios",
+          "value": "ios",
+          "argument": "year"
+        },
+        {
+          "name": "Microsoft",
+          "value": "windowsOs",
+          "argument": "year"
+        }
+      ]
+    }
+  },
+  {
+    "type": "bar",
+    "title": "chart bar",
+    "route": {
+      "path": "/chart-bar",
+      "exact": true
+    },
+    "getUrl": "",
+    "header": {
+      "label": "chart bar",
+      "icon": "bar_chart",
+      "description": "Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,  no sea takimata sanctus est Lorem ipsum dolor sit amet.  sed diam voluptua.  Lorem ipsum dolor sit amet,  "
+    },
+    "chartConfig": {
+      "field": [
+        {
+          "value": "population",
+          "argument": "year"
+        },
+        {
+          "value": "population1",
+          "argument": "year"
+        },
+        {
+          "value": "population2",
+          "argument": "year"
+        }
+      ]
+    }
+  },
+  {
+    "type": "point",
+    "title": "chart point",
+    "route": {
+      "path": "/chart-point",
+      "exact": true
+    },
+    "getUrl": "",
+    "header": {
+      "label": "chart point",
+      "icon": "control_point_duplicate",
+      "description": "Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,  no sea takimata sanctus est Lorem ipsum dolor sit amet.  sed diam voluptua.  Lorem ipsum dolor sit amet,  "
+    },
+    "chartConfig": {
+      "stack": []
+    }
+  },
+  {
+    "type": "line",
+    "title": "chart line",
+    "route": {
+      "path": "/chart-line",
+      "exact": true
+    },
+    "getUrl": "",
+    "header": {
+      "label": "chart line",
+      "icon": "show_chart",
+      "description": "Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,  no sea takimata sanctus est Lorem ipsum dolor sit amet.  sed diam voluptua.  Lorem ipsum dolor sit amet,  "
+    },
+    "chartConfig": {
+      "field": [
+        {
+          "name": "TV news",
+          "value": "tvNews",
+          "argument": "year"
+        },
+        {
+          "name": "Church",
+          "value": "church",
+          "argument": "year"
+        },
+        {
+          "name": "Military",
+          "value": "military",
+          "argument": "year"
+        }
+      ]
+    }
+  },
+  {
+    "type": "pie",
+    "title": "chart pie",
+    "route": {
+      "path": "/chart-pie",
+      "exact": true
+    },
+    "getUrl": "",
+    "header": {
+      "label": "chart pie",
+      "icon": "pie_chart",
+      "description": "Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,  no sea takimata sanctus est Lorem ipsum dolor sit amet.  sed diam voluptua.  Lorem ipsum dolor sit amet,  "
+    },
+    "chartConfig": {
+      "field": {
+        "value": "area",
+        "argument": "country"
+      },
+      "title":""
+    }
+  }
+]

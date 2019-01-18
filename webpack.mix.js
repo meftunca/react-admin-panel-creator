@@ -5,7 +5,7 @@ if (process.env.NODE_ENV === "development") {
   mix.sourceMaps();
 }
 mix
-  .react("src/index.js", "public")
+  .react("src/index.js", "public/dist/js")
   // .sass("src/scss/app.scss", "public")
   .setPublicPath("public")
   .disableNotifications()
@@ -22,6 +22,12 @@ mix
           drop_console: true
         }
       }
+    }
+  })
+  .webpackConfig({
+    output: {
+      filename: "[name].js",
+      chunkFilename: "dist/js/chunks/[name].js"
     }
   })
   .version();

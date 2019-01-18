@@ -27,7 +27,7 @@ const LoadableComponent = Loadable({
 });
 
 Loadable.preloadReady().then(() => {
-  ReactDOM.render(
+  ReactDOM.hydrate(
     <Prov>
       <LoadableComponent />
     </Prov>,

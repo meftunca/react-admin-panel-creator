@@ -31,7 +31,7 @@ export default class TableBuilder extends Component {
       columns: columns.join(" "),
       name: name
     };
-    window.axios.post(location + "/get-table", opt).then(({ data }) => {
+    axios.post(location + "/get-table", opt).then(({ data }) => {
       let dataArr = this.dataParser(data, columns);
       console.log("columns", columns, "data", dataArr);
       this.setState({ column: columns, data: dataArr, show: true });
