@@ -2,10 +2,9 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { inject, observer } from "mobx-react";
 import { withStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
+import { Paper, Grid, Typography, Button } from "@material-ui/core";
+
 import classNames from "classnames";
-import Button from "@material-ui/core/Button";
 import { Form, asField } from "informed";
 import { TextInput, PasswordInput } from "./text";
 import Datepicker from "./date";
@@ -38,6 +37,10 @@ const styles = theme => ({
     flex: 1,
     width: "100%",
     marginBottom: theme.spacing.unit * 2
+  },
+  maginVertical: {
+    marginTop: 15,
+    marginBottom: 15
   }
 });
 const toastConfig = {
@@ -62,7 +65,6 @@ class FormBuilder extends Component {
 
   handleClick() {
     let { values } = this.formApi.getState();
-    console.log(values);
   }
   setFormApi(formApi) {
     this.formApi = formApi;
@@ -80,11 +82,9 @@ class FormBuilder extends Component {
   postForm = async url => {
     this.toastRunner("info", "Veriler Gönderiliyor...");
     let { values } = this.formApi.getState();
-    // console.log(values, url, JSON.parse(localStorage.getItem("data")));
     values["id"] = JSON.parse(localStorage.getItem("data"))._id;
     let postData = { tableName: this.props.name, data: values };
     await axios.post(location + "/" + url.replace("/", ""), postData).then(({ data }) => {
-      console.log(data.data);
       setTimeout(() => this.toastRunner(data.data.status, data.data.message), 1000);
       if (this.props.noTitle != undefined) window.location.reload();
     });
@@ -102,19 +102,23 @@ class FormBuilder extends Component {
           </Typography>
         )}
         <Form id={"form-" + name} getApi={this.setFormApi}>
-          {formItem.map((i, k) => (
-            <div className={classes.fullWidth} key={k}>
-              <FormCreator
-                field={i.name}
-                id={name + "-" + i.name}
-                item={i}
-                store={store}
-                validate={validate[i.validate]}
-                validateOnChange
-                validateOnBlur
-              />
-            </div>
-          ))}
+          <div className={classes.fullWidth}>
+            <Grid container spacing={8}>
+              {formItem.map((i, k) => (
+                <Grid item {...Object.assign({ md: 12 }, i.breakPoint)} key={k} className={classes.maginVertical}>
+                  <FormCreator
+                    field={i.name}
+                    id={name + "-" + i.name}
+                    item={i}
+                    store={store}
+                    validate={validate[i.validate]}
+                    validateOnChange
+                    // validateOnBlur
+                  />
+                </Grid>
+              ))}
+            </Grid>
+          </div>
           <Button
             variant='contained'
             size='small'

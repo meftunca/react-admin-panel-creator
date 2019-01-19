@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import FormBuilder from "./../../components/forms/builder";
-import { withStyles } from "@material-ui/styles";
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import Typography from "@material-ui/core/Typography";
+import {
+  withStyles,
+  ExpansionPanel,
+  ExpansionPanelDetails,
+  ExpansionPanelSummary,
+  Typography
+} from "@material-ui/core";
+
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 const Api = require("./../../json/apiForm.json");
 const styles = theme => ({

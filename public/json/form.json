@@ -21,16 +21,24 @@
           "type": "text",
           "validate": "email",
           "required": false,
-          "mongoType": "string"
+          "mongoType": "string",
+          "breakPoint": {
+            "xs": 12,
+            "md": 6
+          }
         },
         {
           "name": "password",
           "label": "password input",
           "icon": "lock",
           "type": "password",
-          "validate": "password",
+          "validate": "userName",
           "required": false,
-          "mongoType": "string"
+          "mongoType": "string",
+          "breakPoint": {
+            "xs": 12,
+            "md": 6
+          }
         },
         {
           "name": "editor",
@@ -39,7 +47,11 @@
           "type": "editor",
           "validate": "",
           "required": false,
-          "mongoType": "string"
+          "mongoType": "string",
+          "breakPoint": {
+            "xs": 12,
+            "md": 12
+          }
         },
         {
           "name": "datepicker",
@@ -56,6 +68,10 @@
             "disableFuture": false,
             "maxDateMessage": "",
             "label": "Date Picker component"
+          },
+          "breakPoint": {
+            "xs": 12,
+            "md": 6
           }
         },
         {
@@ -63,7 +79,7 @@
           "label": "timepicker input",
           "icon": "border_color",
           "type": "time",
-          "validate": "type",
+          "validate": "dateTime",
           "required": false,
           "mongoType": "date",
           "config": {
@@ -73,6 +89,10 @@
             "ampm": true,
             "label": "Date Picker component",
             "todayLabel": "now"
+          },
+          "breakPoint": {
+            "xs": 12,
+            "md": 6
           }
         },
         {
@@ -86,6 +106,10 @@
           "config": {
             "value": true,
             "aria-label": "Radio Button"
+          },
+          "breakPoint": {
+            "xs": 12,
+            "md": 4
           }
         },
         {
@@ -101,6 +125,10 @@
             "label": "test checbox",
             "color": "primary",
             "disabled": false
+          },
+          "breakPoint": {
+            "xs": 12,
+            "md": 4
           }
         },
         {
@@ -116,6 +144,10 @@
             "label": "test switch",
             "color": "primary",
             "disabled": false
+          },
+          "breakPoint": {
+            "xs": 12,
+            "md": 4
           }
         }
       ],

@@ -21,9 +21,7 @@ const LoadableComponent = Loadable({
     <div className='loaderScreen'>
       <Spinner name='line-scale-pulse-out' color='fuchsia' />
     </div>
-  ),
-  delay: 1000,
-  timeout: 1500
+  )
 });
 
 Loadable.preloadReady().then(() => {

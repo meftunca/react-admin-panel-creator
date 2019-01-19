@@ -1,7 +1,6 @@
 import React from "react";
-import Radio from "@material-ui/core/Radio";
-import FormGroup from "@material-ui/core/FormGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
+import { Radio, FormGroup, FormControlLabel } from "@material-ui/core";
+
 const RadioButtons = ({ config, onChange, label, name, ref }) => {
   const { value } = config;
   const [selectedValue, setSelectedValue] = React.useState(value);
@@ -12,20 +11,20 @@ const RadioButtons = ({ config, onChange, label, name, ref }) => {
   };
   console.log("props", config);
   return (
-      <FormGroup row>
-          <FormControlLabel
-              control={
-                  <Radio
-                      inputRef={ref}
-                      onChange={handleChange}
-                      value={selectedValue}
-                      name={name + String(Date.now())}
-                      aria-label={config["aria-label"]}
-                  />
-              }
-              label={label}
+    <FormGroup row>
+      <FormControlLabel
+        control={
+          <Radio
+            inputRef={ref}
+            onChange={handleChange}
+            value={selectedValue}
+            name={name + String(Date.now())}
+            aria-label={config["aria-label"]}
           />
-    </FormGroup>  
+        }
+        label={label}
+      />
+    </FormGroup>
   );
 };
 

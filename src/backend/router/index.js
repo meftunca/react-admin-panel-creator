@@ -1,24 +1,23 @@
 import React, { Fragment, useState } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import { withStyles } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import List from "@material-ui/core/List";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
-import IconButton from "@material-ui/core/IconButton";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
+import {
+  withStyles,
+  Drawer,
+  CssBaseline,
+  AppBar,
+  Toolbar,
+  List,
+  Typography,
+  Divider,
+  IconButton,
+  ListItem,
+  ListItemIcon,
+  ListItemText
+} from "@material-ui/core";
 import { BrowserRouter, Link, Route, Redirect } from "react-router-dom";
-import Collapse from "@material-ui/core/Collapse";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import { observer, inject } from "mobx-react";
 import loadable from "@loadable/component";
-import Spinner from "react-spinkit";
 import TabViewer from "../../components/tabViewer";
 import ChartBuilder from "../../components/chart/builder";
 import { LocalizeProvider } from "react-localize-redux";
@@ -26,107 +25,11 @@ import { withLocalize } from "react-localize-redux";
 import { renderToStaticMarkup } from "react-dom/server";
 import Account from "../../other/example/account";
 import ProfileTabDrawer from "../../other/profile/tabDrawer";
+import MobileCollapse from "./component/MobileCollapse";
+import styles from "./styles";
 import Axios from "axios";
-const drawerWidth = 300;
-const styles = theme => ({
-  root: {
-    display: "flex"
-  },
-  bg: {
-    backgroundColor: "#f9f9f9",
-    height: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  grow: {
-    flexGrow: 1
-  },
-  title: {
-    marginLeft: 24,
-    [theme.breakpoints.down("sm")]: {
-      marginLeft: 0
-    }
-  },
-  appBar: {
-    zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    })
-  },
-  appBarShift: {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen
-    })
-  },
-  menuButton: {
-    marginLeft: 12,
-    marginRight: 20
-  },
-  sectionDesktop: {
-    display: "none"
-  },
-  hide: {
-    display: "none"
-  },
-  drawerPaper: {
-    backgroundImage: "url('/adminImage.png')",
-    "&:after": {
-      content: "''",
-      position: "absolute",
-      opacity: ".8",
-      background: "#000",
-      height: "100%",
-      width: drawerWidth,
-      top: 0,
-      left: 0,
-      bottom: 0
-    },
-    "& *": {
-      color: "#fff",
-      zIndex: 9
-    }
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-    whiteSpace: "nowrap"
-  },
-  drawerOpen: {
-    width: drawerWidth,
-    transition: theme.transitions.create("width", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen
-    }),
-    border: "none"
-  },
-  drawerClose: {
-    transition: theme.transitions.create("width", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    }),
-    overflowX: "hidden",
-    width: theme.spacing.unit * 7 + 1,
-    [theme.breakpoints.up("sm")]: {
-      width: theme.spacing.unit * 9 + 1
-    }
-  },
-  toolbar: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: "0 8px",
-    ...theme.mixins.toolbar
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing.unit * 3
-  }
-});
+import pMinDelay from "p-min-delay";
+
 @inject("store")
 @observer
 class App extends React.Component {
@@ -138,18 +41,20 @@ class App extends React.Component {
     };
   }
   async componentDidMount() {
-    this.props.store.construct();
-    let json = await Axios.get("/json/form.json");
-    this.formTableData = json.data.forms;
-    this.chartData = await Axios.get("/json/chart.json");
-    this.otherPage = await Axios.get("/json/otherPage.json");
-    this.appBar = await Axios.get("/json/appBar.json");
-    this.translation = await Axios.get("/json/translation.json");
-    this.props.initialize({
-      languages: [{ name: "English", code: "en" }, { name: "Turkish", code: "tr" }],
-      translation: this.translation.data,
-      options: { renderToStaticMarkup, renderInnerHtml: true, defaultLanguage: "tr" }
-    });
+    await this.props.store.construct();
+    if (this.props.store.login == true) {
+      let json = await Axios.get("/json/form.json");
+      this.formTableData = json.data.forms;
+      this.chartData = await Axios.get("/json/chart.json");
+      this.otherPage = await Axios.get("/json/otherPage.json");
+      this.appBar = await Axios.get("/json/appBar.json");
+      this.translation = await Axios.get("/json/translation.json");
+      await this.props.initialize({
+        languages: [{ name: "English", code: "en" }, { name: "Turkish", code: "tr" }],
+        translation: this.translation.data,
+        options: { renderToStaticMarkup, renderInnerHtml: true, defaultLanguage: "tr" }
+      });
+    }
     this.setState({ show: true });
   }
   handleDrawerOpen = () => {
@@ -162,124 +67,121 @@ class App extends React.Component {
 
   render() {
     const { classes, theme, store } = this.props;
-    const { pathname } = window.location;
     const { open, show } = this.state;
     if (!show) return <a />;
+    if (store.login == false || store.registerPage == true)
+      return (
+        <Fragment>
+          <BrowserRouter>
+            <div className={classes.bg}>
+              <RedirectQuery />
+            </div>
+          </BrowserRouter>
+        </Fragment>
+      );
     return (
-      <div className={store.login == false || store.registerPage == true ? classes.bg : classes.root}>
+      <div className={classes.root}>
         <BrowserRouter>
           <Fragment>
             <CssBaseline />
-            {store.login == false || store.registerPage == true ? (
-              <Fragment>
-                {pathname.includes("/example") || pathname.includes("/account") || pathname == "/" ? (
-                  <Account />
-                ) : (
-                  <Redirect to='/' />
-                )}
-              </Fragment>
-            ) : (
-              <Fragment>
-                <AppBar position='fixed' className={classNames(classes.appBar, { [classes.appBarShift]: open })}>
-                  <Toolbar disableGutters={!open}>
-                    <IconButton
-                      color='inherit'
-                      aria-label='Open drawer'
-                      onClick={this.handleDrawerOpen}
-                      className={classNames(classes.menuButton, open && classes.hide)}>
-                      <Icon name='menu' />
-                    </IconButton>
-                    <AppBarCompenent page={this.appBar.data[0].componentName} />
-                  </Toolbar>
-                </AppBar>
-                <Drawer
-                  open={open}
-                  variant='permanent'
-                  className={classNames(classes.drawer, {
-                    [classes.drawerOpen]: this.state.open,
-                    [classes.drawerClose]: !this.state.open
-                  })}
-                  classes={{
-                    paper: classNames(classes.drawerPaper, {
-                      [classes.drawerOpen]: this.state.open,
-                      [classes.drawerClose]: !this.state.open
-                    })
-                  }}>
-                  <div className={classes.toolbar}>
-                    <Typography className={classNames(classes.title)} variant='h6' color='inherit' noWrap>
-                      Beta testleri
-                    </Typography>
-                    <IconButton onClick={this.handleDrawerClose}>
-                      {theme.direction === "ltr" ? <Icon name='chevron_left' /> : <Icon name='chevron_right' />}
-                    </IconButton>
-                  </div>
-                  <Divider />
-                  <List>
-                    {/* {chartData.map((i, k) => (
-                  <ListItemCom to={i.route.path} icon={i.header.icon} title={i.title} key={k} />
-                ))} */}
-                    {this.otherPage.data.map((i, k) => (
-                      <Fragment key={k}>
-                        {i.type == "collapse" ? (
-                          <MobileCollapse
-                            opens={open}
-                            title={i.header.label}
-                            icon={i.header.icon}
-                            defaultOpen={false}
-                            collapse={i.collapseItem}
-                          />
-                        ) : (
-                          <ListItemCom to={i.route.path} icon={i.header.icon} title={i.header.label} />
-                        )}
-                      </Fragment>
-                    ))}
-                    <Divider />
-                    <MobileCollapse
-                      opens={open}
-                      title='Veri Grafikleri'
-                      icon='bubble_chart'
-                      defaultOpen={false}
-                      collapse={this.chartData.data}
-                    />
-                    <Divider />
-                    <MobileCollapse
-                      opens={open}
-                      title='Form Ve Tablolar'
-                      icon='table_chart'
-                      defaultOpen={false}
-                      collapse={this.formTableData}
-                    />
-                    <ListItem button onClick={() => this.props.store.logout()}>
-                      <ListItemIcon>{<Icon name='exit_to_app' />}</ListItemIcon>
-                      <ListItemText primary={"Çıkış Yap"} />
-                    </ListItem>
-                  </List>
-                  <Divider />
-                </Drawer>
-                <main className={classNames(classes.content, { [classes.contentShift]: !open })}>
-                  <div className={classes.toolbar} />
+            <Fragment>
+              <AppBar position='fixed' className={classNames(classes.appBar, { [classes.appBarShift]: open })}>
+                <Toolbar disableGutters={!open}>
+                  <IconButton
+                    color='inherit'
+                    aria-label='Open drawer'
+                    onClick={this.handleDrawerOpen}
+                    className={classNames(classes.menuButton, open && classes.hide)}>
+                    <Icon name='menu' />
+                  </IconButton>
+                  <AppBarCompenent page={this.appBar.data[0].componentName} />
+                </Toolbar>
+              </AppBar>
+              <Drawer
+                open={open}
+                variant='permanent'
+                className={classNames(classes.drawer, {
+                  [classes.drawerOpen]: open,
+                  [classes.drawerClose]: !open
+                })}
+                classes={{
+                  paper: classNames(classes.drawerPaper, {
+                    [classes.drawerOpen]: open,
+                    [classes.drawerClose]: !open
+                  })
+                }}>
+                <div className={classes.toolbar}>
+                  <Typography className={classNames(classes.title)} variant='h6' color='inherit' noWrap>
+                    Beta testleri
+                  </Typography>
+                  <IconButton onClick={this.handleDrawerClose}>
+                    {theme.direction === "ltr" ? <Icon name='chevron_left' /> : <Icon name='chevron_right' />}
+                  </IconButton>
+                </div>
+                <Divider />
+                <List>
                   {this.otherPage.data.map((i, k) => (
                     <Fragment key={k}>
                       {i.type == "collapse" ? (
-                        <Fragment>
-                          {i.collapseItem.map((item, key) => (
-                            <ParserOtherRoute {...item.route} key={key} />
-                          ))}
-                        </Fragment>
+                        <MobileCollapse
+                          opens={open}
+                          title={i.header.label}
+                          icon={i.header.icon}
+                          defaultOpen={false}
+                          collapse={i.collapseItem}
+                        />
                       ) : (
-                        <ParserOtherRoute {...i.route} />
+                        <ListItemCom to={i.route.path} icon={i.header.icon} title={i.header.label} />
                       )}
                     </Fragment>
                   ))}
-                  {this.chartData.data.map((i, k) => (
-                    <ParserChartRoute path={i.route.path} exact={i.route.exact} data={i} key={k} />
-                  ))}
-                  {this.formTableData.map((i, k) => (
-                    <ParserTabViewerRoute path={i.route.path} exact={i.route.exact} data={i} key={k} />
-                  ))}
-                  <ProfileTabDrawer />
-                </main>
-              </Fragment>
+                  <Divider />
+                  <MobileCollapse
+                    opens={open}
+                    title='Veri Grafikleri'
+                    icon='bubble_chart'
+                    defaultOpen={false}
+                    collapse={this.chartData.data}
+                  />
+                  <Divider />
+                  <MobileCollapse
+                    opens={open}
+                    title='Form Ve Tablolar'
+                    icon='table_chart'
+                    defaultOpen={false}
+                    collapse={this.formTableData}
+                  />
+                  <ListItem button onClick={() => this.props.store.logout()}>
+                    <ListItemIcon>{<Icon name='exit_to_app' />}</ListItemIcon>
+                    <ListItemText primary={"Çıkış Yap"} />
+                  </ListItem>
+                </List>
+                <Divider />
+              </Drawer>
+              <main className={classNames(classes.content, { [classes.contentShift]: !open })}>
+                <div className={classes.toolbar} />
+                {this.otherPage.data.map((i, k) => (
+                  <Fragment key={k}>
+                    {i.type == "collapse" ? (
+                      <Fragment>
+                        {i.collapseItem.map((item, key) => (
+                          <ParserOtherRoute {...item.route} key={key} />
+                        ))}
+                      </Fragment>
+                    ) : (
+                      <ParserOtherRoute {...i.route} />
+                    )}
+                  </Fragment>
+                ))}
+                {this.chartData.data.map((i, k) => (
+                  <ParserChartRoute path={i.route.path} exact={i.route.exact} data={i} key={k} />
+                ))}
+                {this.formTableData.map((i, k) => (
+                  <ParserTabViewerRoute path={i.route.path} exact={i.route.exact} data={i} key={k} />
+                ))}
+                <ProfileTabDrawer />
+              </main>
+            </Fragment>
             )}
           </Fragment>
         </BrowserRouter>
@@ -298,49 +200,16 @@ const ListItemCom = ({ to, icon, title }) => (
     </ListItem>
   </Link>
 );
-const MobileCollapse = ({ title, icon, collapse, opens, defaultOpen }) => {
-  const [open, setOpen] = useState(defaultOpen != undefined ? defaultOpen : false);
-  return (
-    <Fragment>
-      <ListItem button onClick={() => setOpen(!open)}>
-        <ListItemIcon>
-          <Icon name={icon} />
-        </ListItemIcon>
-        <ListItemText inset primary={title} />
-        {opens && (
-          <ListItemSecondaryAction>
-            <IconButton onClick={() => setOpen(!open)}>
-              <Icon name={!open ? "expand_more" : "expand_less"} />
-            </IconButton>
-          </ListItemSecondaryAction>
-        )}
-      </ListItem>
-      <Collapse in={open} timeout='auto' unmountOnExit>
-        <List component='div' disablePadding style={{ padding: "5px 10px" }}>
-          {collapse.map((i, k) => (
-            <ListItemCom to={i.route.path} icon={i.header.icon} title={i.title} key={k} />
-          ))}
-        </List>
-      </Collapse>
-    </Fragment>
-  );
-};
 
 const AppBarCompenent = ({ page }) => {
-  const BarComponent = loadable(() => import("./../../" + page));
-  return (
-    <BarComponent
-      fallback={
-        <div className='loaderScreen hard'>
-          <Spinner name='line-scale-pulse-out' color='fuchsia' />
-        </div>
-      }
-    />
-  );
+  const BarComponent = loadable(() => pMinDelay(import("./../../" + page), 300));
+
+  return <BarComponent />;
 };
 
 const ParserOtherRoute = ({ exact, path, componentName }) => {
-  const OtherComponent = loadable(() => import("./../../other/" + componentName));
+  const OtherComponent = loadable(() => pMinDelay(import("./../../other/" + componentName), 300));
+
   return <Route exact={exact != undefined && Boolean(exact)} path={path} render={() => <OtherComponent />} />;
 };
 
@@ -362,4 +231,17 @@ const ConstructorApp = withLocalize(props => (
   </LocalizeProvider>
 ));
 
+const RedirectQuery = () => {
+  const { pathname } = window.location;
+
+  return (
+    <Fragment>
+      {pathname.includes("/example") || pathname.includes("/account") || pathname == "/" ? (
+        <Account />
+      ) : (
+        <Redirect to='/' />
+      )}
+    </Fragment>
+  );
+};
 export default withStyles(styles, { withTheme: true })(ConstructorApp);

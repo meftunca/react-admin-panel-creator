@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from "react";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Button from "@material-ui/core/Button";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
-import TextField from "@material-ui/core/TextField";
 import ColorPicker from "material-ui-color-picker";
 import list from "material-design-icon-list/src/list.js";
-import Grid from "@material-ui/core/Grid";
-import ListSubheader from "@material-ui/core/ListSubheader";
-import Collapse from "@material-ui/core/Collapse";
-import { withStyles } from "@material-ui/core/styles";
-import BottomNavigation from "@material-ui/core/BottomNavigation";
-import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
+import {
+  withStyles,
+  List,
+  ListItem,
+  ListItemAvatar,
+  ListItemSecondaryAction,
+  ListItemIcon,
+  ListItemText,
+  Avatar,
+  IconButton,
+  TextField,
+  Grid,
+  ListSubheader,
+  Collapse,
+  BottomNavigation,
+  BottomNavigationAction
+} from "@material-ui/core";
 const uniqid = require("uniqid");
 
 const useStyles = {

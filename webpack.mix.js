@@ -1,6 +1,20 @@
 let mix = require("laravel-mix");
 let env = require("dotenv").config();
-
+mix.options({
+  extractVueStyles: false,
+  processCssUrls: false,
+  terser: {},
+  purifyCss: false,
+  uglify: {
+    uglifyOptions: {
+      compress: {
+        errors: false,
+        warnings: false,
+        drop_console: true
+      }
+    }
+  }
+});
 if (process.env.NODE_ENV === "development") {
   mix.sourceMaps();
 }
@@ -13,21 +27,6 @@ mix
   })
   .setPublicPath("public")
   .disableNotifications()
-  .options({
-    extractVueStyles: false,
-    processCssUrls: false,
-    terser: {},
-    purifyCss: false,
-    uglify: {
-      uglifyOptions: {
-        compress: {
-          errors: false,
-          warnings: false,
-          drop_console: true
-        }
-      }
-    }
-  })
   .webpackConfig({
     output: {
       filename: "[name].js",

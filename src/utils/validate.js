@@ -18,6 +18,10 @@ const validator = {
     // console.log("userName: value => {", validate({ userName: value }, opt["userName"]));
     return validate({ userName: value }, opt["userName"]);
   },
+  password: value => {
+    // console.log("password: value => {", validate({ userName: value }, opt["userName"]));
+    return validate({ password: value }, opt["password"]);
+  },
   date: value => {
     // console.log("date: value => {", value);
     return validate({ date: value }, opt["date"]);

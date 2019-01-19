@@ -1,22 +1,25 @@
 import React, { Component, Fragment } from "react";
-import { withStyles } from "@material-ui/styles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Avatar from "@material-ui/core/Avatar";
-import Typography from "@material-ui/core/Typography";
+import {
+  withStyles,
+  List,
+  ListItem,
+  ListItemText,
+  Avatar,
+  Typography,
+  Chip,
+  ListSubheader,
+  IconButton,
+  InputAdornment,
+  TextField,
+  ListItemAvatar
+} from "@material-ui/core";
+import { unstable_Box as Box } from "@material-ui/core/Box";
+
 import TimeAgo from "javascript-time-ago";
 import classNames from "classnames";
-import Chip from "@material-ui/core/Chip";
 import FaceIcon from "@material-ui/icons/Face";
-import ListSubheader from "@material-ui/core/ListSubheader";
-import IconButton from "@material-ui/core/IconButton";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import TextField from "@material-ui/core/TextField";
 // Load locale-specific relative date/time formatting rules.
 import tr from "javascript-time-ago/locale/tr";
-import { unstable_Box as Box } from "@material-ui/core/Box";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -95,7 +98,8 @@ const styles = theme => ({
     margin: 8
   },
   gutterMargin: {
-    margin: "4px 0"
+    margin: "4px 0",
+    display: "block"
   },
   textField: {
     zIndex: 9999
@@ -166,7 +170,7 @@ function TwitterList({ data, update, full, classes }) {
                     secondary={
                       <Fragment>
                         {text}
-                        <div className={classes.gutterMargin} />
+                        <span className={classes.gutterMargin} />
                         <Typography component='span' className={classes.inline} color='textPrimary'>
                           {timeAgo.format(new Date(created_at))}
                         </Typography>

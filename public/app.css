@@ -375,12 +375,28 @@ module.exports = webpackAsyncContext;var map = {
 		"./src/backend/router/index.js",
 		9
 	],
+	"./backend/router/component/MobileCollapse": [
+		"./src/backend/router/component/MobileCollapse.js",
+		9
+	],
+	"./backend/router/component/MobileCollapse.js": [
+		"./src/backend/router/component/MobileCollapse.js",
+		9
+	],
 	"./backend/router/index": [
 		"./src/backend/router/index.js",
 		9
 	],
 	"./backend/router/index.js": [
 		"./src/backend/router/index.js",
+		9
+	],
+	"./backend/router/styles": [
+		"./src/backend/router/styles.js",
+		9
+	],
+	"./backend/router/styles.js": [
+		"./src/backend/router/styles.js",
 		9
 	],
 	"./components/chart/area": [
@@ -594,12 +610,12 @@ module.exports = webpackAsyncContext;var map = {
 	"./frontend/router/list": [
 		"./src/frontend/router/list.js",
 		9,
-		28
+		27
 	],
 	"./frontend/router/list.js": [
 		"./src/frontend/router/list.js",
 		9,
-		28
+		27
 	],
 	"./index": [
 		"./src/index.js",
@@ -612,82 +628,82 @@ module.exports = webpackAsyncContext;var map = {
 	"./json/apiForm": [
 		"./src/json/apiForm.json",
 		3,
-		31
+		30
 	],
 	"./json/apiForm.json": [
 		"./src/json/apiForm.json",
 		3,
-		31
+		30
 	],
 	"./json/appBar": [
 		"./src/json/appBar.json",
 		3,
-		32
+		31
 	],
 	"./json/appBar.json": [
 		"./src/json/appBar.json",
 		3,
-		32
+		31
 	],
 	"./json/chart": [
 		"./src/json/chart.json",
 		3,
-		33
+		32
 	],
 	"./json/chart.json": [
 		"./src/json/chart.json",
 		3,
-		33
+		32
 	],
 	"./json/form": [
 		"./src/json/form.json",
 		3,
-		34
+		33
 	],
 	"./json/form.json": [
 		"./src/json/form.json",
 		3,
-		34
+		33
 	],
 	"./json/header": [
 		"./src/json/header.json",
 		3,
-		35
+		34
 	],
 	"./json/header.json": [
 		"./src/json/header.json",
 		3,
-		35
+		34
 	],
 	"./json/otherPage": [
 		"./src/json/otherPage.json",
 		3,
-		36
+		35
 	],
 	"./json/otherPage.json": [
 		"./src/json/otherPage.json",
 		3,
-		36
+		35
 	],
 	"./json/testForm": [
 		"./src/json/testForm.json",
 		3,
-		37
+		36
 	],
 	"./json/testForm.json": [
 		"./src/json/testForm.json",
 		3,
-		37
+		36
 	],
 	"./json/translation": [
 		"./src/json/translation.json",
 		3,
-		27
+		37
 	],
 	"./json/translation.json": [
 		"./src/json/translation.json",
 		3,
-		27
+		37
 	],
 	"./other/appBar": [
 		"./src/other/appBar.js",
@@ -888,12 +904,12 @@ module.exports = webpackAsyncContext;var map = {
 	"./serviceWorker": [
 		"./src/serviceWorker.js",
 		9,
-		30
+		29
 	],
 	"./serviceWorker.js": [
 		"./src/serviceWorker.js",
 		9,
-		30
+		29
 	],
 	"./store/frontend": [
 		"./src/store/frontend.js",
@@ -906,12 +922,12 @@ module.exports = webpackAsyncContext;var map = {
 	"./testPage": [
 		"./src/testPage.js",
 		9,
-		29
+		28
 	],
 	"./testPage.js": [
 		"./src/testPage.js",
 		9,
-		29
+		28
 	],
 	"./utils/validate": [
 		"./src/utils/validate.js",

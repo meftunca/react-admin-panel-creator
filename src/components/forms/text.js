@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
-import Input from "@material-ui/core/Input";
-import InputLabel from "@material-ui/core/InputLabel";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import FormControl from "@material-ui/core/FormControl";
-import IconButton from "@material-ui/core/IconButton";
-import FormHelperText from "@material-ui/core/FormHelperText";
+import { Input, InputLabel, InputAdornment, FormControl, IconButton, FormHelperText } from "@material-ui/core";
 
 const uniqid = require("uniqid");
 const styles = theme => ({

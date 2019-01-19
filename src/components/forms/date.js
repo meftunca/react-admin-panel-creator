@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import { DatePicker, MuiPickersUtilsProvider } from "material-ui-pickers";
 import MomentUtils from "@date-io/moment";
+import moment from "moment";
 
 class Datepicker extends PureComponent {
   state = {
@@ -14,8 +15,9 @@ class Datepicker extends PureComponent {
   render() {
     const { selectedDate } = this.state;
     const { onChange, config, ref, error } = this.props;
+    console.log("config", config);
     return (
-      <MuiPickersUtilsProvider utils={MomentUtils}>
+      <MuiPickersUtilsProvider utils={MomentUtils} moment={moment}>
         <div className='picker'>
           <DatePicker
             autoOk
