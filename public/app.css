@@ -51,6 +51,8 @@ html,body{padding:0;margin:0;width:100%;height:100%}a{text-decoration:none;text-
 	"./dv.js": "./node_modules/moment/locale/dv.js",
 	"./el": "./node_modules/moment/locale/el.js",
 	"./el.js": "./node_modules/moment/locale/el.js",
+	"./en-SG": "./node_modules/moment/locale/en-SG.js",
+	"./en-SG.js": "./node_modules/moment/locale/en-SG.js",
 	"./en-au": "./node_modules/moment/locale/en-au.js",
 	"./en-au.js": "./node_modules/moment/locale/en-au.js",
 	"./en-ca": "./node_modules/moment/locale/en-ca.js",
@@ -89,6 +91,8 @@ html,body{padding:0;margin:0;width:100%;height:100%}a{text-decoration:none;text-
 	"./fr.js": "./node_modules/moment/locale/fr.js",
 	"./fy": "./node_modules/moment/locale/fy.js",
 	"./fy.js": "./node_modules/moment/locale/fy.js",
+	"./ga": "./node_modules/moment/locale/ga.js",
+	"./ga.js": "./node_modules/moment/locale/ga.js",
 	"./gd": "./node_modules/moment/locale/gd.js",
 	"./gd.js": "./node_modules/moment/locale/gd.js",
 	"./gl": "./node_modules/moment/locale/gl.js",
@@ -112,6 +116,8 @@ html,body{padding:0;margin:0;width:100%;height:100%}a{text-decoration:none;text-
 	"./is": "./node_modules/moment/locale/is.js",
 	"./is.js": "./node_modules/moment/locale/is.js",
 	"./it": "./node_modules/moment/locale/it.js",
+	"./it-ch": "./node_modules/moment/locale/it-ch.js",
+	"./it-ch.js": "./node_modules/moment/locale/it-ch.js",
 	"./it.js": "./node_modules/moment/locale/it.js",
 	"./ja": "./node_modules/moment/locale/ja.js",
 	"./ja.js": "./node_modules/moment/locale/ja.js",
@@ -625,86 +631,6 @@ module.exports = webpackAsyncContext;var map = {
 		"./src/index.js",
 		9
 	],
-	"./json/apiForm": [
-		"./src/json/apiForm.json",
-		3,
-		30
-	],
-	"./json/apiForm.json": [
-		"./src/json/apiForm.json",
-		3,
-		30
-	],
-	"./json/appBar": [
-		"./src/json/appBar.json",
-		3,
-		31
-	],
-	"./json/appBar.json": [
-		"./src/json/appBar.json",
-		3,
-		31
-	],
-	"./json/chart": [
-		"./src/json/chart.json",
-		3,
-		32
-	],
-	"./json/chart.json": [
-		"./src/json/chart.json",
-		3,
-		32
-	],
-	"./json/form": [
-		"./src/json/form.json",
-		3,
-		33
-	],
-	"./json/form.json": [
-		"./src/json/form.json",
-		3,
-		33
-	],
-	"./json/header": [
-		"./src/json/header.json",
-		3,
-		34
-	],
-	"./json/header.json": [
-		"./src/json/header.json",
-		3,
-		34
-	],
-	"./json/otherPage": [
-		"./src/json/otherPage.json",
-		3,
-		35
-	],
-	"./json/otherPage.json": [
-		"./src/json/otherPage.json",
-		3,
-		35
-	],
-	"./json/testForm": [
-		"./src/json/testForm.json",
-		3,
-		36
-	],
-	"./json/testForm.json": [
-		"./src/json/testForm.json",
-		3,
-		36
-	],
-	"./json/translation": [
-		"./src/json/translation.json",
-		3,
-		37
-	],
-	"./json/translation.json": [
-		"./src/json/translation.json",
-		3,
-		37
-	],
 	"./other/appBar": [
 		"./src/other/appBar.js",
 		9,
@@ -904,12 +830,12 @@ module.exports = webpackAsyncContext;var map = {
 	"./serviceWorker": [
 		"./src/serviceWorker.js",
 		9,
-		29
+		28
 	],
 	"./serviceWorker.js": [
 		"./src/serviceWorker.js",
 		9,
-		29
+		28
 	],
 	"./store/frontend": [
 		"./src/store/frontend.js",
@@ -922,12 +848,12 @@ module.exports = webpackAsyncContext;var map = {
 	"./testPage": [
 		"./src/testPage.js",
 		9,
-		28
+		29
 	],
 	"./testPage.js": [
 		"./src/testPage.js",
 		9,
-		28
+		29
 	],
 	"./utils/validate": [
 		"./src/utils/validate.js",
