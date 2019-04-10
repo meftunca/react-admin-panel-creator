@@ -44,7 +44,7 @@ const App = ({ classes }) => {
                   <Typography className={classes.heading}>{i.title.toLocaleUpperCase()}</Typography>
                </ExpansionPanelSummary>
                <ExpansionPanelDetails>
-                  <FormBuilder {...i} noTitle={true} />
+                  <FormBuilder data={i} noTitle={true} elevation={0} />
                </ExpansionPanelDetails>
             </ExpansionPanel>
          ))}

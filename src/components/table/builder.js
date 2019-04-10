@@ -25,7 +25,7 @@ export default class TableBuilder extends Component {
       return arr;
    };
    getData = async () => {
-      let { tableItem, name } = this.props;
+      let { tableItem, name } = this.props.data;
       let columns = tableItem.map(i => Object.values(i)[0]);
       let opt = {
          columns: columns.join(" "),
@@ -33,14 +33,11 @@ export default class TableBuilder extends Component {
       };
       axios.post(location + "/get-table", opt).then(({ data }) => {
          let dataArr = this.dataParser(data, columns);
-         console.log("columns", columns, "data", dataArr);
          this.setState({ column: columns, data: dataArr, show: true });
-         console.log(data);
       });
    };
    delete = list => {
       let { tableItem, name } = this.props;
-      console.log(list);
       let opt = {
          name,
          id: Object.keys(list.lookup)
@@ -49,7 +46,7 @@ export default class TableBuilder extends Component {
    };
    render() {
       let { data, column, show } = this.state;
-      let { header } = this.props;
+      let { header } = this.props.data;
       const options = {
          filterType: "checkbox",
          direction: "ltr",

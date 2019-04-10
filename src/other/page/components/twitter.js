@@ -217,7 +217,7 @@ function TwitterList({ data, update, full, classes }) {
                      multiline
                      InputProps={{
                         endAdornment: (
-                           <InputAdornment variant='filled' position='end'>
+                           <InputAdornment position='end'>
                               <IconButton
                                  color='secondary'
                                  aria-label='Toggle password visibility'
