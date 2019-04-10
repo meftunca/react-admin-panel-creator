@@ -1,6 +1,6 @@
 {
    "name": "react-admin-panel-creator",
-   "version": "0.3.0",
+   "version": "0.5.1",
    "private": true,
    "author": "Muhammed Burak Şentürk",
    "license": "MIT",
@@ -12,7 +12,7 @@
    "scripts": {
       "client-install": "npm install --prefix client",
       "start": "node index.js",
-      "server": "nodemon index.js",
+      "server": "node index.js",
       "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
       "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
       "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
