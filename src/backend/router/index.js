@@ -55,8 +55,8 @@ class App extends React.Component {
             translation: this.translation.data,
             options: { renderToStaticMarkup, renderInnerHtml: true, defaultLanguage: "tr" }
          });
+         this.setState({ show: true });
       }
-      this.setState({ show: true });
    }
    handleDrawerOpen = () => {
       this.setState({ open: true });
@@ -69,8 +69,7 @@ class App extends React.Component {
    render() {
       const { classes, theme, store } = this.props;
       const { open, show } = this.state;
-      if (!show) return <a />;
-      if (store.login == false || store.registerPage == true)
+      if (show == false)
          return (
             <Fragment>
                <BrowserRouter>

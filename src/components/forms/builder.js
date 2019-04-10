@@ -10,12 +10,12 @@ import { TextInput, PasswordInput } from "./text";
 import Datepicker from "./date";
 import Timepicker from "./time";
 import Editor from "./editor";
-import { ToastContainer, toast } from "react-toastify";
 import RadioButtons from "./radio";
 import Checkboxes from "./checkbox";
 import Switches from "./switch";
 import validate from "../../utils/validate";
 import axios from "axios";
+import Snackbar from "@material-ui/core/Snackbar";
 
 const styles = theme => ({
    button: {
@@ -43,14 +43,7 @@ const styles = theme => ({
       marginBottom: 15
    }
 });
-const toastConfig = {
-   position: "top-right",
-   autoClose: 1000,
-   hideProgressBar: false,
-   closeOnClick: true,
-   pauseOnHover: true,
-   draggable: true
-};
+
 const location = process.env.NODE_ENV === "development" ? window.location.origin + ":3001" : "";
 
 @inject("store")
@@ -61,6 +54,10 @@ class FormBuilder extends Component {
       this.handleClick = this.handleClick.bind(this);
       this.setFormApi = this.setFormApi.bind(this);
       this.postForm = this.postForm.bind(this);
+      this.state = {
+         snackBarOpen: false,
+         message: ""
+      };
    }
 
    handleClick() {
@@ -69,24 +66,14 @@ class FormBuilder extends Component {
    setFormApi(formApi) {
       this.formApi = formApi;
    }
-   toastRunner = async (status, message) => {
-      if (status != "") {
-         if (status == "error") await toast.error(message, toastConfig);
-         else if (status == "success") await toast.success(message, toastConfig);
-         else if (status == "info") await toast.info(message, toastConfig);
-         else if (status == "warning") await toast.warning(message, toastConfig);
-      } else {
-         await toast(message, toastConfig);
-      }
-   };
+
    postForm = async url => {
-      this.toastRunner("info", "Veriler Gönderiliyor...");
       let { values } = this.formApi.getState();
       values["id"] = JSON.parse(localStorage.getItem("data"))._id;
       let postData = { tableName: this.props.name, data: values };
-      await axios.post(location + "/" + url.replace("/", ""), postData).then(({ data }) => {
-         setTimeout(() => this.toastRunner(data.data.status, data.data.message), 1000);
-         if (this.props.noTitle != undefined) window.location.reload();
+      axios.post(location + "/" + this.props.data.name + "/insert", { options: [values] }).then(({ data }) => {
+         console.log("data", data);
+         this.setState({ snackBarOpen: true, message: "Veri başarılı bir şekilde eklendi" });
       });
    };
    render() {
@@ -95,9 +82,23 @@ class FormBuilder extends Component {
       const { label, icon } = header;
       return (
          <Grid container direction='row' justify='center'>
+            <Snackbar
+               anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right"
+               }}
+               open={this.state.snackBarOpen}
+               autoHideDuration={6000}
+               onClose={() => {
+                  this.setState({ snackBarOpen: false });
+               }}
+               ContentProps={{
+                  "aria-describedby": "message-id"
+               }}
+               message={<span id='message-id'>{this.state.message}</span>}
+            />
             <Grid item xl={10} md={12}>
                <Paper className={classes.root} elevation={elevation || noTitle ? 0 : 1}>
-                  <ToastContainer />
                   {noTitle != true && (
                      <Typography variant='h5' component='h4'>
                         {icon != "" && <Icon name={icon} style={{ marginRight: 15 }} />}
@@ -153,7 +154,7 @@ const Icon = ({ name }) => <i className='material-icons'>{name}</i>;
 const FormCreator = asField(({ fieldState, fieldApi, ...props }) => {
    const { value, error } = fieldState;
    const { setValue, setTouched } = fieldApi;
-   const { onChange, onBlur, initialValue, forwardedRef = React.forwardRef(), store, item, ...rest } = props; //input verileri itemdan gelecek
+   const { onChange, onBlur, initialValue, store, item, forwardedRef, ...rest } = props; //input verileri itemdan gelecek
    if (item.type == "text" || item.type == "") {
       return (
          <TextInput
@@ -162,7 +163,6 @@ const FormCreator = asField(({ fieldState, fieldApi, ...props }) => {
             label={item.label}
             icon={item.icon}
             type={item.type}
-            ref={forwardedRef}
             store={store}
             error={error}
          />
@@ -175,66 +175,26 @@ const FormCreator = asField(({ fieldState, fieldApi, ...props }) => {
             label={item.label}
             icon={item.icon}
             type={item.type}
-            ref={forwardedRef}
             store={store}
             error={error}
          />
       );
    } else if (item.type == "editor") {
-      return <Editor onChange={setValue} error={error} defaultValue={value} ref={forwardedRef} store={store} />;
+      return <Editor onChange={setValue} error={error} defaultValue={value} store={store} />;
    } else if (item.type == "date") {
-      return (
-         <Datepicker
-            onChange={setValue}
-            error={error}
-            defaultValue={value}
-            {...item}
-            ref={forwardedRef}
-            store={store}
-         />
-      );
+      return <Datepicker onChange={setValue} error={error} defaultValue={value} {...item} store={store} />;
    } else if (item.type == "time") {
-      return (
-         <Timepicker
-            onChange={setValue}
-            error={error}
-            defaultValue={value}
-            {...item}
-            ref={forwardedRef}
-            store={store}
-         />
-      );
+      return <Timepicker onChange={setValue} error={error} defaultValue={value} {...item} store={store} />;
    } else if (item.type == "radio") {
-      return (
-         <RadioButtons
-            onChange={setValue}
-            error={error}
-            defaultValue={value}
-            {...item}
-            ref={forwardedRef}
-            store={store}
-         />
-      );
+      return <RadioButtons onChange={setValue} error={error} defaultValue={value} {...item} store={store} />;
    } else if (item.type == "checkbox") {
-      return (
-         <Checkboxes
-            onChange={setValue}
-            error={error}
-            defaultValue={value}
-            {...item}
-            ref={forwardedRef}
-            store={store}
-         />
-      );
+      return <Checkboxes onChange={setValue} error={error} defaultValue={value} {...item} store={store} />;
    } else if (item.type == "switch") {
-      return (
-         <Switches onChange={setValue} error={error} defaultValue={value} {...item} ref={forwardedRef} store={store} />
-      );
+      return <Switches onChange={setValue} error={error} defaultValue={value} {...item} store={store} />;
    }
    return (
       <input
          {...rest}
-         ref={forwardedRef}
          type={item.type}
          value={!value && value !== 0 ? "" : value}
          onChange={e => {

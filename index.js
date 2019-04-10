@@ -1,6 +1,5 @@
 const express = require("express"),
-   mongo = require("./server/mongo"),
-   api = require("./server/mongo/api"),
+   api = require("./server/api"),
    twitter = require("./server/twitter"),
    FaceBookMen = require("./server/facebook"),
    header = require("./server/header"),
@@ -15,9 +14,6 @@ const express = require("express"),
 
 // express header
 header(app);
-
-//mongo yönetimi
-mongo(app);
 
 //mongo yönetimi
 api(app);

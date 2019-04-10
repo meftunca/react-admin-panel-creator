@@ -11,9 +11,13 @@ import {
    IconButton,
    InputAdornment,
    TextField,
-   ListItemAvatar
+   ListItemAvatar,
+   Snackbar,
+   Grid,
+   Divider,
+   ListItemSecondaryAction
 } from "@material-ui/core";
-import { unstable_Box as Box } from "@material-ui/core/Box";
+import CloseIcon from "@material-ui/icons/Close";
 
 import TimeAgo from "javascript-time-ago";
 import classNames from "classnames";
@@ -33,27 +37,74 @@ const location = process.env.NODE_ENV === "development" ? window.location.origin
 class TwitterApi extends Component {
    constructor() {
       super();
-      this.state = { data: [], visible: false };
+      this.state = { data: [], visible: false, deleting: false, message: "" };
    }
 
    componentDidMount() {
       this.update();
    }
    update = () => {
-      axios.post(location + "/twitter", { id: "lorem ipsm" }).then(res => {
-         this.setState({ data: res.data, visible: true });
+      axios.post(location + "/twitter").then(({ data }) => {
+         this.setState({ data, visible: true, deleting: false, message: "" });
+         this.forceUpdate();
+      });
+   };
+   delete = id => {
+      this.setState({
+         deleting: true,
+         message: "Twit Siliniyor..."
+      });
+      axios.post(location + "/twitter/delete", { id }).then(({ data }) => {
+         if (data.status) {
+            this.setState(
+               {
+                  deleting: true,
+                  message: "Twit başarılı bir şekilde silindi.Birazdan veriler güncellenecek."
+               },
+               () => this.update()
+            );
+         } else {
+            this.setState({ deleting: true, message: "Twit Silinemedi, Lütfen geliştiriciyle iletişim kurun." });
+         }
       });
    };
    render() {
       const { classes } = this.props;
+      const { deleting, message, data } = this.state;
       if (this.state.visible == false) return <a />;
       return (
-         <TwitterList
-            data={this.state.data}
-            classes={classes}
-            full={this.props.full ? false : true}
-            update={this.update}
-         />
+         <Fragment>
+            <Snackbar
+               anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right"
+               }}
+               open={deleting}
+               autoHideDuration={6000}
+               onClose={() => this.setState({ deleting: false, message: "" })}
+               ContentProps={{
+                  "aria-describedby": "message-id"
+               }}
+               message={<span id='message-id'>{message}</span>}
+               action={[
+                  <IconButton
+                     key='close'
+                     aria-label='Close'
+                     color='inherit'
+                     className={classes.close}
+                     onClick={() => this.setState({ deleting: false, message: "" })}>
+                     <CloseIcon />
+                  </IconButton>
+               ]}
+            />
+            <TwitterList
+               data={data}
+               classes={classes}
+               full={this.props.full ? false : true}
+               update={this.update}
+               deleteFunc={this.delete}
+            />
+         </Fragment>
       );
    }
 }
@@ -75,6 +126,9 @@ const styles = theme => ({
       overflowX: "hidden",
       overflowY: "scroll",
       position: "relative"
+   },
+   close: {
+      padding: theme.spacing.unit / 2
    },
    bottomFix: {
       position: "absolute",
@@ -106,7 +160,7 @@ const styles = theme => ({
    }
 });
 
-function TwitterList({ data, update, full, classes }) {
+function TwitterList({ data, update, full, classes, deleteFunc }) {
    const [tweet, setTweet] = React.useState("");
    const [tweetFile, setTweetFile] = React.useState("");
    const [open, setOpen] = React.useState(false);
@@ -147,20 +201,23 @@ function TwitterList({ data, update, full, classes }) {
          <List
             className={full == undefined ? classes.root : classes.fullHg}
             subheader={
-               <Box display='flex' justifyContent='space-between' p={1} bgcolor='background.paper'>
-                  <Box>
-                     <ListSubheader component='div'>Twitter Posts</ListSubheader>
-                  </Box>
-                  <Box>
-                     <IconButton size='small' onClick={update}>
-                        <i className='material-icons'>refresh</i>
-                     </IconButton>
-                  </Box>
-               </Box>
+               <div style={{ padding: 12 }}>
+                  <Grid container justify='space-between' alignContent='center' alignItems='center'>
+                     <Grid item md='auto'>
+                        <ListSubheader component='div'>Twitter Posts</ListSubheader>
+                     </Grid>
+                     <Grid item md='auto'>
+                        <IconButton size='small' onClick={update}>
+                           <i className='material-icons'>refresh</i>
+                        </IconButton>
+                     </Grid>
+                  </Grid>
+                  <Divider variant='middle' />
+               </div>
             }>
             {data != [] && data[0].code == undefined ? (
                <Fragment>
-                  {data.map(({ user, text, created_at, entities }, k) => (
+                  {data.map(({ id_str, user, text, retweeted, created_at, entities }, k) => (
                      <Fragment key={k}>
                         <ListItem>
                            <ListItemAvatar>
@@ -191,7 +248,15 @@ function TwitterList({ data, update, full, classes }) {
                                  </Fragment>
                               }
                            />
+                           <ListItemSecondaryAction>
+                              <IconButton
+                                 style={{ color: "hotpink" }}
+                                 onClick={() => deleteFunc(retweeted !== false ? retweeted.id_str : id_str)}>
+                                 <i className='material-icons'>delete</i>
+                              </IconButton>
+                           </ListItemSecondaryAction>
                         </ListItem>
+                        <Divider variant='inset' />
                      </Fragment>
                   ))}
                </Fragment>

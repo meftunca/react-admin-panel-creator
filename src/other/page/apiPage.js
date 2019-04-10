@@ -1,55 +1,89 @@
 import React, { Component } from "react";
-import { Grid, Paper, Typography, Collapse, ListItem, ListItemText, IconButton, Divider } from "@material-ui/core";
+import {
+   Grid,
+   Paper,
+   Typography,
+   List,
+   ListItem,
+   ListItemText,
+   IconButton,
+   Divider,
+   ListSubheader,
+   ListItemIcon
+} from "@material-ui/core";
 import Axios from "axios";
-const ApiDetail = require("./../../../public/json/form.json");
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
+const location = process.env.NODE_ENV === "development" ? window.location.origin + ":3001" : "";
+
+const Highlighter = ({ children }) => {
+   return (
+      <SyntaxHighlighter language='javascript' style={docco} showLineNumbers={true}>
+         {children.trim()}
+      </SyntaxHighlighter>
+   );
+};
 class ApiPage extends Component {
    constructor(props) {
       super(props);
       this.state = {};
    }
    componentDidMount() {
-      Axios.post("http://admin-panel.test:3001/test1/count", { options: [] }).then(data => console.log("data :", data));
+      // Axios.post("http://admin-panel.test:3001/test1/findone", { options: [] }).then(data =>
+      //    console.log("data :", data)
+      // );
    }
    render() {
       return (
          <Grid container justify='center'>
             <Grid item xl={8} md={10} xs={12}>
                <Paper elevation={1} style={{ padding: 15 }}>
-                  <Typography variant='h6' style={{ marginBottom: 30 }}>
+                  <Typography variant='h5' style={{ marginBottom: 10 }}>
                      Api
                   </Typography>
-                  <Divider />
+                  <Divider style={{ marginBottom: "50px" }} />
+                  <br />
+                  <Typography variant='h6'>Api kullanımı</Typography>
+                  <Typography variant='body2'>Api Anahtarınız</Typography>
+                  <Highlighter>{JSON.parse(localStorage.data).api_token}</Highlighter>
+                  <Typography variant='body2'>İlk örnekte bağlantı istek örneği verilmiştir</Typography>
+                  <pre>
+                     <code>{window.location.href + "/koleksiyon-adı/işlem-tipi"}</code>
+                  </pre>
+                  <Typography variant='body2'>
+                     Aşağıda Axios ile bağlantı örneği verilmiştir. options dizisi kullanımını aşağıdaki işlem tiplerine
+                     tıklayarak detaylı bir şekilde kullanımını göreceksiniz.
+                  </Typography>
 
-                  {ApiDetail.forms.map((i, k) => (
-                     <CollapseItem key={k} title={i.title + " Collection Url Connect Schema"}>
-                        <Grid container>
-                           <Grid item md={12} style={{ marginTop: 20 }}>
-                              <Typography variant='body2'>Append Data Url</Typography>
-                              <pre>
-                                 <code>{window.location.href + i.postUrl}</code>
-                              </pre>
-                           </Grid>
-                           <Grid item md={12} style={{ marginTop: 20 }}>
-                              <Typography variant='body2'>Update Row Url</Typography>
-                              <pre>
-                                 <code>{window.location.href + i.updateUrl}</code>
-                              </pre>
-                           </Grid>
-                           <Grid item md={12} style={{ marginTop: 20 }}>
-                              <Typography variant='body2'>Delete Row Url</Typography>
-                              <pre>
-                                 <code>{window.location.href + i.deleteUrl}</code>
-                              </pre>
-                           </Grid>
-                           <Grid item md={12} style={{ marginTop: 20 }}>
-                              <Typography variant='body2'>Get Data Url Url</Typography>
-                              <pre>
-                                 <code>{window.location.href + i.getUrl}</code>
-                              </pre>
-                           </Grid>
-                        </Grid>
-                     </CollapseItem>
-                  ))}
+                  <Highlighter>
+                     {`
+                     Axios.post("${location}/test1/findone", // işlem tipleri camel-case olmamasına dikkat edin.
+                     { options: [{name:"meftun"}] }
+                     ).
+                     then(data => {
+                           console.log("data :", data);
+                        })
+                           `}
+                  </Highlighter>
+                  <Divider />
+                  <List component='nav' subheader={<ListSubheader component='div'>İşlem Tipleri</ListSubheader>}>
+                     {Roles.map((i, key) => (
+                        <React.Fragment key={key}>
+                           <ListItem
+                              button
+                              onClick={() =>
+                                 (window.location.href =
+                                    "https://automattic.github.io/monk/docs/collection/" + i + ".html")
+                              }>
+                              <ListItemIcon style={{ width: 30 }}>
+                                 <Icon name='swap_verticle_circle' />
+                              </ListItemIcon>
+                              <ListItemText inset primary={i} />
+                           </ListItem>
+                           <Divider />
+                        </React.Fragment>
+                     ))}
+                  </List>
                </Paper>
             </Grid>
          </Grid>
@@ -57,22 +91,27 @@ class ApiPage extends Component {
    }
 }
 const Icon = props => <i className='material-icons'>{props.name}</i>;
-
-const CollapseItem = ({ children, title }) => {
-   const [expanded, setExpanded] = React.useState(false);
-
-   return (
-      <React.Fragment>
-         <ListItem button onClick={() => setExpanded(!expanded)}>
-            <ListItemText>{title}</ListItemText>
-            <IconButton>{expanded ? <Icon name='expand_less' /> : <Icon name='expand_more' />}</IconButton>
-         </ListItem>
-         <Divider />
-         <Collapse in={expanded} timeout='auto' unmountOnExit>
-            {children}
-         </Collapse>
-      </React.Fragment>
-   );
-};
-
+const Roles = [
+   "aggregate",
+   "bulkWrite",
+   "count",
+   "distinct",
+   "drop",
+   "dropIndex",
+   "dropIndexes",
+   "ensureIndex",
+   "find",
+   "findOne",
+   "findOneAndDelete",
+   "findOneAndUpdate",
+   "geoHaystackSearch",
+   "geoNear",
+   "group",
+   "indexes",
+   "insert",
+   "mapReduce",
+   "remove",
+   "stats",
+   "update"
+];
 export default ApiPage;

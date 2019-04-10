@@ -73,7 +73,7 @@
       "title": "System Generator",
       "header": {
          "label": "Sistem Yönetimi",
-         "icon": "aspect_ratio"
+         "icon": "settings_applications"
       },
       "route": {
          "path": "/system-admin"

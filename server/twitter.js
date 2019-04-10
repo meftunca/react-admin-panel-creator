@@ -1,15 +1,18 @@
-var Twitter = require("twitter");
+var Twitter = require("twit");
 const base64Img = require("base64-img");
 const storage = require("node-persist");
 
 module.exports = async app => {
    let opt = await storage.getItem("twitterApi");
+   opt = opt.options != undefined ? opt.options[0] : opt;
    if (opt == undefined) return;
    opt = {
       consumer_key: opt.consumer_key,
       consumer_secret: opt.consumer_secret,
-      access_token_key: opt.access_token_key,
-      access_token_secret: opt.access_token_secret
+      access_token: opt.access_token_key,
+      access_token_secret: opt.access_token_secret,
+      timeout_ms: 60 * 1000 // optional HTTP request timeout to apply to all requests.
+      // strictSSL: true // optional - requires SSL certificates to be valid.
    };
    var client = new Twitter(opt);
 
@@ -26,14 +29,12 @@ module.exports = async app => {
          return new Promise(async (resolve, reject) => {
             await client.post("media/upload", { media: filepath }, async (error, media, response) => {
                if (!error) {
-                  console.log(media, response);
                   reject(media);
                   reject(response);
                   let newStatus = {
                      status: status,
                      media_ids: media.media_id_string // Pass the media id string
                   };
-
                   await client.post("statuses/update", newStatus, (error, tweet, response) => {
                      if (error) resolve(error);
                      reject(tweet); // Tweet body.
@@ -65,5 +66,10 @@ module.exports = async app => {
          .then(d => res.json(d))
          // .then(d => res.json(d))
          .catch(e => res.json(e));
+   });
+   app.post("/twitter/delete", (req, res) => {
+      client.post("statuses/destroy/:id", { id: req.body.id }, (error, tweet, response) => {
+         res.json({ status: error ? false : true, error });
+      });
    });
 };

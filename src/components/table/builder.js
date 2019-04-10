@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import MUIDataTable from "mui-datatables";
 import axios from "axios";
 const location = process.env.NODE_ENV === "development" ? window.location.origin + ":3001" : "";
+import Snackbar from "@material-ui/core/Snackbar";
 
 export default class TableBuilder extends Component {
    constructor(props) {
@@ -9,7 +10,9 @@ export default class TableBuilder extends Component {
       this.state = {
          data: [],
          column: [],
-         show: false
+         show: false,
+         snackBarOpen: false,
+         message: ""
       };
    }
    componentDidMount() {
@@ -27,22 +30,25 @@ export default class TableBuilder extends Component {
    getData = async () => {
       let { tableItem, name } = this.props.data;
       let columns = tableItem.map(i => Object.values(i)[0]);
-      let opt = {
-         columns: columns.join(" "),
-         name: name
-      };
-      axios.post(location + "/get-table", opt).then(({ data }) => {
+      axios.post(location + "/" + name + "/find", { options: [{}] }).then(({ data }) => {
          let dataArr = this.dataParser(data, columns);
          this.setState({ column: columns, data: dataArr, show: true });
       });
    };
    delete = list => {
-      let { tableItem, name } = this.props;
+      let { tableItem, name } = this.props.data;
       let opt = {
          name,
          id: Object.keys(list.lookup)
       };
-      axios.post(location + "/remove-table-item", opt).then(d => console.log(d));
+      // axios.post(location + "/remove-table-item", opt).then(d => console.log(d));
+      console.log("Object.keys(list.lookup) :", Object.keys(list.lookup));
+      Object.keys(list.lookup).map(i => {
+         axios
+            .post(location + "/" + name + "/remove", { options: [this.state.data[Number(i)]._id] })
+            .then(d => this.setState({ snackBarOpen: true, message: "Veri Silindi" }));
+      });
+      // axios.post(location + "/" + name + "/remove", { options: [id._id] });
    };
    render() {
       let { data, column, show } = this.state;
@@ -90,13 +96,30 @@ export default class TableBuilder extends Component {
          }
       };
       return (
-         <MUIDataTable
-            filter={false}
-            title={header.label + " tablosu"}
-            data={data}
-            columns={column}
-            options={options}
-         />
+         <Fragment>
+            <MUIDataTable
+               filter={false}
+               title={header.label + " tablosu"}
+               data={data}
+               columns={column}
+               options={options}
+            />
+            <Snackbar
+               anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left"
+               }}
+               open={this.state.snackBarOpen}
+               autoHideDuration={6000}
+               onClose={() => {
+                  this.setState({ snackBarOpen: false });
+               }}
+               ContentProps={{
+                  "aria-describedby": "message-id"
+               }}
+               message={<span id='message-id'>{this.state.message}</span>}
+            />
+         </Fragment>
       );
    }
 }

@@ -74,7 +74,6 @@ const TODOLIST = ({ classes }) => {
       setTodoId(id);
       let defaultState = JSON.parse(localStorage.getItem(id));
       setDefaultState(defaultState);
-      // console.log(defaultState);
       setTimeout(() => {
          setOpen(true);
       }, 500);
@@ -128,6 +127,7 @@ const TODOFormCreator = ({ update, state, set, close, classes }) => {
    const [value, setValue] = React.useState("Ekle");
 
    let updates = value => {
+      // console.log("value :", value);
       setTodo(value);
    };
    function updateTodo(data) {
@@ -186,14 +186,9 @@ const TODOFormTitle = ({ update, todo, classes }) => {
    const [values, setValues] = useState(todo.title);
    const handleChange = event => {
       setValues(event.target.value);
-      let newTODO = Object.assign(todo, { title: values });
-      update(newTODO);
+      update({ ...todo, title: event.target.value });
    };
 
-   //   useEffect(() => {
-   //     setValues(todo.title);
-   console.log("TODOFormTitle", values);
-   //   }, values);
    return (
       <TextField
          id='filled-textarea'
@@ -214,12 +209,10 @@ const TODOFormTitle = ({ update, todo, classes }) => {
 };
 const TODOFormText = ({ update, todo, classes }) => {
    const [values, setValues] = useState(todo.text);
-   //   console.log("TODOFormText", todo, values);
 
    const handleChange = event => {
       setValues(event.target.value);
-      let newTODO = Object.assign(todo, { text: event.target.value });
-      update(newTODO);
+      update({ ...todo, text: event.target.value });
    };
    useEffect(() => {
       return () => setValues(todo.text);
@@ -243,33 +236,27 @@ const TODOFormText = ({ update, todo, classes }) => {
       />
    );
 };
-const TODOFormColor = ({ update, todo, classes }) => {
+const TODOFormColor = ({ update, todo }) => {
    const [values, setValues] = useState(todo.color);
    const handleChange = value => {
       setValues(value);
-      let newTODO = Object.assign(todo, { color: value });
-      update(newTODO);
+      update({ ...todo, color: value });
    };
    //   useEffect(() => {
    //     return setValues(todo.color);
    //   }, []);
-   return <ColorPicker name='color' defaultValue={values} onChange={color => handleChange(color)} />;
+   return <ColorPicker name='color' defaultValue={"#e80577"} onChange={handleChange} />;
 };
 
 const TODOFormSelectBox = ({ update, todo, classes }) => {
    const [values, setValues] = useState(todo.icon);
    const [select, setSelect] = useState(todo.icon);
-   //   useEffect(() => {
-   //     return setValues(todo.icon);
-   //   }, []);
    const handleChange = event => {
       setValues(event.target.value.replace(" ", "_"));
       setSelect(event.target.value.replace("_", " "));
    };
    const updateIconName = val => {
-      // console.log(val);
-      let newTODO = Object.assign(todo, { icon: val });
-      update(newTODO);
+      update({ ...todo, icon: val });
       setValues("");
       setSelect(val.replace("_", " "));
    };
