@@ -36,7 +36,7 @@ const styles = theme => ({
       backgroundColor: theme.palette.background.paper
    },
    button: {
-      margin: theme.spacing.unit
+      margin: theme.spacing(2)
    },
    rootList: {
       width: "100%",
@@ -72,13 +72,13 @@ const styles = theme => ({
    modalWrapper: {
       position: "relative",
       height: "calc(100vh - 64px)",
-      padding: 10
+      padding: 32
    },
    extendedIcon: {
-      marginRight: theme.spacing.unit
+      marginRight: theme.spacing(2)
    },
    chip: {
-      margin: theme.spacing.unit,
+      margin: theme.spacing(2),
       height: 20,
       fontSize: 13,
       textTransform: "capitalize"
@@ -94,7 +94,7 @@ class MailBox extends Component {
          editor: { data: "" },
          mailList: [],
          mailPagList: [],
-         rowsPerPage: 5,
+         rowsPerPage: 25,
          page: 0,
          labelIds: [],
          q: "",
@@ -104,10 +104,7 @@ class MailBox extends Component {
       this.mailSearchHeader = React.createRef();
       this.to = React.createRef();
       this.subject = React.createRef();
-      this.handleChangePage = this.handleChangePage.bind(this);
-      this.handleQuerySearch = this.handleQuerySearch.bind(this);
-      this.onReload = this.onReload.bind(this);
-      this.handleChangeRowsPerPage = this.handleChangeRowsPerPage.bind(this);
+      this.emailSchema = localStorage.drafts || [];
    }
    handleClose = () => this.setState({ modal: false });
    openEditor = () => {
@@ -137,37 +134,39 @@ class MailBox extends Component {
       this.setState({ labelIds: [label] });
       this.getMessages();
    };
-   handleChangePage(event, newPage) {
+   handleChangePage = (event, newPage) => {
       this.setState({ page: newPage });
       this.updateMailPaglist();
-   }
+   };
 
-   handleChangeRowsPerPage(event) {
+   handleChangeRowsPerPage = event => {
       this.setState({ rowsPerPage: event.target.value });
       this.updateMailPaglist();
-   }
+   };
 
    onReload = () => {
       this.getMessages();
    };
 
-   getMessages = async () => {
+   getMessages = () => {
       const { labelIds, q } = this.state;
       let options = { labelIds, q };
-      await axios
-         .post(location + "/google/gmail/messages", options)
-         .then(({ data }) => this.setState({ mailList: data }));
-      await this.updateMailPaglist();
+      axios
+         .post("/google/gmail/messages", options)
+         // .post(location + "/google/gmail/messages", options)
+         .then(({ data }) => {
+            this.setState({ mailList: data }, () => this.updateMailPaglist());
+         });
    };
 
-   removeMail = async id => {
-      await axios
-         .post(location + "/google/gmail/remove-mail", { id: id })
+   removeMail = id => {
+      axios
+         // .post(location + "/google/gmail/remove-mail", { id: id })
+         .post("/google/gmail/remove-mail", { id: id })
          .then(d => this.forceUpdate())
          .catch(e => alert("Mail silinemedi"));
    };
    updateSendData = async data => {
-      console.log(data);
       this.setState({ sendData: data, modal: true });
    };
    sendEmail = async () => {
@@ -182,7 +181,8 @@ class MailBox extends Component {
             };
          }
          sendData["message"] = html;
-         axios.post(location + "/google/gmail/send-email", sendData).then(({ data }) => console.log(data));
+         // axios.post(location + "/google/gmail/send-email", sendData).then(({ data }) => console.log(data));
+         axios.post("/google/gmail/send-email", sendData).then(({ data }) => console.log(data));
       });
    };
    updateMailPaglist = () => {
@@ -205,7 +205,7 @@ class MailBox extends Component {
                   />
                </Grid>
 
-               <Grid item sm={4} md={3}>
+               <Grid item sm={4} md={3} lg={2}>
                   <Button color='secondary' className={classes.button} onClick={this.openEditor}>
                      <Icon className={classes.extendedIcon}>add</Icon> {"Yeni Mail Oluştur"}
                   </Button>
@@ -221,7 +221,7 @@ class MailBox extends Component {
                      ))}
                   </List>
                </Grid>
-               <Grid item sm={8} md={9}>
+               <Grid item sm={8} md={9} lg={10}>
                   <TablePagination
                      rowsPerPageOptions={[5, 10, 25]}
                      component='div'
@@ -260,25 +260,36 @@ class MailBox extends Component {
                save={this.onSave}
                send={this.sendEmail}>
                <div className={classes.modalWrapper}>
-                  <TextField
-                     id='outlined-to'
-                     autoComplete='email'
-                     inputRef={this.to}
-                     label='Alıcı'
-                     margin='normal'
-                     variant='outlined'
-                     fullWidth
-                  />
-                  <br />
-                  <TextField
-                     fullWidth
-                     id='outlined-subject'
-                     inputRef={this.subject}
-                     label='Konu'
-                     margin='normal'
-                     variant='outlined'
-                  />
-                  <EmailEditor minHeight={"100vh"} ref={this.editor} />
+                  <Grid container>
+                     <Grid item xl={12} md={12}>
+                        <Grid container direction='row' spacing={40}>
+                           <Grid item md={6} sm={12}>
+                              <TextField
+                                 id='outlined-to'
+                                 autoComplete='email'
+                                 inputRef={this.to}
+                                 label='Alıcı'
+                                 margin='normal'
+                                 fullWidth
+                              />
+                           </Grid>
+                           <Grid item md={6} sm={12}>
+                              <TextField
+                                 fullWidth
+                                 id='outlined-subject'
+                                 inputRef={this.subject}
+                                 label='Konu'
+                                 margin='normal'
+                              />
+                           </Grid>
+                        </Grid>
+                     </Grid>
+                     <br />
+                     <br />
+                     <Grid item xl={12}>
+                        <EmailEditor minHeight={"100vh"} ref={this.editor} />
+                     </Grid>
+                  </Grid>
                </div>
             </FullScreenDialog>
          </Fragment>
@@ -364,7 +375,8 @@ function MailContent({ classes, id, remove, updateSendData }) {
    const [data, setData] = useState(null);
    useEffect(() => {
       if (data == null) {
-         axios.post(location + "/google/gmail/get-message", { id: id }).then(({ data }) => {
+         //location +
+         axios.post("/google/gmail/get-message", { id: id }).then(({ data }) => {
             setData(data);
          });
       }

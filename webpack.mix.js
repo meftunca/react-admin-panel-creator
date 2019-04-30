@@ -6,19 +6,30 @@ mix = mix
       processCssUrls: false,
       terser: {},
       purifyCss: false,
+
       uglify: {
          uglifyOptions: {
             compress: {
-               errors: false,
-               warnings: false,
+               errors: true,
+               warnings: true,
                drop_console: true
             }
          }
       }
    })
+   // .browserSync({
+   //    inline: true,
+   //    hot: true,
+   //    contentBase: "/",
+   //    proxy: "admin-panel.test",
+   //    host: "admin-panel.test",
+   //    open: "external",
+   //    port: false,
+   //    ui: false
+   // })
    .sourceMaps();
 if (process.env.NODE_ENV !== "development") {
-   mix.sourceMaps();
+   mix = mix.sourceMaps();
 }
 mix.react("src/index.js", "public/dist/js", {
    outputStyle: "compressed"

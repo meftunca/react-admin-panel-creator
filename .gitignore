@@ -7,4 +7,4 @@ test
 package-lock.json
 .DS_Store
 .checkNpmUpdates.json
-public/**/*.js
+# public/**/*.js

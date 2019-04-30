@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, FormGroup, FormControlLabel } from "@material-ui/core";
 
-function Switches({ onChange, ref, config, label }) {
-   const [state, setState] = React.useState();
+function Switches({ onChange, ref, config, defaultValue, label }) {
+   const [state, setState] = React.useState(false);
 
    const handleChange = event => {
       setState(event.target.checked);
@@ -11,7 +11,10 @@ function Switches({ onChange, ref, config, label }) {
 
    return (
       <FormGroup row>
-         <FormControlLabel control={<Switch onChange={handleChange} {...config} inputRef={ref} />} label={label} />
+         <FormControlLabel
+            control={<Switch onChange={handleChange} {...config} checked={defaultValue || state} inputRef={ref} />}
+            label={label}
+         />
       </FormGroup>
    );
 }

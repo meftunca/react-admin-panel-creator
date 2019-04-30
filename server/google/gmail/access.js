@@ -4,7 +4,6 @@ const parseMessage = require("gmail-api-parse-message");
 
 class Gmail {
    constructor() {
-      // console.log();
       this.state = {
          auth: false,
          token: false
@@ -75,10 +74,10 @@ class Gmail {
          let opt = {
             userId: "me",
             labelIds: ["INBOX"],
-            maxResults: 100
+            maxResults: 10000
          };
          opt = Object.assign(opt, options);
-         console.log(options);
+         // console.log(options);
          this.gmail.users.messages.list(opt, (err, res) => {
             if (err) reject(err);
             const messages = res.data.messages,
@@ -133,39 +132,39 @@ class Gmail {
          {
             userId: "me",
             resource: {
-               raw: raw
+               raw
             }
          },
-         (err, suc) => res.json(err ? err : suc)
+         (err, suc) => res.status(200).json(err ? err : suc)
       );
    }
    removeMail(req, res) {
-      console.log(req.body);
+      // console.log(req.body);
       this.gmail.users.messages.delete({ userId: "me", id: req.body.id }, (err, suc) => {
-         console.log(err);
-         if (err) res.json(err);
-         res.json(suc);
+         // console.log(err);
+         if (err) res.status(200).json(err);
+         res.status(200).json(suc);
       });
    }
    //url callbacks
    async authQuery(req, res) {
       if (this.apiData == undefined) {
-         res.json({ status: false, message: "Önce api bilgilerini girmeniz lazım." });
+         res.status(200).json({ status: false, message: "Önce api bilgilerini girmeniz lazım." });
       } else {
          if (this.apiData.token == undefined) {
             await this.getNewToken(res);
          } else {
-            res.json({ status: true });
+            res.status(200).json({ status: true });
          }
       }
    }
    getAuth(req, res) {
       if (this.state.auth == false) {
-         res.json({ status: false, message: "Önce api bilgilerini girmeniz lazım." });
+         res.status(200).json({ status: false, message: "Önce api bilgilerini girmeniz lazım." });
       } else if (this.apiData.token == undefined || this.apiData.token == {}) {
          this.authQuery(req, res);
       } else {
-         res.json({ status: true, message: "Token zaten aktif." });
+         res.status(200).json({ status: true, message: "Token zaten aktif." });
       }
    }
    setToken(req, res) {
@@ -176,7 +175,7 @@ class Gmail {
          let newApi = Object.assign(this.apiData, { token: token, userId: user._id });
          this.apiData = newApi;
          await storage.setItem("googleApi", newApi);
-         res.json({ status: true, token: token });
+         res.status(200).json({ status: true, token: token });
       });
    }
 }

@@ -23,7 +23,6 @@ module.exports = async app => {
       });
    });
    let statusUpdate = ({ status, file }) => {
-      // console.log(status, file);
       if (file != undefined && file != "") {
          let filepath = require("fs").readFileSync(base64Img.imgSync(file, "", "2"));
          return new Promise(async (resolve, reject) => {
@@ -41,7 +40,6 @@ module.exports = async app => {
                      reject(response); // Raw response object.
                   });
                } else {
-                  console.log(error);
                   resolve(error);
                }
             });
@@ -50,7 +48,6 @@ module.exports = async app => {
          return new Promise((resolve, reject) => {
             client.post("statuses/update", { status: status }, (error, tweet, response) => {
                if (error) resolve(error);
-               console.log("status", status);
                reject(tweet); // Tweet body.
                reject(response); // Raw response object.
             });
@@ -64,7 +61,6 @@ module.exports = async app => {
    app.post("/twitter-post", function(req, res) {
       statusUpdate(req.body)
          .then(d => res.json(d))
-         // .then(d => res.json(d))
          .catch(e => res.json(e));
    });
    app.post("/twitter/delete", (req, res) => {

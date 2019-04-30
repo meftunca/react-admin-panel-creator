@@ -24,7 +24,7 @@ class Store {
 
    //default data
    @action construct() {
-      Axios.post(location + "/get-user-data").then(({ data }) => {
+      Axios.post("/get-user-data").then(({ data }) => {
          for (let [k, v] of Object.entries(data)) {
             localStorage.setItem(k, JSON.stringify(v));
          }

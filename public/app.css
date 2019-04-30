@@ -278,22 +278,22 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";var
 	"./area": [
 		"./src/components/chart/area.js",
 		0,
-		15
+		17
 	],
 	"./area.js": [
 		"./src/components/chart/area.js",
 		0,
-		15
+		17
 	],
 	"./bar": [
 		"./src/components/chart/bar.js",
 		0,
-		16
+		18
 	],
 	"./bar.js": [
 		"./src/components/chart/bar.js",
 		0,
-		16
+		18
 	],
 	"./builder": [
 		"./src/components/chart/builder.js"
@@ -303,11 +303,11 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";var
 	],
 	"./dataGenerator": [
 		"./src/components/chart/dataGenerator.js",
-		17
+		19
 	],
 	"./dataGenerator.js": [
 		"./src/components/chart/dataGenerator.js",
-		17
+		19
 	],
 	"./dataVizualization": [
 		"./src/components/chart/dataVizualization.js",
@@ -321,33 +321,33 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";var
 		"./src/components/chart/line.js",
 		0,
 		3,
-		18
+		20
 	],
 	"./line.js": [
 		"./src/components/chart/line.js",
 		0,
 		3,
-		18
+		20
 	],
 	"./pie": [
 		"./src/components/chart/pie.js",
 		0,
-		19
+		21
 	],
 	"./pie.js": [
 		"./src/components/chart/pie.js",
 		0,
-		19
+		21
 	],
 	"./point": [
 		"./src/components/chart/point.js",
 		0,
-		13
+		14
 	],
 	"./point.js": [
 		"./src/components/chart/point.js",
 		0,
-		13
+		14
 	]
 };
 function webpackAsyncContext(req) {
@@ -409,25 +409,25 @@ module.exports = webpackAsyncContext;var map = {
 		"./src/components/chart/area.js",
 		9,
 		0,
-		15
+		17
 	],
 	"./components/chart/area.js": [
 		"./src/components/chart/area.js",
 		9,
 		0,
-		15
+		17
 	],
 	"./components/chart/bar": [
 		"./src/components/chart/bar.js",
 		9,
 		0,
-		16
+		18
 	],
 	"./components/chart/bar.js": [
 		"./src/components/chart/bar.js",
 		9,
 		0,
-		16
+		18
 	],
 	"./components/chart/builder": [
 		"./src/components/chart/builder.js",
@@ -440,12 +440,12 @@ module.exports = webpackAsyncContext;var map = {
 	"./components/chart/dataGenerator": [
 		"./src/components/chart/dataGenerator.js",
 		9,
-		17
+		19
 	],
 	"./components/chart/dataGenerator.js": [
 		"./src/components/chart/dataGenerator.js",
 		9,
-		17
+		19
 	],
 	"./components/chart/dataVizualization": [
 		"./src/components/chart/dataVizualization.js",
@@ -462,38 +462,38 @@ module.exports = webpackAsyncContext;var map = {
 		9,
 		0,
 		3,
-		18
+		20
 	],
 	"./components/chart/line.js": [
 		"./src/components/chart/line.js",
 		9,
 		0,
 		3,
-		18
+		20
 	],
 	"./components/chart/pie": [
 		"./src/components/chart/pie.js",
 		9,
 		0,
-		19
+		21
 	],
 	"./components/chart/pie.js": [
 		"./src/components/chart/pie.js",
 		9,
 		0,
-		19
+		21
 	],
 	"./components/chart/point": [
 		"./src/components/chart/point.js",
 		9,
 		0,
-		13
+		14
 	],
 	"./components/chart/point.js": [
 		"./src/components/chart/point.js",
 		9,
 		0,
-		13
+		14
 	],
 	"./components/forms/builder": [
 		"./src/components/forms/builder.js",
@@ -582,40 +582,40 @@ module.exports = webpackAsyncContext;var map = {
 	"./frontend/router": [
 		"./src/frontend/router/index.js",
 		9,
-		9,
-		4,
-		20
+		11,
+		6,
+		22
 	],
 	"./frontend/router/": [
 		"./src/frontend/router/index.js",
 		9,
-		9,
-		4,
-		20
+		11,
+		6,
+		22
 	],
 	"./frontend/router/header": [
 		"./src/frontend/router/header.js",
 		9,
-		4
+		6
 	],
 	"./frontend/router/header.js": [
 		"./src/frontend/router/header.js",
 		9,
-		4
+		6
 	],
 	"./frontend/router/index": [
 		"./src/frontend/router/index.js",
 		9,
-		9,
-		4,
-		20
+		11,
+		6,
+		22
 	],
 	"./frontend/router/index.js": [
 		"./src/frontend/router/index.js",
 		9,
-		9,
-		4,
-		20
+		11,
+		6,
+		22
 	],
 	"./frontend/router/list": [
 		"./src/frontend/router/list.js",
@@ -638,52 +638,72 @@ module.exports = webpackAsyncContext;var map = {
 	"./other/appBar": [
 		"./src/other/appBar.js",
 		9,
-		21
+		23
 	],
 	"./other/appBar.js": [
 		"./src/other/appBar.js",
 		9,
-		21
-	],
-	"./other/card": [
-		"./src/other/card.js",
-		9,
-		22
-	],
-	"./other/card.js": [
-		"./src/other/card.js",
-		9,
-		22
+		23
 	],
 	"./other/creator/component/collapse": [
 		"./src/other/creator/component/collapse.js",
 		9,
-		23
+		24
 	],
 	"./other/creator/component/collapse.js": [
 		"./src/other/creator/component/collapse.js",
 		9,
-		23
+		24
 	],
 	"./other/creator/form": [
 		"./src/other/creator/form.js",
 		9,
-		11
+		15
 	],
 	"./other/creator/form.js": [
 		"./src/other/creator/form.js",
 		9,
-		11
+		15
 	],
-	"./other/gridList": [
-		"./src/other/gridList.js",
+	"./other/creator/table/Control": [
+		"./src/other/creator/table/Control/index.js",
 		9,
-		24
+		4
 	],
-	"./other/gridList.js": [
-		"./src/other/gridList.js",
+	"./other/creator/table/Control/": [
+		"./src/other/creator/table/Control/index.js",
 		9,
-		24
+		4
+	],
+	"./other/creator/table/Control/index": [
+		"./src/other/creator/table/Control/index.js",
+		9,
+		4
+	],
+	"./other/creator/table/Control/index.js": [
+		"./src/other/creator/table/Control/index.js",
+		9,
+		4
+	],
+	"./other/creator/table/relationships": [
+		"./src/other/creator/table/relationships/index.js",
+		9,
+		5
+	],
+	"./other/creator/table/relationships/": [
+		"./src/other/creator/table/relationships/index.js",
+		9,
+		5
+	],
+	"./other/creator/table/relationships/index": [
+		"./src/other/creator/table/relationships/index.js",
+		9,
+		5
+	],
+	"./other/creator/table/relationships/index.js": [
+		"./src/other/creator/table/relationships/index.js",
+		9,
+		5
 	],
 	"./other/main/account": [
 		"./src/other/main/account.js",
@@ -696,53 +716,53 @@ module.exports = webpackAsyncContext;var map = {
 	"./other/main/login": [
 		"./src/other/main/login.js",
 		9,
-		5
+		7
 	],
 	"./other/main/login.js": [
 		"./src/other/main/login.js",
 		9,
-		5
+		7
 	],
 	"./other/main/register": [
 		"./src/other/main/register.js",
 		9,
-		6
+		8
 	],
 	"./other/main/register.js": [
 		"./src/other/main/register.js",
 		9,
-		6
+		8
 	],
 	"./other/main/rememberMe": [
 		"./src/other/main/rememberMe.js",
 		9,
-		7
+		9
 	],
 	"./other/main/rememberMe.js": [
 		"./src/other/main/rememberMe.js",
 		9,
-		7
+		9
 	],
 	"./other/page/api": [
 		"./src/other/page/api.js",
 		9,
-		12
+		13
 	],
 	"./other/page/api.js": [
 		"./src/other/page/api.js",
 		9,
-		12
+		13
 	],
 	"./other/page/apiPage": [
 		"./src/other/page/apiPage.js",
 		9,
-		8,
+		10,
 		25
 	],
 	"./other/page/apiPage.js": [
 		"./src/other/page/apiPage.js",
 		9,
-		8,
+		10,
 		25
 	],
 	"./other/page/components/FullScreenDialog": [
@@ -793,15 +813,25 @@ module.exports = webpackAsyncContext;var map = {
 		"./src/other/page/mailbox.js",
 		9,
 		1,
-		10,
-		14
+		12,
+		16
 	],
 	"./other/page/mailbox.js": [
 		"./src/other/page/mailbox.js",
 		9,
 		1,
-		10,
-		14
+		12,
+		16
+	],
+	"./other/page/notifications": [
+		"./src/other/page/notifications.js",
+		9,
+		34
+	],
+	"./other/page/notifications.js": [
+		"./src/other/page/notifications.js",
+		9,
+		34
 	],
 	"./other/profile/components/GmailAuthButton": [
 		"./src/other/profile/components/GmailAuthButton.js",
@@ -841,13 +871,11 @@ module.exports = webpackAsyncContext;var map = {
 	],
 	"./serviceWorker": [
 		"./src/serviceWorker.js",
-		9,
-		32
+		9
 	],
 	"./serviceWorker.js": [
 		"./src/serviceWorker.js",
-		9,
-		32
+		9
 	],
 	"./store/frontend": [
 		"./src/store/frontend.js",
@@ -866,6 +894,14 @@ module.exports = webpackAsyncContext;var map = {
 		"./src/testPage.js",
 		9,
 		30
+	],
+	"./theme": [
+		"./src/theme.json",
+		3
+	],
+	"./theme.json": [
+		"./src/theme.json",
+		3
 	],
 	"./utils/validate": [
 		"./src/utils/validate.js",
@@ -905,43 +941,59 @@ webpackAsyncContext.id = "./src lazy recursive ^\\.\\/.*$";
 module.exports = webpackAsyncContext;var map = {
 	"./appBar": [
 		"./src/other/appBar.js",
-		21
+		23
 	],
 	"./appBar.js": [
 		"./src/other/appBar.js",
-		21
-	],
-	"./card": [
-		"./src/other/card.js",
-		22
-	],
-	"./card.js": [
-		"./src/other/card.js",
-		22
+		23
 	],
 	"./creator/component/collapse": [
 		"./src/other/creator/component/collapse.js",
-		23
+		24
 	],
 	"./creator/component/collapse.js": [
 		"./src/other/creator/component/collapse.js",
-		23
+		24
 	],
 	"./creator/form": [
 		"./src/other/creator/form.js",
-		11
+		15
 	],
 	"./creator/form.js": [
 		"./src/other/creator/form.js",
-		11
+		15
 	],
-	"./gridList": [
-		"./src/other/gridList.js",
-		24
+	"./creator/table/Control": [
+		"./src/other/creator/table/Control/index.js",
+		4
 	],
-	"./gridList.js": [
-		"./src/other/gridList.js",
-		24
+	"./creator/table/Control/": [
+		"./src/other/creator/table/Control/index.js",
+		4
+	],
+	"./creator/table/Control/index": [
+		"./src/other/creator/table/Control/index.js",
+		4
+	],
+	"./creator/table/Control/index.js": [
+		"./src/other/creator/table/Control/index.js",
+		4
+	],
+	"./creator/table/relationships": [
+		"./src/other/creator/table/relationships/index.js",
+		5
+	],
+	"./creator/table/relationships/": [
+		"./src/other/creator/table/relationships/index.js",
+		5
+	],
+	"./creator/table/relationships/index": [
+		"./src/other/creator/table/relationships/index.js",
+		5
+	],
+	"./creator/table/relationships/index.js": [
+		"./src/other/creator/table/relationships/index.js",
+		5
 	],
 	"./main/account": [
 		"./src/other/main/account.js"
@@ -951,44 +1003,44 @@ module.exports = webpackAsyncContext;var map = {
 	],
 	"./main/login": [
 		"./src/other/main/login.js",
-		5
+		7
 	],
 	"./main/login.js": [
 		"./src/other/main/login.js",
-		5
+		7
 	],
 	"./main/register": [
 		"./src/other/main/register.js",
-		6
+		8
 	],
 	"./main/register.js": [
 		"./src/other/main/register.js",
-		6
+		8
 	],
 	"./main/rememberMe": [
 		"./src/other/main/rememberMe.js",
-		7
+		9
 	],
 	"./main/rememberMe.js": [
 		"./src/other/main/rememberMe.js",
-		7
+		9
 	],
 	"./page/api": [
 		"./src/other/page/api.js",
-		12
+		13
 	],
 	"./page/api.js": [
 		"./src/other/page/api.js",
-		12
+		13
 	],
 	"./page/apiPage": [
 		"./src/other/page/apiPage.js",
-		8,
+		10,
 		25
 	],
 	"./page/apiPage.js": [
 		"./src/other/page/apiPage.js",
-		8,
+		10,
 		25
 	],
 	"./page/components/FullScreenDialog": [
@@ -1030,14 +1082,22 @@ module.exports = webpackAsyncContext;var map = {
 	"./page/mailbox": [
 		"./src/other/page/mailbox.js",
 		1,
-		10,
-		14
+		12,
+		16
 	],
 	"./page/mailbox.js": [
 		"./src/other/page/mailbox.js",
 		1,
-		10,
-		14
+		12,
+		16
+	],
+	"./page/notifications": [
+		"./src/other/page/notifications.js",
+		34
+	],
+	"./page/notifications.js": [
+		"./src/other/page/notifications.js",
+		34
 	],
 	"./profile/components/GmailAuthButton": [
 		"./src/other/profile/components/GmailAuthButton.js"

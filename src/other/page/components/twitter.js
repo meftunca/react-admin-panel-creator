@@ -44,9 +44,9 @@ class TwitterApi extends Component {
       this.update();
    }
    update = () => {
-      axios.post(location + "/twitter").then(({ data }) => {
+      //location +
+      axios.post("/twitter").then(({ data }) => {
          this.setState({ data, visible: true, deleting: false, message: "" });
-         this.forceUpdate();
       });
    };
    delete = id => {
@@ -54,7 +54,8 @@ class TwitterApi extends Component {
          deleting: true,
          message: "Twit Siliniyor..."
       });
-      axios.post(location + "/twitter/delete", { id }).then(({ data }) => {
+      //location +
+      axios.post("/twitter/delete", { id }).then(({ data }) => {
          if (data.status) {
             this.setState(
                {
@@ -64,7 +65,10 @@ class TwitterApi extends Component {
                () => this.update()
             );
          } else {
-            this.setState({ deleting: true, message: "Twit Silinemedi, Lütfen geliştiriciyle iletişim kurun." });
+            this.setState({
+               deleting: true,
+               message: "Twit Silinemedi, Lütfen geliştiriciyle iletişim kurun."
+            });
          }
       });
    };
@@ -128,7 +132,7 @@ const styles = theme => ({
       position: "relative"
    },
    close: {
-      padding: theme.spacing.unit / 2
+      padding: theme.spacing(2)
    },
    bottomFix: {
       position: "absolute",
@@ -224,13 +228,13 @@ function TwitterList({ data, update, full, classes, deleteFunc }) {
                               <Avatar alt={user.name} src={user.profile_image_url} />
                            </ListItemAvatar>
                            <ListItemText
+                              primary={text}
                               secondary={
                                  <Fragment>
-                                    {text}
-                                    <span className={classes.gutterMargin} />
                                     <Typography component='span' className={classes.inline} color='textPrimary'>
                                        {timeAgo.format(new Date(created_at))}
                                     </Typography>
+                                    <span className={classes.gutterMargin} />
                                     {entities.user_mentions.map(({ screen_name, name }, k) => (
                                        <Chip
                                           avatar={
@@ -287,7 +291,7 @@ function TwitterList({ data, update, full, classes, deleteFunc }) {
                                  color='secondary'
                                  aria-label='Toggle password visibility'
                                  onClick={modalToggle}>
-                                 <i className='material-icons' style={{ fontSize: 16 }}>
+                                 <i className='material-icons' style={{ fontSize: 24 }}>
                                     image
                                  </i>
                               </IconButton>
@@ -295,7 +299,7 @@ function TwitterList({ data, update, full, classes, deleteFunc }) {
                                  color='primary'
                                  aria-label='Toggle password visibility'
                                  onClick={() => postTweet()}>
-                                 <i className='material-icons' style={{ fontSize: 16 }}>
+                                 <i className='material-icons' style={{ fontSize: 24 }}>
                                     send
                                  </i>
                               </IconButton>

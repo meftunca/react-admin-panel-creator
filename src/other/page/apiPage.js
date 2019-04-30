@@ -11,10 +11,8 @@ import {
    ListSubheader,
    ListItemIcon
 } from "@material-ui/core";
-import Axios from "axios";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
-const location = process.env.NODE_ENV === "development" ? window.location.origin + ":3001" : "";
 
 const Highlighter = ({ children }) => {
    return (
@@ -27,11 +25,6 @@ class ApiPage extends Component {
    constructor(props) {
       super(props);
       this.state = {};
-   }
-   componentDidMount() {
-      // Axios.post("http://admin-panel.test:3001/test1/findone", { options: [] }).then(data =>
-      //    console.log("data :", data)
-      // );
    }
    render() {
       return (

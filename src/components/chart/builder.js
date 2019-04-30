@@ -8,8 +8,8 @@ import loadable from "@loadable/component";
 const styles = theme => ({
   root: {
     ...theme.mixins.gutters(),
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2
+    paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(4)
   }
 });
 

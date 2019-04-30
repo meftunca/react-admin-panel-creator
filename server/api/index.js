@@ -1,7 +1,5 @@
-const env = require("dotenv").config().parsed,
-   monk = require("monk")(env.MONGODB_URI),
-   bcrypt = require("bcrypt-nodejs"),
-   ApiForms = require("./../../public/json/form.json"),
+const bcrypt = require("bcrypt-nodejs"),
+   // ApiForms = require("./../../public/json/form.json"),
    Roles = [
       "aggregate",
       "bulkWrite",
@@ -26,9 +24,12 @@ const env = require("dotenv").config().parsed,
       "update"
    ];
 const storage = require("node-persist");
-
-const users = monk.get("users");
-module.exports = async app => {
+let ApiForms;
+module.exports = async (app, monk) => {
+   const users = monk.get("users");
+   const tables = monk.get("tables");
+   ApiForms = await tables.find({});
+   // tables.insert(ApiForms.forms);
    app.post("/register", (req, res) => {
       let data = req.body;
       users
@@ -42,7 +43,7 @@ module.exports = async app => {
          })
          .then(async docs => {
             if (docs > 0) {
-               return res.json({
+               return res.status(200).json({
                   status: "error",
                   message: "Bu bilgilere sahip bir kullanıcı bulundu. \nVerileri değiştirerek tekrar deneyin..."
                });
@@ -56,7 +57,7 @@ module.exports = async app => {
             users.insert(data);
             delete data["password"];
             await storage.setItem("user", data);
-            res.json({
+            res.status(200).json({
                status: "success",
                message: "Kayıt işlemi başarılı. \nBirazdan panele yönlendirileceksiniz.",
                data: data
@@ -71,16 +72,15 @@ module.exports = async app => {
             })
             .then(docs => {
                if (docs < 1) {
-                  return res.json({
+                  return res.status(200).json({
                      status: "warning",
                      message:
                         "Bu bilgilere sahip bir kullanıcı bulunamadı. \nVerileri gözden geçirerek tekrar deneyin..."
                   });
                }
                users.findOne({ eMail: data.email }).then(doc => {
-                  console.log(bcrypt.compareSync(data.password, doc.passwordHash));
                   if (bcrypt.compareSync(data.password, doc.passwordHash) == false) {
-                     return res.json({
+                     return res.status(200).json({
                         status: "warning",
                         message: "Şifre Yanlış...\nŞifrenizi kontrol edin..."
                      });
@@ -92,7 +92,7 @@ module.exports = async app => {
                   users.findOneAndUpdate({ eMail: data.email }, doc).then(async updateDoc => {
                      delete updateDoc["passwordHash"];
                      await storage.setItem("user", updateDoc);
-                     res.json({
+                     res.status(200).json({
                         status: "success",
                         message: "Kayıt işlemi başarılı. Birazdan panele yönlendirileceksiniz.",
                         data: updateDoc
@@ -108,27 +108,27 @@ module.exports = async app => {
             twitterApi: await storage.getItem("twitterApi"),
             data: await storage.getItem("user")
          };
-         await res.json(data);
+         await res.status(200).json(data);
       })
       .post("/twitterApi/insert", async (req, res) => {
          const twitterApi = monk.get("twitterApi");
          twitterApi.insert(req.body);
          await storage.setItem("twitterApi", req.body);
-         res.json({ status: true });
+         res.status(200).json({ status: true });
       })
       .post("/facebookApi/insert", async (req, res) => {
          const facebookApi = monk.get("facebookApi");
          facebookApi.insert(req.body);
          await storage.setItem("facebookApi", req.body);
-         res.json({ status: true });
+         res.status(200).json({ status: true });
       })
       .post("/googleApi/insert", async (req, res) => {
          const googleApi = monk.get("googleApi");
          googleApi.insert(req.body);
          await storage.setItem("googleApi", req.body);
-         res.json({ status: true });
+         res.status(200).json({ status: true });
       });
-   ApiForms.forms.map(i => {
+   ApiForms.map(i => {
       const basePrefix = "/" + i.name.toLowerCase() + "/";
       const baseDb = monk.get(i.name);
       // app.use(function(req, res, next) {
@@ -137,7 +137,7 @@ module.exports = async app => {
       // });
       Roles.map(j => {
          app.post(basePrefix + j.toLowerCase(), (req, res) =>
-            baseDb[j](...req.body.options).then(doc => res.json(doc))
+            baseDb[j](...req.body.options).then(doc => res.status(200).json(doc))
          );
       });
    });

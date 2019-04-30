@@ -1,7 +1,7 @@
 import React from "react";
 import { Checkbox, FormGroup, FormControlLabel } from "@material-ui/core";
-function Checkboxes({ onChange, ref, config, label, store }) {
-   const [state, setState] = React.useState(true);
+function Checkboxes({ onChange, ref, config, label, defaultValue, store }) {
+   const [state, setState] = React.useState(false);
 
    const handleChange = event => {
       setState(event.target.checked);
@@ -9,7 +9,11 @@ function Checkboxes({ onChange, ref, config, label, store }) {
    };
    return (
       <FormGroup row>
-         <FormControlLabel control={<Checkbox onChange={handleChange} {...config} inputRef={ref} />} label={label} />
+         <FormControlLabel
+            control={<Checkbox onChange={handleChange} {...config} inputRef={ref} />}
+            checked={defaultValue || state}
+            label={label}
+         />
       </FormGroup>
    );
 }

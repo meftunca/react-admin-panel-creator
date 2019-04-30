@@ -1,131 +1,138 @@
 {
-   "name": "react-admin-panel-creator",
-   "version": "0.5.1",
-   "private": true,
-   "author": "Muhammed Burak Şentürk",
-   "license": "MIT",
-   "homepage": "http://www.godevloops.com",
-   "repository": {
-      "type": "git",
-      "url": "https://github.com/meftunca/react-admin-panel-creator.git"
-   },
-   "scripts": {
-      "client-install": "npm install --prefix client",
-      "start": "node index.js",
-      "server": "node index.js",
-      "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-      "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-      "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-      "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules  --config=node_modules/laravel-mix/setup/webpack.config.js",
-      "heroku-postbuild": "npm run production"
-   },
-   "devDependencies": {
-      "@babel/plugin-proposal-class-properties": "^7.4.0",
-      "@babel/plugin-proposal-decorators": "^7.4.0",
-      "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-      "@babel/preset-react": "^7.0.0",
-      "laravel-mix": "^4.0.15",
-      "resolve-url-loader": "3.1.0",
-      "sass": "^1.18.0",
-      "sass-loader": "7.1.0"
-   },
-   "dependencies": {
-      "@date-io/moment": "^1.1.0",
-      "@devexpress/dx-react-chart": "^1.10.5",
-      "@devexpress/dx-react-chart-material-ui": "^1.10.5",
-      "@devexpress/dx-react-core": "^1.10.5",
-      "@loadable/component": "^5.7.0",
-      "@material-ui/core": "^3.9.3",
-      "@material-ui/icons": "^3.0.2",
-      "@material-ui/lab": "^3.0.0-alpha.30",
-      "@material-ui/styles": "^3.0.0-alpha.10",
-      "@webpack-cli/init": "^0.1.5",
-      "axios": "^0.18.0",
-      "base64-img": "^1.0.4",
-      "bcrypt-nodejs": "^0.0.3",
-      "blob-to-base64": "^1.0.2",
-      "cookie-parser": "^1.4.4",
-      "cors": "^2.8.5",
-      "dotenv": "^7.0.0",
-      "draft-js": "^0.10.5",
-      "draftjs-to-html": "^0.8.4",
-      "express": "^4.16.4",
-      "express-session": "^1.15.6",
-      "fb": "^2.0.0",
-      "gmail-api-parse-message": "^2.1.0",
-      "google-auth-library": "^3.1.2",
-      "googleapis": "^39.2.0",
-      "helmet": "^3.16.0",
-      "html-to-draftjs": "^1.4.0",
-      "immutable": "^4.0.0-rc.12",
-      "informed": "^2.3.0",
-      "javascript-time-ago": "^2.0.1",
-      "lowdb": "^1.0.0",
-      "mailparser": "^2.6.0",
-      "material-design-icon-list": "^4.0.1",
-      "material-ui-color-picker": "^3.2.0",
-      "material-ui-pickers": "^2.2.4",
-      "mobx": "^5.9.4",
-      "mobx-react": "^5.4.3",
-      "moment": "^2.24.0",
-      "monk": "^6.0.6",
-      "mui-datatables": "^2.0.0-beta.59",
-      "node-persist": "^3.0.4",
-      "react": "16.8.6",
-      "react-content-loader": "^4.2.1",
-      "react-dom": "16.8.6",
-      "react-draft-wysiwyg": "^1.13.2",
-      "react-dropzone": "^10.1.3",
-      "react-email-editor": "^0.9.5",
-      "react-facebook-login": "^4.1.1",
-      "react-image-lightbox": "^5.1.0",
-      "react-json-pretty": "^2.1.0",
-      "react-loadable": "^5.5.0",
-      "react-localize-redux": "^3.5.2",
-      "react-router-dom": "^5.0.0",
-      "react-router-transition": "^1.3.0",
-      "react-spinkit": "^3.0.0",
-      "react-swipeable-views": "^0.13.1",
-      "react-syntax-highlighter": "^10.2.1",
-      "socket.io": "^2.2.0",
-      "socket.io-client": "^2.2.0",
-      "styled-components": "^4.2.0",
-      "tunnel-agent": "^0.6.0",
-      "twit": "^2.2.11",
-      "twitter": "^1.7.1",
-      "uniqid": "^5.0.3",
-      "validate.js": "^0.12.0",
-      "webpack-cli": "^3.3.0"
-   },
-   "browserslist": [
-      ">0.2%",
-      "not dead",
-      "not ie <= 11",
-      "not op_mini all"
-   ],
-   "eslintConfig": {
-      "extends": "react-app"
-   },
-   "babel": {
-      "presets": [
-         "@babel/preset-env",
-         "@babel/preset-react"
-      ],
-      "plugins": [
-         [
-            "@babel/plugin-proposal-decorators",
-            {
-               "legacy": true
-            }
-         ],
-         [
-            "@babel/plugin-proposal-class-properties",
-            {
-               "loose": true
-            }
-         ],
-         "@babel/plugin-transform-runtime",
-         "@babel/plugin-syntax-dynamic-import"
-      ]
-   }
+    "name": "react-admin-panel-creator",
+    "version": "0.5.1",
+    "private": true,
+    "author": "Muhammed Burak Şentürk",
+    "license": "MIT",
+    "homepage": "http://www.godevloops.com",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/meftunca/react-admin-panel-creator.git"
+    },
+    "scripts": {
+        "hotel": "clear;hotel run 'node index.js' --port 80",
+        "client-install": "npm install --prefix client",
+        "start": "node index.js",
+        "server": "node index.js",
+        "dev": "npm run development",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "npm run production",
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "heroku-postbuild": "npm run production"
+    },
+    "devDependencies": {
+        "@babel/plugin-proposal-class-properties": "^7.4.4",
+        "@babel/plugin-proposal-decorators": "^7.4.4",
+        "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+        "@babel/preset-react": "^7.0.0",
+        "laravel-mix": "^4.0.15",
+        "resolve-url-loader": "3.1.0",
+        "sass": "^1.19.0",
+        "sass-loader": "7.1.0"
+    },
+    "dependencies": {
+        "@ckeditor/ckeditor5-build-classic": "^12.1.0",
+        "@ckeditor/ckeditor5-build-inline": "^12.1.0",
+        "@ckeditor/ckeditor5-react": "^1.1.3",
+        "@date-io/moment": "^1.3.5",
+        "@devexpress/dx-react-chart": "^1.10.5",
+        "@devexpress/dx-react-chart-material-ui": "^1.10.5",
+        "@devexpress/dx-react-core": "^1.10.5",
+        "@loadable/component": "^5.9.0",
+        "@material-ui/core": "^4.0.0-beta.0",
+        "@material-ui/icons": "^3.0.2",
+        "@material-ui/lab": "^3.0.0-alpha.30",
+        "@material-ui/styles": "^4.0.0-beta.0",
+        "@webpack-cli/init": "^0.1.5",
+        "axios": "^0.18.0",
+        "base64-img": "^1.0.4",
+        "bcrypt-nodejs": "^0.0.3",
+        "blob-to-base64": "^1.0.2",
+        "cookie-parser": "^1.4.4",
+        "cors": "^2.8.5",
+        "cross-env": "^5.2.0",
+        "dotenv": "^7.0.0",
+        "express": "^4.16.4",
+        "express-fileupload": "^1.1.4",
+        "express-session": "^1.16.1",
+        "fb": "^2.0.0",
+        "fcm-node": "^1.4.0",
+        "gmail-api-parse-message": "^2.1.0",
+        "google-auth-library": "^3.1.2",
+        "googleapis": "^39.2.0",
+        "helmet": "^3.16.0",
+        "history": "^4.9.0",
+        "immutable": "^4.0.0-rc.12",
+        "informed": "^2.3.2",
+        "javascript-time-ago": "^2.0.1",
+        "lowdb": "^1.0.0",
+        "mailparser": "^2.6.0",
+        "material-design-icon-list": "^4.0.1",
+        "material-ui-color-picker": "^3.2.0",
+        "material-ui-pickers": "^2.2.4",
+        "mobx": "^5.9.4",
+        "mobx-react": "^5.4.3",
+        "moment": "^2.24.0",
+        "monk": "^6.0.6",
+        "mui-datatables": "^2.0.0",
+        "node-persist": "^3.0.4",
+        "react": "16.8.6",
+        "react-content-loader": "^4.2.1",
+        "react-dom": "16.8.6",
+        "react-dropzone": "^10.1.4",
+        "react-email-editor": "^0.9.5",
+        "react-facebook-login": "^4.1.1",
+        "react-image-lightbox": "^5.1.0",
+        "react-json-pretty": "^2.1.0",
+        "react-loadable": "^5.5.0",
+        "react-localize-redux": "^3.5.3",
+        "react-router-dom": "^5.0.0",
+        "react-router-transition": "^1.3.0",
+        "react-spinkit": "^3.0.0",
+        "react-swipeable-views": "^0.13.1",
+        "react-syntax-highlighter": "^10.2.1",
+        "slugify": "^1.3.4",
+        "socket.io": "^2.2.0",
+        "socket.io-client": "^2.2.0",
+        "styled-components": "^4.2.0",
+        "tunnel-agent": "^0.6.0",
+        "twit": "^2.2.11",
+        "twitter": "^1.7.1",
+        "uniqid": "^5.0.3",
+        "validate.js": "^0.12.0",
+        "webpack-cli": "^3.3.1"
+    },
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
+    ],
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "babel": {
+        "presets": [
+            "@babel/preset-env",
+            "@babel/preset-react"
+        ],
+        "plugins": [
+            [
+                "@babel/plugin-proposal-decorators",
+                {
+                    "legacy": true
+                }
+            ],
+            [
+                "@babel/plugin-proposal-class-properties",
+                {
+                    "loose": true
+                }
+            ],
+            "@babel/plugin-transform-runtime",
+            "@babel/plugin-syntax-dynamic-import"
+        ]
+    }
 }

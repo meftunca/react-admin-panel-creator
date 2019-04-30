@@ -8,11 +8,11 @@ import { Link } from "react-router-dom";
 
 const styles = theme => ({
    img: {
-      marginRight: theme.spacing.unit,
+      marginRight: theme.spacing(2),
       width: 32
    }
 });
-const location = process.env.NODE_ENV === "development" ? window.location.origin + ":3001" : "";
+const location = ""; //process.env.NODE_ENV === "development" ? window.location.origin + ":3001" : "";
 const GoogleApiLink = props => <Link to='/api-yonetimi' {...props} />;
 
 class GmailAuthButton extends Component {
