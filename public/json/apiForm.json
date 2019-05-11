@@ -1,16 +1,16 @@
 {
   "googleApi": {
-    "name": "googleApi",
+    "name": "gmailApi",
     "post_url": "/append-data",
-    "get_url": "/get-api-google",
+    "get_url": "/get-api-gmail",
     "type": "api",
-    "title": "Google Api bilgileri",
+    "title": "Gmail Api bilgileri",
     "header": {
-      "label": "Google Api bilgileri",
+      "label": "Gmail Api bilgileri",
       "icon": "power"
     },
     "route": {
-      "path": "/google-api",
+      "path": "/gmail-api",
       "exact": "false"
     },
     "formItem": [
@@ -66,6 +66,78 @@
         "label": "dasdasdas"
       }
     ]
+  },
+  "pushApi": {
+    "name": "pushApi",
+    "post_url": "/append-data",
+    "get_url": "/get-api-push",
+    "type": "api",
+    "title": "Firebase Push Api",
+    "header": {
+      "label": "Firebase Kullanıcı Bilgileri",
+      "icon": "power"
+    },
+    "route": {
+      "path": "/push-api",
+      "exact": "false"
+    },
+    "formItem": [
+      {
+        "name": "apiKey",
+        "icon": "",
+        "label": "Api Key",
+        "type": "text",
+        "validate": "",
+        "required": "false",
+        "mongoType": "string"
+      },
+      {
+        "name": "authDomain",
+        "icon": "",
+        "label": "Auth Domain",
+        "type": "text",
+        "validate": "",
+        "required": "false",
+        "mongoType": "string"
+      },
+      {
+        "name": "databaseURL",
+        "icon": "",
+        "label": "Database URL",
+        "type": "text",
+        "validate": "",
+        "required": "false",
+        "mongoType": "string"
+      },
+      {
+        "name": "projectId",
+        "icon": "",
+        "label": "Project Id",
+        "type": "text",
+        "validate": "",
+        "required": "false",
+        "mongoType": "object"
+      },
+      {
+        "name": "storageBucket",
+        "icon": "",
+        "label": "Storage Bucket",
+        "type": "text",
+        "validate": "",
+        "required": "false",
+        "mongoType": "string"
+      },
+      {
+        "name": "messagingSenderId",
+        "icon": "",
+        "label": "Messaging Sender Id",
+        "type": "text",
+        "validate": "",
+        "required": "false",
+        "mongoType": "string"
+      }
+    ],
+    "tableItem": []
   },
   "twitter": {
     "name": "twitterApi",

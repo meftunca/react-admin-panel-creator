@@ -278,22 +278,22 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";var
 	"./area": [
 		"./src/components/chart/area.js",
 		0,
-		17
+		16
 	],
 	"./area.js": [
 		"./src/components/chart/area.js",
 		0,
-		17
+		16
 	],
 	"./bar": [
 		"./src/components/chart/bar.js",
 		0,
-		18
+		17
 	],
 	"./bar.js": [
 		"./src/components/chart/bar.js",
 		0,
-		18
+		17
 	],
 	"./builder": [
 		"./src/components/chart/builder.js"
@@ -303,11 +303,11 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";var
 	],
 	"./dataGenerator": [
 		"./src/components/chart/dataGenerator.js",
-		19
+		18
 	],
 	"./dataGenerator.js": [
 		"./src/components/chart/dataGenerator.js",
-		19
+		18
 	],
 	"./dataVizualization": [
 		"./src/components/chart/dataVizualization.js",
@@ -321,33 +321,33 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";var
 		"./src/components/chart/line.js",
 		0,
 		3,
-		20
+		19
 	],
 	"./line.js": [
 		"./src/components/chart/line.js",
 		0,
 		3,
-		20
+		19
 	],
 	"./pie": [
 		"./src/components/chart/pie.js",
 		0,
-		21
+		20
 	],
 	"./pie.js": [
 		"./src/components/chart/pie.js",
 		0,
-		21
+		20
 	],
 	"./point": [
 		"./src/components/chart/point.js",
 		0,
-		14
+		13
 	],
 	"./point.js": [
 		"./src/components/chart/point.js",
 		0,
-		14
+		13
 	]
 };
 function webpackAsyncContext(req) {
@@ -409,25 +409,25 @@ module.exports = webpackAsyncContext;var map = {
 		"./src/components/chart/area.js",
 		9,
 		0,
-		17
+		16
 	],
 	"./components/chart/area.js": [
 		"./src/components/chart/area.js",
 		9,
 		0,
-		17
+		16
 	],
 	"./components/chart/bar": [
 		"./src/components/chart/bar.js",
 		9,
 		0,
-		18
+		17
 	],
 	"./components/chart/bar.js": [
 		"./src/components/chart/bar.js",
 		9,
 		0,
-		18
+		17
 	],
 	"./components/chart/builder": [
 		"./src/components/chart/builder.js",
@@ -440,12 +440,12 @@ module.exports = webpackAsyncContext;var map = {
 	"./components/chart/dataGenerator": [
 		"./src/components/chart/dataGenerator.js",
 		9,
-		19
+		18
 	],
 	"./components/chart/dataGenerator.js": [
 		"./src/components/chart/dataGenerator.js",
 		9,
-		19
+		18
 	],
 	"./components/chart/dataVizualization": [
 		"./src/components/chart/dataVizualization.js",
@@ -462,38 +462,38 @@ module.exports = webpackAsyncContext;var map = {
 		9,
 		0,
 		3,
-		20
+		19
 	],
 	"./components/chart/line.js": [
 		"./src/components/chart/line.js",
 		9,
 		0,
 		3,
-		20
+		19
 	],
 	"./components/chart/pie": [
 		"./src/components/chart/pie.js",
 		9,
 		0,
-		21
+		20
 	],
 	"./components/chart/pie.js": [
 		"./src/components/chart/pie.js",
 		9,
 		0,
-		21
+		20
 	],
 	"./components/chart/point": [
 		"./src/components/chart/point.js",
 		9,
 		0,
-		14
+		13
 	],
 	"./components/chart/point.js": [
 		"./src/components/chart/point.js",
 		9,
 		0,
-		14
+		13
 	],
 	"./components/forms/builder": [
 		"./src/components/forms/builder.js",
@@ -525,6 +525,14 @@ module.exports = webpackAsyncContext;var map = {
 	],
 	"./components/forms/editor.js": [
 		"./src/components/forms/editor.js",
+		9
+	],
+	"./components/forms/file": [
+		"./src/components/forms/file.js",
+		9
+	],
+	"./components/forms/file.js": [
+		"./src/components/forms/file.js",
 		9
 	],
 	"./components/forms/radio": [
@@ -562,14 +570,14 @@ module.exports = webpackAsyncContext;var map = {
 	"./components/tabViewer": [
 		"./src/components/tabViewer.js",
 		9,
-		28,
-		31
+		26,
+		28
 	],
 	"./components/tabViewer.js": [
 		"./src/components/tabViewer.js",
 		9,
-		28,
-		31
+		26,
+		28
 	],
 	"./components/table/builder": [
 		"./src/components/table/builder.js",
@@ -579,53 +587,13 @@ module.exports = webpackAsyncContext;var map = {
 		"./src/components/table/builder.js",
 		9
 	],
-	"./frontend/router": [
-		"./src/frontend/router/index.js",
-		9,
-		11,
-		6,
-		22
+	"./firebase-sw": [
+		"./src/firebase-sw.js",
+		9
 	],
-	"./frontend/router/": [
-		"./src/frontend/router/index.js",
-		9,
-		11,
-		6,
-		22
-	],
-	"./frontend/router/header": [
-		"./src/frontend/router/header.js",
-		9,
-		6
-	],
-	"./frontend/router/header.js": [
-		"./src/frontend/router/header.js",
-		9,
-		6
-	],
-	"./frontend/router/index": [
-		"./src/frontend/router/index.js",
-		9,
-		11,
-		6,
-		22
-	],
-	"./frontend/router/index.js": [
-		"./src/frontend/router/index.js",
-		9,
-		11,
-		6,
-		22
-	],
-	"./frontend/router/list": [
-		"./src/frontend/router/list.js",
-		9,
-		29
-	],
-	"./frontend/router/list.js": [
-		"./src/frontend/router/list.js",
-		9,
-		29
+	"./firebase-sw.js": [
+		"./src/firebase-sw.js",
+		9
 	],
 	"./index": [
 		"./src/index.js",
@@ -638,32 +606,32 @@ module.exports = webpackAsyncContext;var map = {
 	"./other/appBar": [
 		"./src/other/appBar.js",
 		9,
-		23
+		21
 	],
 	"./other/appBar.js": [
 		"./src/other/appBar.js",
 		9,
-		23
+		21
 	],
 	"./other/creator/component/collapse": [
 		"./src/other/creator/component/collapse.js",
 		9,
-		24
+		22
 	],
 	"./other/creator/component/collapse.js": [
 		"./src/other/creator/component/collapse.js",
 		9,
-		24
+		22
 	],
 	"./other/creator/form": [
 		"./src/other/creator/form.js",
 		9,
-		15
+		14
 	],
 	"./other/creator/form.js": [
 		"./src/other/creator/form.js",
 		9,
-		15
+		14
 	],
 	"./other/creator/table/Control": [
 		"./src/other/creator/table/Control/index.js",
@@ -746,123 +714,193 @@ module.exports = webpackAsyncContext;var map = {
 	"./other/page/api": [
 		"./src/other/page/api.js",
 		9,
-		13
+		12
 	],
 	"./other/page/api.js": [
 		"./src/other/page/api.js",
 		9,
-		13
+		12
 	],
 	"./other/page/apiPage": [
 		"./src/other/page/apiPage.js",
 		9,
 		10,
-		25
+		23
 	],
 	"./other/page/apiPage.js": [
 		"./src/other/page/apiPage.js",
 		9,
 		10,
-		25
+		23
 	],
 	"./other/page/components/FullScreenDialog": [
 		"./src/other/page/components/FullScreenDialog.js",
 		9,
-		26
+		24
 	],
 	"./other/page/components/FullScreenDialog.js": [
 		"./src/other/page/components/FullScreenDialog.js",
 		9,
-		26
+		24
 	],
 	"./other/page/components/todo": [
 		"./src/other/page/components/todo.js",
-		9
+		9,
+		1,
+		25
 	],
 	"./other/page/components/todo.js": [
 		"./src/other/page/components/todo.js",
-		9
+		9,
+		1,
+		25
 	],
 	"./other/page/components/twitter": [
 		"./src/other/page/components/twitter.js",
 		9,
-		1,
-		2
+		2,
+		37
 	],
 	"./other/page/components/twitter.js": [
 		"./src/other/page/components/twitter.js",
 		9,
-		1,
-		2
+		2,
+		37
 	],
 	"./other/page/home": [
 		"./src/other/page/home.js",
 		9,
-		1,
 		2,
-		27
+		1,
+		37,
+		25,
+		40
 	],
 	"./other/page/home.js": [
 		"./src/other/page/home.js",
 		9,
-		1,
 		2,
-		27
+		1,
+		37,
+		25,
+		40
 	],
 	"./other/page/mailbox": [
 		"./src/other/page/mailbox.js",
 		9,
-		1,
-		12,
-		16
+		2,
+		11,
+		15
 	],
 	"./other/page/mailbox.js": [
 		"./src/other/page/mailbox.js",
 		9,
-		1,
-		12,
-		16
+		2,
+		11,
+		15
 	],
 	"./other/page/notifications": [
-		"./src/other/page/notifications.js",
+		"./src/other/page/notifications/index.js",
+		9,
+		6
+	],
+	"./other/page/notifications/": [
+		"./src/other/page/notifications/index.js",
+		9,
+		6
+	],
+	"./other/page/notifications/index": [
+		"./src/other/page/notifications/index.js",
+		9,
+		6
+	],
+	"./other/page/notifications/index.js": [
+		"./src/other/page/notifications/index.js",
+		9,
+		6
+	],
+	"./other/settings": [
+		"./src/other/settings/index.js",
+		9,
+		34,
+		32
+	],
+	"./other/settings/": [
+		"./src/other/settings/index.js",
+		9,
+		34,
+		32
+	],
+	"./other/settings/components/modules": [
+		"./src/other/settings/components/modules.js",
+		9,
+		34,
+		31
+	],
+	"./other/settings/components/modules.js": [
+		"./src/other/settings/components/modules.js",
+		9,
+		34,
+		31
+	],
+	"./other/settings/components/modules/GmailAuthButton": [
+		"./src/other/settings/components/modules/GmailAuthButton.js",
 		9,
 		34
 	],
-	"./other/page/notifications.js": [
-		"./src/other/page/notifications.js",
+	"./other/settings/components/modules/GmailAuthButton.js": [
+		"./src/other/settings/components/modules/GmailAuthButton.js",
 		9,
 		34
 	],
-	"./other/profile/components/GmailAuthButton": [
-		"./src/other/profile/components/GmailAuthButton.js",
+	"./other/settings/components/modules/gmailAuthDialog": [
+		"./src/other/settings/components/modules/gmailAuthDialog.js",
+		9,
+		38
+	],
+	"./other/settings/components/modules/gmailAuthDialog.js": [
+		"./src/other/settings/components/modules/gmailAuthDialog.js",
+		9,
+		38
+	],
+	"./other/settings/components/security": [
+		"./src/other/settings/components/security.js",
+		9,
+		33
+	],
+	"./other/settings/components/security.js": [
+		"./src/other/settings/components/security.js",
+		9,
+		33
+	],
+	"./other/settings/components/uiController": [
+		"./src/other/settings/components/uiController.js",
+		9,
+		35
+	],
+	"./other/settings/components/uiController.js": [
+		"./src/other/settings/components/uiController.js",
+		9,
+		35
+	],
+	"./other/settings/index": [
+		"./src/other/settings/index.js",
+		9,
+		34,
+		32
+	],
+	"./other/settings/index.js": [
+		"./src/other/settings/index.js",
+		9,
+		34,
+		32
+	],
+	"./register-firebase-sw": [
+		"./src/register-firebase-sw.js",
 		9
 	],
-	"./other/profile/components/GmailAuthButton.js": [
-		"./src/other/profile/components/GmailAuthButton.js",
-		9
-	],
-	"./other/profile/components/defaultSettings": [
-		"./src/other/profile/components/defaultSettings.js",
-		9
-	],
-	"./other/profile/components/defaultSettings.js": [
-		"./src/other/profile/components/defaultSettings.js",
-		9
-	],
-	"./other/profile/components/gmailAuthDialog": [
-		"./src/other/profile/components/gmailAuthDialog.js",
-		9
-	],
-	"./other/profile/components/gmailAuthDialog.js": [
-		"./src/other/profile/components/gmailAuthDialog.js",
-		9
-	],
-	"./other/profile/tabDrawer": [
-		"./src/other/profile/tabDrawer.js",
-		9
-	],
-	"./other/profile/tabDrawer.js": [
-		"./src/other/profile/tabDrawer.js",
+	"./register-firebase-sw.js": [
+		"./src/register-firebase-sw.js",
 		9
 	],
 	"./scss/app.scss": [
@@ -888,12 +926,12 @@ module.exports = webpackAsyncContext;var map = {
 	"./testPage": [
 		"./src/testPage.js",
 		9,
-		30
+		27
 	],
 	"./testPage.js": [
 		"./src/testPage.js",
 		9,
-		30
+		27
 	],
 	"./theme": [
 		"./src/theme.json",
@@ -941,27 +979,27 @@ webpackAsyncContext.id = "./src lazy recursive ^\\.\\/.*$";
 module.exports = webpackAsyncContext;var map = {
 	"./appBar": [
 		"./src/other/appBar.js",
-		23
+		21
 	],
 	"./appBar.js": [
 		"./src/other/appBar.js",
-		23
+		21
 	],
 	"./creator/component/collapse": [
 		"./src/other/creator/component/collapse.js",
-		24
+		22
 	],
 	"./creator/component/collapse.js": [
 		"./src/other/creator/component/collapse.js",
-		24
+		22
 	],
 	"./creator/form": [
 		"./src/other/creator/form.js",
-		15
+		14
 	],
 	"./creator/form.js": [
 		"./src/other/creator/form.js",
-		15
+		14
 	],
 	"./creator/table/Control": [
 		"./src/other/creator/table/Control/index.js",
@@ -1027,101 +1065,155 @@ module.exports = webpackAsyncContext;var map = {
 	],
 	"./page/api": [
 		"./src/other/page/api.js",
-		13
+		12
 	],
 	"./page/api.js": [
 		"./src/other/page/api.js",
-		13
+		12
 	],
 	"./page/apiPage": [
 		"./src/other/page/apiPage.js",
 		10,
-		25
+		23
 	],
 	"./page/apiPage.js": [
 		"./src/other/page/apiPage.js",
 		10,
-		25
+		23
 	],
 	"./page/components/FullScreenDialog": [
 		"./src/other/page/components/FullScreenDialog.js",
-		26
+		24
 	],
 	"./page/components/FullScreenDialog.js": [
 		"./src/other/page/components/FullScreenDialog.js",
-		26
+		24
 	],
 	"./page/components/todo": [
-		"./src/other/page/components/todo.js"
+		"./src/other/page/components/todo.js",
+		1,
+		25
 	],
 	"./page/components/todo.js": [
-		"./src/other/page/components/todo.js"
+		"./src/other/page/components/todo.js",
+		1,
+		25
 	],
 	"./page/components/twitter": [
 		"./src/other/page/components/twitter.js",
-		1,
-		2
+		2,
+		37
 	],
 	"./page/components/twitter.js": [
 		"./src/other/page/components/twitter.js",
-		1,
-		2
+		2,
+		37
 	],
 	"./page/home": [
 		"./src/other/page/home.js",
-		1,
 		2,
-		27
+		1,
+		37,
+		25,
+		40
 	],
 	"./page/home.js": [
 		"./src/other/page/home.js",
-		1,
 		2,
-		27
+		1,
+		37,
+		25,
+		40
 	],
 	"./page/mailbox": [
 		"./src/other/page/mailbox.js",
-		1,
-		12,
-		16
+		2,
+		11,
+		15
 	],
 	"./page/mailbox.js": [
 		"./src/other/page/mailbox.js",
-		1,
-		12,
-		16
+		2,
+		11,
+		15
 	],
 	"./page/notifications": [
-		"./src/other/page/notifications.js",
+		"./src/other/page/notifications/index.js",
+		6
+	],
+	"./page/notifications/": [
+		"./src/other/page/notifications/index.js",
+		6
+	],
+	"./page/notifications/index": [
+		"./src/other/page/notifications/index.js",
+		6
+	],
+	"./page/notifications/index.js": [
+		"./src/other/page/notifications/index.js",
+		6
+	],
+	"./settings": [
+		"./src/other/settings/index.js",
+		34,
+		32
+	],
+	"./settings/": [
+		"./src/other/settings/index.js",
+		34,
+		32
+	],
+	"./settings/components/modules": [
+		"./src/other/settings/components/modules.js",
+		34,
+		31
+	],
+	"./settings/components/modules.js": [
+		"./src/other/settings/components/modules.js",
+		34,
+		31
+	],
+	"./settings/components/modules/GmailAuthButton": [
+		"./src/other/settings/components/modules/GmailAuthButton.js",
 		34
 	],
-	"./page/notifications.js": [
-		"./src/other/page/notifications.js",
+	"./settings/components/modules/GmailAuthButton.js": [
+		"./src/other/settings/components/modules/GmailAuthButton.js",
 		34
 	],
-	"./profile/components/GmailAuthButton": [
-		"./src/other/profile/components/GmailAuthButton.js"
+	"./settings/components/modules/gmailAuthDialog": [
+		"./src/other/settings/components/modules/gmailAuthDialog.js",
+		38
 	],
-	"./profile/components/GmailAuthButton.js": [
-		"./src/other/profile/components/GmailAuthButton.js"
+	"./settings/components/modules/gmailAuthDialog.js": [
+		"./src/other/settings/components/modules/gmailAuthDialog.js",
+		38
 	],
-	"./profile/components/defaultSettings": [
-		"./src/other/profile/components/defaultSettings.js"
+	"./settings/components/security": [
+		"./src/other/settings/components/security.js",
+		33
 	],
-	"./profile/components/defaultSettings.js": [
-		"./src/other/profile/components/defaultSettings.js"
+	"./settings/components/security.js": [
+		"./src/other/settings/components/security.js",
+		33
 	],
-	"./profile/components/gmailAuthDialog": [
-		"./src/other/profile/components/gmailAuthDialog.js"
+	"./settings/components/uiController": [
+		"./src/other/settings/components/uiController.js",
+		35
 	],
-	"./profile/components/gmailAuthDialog.js": [
-		"./src/other/profile/components/gmailAuthDialog.js"
+	"./settings/components/uiController.js": [
+		"./src/other/settings/components/uiController.js",
+		35
 	],
-	"./profile/tabDrawer": [
-		"./src/other/profile/tabDrawer.js"
+	"./settings/index": [
+		"./src/other/settings/index.js",
+		34,
+		32
 	],
-	"./profile/tabDrawer.js": [
-		"./src/other/profile/tabDrawer.js"
+	"./settings/index.js": [
+		"./src/other/settings/index.js",
+		34,
+		32
 	]
 };
 function webpackAsyncContext(req) {

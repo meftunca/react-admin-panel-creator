@@ -1,7 +1,8 @@
 import React, { PureComponent } from "react";
-import { DatePicker, MuiPickersUtilsProvider } from "material-ui-pickers";
-import MomentUtils from "@date-io/moment";
 import moment from "moment";
+import MomentUtils from "@date-io/moment";
+import { DatePicker, MuiPickersUtilsProvider } from "material-ui-pickers";
+moment.locale("tr");
 
 class Datepicker extends PureComponent {
    state = {

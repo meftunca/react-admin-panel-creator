@@ -1,149 +1,162 @@
 [
-    {
-        "type": "link",
-        "name": "Home_Page",
-        "title": "Anasayfa",
-        "header": {
-            "label": "Home",
-            "icon": "home"
-        },
-        "route": {
-            "path": "/",
-            "exact": true,
-            "componentName": "page/home"
-        }
+  {
+    "type": "link",
+    "name": "Home_Page",
+    "title": "Anasayfa",
+    "header": {
+      "label": "Home",
+      "icon": "home"
     },
-    {
-        "type": "link",
-        "name": "Api",
-        "title": "Api",
-        "header": {
-            "label": "Api",
-            "icon": "cast_connected"
-        },
-        "route": {
-            "path": "/api",
-            "componentName": "page/apiPage"
-        }
-    },
-    {
-        "type": "link",
-        "name": "notifications",
-        "title": "Bildirim",
-        "header": {
-            "label": "Bildirim Merkezi",
-            "icon": "notifications"
-        },
-        "route": {
-            "path": "/notifications-control",
-            "componentName": "page/notifications"
-        }
-    },
-    {
-        "type": "collapse",
-        "name": "social_admin",
-        "title": "Sosyal Media",
-        "header": {
-            "label": "Sosyal medya Yönetimi",
-            "icon": "aspect_ratio"
-        },
-        "route": {
-            "path": "/social"
-        },
-        "collapseItem": [
-            {
-                "name": "twitter",
-                "title": "Twitter",
-                "route": {
-                    "path": "/admin-twitter",
-                    "exact": true,
-                    "componentName": "page/components/twitter"
-                },
-                "header": {
-                    "label": "Form Creator",
-                    "icon": "code"
-                }
-            },
-            {
-                "type": "link",
-                "name": "MailBox",
-                "title": "MailBox",
-                "header": {
-                    "label": "MailBox",
-                    "icon": "email"
-                },
-                "route": {
-                    "path": "/mailbox",
-                    "exact": true,
-                    "componentName": "page/mailbox"
-                }
-            }
-        ]
-    },
-    {
-        "type": "collapse",
-        "name": "system_generator",
-        "title": "Yönetim Sistemi",
-        "header": {
-            "label": "Sistem Yönetimi",
-            "icon": "settings_applications"
-        },
-        "route": {
-            "path": "/system-admin"
-        },
-        "collapseItem": [
-            {
-                "name": "table_relationships",
-                "title": "İlişkisel Tablolar",
-                "route": {
-                    "path": "/table/relation-ship",
-                    "exact": false,
-                    "componentName": "creator/table/relationships"
-                },
-                "header": {
-                    "label": "İlişkisel Tablolar",
-                    "icon": "transform"
-                }
-            },
-            {
-                "name": "table_control",
-                "title": "Tablo Yönetimi",
-                "route": {
-                    "path": "/table/control",
-                    "exact": false,
-                    "componentName": "creator/table/Control"
-                },
-                "header": {
-                    "label": "Tablo Yönetimi",
-                    "icon": "grid_on"
-                }
-            },
-            {
-                "name": "form_creator",
-                "title": "Form Oluşturucu",
-                "route": {
-                    "path": "/form-creator",
-                    "exact": false,
-                    "componentName": "creator/form"
-                },
-                "header": {
-                    "label": "Form Oluşturucu",
-                    "icon": "code"
-                }
-            },
-            {
-                "name": "api",
-                "title": "Api Yönetimi",
-                "route": {
-                    "path": "/api-yonetimi",
-                    "exact": false,
-                    "componentName": "page/api"
-                },
-                "header": {
-                    "label": "Api Yönetimi",
-                    "icon": "power"
-                }
-            }
-        ]
+    "route": {
+      "path": "/",
+      "exact": true,
+      "componentName": "page/home"
     }
+  },
+  {
+    "type": "link",
+    "name": "Api",
+    "title": "Api",
+    "header": {
+      "label": "Api",
+      "icon": "cast_connected"
+    },
+    "route": {
+      "path": "/api",
+      "componentName": "page/apiPage"
+    }
+  },
+  {
+    "type": "link",
+    "name": "notifications",
+    "title": "Bildirim",
+    "header": {
+      "label": "Bildirim Merkezi",
+      "icon": "notifications"
+    },
+    "route": {
+      "path": "/notifications-control",
+      "componentName": "page/notifications/index"
+    }
+  },
+  {
+    "type": "link",
+    "name": "settings",
+    "title": "Ayarlar",
+    "header": {
+      "label": "Sistem Ayarları",
+      "icon": "settings"
+    },
+    "route": {
+      "path": "/system-settings",
+      "componentName": "settings/index"
+    }
+  },
+  {
+    "type": "collapse",
+    "name": "social_admin",
+    "title": "Sosyal Media",
+    "header": {
+      "label": "Sosyal medya Yönetimi",
+      "icon": "aspect_ratio"
+    },
+    "route": {
+      "path": "/social"
+    },
+    "collapseItem": [
+      {
+        "name": "twitter",
+        "title": "Twitter",
+        "route": {
+          "path": "/admin-twitter",
+          "exact": true,
+          "componentName": "page/components/twitter"
+        },
+        "header": {
+          "label": "Form Creator",
+          "icon": "code"
+        }
+      },
+      {
+        "type": "link",
+        "name": "MailBox",
+        "title": "MailBox",
+        "header": {
+          "label": "MailBox",
+          "icon": "email"
+        },
+        "route": {
+          "path": "/mailbox",
+          "exact": true,
+          "componentName": "page/mailbox"
+        }
+      }
+    ]
+  },
+  {
+    "type": "collapse",
+    "name": "system_generator",
+    "title": "Yönetim Sistemi",
+    "header": {
+      "label": "Sistem Yönetimi",
+      "icon": "settings_applications"
+    },
+    "route": {
+      "path": "/system-admin"
+    },
+    "collapseItem": [
+      {
+        "name": "table_relationships",
+        "title": "İlişkisel Tablolar",
+        "route": {
+          "path": "/table/relation-ship",
+          "exact": false,
+          "componentName": "creator/table/relationships"
+        },
+        "header": {
+          "label": "İlişkisel Tablolar",
+          "icon": "transform"
+        }
+      },
+      {
+        "name": "table_control",
+        "title": "Tablo Yönetimi",
+        "route": {
+          "path": "/table/control",
+          "exact": false,
+          "componentName": "creator/table/Control"
+        },
+        "header": {
+          "label": "Tablo Yönetimi",
+          "icon": "grid_on"
+        }
+      },
+      {
+        "name": "form_creator",
+        "title": "Form Oluşturucu",
+        "route": {
+          "path": "/form-creator",
+          "exact": false,
+          "componentName": "creator/form"
+        },
+        "header": {
+          "label": "Form Oluşturucu",
+          "icon": "code"
+        }
+      },
+      {
+        "name": "api",
+        "title": "Api Yönetimi",
+        "route": {
+          "path": "/api-yonetimi",
+          "exact": false,
+          "componentName": "page/api"
+        },
+        "header": {
+          "label": "Api Yönetimi",
+          "icon": "power"
+        }
+      }
+    ]
+  }
 ]

@@ -1,6 +1,8 @@
 import React, { PureComponent } from "react";
 import { TimePicker, MuiPickersUtilsProvider } from "material-ui-pickers";
 import MomentUtils from "@date-io/moment";
+import moment from "moment";
+moment.locale("tr");
 
 class Timepicker extends PureComponent {
    state = {

@@ -1,24 +1,8 @@
 const bodyParser = require("body-parser"),
     //  cors = require("cors"),
     helmet = require("helmet"),
-    cookieParser = require("cookie-parser"),
-    storage = require("node-persist")
-
-const StorageInit = async () =>
-    storage.init({
-        dir: "storage",
-        stringify: JSON.stringify,
-        parse: JSON.parse,
-        encoding: "utf8",
-        logging: false, // can also be custom logging function
-        ttl: false, // ttl* [NEW], can be true for 24h default or a number in MILLISECONDS or a valid Javascript Date object
-        expiredInterval: 2 * 60 * 1000, // every 2 minutes the process will clean-up the expired cache
-        // in some cases, you (or some other service) might add non-valid storage files to your
-        // storage dir, i.e. Google Drive, make this true if you'd like to ignore these files and not throw an error
-        forgiveParseErrors: false
-    })
-StorageInit()
-module.exports = (app) => {
+    cookieParser = require("cookie-parser")
+module.exports = (app, store) => {
     // enhance your app security with Helmet
     app.use(helmet())
         // enable all CORS requests
