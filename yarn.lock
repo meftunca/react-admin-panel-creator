@@ -1618,9 +1618,9 @@ acorn-dynamic-import@^3.0.0:
     acorn "^5.0.0"
 
 acorn@^5.0.0, acorn@^5.6.2:
-  version "5.7.3"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.3.tgz#67aa231bf8812974b85235a96771eb6bd07ea279"
-  integrity sha512-T/zvzYRfbVojPWahDsE5evJdHb3oJoQfFbsrKM7w5Zcs++Tr257tia3BmMP8XYVjp1S9RZXQMh7gao96BlqZOw==
+  version "5.7.4"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.4.tgz#3e8d8a9947d0599a1796d10225d7432f4a4acf5e"
+  integrity sha512-1D++VG7BhrtvQpNbBzovKNc1FLGGEE/oGe7b9xJm/RFHMBeUaUGpluV9RLjZa47YFdPcDAenEYuq9pQPcMdLJg==
 
 adjust-sourcemap-loader@2.0.0:
   version "2.0.0"
@@ -5262,10 +5262,10 @@ inflight@^1.0.4:
     once "^1.3.0"
     wrappy "1"
 
-informed@^2.6.7:
-  version "2.6.7"
-  resolved "https://registry.yarnpkg.com/informed/-/informed-2.6.7.tgz#794ec6c21e0957e25ccb5545da1e3da38fe6ff98"
-  integrity sha512-KfhSG9TJYe9u6qapySgi4FnUpnZlISJCw73pffyryAN3aS9l5xOZvOLZGnZ3Ukp/WzSU17VddKDatNl+24/UuQ==
+informed@^2.6.11:
+  version "2.11.17"
+  resolved "https://registry.yarnpkg.com/informed/-/informed-2.11.17.tgz#4e231b59a37e044ffc8ae12e4bc8d1af0b91ad78"
+  integrity sha512-dB7kVcq89qXccc+0ZWQuk+gZVj9xbHvYGa5t+Ktqf0cBxv+1AIKdh9mnDqkcGF/rjjW3jB/x9JfJWj0SqD0BAg==
   dependencies:
     lodash "^4.17.11"
 
