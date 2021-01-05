@@ -53,7 +53,7 @@
     "@material-ui/icons": "^3.0.2",
     "@material-ui/lab": "^3.0.0-alpha.30",
     "@material-ui/styles": "^4.0.0-beta.1",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "base64-img": "^1.0.4",
     "bcrypt-nodejs": "^0.0.3",
     "blob-to-base64": "^1.0.2",
