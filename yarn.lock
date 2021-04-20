@@ -4180,9 +4180,9 @@ feature-policy@0.3.0:
   integrity sha512-ZtijOTFN7TzCujt1fnNhfWPFPSHeZkesff9AXZj+UEjYBynWNUIYpC87Ve4wHzyexQsImicLu7WsC2LHq7/xrQ==
 
 figgy-pudding@^3.5.1:
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/figgy-pudding/-/figgy-pudding-3.5.1.tgz#862470112901c727a0e495a80744bd5baa1d6790"
-  integrity sha512-vNKxJHTEKNThjfrdJwHc7brvM6eVevuO5nTj6ez8ZQ1qbXTvGthucRF7S4vf2cr71QVnT70V34v0S1DyQsti0w==
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/figgy-pudding/-/figgy-pudding-3.5.2.tgz#b4eee8148abb01dcf1d1ac34367d59e12fa61d6e"
+  integrity sha512-0btnI/H8f2pavGMN8w40mlSKOfTK2SVJmBfBeVIj3kNw0swwgzyRq0d5TJVOwodFmtvpPeWPN/MCcfuWF0Ezbw==
 
 file-loader@^2.0.0:
   version "2.0.0"
@@ -5262,10 +5262,10 @@ inflight@^1.0.4:
     once "^1.3.0"
     wrappy "1"
 
-informed@^2.6.7:
-  version "2.6.7"
-  resolved "https://registry.yarnpkg.com/informed/-/informed-2.6.7.tgz#794ec6c21e0957e25ccb5545da1e3da38fe6ff98"
-  integrity sha512-KfhSG9TJYe9u6qapySgi4FnUpnZlISJCw73pffyryAN3aS9l5xOZvOLZGnZ3Ukp/WzSU17VddKDatNl+24/UuQ==
+informed@^2.6.11:
+  version "2.11.17"
+  resolved "https://registry.yarnpkg.com/informed/-/informed-2.11.17.tgz#4e231b59a37e044ffc8ae12e4bc8d1af0b91ad78"
+  integrity sha512-dB7kVcq89qXccc+0ZWQuk+gZVj9xbHvYGa5t+Ktqf0cBxv+1AIKdh9mnDqkcGF/rjjW3jB/x9JfJWj0SqD0BAg==
   dependencies:
     lodash "^4.17.11"
 
@@ -9002,9 +9002,9 @@ sshpk@^1.7.0:
     tweetnacl "~0.14.0"
 
 ssri@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/ssri/-/ssri-6.0.1.tgz#2a3c41b28dd45b62b63676ecb74001265ae9edd8"
-  integrity sha512-3Wge10hNcT1Kur4PDFwEieXSCMCJs/7WvSACcrMYrNp+b8kDL1/0wJch5Ni2WrtwEa2IO8OsVfeKIciKCDx/QA==
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/ssri/-/ssri-6.0.2.tgz#157939134f20464e7301ddba3e90ffa8f7728ac5"
+  integrity sha512-cepbSq/neFK7xB6A50KHN0xHDotYzq58wWCa5LeWqnPrHG8GzfEjO/4O8kpmcGW+oaxkvhEJCWgbgNk4/ZV93Q==
   dependencies:
     figgy-pudding "^3.5.1"
 
